@@ -9,14 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LivrariaFive.Controller;
 using LivrariaFive.Model;
+using System.IO;
+using System.Drawing.Text;
 
 namespace LivrariaFive.View
 {
     public partial class FormCadastrarLivro : Form
     {
+
+
         public FormCadastrarLivro()
         {
             InitializeComponent();
+            
         }
         private void FormCadastrarLivro_Load(object sender, EventArgs e)
         {
@@ -45,6 +50,8 @@ namespace LivrariaFive.View
             livro.Estoque = int.Parse(txtEstoque.Text);
             livro.Descricao = txtDescricao.Text;
             livro.Idioma = txtIdioma.Text;
+            livro.Imagem = pbFoto.Image;
+            
 
             // Verificar se o nome do autor está vazio
             if (!string.IsNullOrEmpty(nomeAutor))
@@ -105,6 +112,36 @@ namespace LivrariaFive.View
             comboBoxAutor.DisplayMember = "Nome";
             comboBoxAutor.SelectedIndex = -1; // Nenhum item selecionado
 
+        }
+
+        private void btnAddFoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.bmp";
+            openFileDialog.Title = "Selecionar Imagem";
+
+            Livro livro = new Livro();
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string caminhoImagem = openFileDialog.FileName;
+                    Image imagem = Image.FromFile(caminhoImagem);
+
+                    // Exibir a imagem selecionada na PictureBox
+                    pbFoto.Image = imagem;
+
+                    // Armazenar a imagem no livro
+                    livro.Imagem = imagem;
+
+                    MessageBox.Show("Imagem adicionada com sucesso!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao carregar a imagem: " + ex.Message);
+                }
+            }
         }
     }
 }

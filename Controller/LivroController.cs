@@ -8,7 +8,7 @@ using LivrariaFive.Model;
 using LivrariaFive.Persistence;
 using System.Drawing;
 using System.IO;
-
+using System.Data;
 
 namespace LivrariaFive.Controller
 {
@@ -23,7 +23,12 @@ namespace LivrariaFive.Controller
         public Livro Insert(Livro livro)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
+
+
             {
+                //Convertendo imagem para guardar no banco
+                byte[] imagemBytes = ObterBytesImagem(livro.Imagem);
+
                 // Inserir o autor
                 AutorController autorController = new AutorController();
                 Autor autor = autorController.ObterAutorPorNome(livro.Autor);
@@ -48,8 +53,8 @@ namespace LivrariaFive.Controller
                 // Obter o ID da editora inserida
                 int editoraId = editora.Id;
 
-                string query = @"INSERT INTO tbLivro (titulo, isbn, anoPublicacao, preco, estoque, descricao, idioma, idEditora, idGenero) 
-                         VALUES (@Titulo, @Isbn, @AnoPublicacao, @Preco, @Estoque, @Descricao, @Idioma, @IdEditora, @IdGenero);
+                string query = @"INSERT INTO tbLivro (titulo, isbn, anoPublicacao, preco, estoque, descricao, idioma, idEditora, idGenero, livroImagem) 
+                         VALUES (@Titulo, @Isbn, @AnoPublicacao, @Preco, @Estoque, @Descricao, @Idioma, @IdEditora, @IdGenero, @Imagem);
                          SELECT SCOPE_IDENTITY();";
 
                 SqlCommand command = new SqlCommand(query, connection);
@@ -62,6 +67,11 @@ namespace LivrariaFive.Controller
                 command.Parameters.AddWithValue("@Idioma", livro.Idioma);
                 command.Parameters.AddWithValue("@IdEditora", editoraId);
                 command.Parameters.AddWithValue("@IdGenero", generoId);
+                command.Parameters.Add("@Imagem", SqlDbType.VarBinary).Value = (object)imagemBytes ?? DBNull.Value;
+
+
+
+
 
                 connection.Open();
 
@@ -74,6 +84,26 @@ namespace LivrariaFive.Controller
 
             return livro;
         }
+
+        public byte[] ObterBytesImagem(Image imagem)
+        {
+            byte[] imagemBytes = null;
+
+            if (imagem != null)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    imagem.Save(ms, imagem.RawFormat);
+                    imagemBytes = ms.ToArray();
+                }
+            }
+
+            return imagemBytes;
+        }
+
+
+
+
 
 
 
