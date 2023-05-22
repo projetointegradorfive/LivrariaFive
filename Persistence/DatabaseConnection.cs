@@ -15,5 +15,22 @@ namespace LivrariaFive.Persistence
         {
             return new SqlConnection(ConnectionString);
         }
+
+        public static int GetLastInsertedId(SqlConnection connection)
+        {
+            string query = "SELECT SCOPE_IDENTITY()";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            object result = command.ExecuteScalar();
+            if (result != null && result != DBNull.Value)
+            {
+                return Convert.ToInt32(result);
+            }
+
+            // Se não houver um ID válido, você pode lançar uma exceção ou retornar um valor padrão, dependendo do seu caso de uso.
+            throw new Exception("Failed to retrieve last inserted ID.");
+        }
     }
+
+
 }
