@@ -27,21 +27,6 @@ namespace LivrariaFive.Model
         {
         }
 
-        public Livro(int id, string titulo, string autor, string editora, string isbn, int anoPublicacao, double preco, int estoque, string descricao, string genero, string idioma, Image imagem)
-        {
-            Id = id;
-            Titulo = titulo;
-            Autor = autor;
-            Editora = editora;
-            Isbn = isbn;
-            AnoPublicacao = anoPublicacao;
-            Preco = preco;
-            Estoque = estoque;
-            Descricao = descricao;
-            Genero = genero;
-            Idioma = idioma;
-            Imagem = imagem;
-        }
 
         public int CalcularPrecoTotal(int quantidade)
         {
