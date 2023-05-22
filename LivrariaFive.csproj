@@ -49,7 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AutorController.cs" />
+    <Compile Include="Controller\EditoraController.cs" />
+    <Compile Include="Controller\GeneroController.cs" />
     <Compile Include="Controller\LivroController.cs" />
+    <Compile Include="Model\Autor.cs" />
+    <Compile Include="Model\Editora.cs" />
+    <Compile Include="Model\Genero.cs" />
     <Compile Include="Model\Livro.cs" />
     <Compile Include="Persistence\DatabaseConnection.cs" />
     <Compile Include="Program.cs" />
@@ -59,6 +65,12 @@
     </Compile>
     <Compile Include="View\DetalhesLivro.Designer.cs">
       <DependentUpon>DetalhesLivro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormCadastrarLivro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormCadastrarLivro.Designer.cs">
+      <DependentUpon>FormCadastrarLivro.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LivroForm.cs">
       <SubType>Form</SubType>
@@ -77,6 +89,9 @@
     </Compile>
     <EmbeddedResource Include="View\DetalhesLivro.resx">
       <DependentUpon>DetalhesLivro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormCadastrarLivro.resx">
+      <DependentUpon>FormCadastrarLivro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LivroForm.resx">
       <DependentUpon>LivroForm.cs</DependentUpon>
