@@ -40,6 +40,10 @@ namespace LivrariaFive.View
             dataGridViewLivros.Columns["Titulo"].Width = 300;
             dataGridViewLivros.Columns["Isbn"].Width = 100;
             dataGridViewLivros.Columns["Preco"].Width = 100;
+            dataGridViewLivros.Columns["Descricao"].Width = 200;
+            dataGridViewLivros.Columns["Genero"].Width = 150;
+            dataGridViewLivros.Columns["Editora"].Width = 150;
+            dataGridViewLivros.Columns["Autor"].Width = 150;
 
         }
 
@@ -53,6 +57,10 @@ namespace LivrariaFive.View
             dataGridViewLivros.Columns.Add("Titulo", "Título");
             dataGridViewLivros.Columns.Add("Isbn", "ISBN");
             dataGridViewLivros.Columns.Add("Preco", "Preço");
+            dataGridViewLivros.Columns.Add("Descricao", "Descrição");
+            dataGridViewLivros.Columns.Add("Genero", "Gênero");
+            dataGridViewLivros.Columns.Add("Editora", "Editora");
+            dataGridViewLivros.Columns.Add("Autor", "Autor");
             dataGridViewLivros.Columns.Add(new DataGridViewImageColumn
             {
                 Name = "Imagem",
@@ -61,13 +69,23 @@ namespace LivrariaFive.View
                 Width = 100
             });
 
+            
+
+
+            
+
             foreach (Livro livro in livros)
             {
+                string autor = livroController.GetAutorName(livro.Autor);
                 dataGridViewLivros.Rows.Add(
                     livro.Id,
                     livro.Titulo,
                     livro.Isbn,
                     livro.Preco,
+                    livro.Descricao,
+                    livro.Genero,
+                    livro.Editora,
+                    autor,  // Nome do autor
                     livro.Imagem
                 );
             }
@@ -82,9 +100,24 @@ namespace LivrariaFive.View
                 string titulo = selectedRow.Cells["Titulo"].Value.ToString();
                 string isbn = selectedRow.Cells["Isbn"].Value.ToString();
                 string preco = selectedRow.Cells["Preco"].Value.ToString();
+                string descricao = selectedRow.Cells["Descricao"].Value != null
+    ? selectedRow.Cells["Descricao"].Value.ToString()
+    : string.Empty;
+                string genero = selectedRow.Cells["Genero"].Value != null
+    ? selectedRow.Cells["Genero"].Value.ToString()
+    : string.Empty;
+
+                string editora = selectedRow.Cells["Editora"].Value != null
+                    ? selectedRow.Cells["Editora"].Value.ToString()
+                    : string.Empty;
+
+                string autor = selectedRow.Cells["Autor"].Value != null
+                    ? selectedRow.Cells["Autor"].Value.ToString()
+                    : string.Empty;
+
                 Image imagem = (Image)selectedRow.Cells["Imagem"].Value;
 
-                DetalhesLivro detalhesForm = new DetalhesLivro(titulo, isbn, preco, imagem);
+                DetalhesLivro detalhesForm = new DetalhesLivro(titulo, isbn, preco, descricao, genero, editora, autor, imagem);
                 detalhesForm.ShowDialog();
             }
 

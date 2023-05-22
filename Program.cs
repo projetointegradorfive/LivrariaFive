@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LivrariaFive.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace LivrariaFive.View
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Livro livro = new Livro(); // Instancia um objeto Livro
             Application.Run(new LivroForm());
         }
     }

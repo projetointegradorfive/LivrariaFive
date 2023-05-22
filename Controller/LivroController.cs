@@ -130,7 +130,14 @@ namespace LivrariaFive.Controller
 
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "SELECT * FROM tbLivro";
+                string query = "SELECT l.idLivro, l.Titulo, l.Isbn, l.AnoPublicacao, l.Preco, l.Estoque, l.Descricao, l.Idioma, " +
+                               "g.Nome AS Genero, e.Nome AS Editora, " +
+                               "a.Nome AS Autor, l.livroImagem " +
+                               "FROM tbLivro l " +
+                               "LEFT JOIN tbGenero g ON l.idGenero = g.IdGenero " +
+                               "LEFT JOIN tbEditora e ON l.idEditora = e.IdEditora " +
+                               "LEFT JOIN tbLivroAutor la ON l.idLivro = la.idLivro " +
+                               "LEFT JOIN tbAutor a ON la.idAutor = a.IdAutor";
 
                 SqlCommand command = new SqlCommand(query, connection);
 
@@ -141,21 +148,33 @@ namespace LivrariaFive.Controller
                 {
                     Livro livro = new Livro
                     {
-                        //DÁ PROBLEMA SE ALGUMA COLUA ESTIVER NULA
                         Id = reader.GetInt32(0),
                         Titulo = reader.GetString(1),
-                        Isbn = reader.GetString(2)
+                        Isbn = reader.GetString(2),
+                        AnoPublicacao = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
+                        Preco = reader.IsDBNull(4) ? 0.0 : reader.GetDouble(4),
+                        Estoque = reader.IsDBNull(5) ? 0 : reader.GetInt32(5),
+                        Descricao = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                        Idioma = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
+                        Genero = reader.GetString(8),
+                        Editora = reader.GetString(9),
+                       
                     };
 
-                    if (!reader.IsDBNull(4))
+                    if (reader.IsDBNull(10))
                     {
-                        livro.Preco = reader.GetDouble(4);
+                        livro.Autor = string.Empty;
+                        Console.WriteLine("Nome do autor é nulo.");
+                    }
+                    else
+                    {
+                        livro.Autor = reader.GetString(10);
+                        Console.WriteLine("Nome do autor: " + livro.Autor);
                     }
 
-                    byte[] imagemBytes = reader["livroImagem"] as byte[];
-
-                    if (imagemBytes != null && imagemBytes.Length > 0)
+                    if (!reader.IsDBNull(11))
                     {
+                        byte[] imagemBytes = (byte[])reader.GetValue(11);
                         using (MemoryStream ms = new MemoryStream(imagemBytes))
                         {
                             livro.Imagem = Image.FromStream(ms);
@@ -170,6 +189,34 @@ namespace LivrariaFive.Controller
 
             return livros;
         }
+        public string GetAutorName(string nomeAutor)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT Nome FROM tbAutor WHERE Nome = @Nome";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nome", nomeAutor);
+
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    return result.ToString();
+                }
+
+                return string.Empty;
+            }
+        }
+
+
+
+
+
+
+
 
         public void RemoverLivro(Livro livro)
         {
