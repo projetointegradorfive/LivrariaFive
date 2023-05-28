@@ -70,13 +70,9 @@ namespace LivrariaFive.View
             });
 
 
-
-
-
-
             foreach (Livro livro in livros)
             {
-                string autor = livroController.GetAutorName(livro.Autor);
+                string autor = livroController.GetAutorName(livro.Autor); //pegando o nome do autor
                 dataGridViewLivros.Rows.Add(
                     livro.Id,
                     livro.Titulo,
@@ -91,6 +87,7 @@ namespace LivrariaFive.View
             }
 
         }
+
 
         private void dataGridViewLivros_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -122,5 +119,60 @@ namespace LivrariaFive.View
             }
 
         }
+
+        private void btnBuscarGenero_Click(object sender, EventArgs e)
+        {
+            string filtroGenero = txtBuscarGenero.Text; // Valor digitado no campo de texto para o gênero
+            FiltrarLivrosPorGenero(filtroGenero);
+
+        }
+
+        private void btnBuscarNome_Click(object sender, EventArgs e)
+        {
+            string filtroNome = txtBuscarNome.Text; // Valor digitado no campo de texto para o nome
+
+            FiltrarLivrosPorNome(filtroNome);
+
+        }
+
+        private void FiltrarLivrosPorNome(string filtroNome)
+        {
+            // Percorrer as linhas do DataGridView
+            foreach (DataGridViewRow row in dataGridViewLivros.Rows)
+            {
+                string titulo = row.Cells["Titulo"].Value?.ToString();
+
+                // Verificar se o título corresponde ao filtro de nome
+                if ((!string.IsNullOrEmpty(titulo) && titulo.Contains(filtroNome)))
+                {
+                    row.Visible = true; // Exibir a linha se corresponder ao filtro de nome
+                }
+                else
+                {
+                    row.Visible = false; // Ocultar a linha se não corresponder ao filtro de nome
+                }
+            }
+        }
+
+        private void FiltrarLivrosPorGenero(string filtroGenero)
+        {
+            // Percorrer as linhas do DataGridView
+            foreach (DataGridViewRow row in dataGridViewLivros.Rows)
+            {
+                string genero = row.Cells["Genero"].Value?.ToString();
+
+                // Verificar se o gênero corresponde ao filtro de gênero
+                if ((!string.IsNullOrEmpty(genero) && genero.Contains(filtroGenero)))
+                {
+                    row.Visible = true; // Exibir a linha se corresponder ao filtro de gênero
+                }
+                else
+                {
+                    row.Visible = false; // Ocultar a linha se não corresponder ao filtro de gênero
+                }
+            }
+        }
+
     }
 }
+
