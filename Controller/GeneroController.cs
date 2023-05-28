@@ -30,13 +30,30 @@ namespace LivrariaFive.Controller
             return genero;
         }
 
+        public bool VerificarGeneroExistente(string nomeGenero)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT COUNT(*) FROM tbGenero WHERE nome = @Nome";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nome", nomeGenero);
+
+                connection.Open();
+                int count = Convert.ToInt32(command.ExecuteScalar());
+
+                return count > 0;
+            }
+        }
+
+
+
         public List<Genero> ObterTodosGeneros()
         {
             List<Genero> generos = new List<Genero>();
 
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "SELECT idGenero, nome FROM tbGenero";
+                string query = "SELECT nome FROM tbGenero";
 
                 SqlCommand command = new SqlCommand(query, connection);
 
@@ -45,10 +62,10 @@ namespace LivrariaFive.Controller
 
                 while (reader.Read())
                 {
-                    int idGenero = Convert.ToInt32(reader["idGenero"]);
+                    //int idGenero = Convert.ToInt32(reader["idGenero"]);
                     string nome = reader["nome"].ToString();
 
-                    Genero genero = new Genero { IdGenero = idGenero, Nome = nome };
+                    Genero genero = new Genero {Nome = nome };
                     generos.Add(genero);
                 }
 
@@ -58,6 +75,7 @@ namespace LivrariaFive.Controller
             return generos;
         }
 
+        //usar para search
         public Genero ObterGeneroPorNome(string nome)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())

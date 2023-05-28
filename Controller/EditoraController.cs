@@ -31,6 +31,24 @@ namespace LivrariaFive.Controller
             return editora;
         }
 
+        public bool VerificarEditoraExistente(string nome)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT COUNT(*) FROM tbEditora WHERE nome = @Nome";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nome", nome);
+
+                connection.Open();
+                int count = Convert.ToInt32(command.ExecuteScalar());
+
+                return count > 0;
+            }
+        }
+
+        
+
+
 
         public Editora ObterEditoraPorNome(string nome)
         {

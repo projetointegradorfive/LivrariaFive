@@ -14,35 +14,48 @@ namespace LivrariaFive.Controller
 {
     public class LivroController
     {
-        private AutorController autorController;
 
         public LivroController()
         {
-            autorController = new AutorController();
         }
         public Livro Insert(Livro livro)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
 
-
             {
                 //Convertendo imagem para guardar no banco
                 byte[] imagemBytes = ObterBytesImagem(livro.Imagem);
 
-                // Inserir o autor
                 AutorController autorController = new AutorController();
                 Autor autor = autorController.ObterAutorPorNome(livro.Autor);
-                autorController.InserirAutor(autor);
+
+                if (!autorController.VerificarAutorExistente(livro.Autor))
+                {
+                    // O autor não existe, então insira-o no banco de dados
+                    autor = new Autor { Nome = livro.Autor };
+                    autorController.InserirAutor(autor);
+                }
+
 
                 // Inserir o gênero
                 GeneroController generoController = new GeneroController();
                 Genero genero = generoController.ObterGeneroPorNome(livro.Genero);
-                generoController.InserirGenero(genero);
+                if (!generoController.VerificarGeneroExistente(livro.Genero))
+                {
+                    genero = new Genero { Nome = livro.Genero };
+                    generoController.InserirGenero(genero);
+
+                }
 
                 // Inserir a editora
                 EditoraController editoraController = new EditoraController();
                 Editora editora = editoraController.ObterEditoraPorNome(livro.Editora);
-                editoraController.InserirEditora(editora);
+                if (!editoraController.VerificarEditoraExistente(livro.Editora))
+                {
+                    editora = new Editora { Nome = livro.Editora };
+                    editoraController.InserirEditora(editora);
+
+                }
 
                 // Obter o ID do autor inserido
                 int autorId = autor.IdAutor;
@@ -158,7 +171,7 @@ namespace LivrariaFive.Controller
                         Idioma = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
                         Genero = reader.GetString(8),
                         Editora = reader.GetString(9),
-                       
+
                     };
 
                     if (reader.IsDBNull(10))
@@ -168,7 +181,11 @@ namespace LivrariaFive.Controller
                     }
                     else
                     {
-                        livro.Autor = reader.GetString(10);
+                        if (!reader.IsDBNull(10))
+                        {
+                            livro.Autor = reader.GetString(10);
+                            Console.WriteLine("Nome do autor: " + livro.Autor);
+                        }
                         Console.WriteLine("Nome do autor: " + livro.Autor);
                     }
 

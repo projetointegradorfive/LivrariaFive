@@ -16,11 +16,11 @@ namespace LivrariaFive.Controller
     {
         public Autor InserirAutor(Autor autor)
         {
-            if (VerificarAutorExistente(autor.Nome))
-            {
-                // Autor já existe, não é necessário inserir novamente
-                return ObterAutorPorNome(autor.Nome);
-            }
+            //if (VerificarAutorExistente(autor.Nome))
+            //{
+            //    // Autor já existe, não é necessário inserir novamente
+            //    return ObterAutorPorNome(autor.Nome);
+            //}
 
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
@@ -117,28 +117,29 @@ namespace LivrariaFive.Controller
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "SELECT * FROM tbAutor WHERE nome = @Nome";
+                string query = "SELECT idAutor, nome FROM tbAutor WHERE nome = @Nome";
+
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Nome", nome);
 
                 connection.Open();
+
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    Autor autor = new Autor
-                    {
-                        IdAutor = reader.GetInt32(reader.GetOrdinal("idAutor")),
-                        Nome = reader.GetString(reader.GetOrdinal("nome"))
-                    };
+                    int idAutor = Convert.ToInt32(reader["idAutor"]);
+                    string nomeAutor = reader["nome"].ToString();
 
-                    reader.Close();
+                    Autor autor = new Autor();
+                    autor.IdAutor = idAutor;
+                    autor.Nome = nomeAutor;
+
                     return autor;
                 }
-
-                reader.Close();
-                return null;
             }
+
+            return null; // Retornar null caso o autor não seja encontrado
         }
     }
 }
