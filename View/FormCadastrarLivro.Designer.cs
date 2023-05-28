@@ -35,8 +35,6 @@ namespace LivrariaFive.View
             this.label2 = new System.Windows.Forms.Label();
             this.txtAutorLivro = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxGenero = new System.Windows.Forms.ComboBox();
-            this.comboBoxAutor = new System.Windows.Forms.ComboBox();
             this.btnCadastrarLivro = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAnoPublicacao = new System.Windows.Forms.TextBox();
@@ -50,8 +48,6 @@ namespace LivrariaFive.View
             this.lbl8 = new System.Windows.Forms.Label();
             this.txtIdioma = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.txtEditora = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pbFoto = new System.Windows.Forms.PictureBox();
@@ -77,15 +73,15 @@ namespace LivrariaFive.View
             // 
             // txtGeneroLivro
             // 
-            this.txtGeneroLivro.Location = new System.Drawing.Point(162, 284);
+            this.txtGeneroLivro.Location = new System.Drawing.Point(162, 270);
             this.txtGeneroLivro.Name = "txtGeneroLivro";
-            this.txtGeneroLivro.Size = new System.Drawing.Size(124, 20);
+            this.txtGeneroLivro.Size = new System.Drawing.Size(179, 20);
             this.txtGeneroLivro.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(111, 287);
+            this.label2.Location = new System.Drawing.Point(111, 273);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 2;
@@ -95,7 +91,7 @@ namespace LivrariaFive.View
             // 
             this.txtAutorLivro.Location = new System.Drawing.Point(162, 311);
             this.txtAutorLivro.Name = "txtAutorLivro";
-            this.txtAutorLivro.Size = new System.Drawing.Size(124, 20);
+            this.txtAutorLivro.Size = new System.Drawing.Size(179, 20);
             this.txtAutorLivro.TabIndex = 5;
             // 
             // label3
@@ -107,25 +103,9 @@ namespace LivrariaFive.View
             this.label3.TabIndex = 4;
             this.label3.Text = "Autor";
             // 
-            // comboBoxGenero
-            // 
-            this.comboBoxGenero.FormattingEnabled = true;
-            this.comboBoxGenero.Location = new System.Drawing.Point(317, 283);
-            this.comboBoxGenero.Name = "comboBoxGenero";
-            this.comboBoxGenero.Size = new System.Drawing.Size(142, 21);
-            this.comboBoxGenero.TabIndex = 6;
-            // 
-            // comboBoxAutor
-            // 
-            this.comboBoxAutor.FormattingEnabled = true;
-            this.comboBoxAutor.Location = new System.Drawing.Point(317, 310);
-            this.comboBoxAutor.Name = "comboBoxAutor";
-            this.comboBoxAutor.Size = new System.Drawing.Size(142, 21);
-            this.comboBoxAutor.TabIndex = 7;
-            // 
             // btnCadastrarLivro
             // 
-            this.btnCadastrarLivro.Location = new System.Drawing.Point(38, 391);
+            this.btnCadastrarLivro.Location = new System.Drawing.Point(657, 391);
             this.btnCadastrarLivro.Name = "btnCadastrarLivro";
             this.btnCadastrarLivro.Size = new System.Drawing.Size(131, 47);
             this.btnCadastrarLivro.TabIndex = 10;
@@ -230,35 +210,17 @@ namespace LivrariaFive.View
             this.label8.TabIndex = 22;
             this.label8.Text = "Idioma:";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(292, 286);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(19, 13);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "ou";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(292, 315);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(19, 13);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "ou";
-            // 
             // txtEditora
             // 
-            this.txtEditora.Location = new System.Drawing.Point(507, 206);
+            this.txtEditora.Location = new System.Drawing.Point(162, 359);
             this.txtEditora.Name = "txtEditora";
-            this.txtEditora.Size = new System.Drawing.Size(124, 20);
+            this.txtEditora.Size = new System.Drawing.Size(179, 20);
             this.txtEditora.TabIndex = 26;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(458, 209);
+            this.label4.Location = new System.Drawing.Point(113, 362);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 25;
@@ -267,7 +229,7 @@ namespace LivrariaFive.View
             // pbFoto
             // 
             this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFoto.Location = new System.Drawing.Point(507, 283);
+            this.pbFoto.Location = new System.Drawing.Point(507, 254);
             this.pbFoto.Name = "pbFoto";
             this.pbFoto.Size = new System.Drawing.Size(85, 113);
             this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -276,7 +238,7 @@ namespace LivrariaFive.View
             // 
             // btnAddFoto
             // 
-            this.btnAddFoto.Location = new System.Drawing.Point(517, 254);
+            this.btnAddFoto.Location = new System.Drawing.Point(517, 225);
             this.btnAddFoto.Name = "btnAddFoto";
             this.btnAddFoto.Size = new System.Drawing.Size(75, 23);
             this.btnAddFoto.TabIndex = 28;
@@ -293,8 +255,6 @@ namespace LivrariaFive.View
             this.Controls.Add(this.pbFoto);
             this.Controls.Add(this.txtEditora);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtIdioma);
             this.Controls.Add(this.lbl8);
@@ -308,8 +268,6 @@ namespace LivrariaFive.View
             this.Controls.Add(this.txtAnoPublicacao);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCadastrarLivro);
-            this.Controls.Add(this.comboBoxAutor);
-            this.Controls.Add(this.comboBoxGenero);
             this.Controls.Add(this.txtAutorLivro);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtGeneroLivro);
@@ -333,8 +291,6 @@ namespace LivrariaFive.View
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtAutorLivro;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBoxGenero;
-        private System.Windows.Forms.ComboBox comboBoxAutor;
         private System.Windows.Forms.Button btnCadastrarLivro;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtAnoPublicacao;
@@ -348,8 +304,6 @@ namespace LivrariaFive.View
         private System.Windows.Forms.Label lbl8;
         private System.Windows.Forms.TextBox txtIdioma;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtEditora;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pbFoto;

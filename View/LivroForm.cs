@@ -69,10 +69,10 @@ namespace LivrariaFive.View
                 Width = 100
             });
 
-            
 
 
-            
+
+
 
             foreach (Livro livro in livros)
             {
@@ -91,7 +91,7 @@ namespace LivrariaFive.View
             }
 
         }
-       
+
         private void dataGridViewLivros_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -101,11 +101,11 @@ namespace LivrariaFive.View
                 string isbn = selectedRow.Cells["Isbn"].Value.ToString();
                 string preco = selectedRow.Cells["Preco"].Value.ToString();
                 string descricao = selectedRow.Cells["Descricao"].Value != null
-    ? selectedRow.Cells["Descricao"].Value.ToString()
-    : string.Empty;
+                    ? selectedRow.Cells["Descricao"].Value.ToString()
+                    : string.Empty;
                 string genero = selectedRow.Cells["Genero"].Value != null
-    ? selectedRow.Cells["Genero"].Value.ToString()
-    : string.Empty;
+                    ? selectedRow.Cells["Genero"].Value.ToString()
+                    : string.Empty;
 
                 string editora = selectedRow.Cells["Editora"].Value != null
                     ? selectedRow.Cells["Editora"].Value.ToString()

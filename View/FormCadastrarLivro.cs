@@ -17,15 +17,20 @@ namespace LivrariaFive.View
     public partial class FormCadastrarLivro : Form
     {
 
-
+        AutorController autorController = new AutorController();
+        Autor autor = new Autor();
+        GeneroController generoController = new GeneroController();
+        Genero genero = new Genero();
+        EditoraController editoraController = new EditoraController();
+        Editora editora = new Editora();
         public FormCadastrarLivro()
         {
             InitializeComponent();
-            
+
         }
         private void FormCadastrarLivro_Load(object sender, EventArgs e)
         {
-            PreencherComboBox();
+
         }
 
         private void btnCadastrarLivro_Click(object sender, EventArgs e)
@@ -33,6 +38,7 @@ namespace LivrariaFive.View
             string nomeLivro = txtNomeLivro.Text;
             string nomeGenero = txtGeneroLivro.Text;
             string nomeAutor = txtAutorLivro.Text;
+            string nomeEditora = txtEditora.Text;
 
             // Verificar se o nome do livro está vazio
             if (string.IsNullOrEmpty(nomeLivro))
@@ -51,37 +57,73 @@ namespace LivrariaFive.View
             livro.Descricao = txtDescricao.Text;
             livro.Idioma = txtIdioma.Text;
             livro.Imagem = pbFoto.Image;
-            
+
 
             // Verificar se o nome do autor está vazio
             if (!string.IsNullOrEmpty(nomeAutor))
             {
-                AutorController autorController = new AutorController();
-                Autor autor = new Autor { Nome = nomeAutor };
-                autorController.InserirAutor(autor);
+                if (!autorController.VerificarAutorExistente(nomeAutor))
+                {
 
-                livro.Autor = autor.Nome;
+                    Autor autor = new Autor { Nome = nomeAutor };
+                    livro.Autor = autor.Nome;
+
+                }
+                else
+                {
+                    Autor autorExistente = autorController.ObterAutorPorNome(nomeAutor);
+                    livro.Autor = autorExistente.Nome;
+                    autor.IdAutor = autorExistente.IdAutor;
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Informe o autor");
             }
 
             // Verificar se o nome do gênero está vazio
             if (!string.IsNullOrEmpty(nomeGenero))
             {
-                GeneroController generoController = new GeneroController();
-                Genero genero = new Genero { Nome = nomeGenero };
-                generoController.InserirGenero(genero);
-
-                livro.Genero = genero.Nome;
+                if (!generoController.VerificarGeneroExistente(nomeGenero))
+                {
+                    Genero genero = new Genero { Nome = nomeGenero };
+                    livro.Genero = genero.Nome;
+                }
+                else
+                {
+                    Genero generoExistente = generoController.ObterGeneroPorNome(nomeGenero);
+                    livro.Genero = generoExistente.Nome;
+                    genero.IdGenero = generoExistente.IdGenero;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Informe o Genero");
             }
 
             // Verificar se o nome da editora está vazio
-            if (!string.IsNullOrEmpty(txtEditora.Text))
+            if (!string.IsNullOrEmpty(nomeEditora))
             {
-                EditoraController editoraController = new EditoraController();
-                Editora editora = new Editora { Nome = txtEditora.Text };
-                editoraController.InserirEditora(editora);
-
-                livro.Editora= editora.Nome;
+                if (!editoraController.VerificarEditoraExistente(nomeEditora))
+                {
+                    Editora editora = new Editora { Nome = nomeEditora };
+                    livro.Editora = editora.Nome;
+                }
+                else
+                {
+                    Editora editoraExistente = editoraController.ObterEditoraPorNome(nomeEditora);
+                    livro.Editora = editoraExistente.Nome;
+                    editora.Id = editoraExistente.Id;
+                }
             }
+            else
+            {
+                MessageBox.Show("Informe a Editora");
+            }
+
+
 
             // Chamar o método Insert do controlador LivroController para cadastrar o livro
             LivroController livroController = new LivroController();
@@ -92,27 +134,7 @@ namespace LivrariaFive.View
         }
 
 
-        private void PreencherComboBox()
-        {
-            // Obter os gêneros do banco de dados
-            GeneroController generoController = new GeneroController();
-            List<Genero> generos = generoController.ObterTodosGeneros();
 
-            // Definir os dados do ComboBox de Gênero
-            comboBoxGenero.DataSource = generos;
-            comboBoxGenero.DisplayMember = "Nome";
-            comboBoxGenero.SelectedIndex = -1; // Nenhum item selecionado
-
-            // Obter os autores do banco de dados
-            AutorController autorController = new AutorController();
-            List<Autor> autores = autorController.ObterTodosAutores();
-
-            // Definir os dados do ComboBox de Autor
-            comboBoxAutor.DataSource = autores;
-            comboBoxAutor.DisplayMember = "Nome";
-            comboBoxAutor.SelectedIndex = -1; // Nenhum item selecionado
-
-        }
 
         private void btnAddFoto_Click(object sender, EventArgs e)
         {
