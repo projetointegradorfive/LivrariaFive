@@ -28,5 +28,15 @@ namespace LivrariaFive.View
             lblAutor.Text = autor;
             pictureBoxLivro.Image = imagem;
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DetalhesLivro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
