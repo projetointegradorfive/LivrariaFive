@@ -18,7 +18,10 @@ namespace LivrariaFive.View
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Livro livro = new Livro(); // Instancia um objeto Livro
-            Application.Run(new LivroForm());
+            Cliente clienteAtual = new Cliente(); // Instancia um objeto Cliente
+            FormCarrinho formCarrinho = new FormCarrinho();
+
+            Application.Run(new LivroForm(clienteAtual, formCarrinho));
         }
     }
 }

@@ -14,15 +14,26 @@ namespace LivrariaFive.View
 {
     public partial class LivroForm : Form
     {
+        private Cliente clienteAtual;
         private LivroController livroController;
+        private FormCarrinho formCarrinho;
+        public FormCarrinho FormCarrinho { get; set; }
 
-        public LivroForm()
+
+        public LivroForm(Cliente cliente, FormCarrinho carrinhoForm)
         {
             InitializeComponent();
+            clienteAtual = cliente;
             livroController = new LivroController();
+            FormCarrinho = carrinhoForm;
+
+
+
         }
         private void LivroForm_Load_1(object sender, EventArgs e)
         {
+
+
             PrencherDataGrid();
             ConfigurarGrade();
         }
@@ -45,14 +56,15 @@ namespace LivrariaFive.View
             dataGridViewLivros.Columns["Editora"].Width = 150;
             dataGridViewLivros.Columns["Autor"].Width = 150;
 
+
         }
+
 
         public void PrencherDataGrid()
         {
             IList<Livro> livros = livroController.GetAllLivros();
             dataGridViewLivros.Columns.Clear();
             dataGridViewLivros.Rows.Clear();
-
             dataGridViewLivros.Columns.Add("Id", "ID");
             dataGridViewLivros.Columns.Add("Titulo", "Título");
             dataGridViewLivros.Columns.Add("Isbn", "ISBN");
@@ -70,6 +82,7 @@ namespace LivrariaFive.View
             });
 
 
+
             foreach (Livro livro in livros)
             {
                 string autor = livroController.GetAutorName(livro.Autor); //pegando o nome do autor
@@ -85,6 +98,15 @@ namespace LivrariaFive.View
                     livro.Imagem
                 );
             }
+
+            // Crie uma nova instância de DataGridViewCheckBoxColumn
+            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
+            checkBoxColumn.HeaderText = "Selecionado";
+            checkBoxColumn.Name = "checkBoxColumn";
+
+            // Adicione a coluna ao DataGridView
+            dataGridViewLivros.Columns.Add(checkBoxColumn);
+
 
         }
 
@@ -173,6 +195,130 @@ namespace LivrariaFive.View
             }
         }
 
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+
+            // Limpar informações do cliente atual ou executar qualquer ação necessária para o logout
+            clienteAtual = null;
+
+            // Exibir o formulário de login
+            FormLoginUser formLoginUser = new FormLoginUser();
+            formLoginUser.Show();
+
+            // Fechar o formulário atual (LivroForm)
+            this.Close();
+
+        }
+
+        private void btnAdicionarCarrinho_Click(object sender, EventArgs e)
+        {
+            List<ItemDeCompra> itensSelecionados = ObterItensDeCompraSelecionados();
+
+            // Chamar o método AdicionarItensCarrinho do formCarrinho
+            FormCarrinho.AdicionarItensCarrinho(itensSelecionados);
+            // Adicionar os itens ao carrinho usando o CarrinhoController
+            CarrinhoController carrinhoController = new CarrinhoController();
+            carrinhoController.AdicionarItensAoCarrinho(itensSelecionados);
+           
+            // Limpar a seleção no DataGridView
+            LimparSelecaoDataGridView();
+
+            
+
+        }
+
+
+        private void LimparSelecaoDataGridView()
+        {
+            foreach (DataGridViewRow row in dataGridViewLivros.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells["checkBoxColumn"];
+                checkBoxCell.Value = false;
+            }
+
+            dataGridViewLivros.EndEdit(); // Finaliza a edição das células
+        }
+        private List<ItemDeCompra> ObterItensDeCompraSelecionados()
+        {
+            List<ItemDeCompra> itensSelecionados = new List<ItemDeCompra>();
+
+            foreach (DataGridViewRow row in dataGridViewLivros.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = row.Cells["checkBoxColumn"] as DataGridViewCheckBoxCell;
+
+                if (checkBoxCell != null && checkBoxCell.Value != null && Convert.ToBoolean(checkBoxCell.Value))
+                {
+                    // Obter os valores das células correspondentes às colunas desejadas
+                    string titulo = row.Cells["Titulo"].Value?.ToString();
+                    string isbn = row.Cells["Isbn"].Value?.ToString();
+                    string preco = row.Cells["Preco"].Value?.ToString();
+                    string descricao = row.Cells["Descricao"].Value?.ToString();
+                    string genero = row.Cells["Genero"].Value?.ToString();
+                    string editora = row.Cells["Editora"].Value?.ToString();
+                    string autor = row.Cells["Autor"].Value?.ToString();
+                    Image imagem = (Image)row.Cells["Imagem"].Value;
+
+                    // Criar o objeto Livro com base nos valores obtidos
+                    Livro livro = new Livro()
+                    {
+                        Titulo = titulo,
+                        Isbn = isbn,
+                        Preco = double.Parse(preco),
+                        Descricao = descricao,
+                        Genero = genero,
+                        Editora = editora,
+                        Autor = autor,
+                        Imagem = imagem
+                    };
+
+                    // Criar o ItemDeCompra com base no livro selecionado
+                    ItemDeCompra item = new ItemDeCompra()
+                    {
+                        Livro = livro,
+                        Quantidade = 1,  // Defina a quantidade desejada aqui
+                        PrecoUnitario = livro.Preco  // Defina o preço unitário do livro aqui
+                    };
+
+                    itensSelecionados.Add(item);
+                }
+            }
+
+            if (itensSelecionados.Count > 0)
+            {
+                // Exibir mensagem de sucesso se houver itens selecionados
+                MessageBox.Show("Livro(s) adicionado(s) ao carrinho com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+            }
+            else
+            {
+                // Exibir mensagem de erro se nenhum item for selecionado
+                MessageBox.Show("Nenhum livro selecionado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return itensSelecionados;
+        }
+
+
+
+
+        private void dataGridViewLivros_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridViewLivros.Columns["checkBoxColumn"].Index)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)dataGridViewLivros.Rows[e.RowIndex].Cells["checkBoxColumn"];
+                checkBoxCell.Value = !Convert.ToBoolean(checkBoxCell.Value);
+                dataGridViewLivros.EndEdit(); // Finaliza a edição da célula
+            }
+        }
+
+        private void btnAbrirCarrinho_Click(object sender, EventArgs e)
+        {
+         
+            FormCarrinho.Show();
+        }
     }
 }
+
+
+
 
