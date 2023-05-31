@@ -89,6 +89,12 @@ namespace LivrariaFive.View
             }
         }
 
+        private void btnLoginAdminRestrito_Click(object sender, EventArgs e)
+        {
+            FrmTelaLoginAdmin login = new FrmTelaLoginAdmin();
+            this.Hide();
+            login.Show();
+        }
     }
 
 }
