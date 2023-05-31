@@ -222,13 +222,8 @@ namespace LivrariaFive.View
             // Atualize os itens do carrinho no FormCarrinho
             formCarrinho.AdicionarItensCarrinho(itensSelecionados);
 
-            // Exiba o FormCarrinho
-            formCarrinho.Show();
-
             // Limpar a seleção no DataGridView
             LimparSelecaoDataGridView();
-
-
 
         }
 

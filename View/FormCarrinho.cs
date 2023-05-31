@@ -34,8 +34,14 @@ namespace LivrariaFive.View
 
         public void AdicionarItensCarrinho(List<ItemDeCompra> itensSelecionados)
         {
-            // Adicione os itens selecionados à lista de itens do carrinho
-            itensCarrinho.AddRange(itensSelecionados);
+            foreach (ItemDeCompra itemSelecionado in itensSelecionados)
+            {
+                bool itemExistente = itensCarrinho.Any(i => i.Livro.Titulo == itemSelecionado.Livro.Titulo);
+                if (!itemExistente)
+                {
+                    itensCarrinho.Add(itemSelecionado);
+                }
+            }
 
             // Salve os itens do carrinho em um arquivo
             SaveCarrinhoData();
@@ -45,9 +51,10 @@ namespace LivrariaFive.View
         }
 
 
+
         private void ExibirItensCarrinho()
         {// Limpar as linhas existentes no DataGridView
-            dataGridViewItensCarrinho.Rows.Clear();
+           
 
             // Adicionar as linhas correspondentes aos itens do carrinho
             foreach (ItemDeCompra item in itensCarrinho)
@@ -110,9 +117,9 @@ namespace LivrariaFive.View
                 string json = File.ReadAllText(carrinhoFilePath);
                 CarrinhoData carrinhoData = JsonConvert.DeserializeObject<CarrinhoData>(json);
 
-                if (carrinhoData != null)
+                if (carrinhoData != null && carrinhoData.Itens != null)
                 {
-                    itensCarrinho = carrinhoData.Itens;
+                    itensCarrinho.AddRange(carrinhoData.Itens);
                 }
             }
         }
