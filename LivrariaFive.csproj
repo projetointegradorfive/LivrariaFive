@@ -95,6 +95,18 @@
     <Compile Include="View\FormLoginUser.Designer.cs">
       <DependentUpon>FormLoginUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmPrincipalAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmPrincipalAdmin.Designer.cs">
+      <DependentUpon>FrmPrincipalAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmTelaLoginAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmTelaLoginAdmin.Designer.cs">
+      <DependentUpon>FrmTelaLoginAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LivroForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +133,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormLoginUser.resx">
       <DependentUpon>FormLoginUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmPrincipalAdmin.resx">
+      <DependentUpon>FrmPrincipalAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmTelaLoginAdmin.resx">
+      <DependentUpon>FrmTelaLoginAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LivroForm.resx">
       <DependentUpon>LivroForm.cs</DependentUpon>
