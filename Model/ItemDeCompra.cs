@@ -15,5 +15,8 @@ namespace LivrariaFive.Model
         public double PrecoTotal { get; set; }
         public Livro Livro { get; set; }
         public int PedidoId { get; set; }
+        
+
+
     }
 }

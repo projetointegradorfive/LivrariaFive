@@ -8,18 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LivrariaFive.Model;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace LivrariaFive.View
 {
     public partial class FormCarrinho : Form
     {
+        private const string carrinhoFilePath = "carrinho.json"; //caminho e nome do arquivo de dados
+
         private List<ItemDeCompra> itensCarrinho = new List<ItemDeCompra>();
-        
+
 
         public FormCarrinho()
         {
             InitializeComponent();
-           
+            // Crie as colunas no evento Load do formulário
+            dataGridViewItensCarrinho.Columns.Add("Titulo", "Título");
+            dataGridViewItensCarrinho.Columns.Add("Preco", "Preço");
+            dataGridViewItensCarrinho.Columns.Add("Quantidade", "Quantidade");
+            dataGridViewItensCarrinho.Columns.Add("PrecoUnitario", "Preço Unitário");
+            dataGridViewItensCarrinho.Columns.Add("Imagem", "Imagem");
+
         }
 
         public void AdicionarItensCarrinho(List<ItemDeCompra> itensSelecionados)
@@ -27,43 +37,86 @@ namespace LivrariaFive.View
             // Adicione os itens selecionados à lista de itens do carrinho
             itensCarrinho.AddRange(itensSelecionados);
 
+            // Salve os itens do carrinho em um arquivo
+            SaveCarrinhoData();
+
             // Exiba os itens no DataGridView
             ExibirItensCarrinho();
         }
 
+
         private void ExibirItensCarrinho()
-        {
-            // Limpar as colunas existentes no DataGridView
-            dataGridViewItensCarrinho.Columns.Clear();
-
-            // Adicionar as colunas ao DataGridView
-            dataGridViewItensCarrinho.Columns.Add("Titulo", "Título");
-            dataGridViewItensCarrinho.Columns.Add("Preco", "Preço");
-            dataGridViewItensCarrinho.Columns.Add("Quantidade", "Quantidade");
-            dataGridViewItensCarrinho.Columns.Add("PrecoUnitario", "Preço Unitário");
-
-            // Limpar as linhas existentes no DataGridView
+        {// Limpar as linhas existentes no DataGridView
             dataGridViewItensCarrinho.Rows.Clear();
 
             // Adicionar as linhas correspondentes aos itens do carrinho
             foreach (ItemDeCompra item in itensCarrinho)
             {
-                // Crie uma nova linha com as células correspondentes
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(dataGridViewItensCarrinho,
                     item.Livro.Titulo,
                     item.Livro.Preco,
                     item.Quantidade,
-                    item.PrecoUnitario);
+                    item.PrecoUnitario,
+                    null); // Célula de imagem vazia
 
-                // Adicione a linha ao DataGridView
                 dataGridViewItensCarrinho.Rows.Add(row);
             }
+
+
         }
 
         private void FormCarrinho_Load(object sender, EventArgs e)
         {
+           
+            // Carregue os itens do carrinho do arquivo
+
+            LoadCarrinhoData();
+
+            ExibirItensCarrinho();
 
         }
+
+        private void SaveCarrinhoData()
+        {
+            CarrinhoData carrinhoData = new CarrinhoData()
+            {
+                Itens = new List<ItemDeCompra>()
+            };
+
+            // Crie uma cópia dos itens do carrinho com a imagem removida
+            foreach (var item in itensCarrinho)
+            {
+                carrinhoData.Itens.Add(new ItemDeCompra
+                {
+                    Livro = new Livro
+                    {
+                        Titulo = item.Livro.Titulo,
+                        Preco = item.Livro.Preco
+                    },
+                    Quantidade = item.Quantidade,
+                    PrecoUnitario = item.PrecoUnitario
+                });
+            }
+
+            string json = JsonConvert.SerializeObject(carrinhoData);
+            File.WriteAllText(carrinhoFilePath, json);
+        }
+
+        private void LoadCarrinhoData()
+        {
+            if (File.Exists(carrinhoFilePath))
+            {
+                string json = File.ReadAllText(carrinhoFilePath);
+                CarrinhoData carrinhoData = JsonConvert.DeserializeObject<CarrinhoData>(json);
+
+                if (carrinhoData != null)
+                {
+                    itensCarrinho = carrinhoData.Itens;
+                }
+            }
+        }
+
+      
     }
 }

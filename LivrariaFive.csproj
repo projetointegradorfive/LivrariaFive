@@ -36,6 +36,9 @@
     <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
       <HintPath>packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -62,6 +65,7 @@
     <Compile Include="Controller\PedidoController.cs" />
     <Compile Include="Model\Autor.cs" />
     <Compile Include="Model\Carrinho.cs" />
+    <Compile Include="Model\CarrinhoData.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Editora.cs" />
     <Compile Include="Model\Genero.cs" />
