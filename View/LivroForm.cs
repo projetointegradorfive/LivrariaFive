@@ -214,16 +214,16 @@ namespace LivrariaFive.View
         {
             List<ItemDeCompra> itensSelecionados = ObterItensDeCompraSelecionados();
 
-            // Chamar o método AdicionarItensCarrinho do formCarrinho
-            FormCarrinho.AdicionarItensCarrinho(itensSelecionados);
-            // Adicionar os itens ao carrinho usando o CarrinhoController
-            CarrinhoController carrinhoController = new CarrinhoController();
-            carrinhoController.AdicionarItensAoCarrinho(itensSelecionados);
-           
+            if (formCarrinho == null || formCarrinho.IsDisposed) // Verifique se o formulário não está aberto ou foi descartado
+            {
+                formCarrinho = new FormCarrinho(); // Crie uma nova instância do FormCarrinho
+            }
+
+            // Atualize os itens do carrinho no FormCarrinho
+            formCarrinho.AdicionarItensCarrinho(itensSelecionados);
+
             // Limpar a seleção no DataGridView
             LimparSelecaoDataGridView();
-
-            
 
         }
 
@@ -313,8 +313,9 @@ namespace LivrariaFive.View
 
         private void btnAbrirCarrinho_Click(object sender, EventArgs e)
         {
-         
-            FormCarrinho.Show();
+
+            FormCarrinho formCarrinho = new FormCarrinho();
+            formCarrinho.ShowDialog();
         }
     }
 }
