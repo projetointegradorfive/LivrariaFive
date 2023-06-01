@@ -21,7 +21,7 @@ namespace LivrariaFive.View
             Cliente clienteAtual = new Cliente(); // Instancia um objeto Cliente
             FormCarrinho formCarrinho = new FormCarrinho();
 
-            Application.Run(new LivroForm(clienteAtual, formCarrinho));
+            Application.Run(new FormCadastrarLivro());
         }
     }
 }

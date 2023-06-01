@@ -62,58 +62,74 @@ namespace LivrariaFive.View
             // Verificar se o nome do autor está vazio
             if (!string.IsNullOrEmpty(nomeAutor))
             {
-                if (!autorController.VerificarAutorExistente(nomeAutor))
-                {
+                Autor autorExistente = autorController.ObterAutorPorNome(nomeAutor);
 
+                if (autorExistente == null)
+                {
+                    // O autor não existe no banco de dados, portanto, você pode criar uma nova instância
                     Autor autor = new Autor { Nome = nomeAutor };
                     livro.Autor = autor.Nome;
 
+                    // Chame o método Insert do controlador AutorController para cadastrar o novo autor no banco de dados
+                    autorController.InserirAutor(autor);
                 }
                 else
                 {
-                    Autor autorExistente = autorController.ObterAutorPorNome(nomeAutor);
+                    // O autor já existe, você pode atribuí-lo diretamente ao livro
                     livro.Autor = autorExistente.Nome;
                     autor.IdAutor = autorExistente.IdAutor;
-
                 }
-
             }
             else
             {
-                MessageBox.Show("Informe o autor");
+                MessageBox.Show("Informe o Autor");
             }
+
 
             // Verificar se o nome do gênero está vazio
             if (!string.IsNullOrEmpty(nomeGenero))
             {
-                if (!generoController.VerificarGeneroExistente(nomeGenero))
+                Genero generoExistente = generoController.ObterGeneroPorNome(nomeGenero);
+
+                if (generoExistente == null)
                 {
+                    // O gênero não existe no banco de dados, portanto, você pode criar uma nova instância
                     Genero genero = new Genero { Nome = nomeGenero };
                     livro.Genero = genero.Nome;
+
+                    // Chame o método Insert do controlador GeneroController para cadastrar o novo gênero no banco de dados
+                    generoController.InserirGenero(genero);
                 }
                 else
                 {
-                    Genero generoExistente = generoController.ObterGeneroPorNome(nomeGenero);
+                    // O gênero já existe, você pode atribuí-lo diretamente ao livro
                     livro.Genero = generoExistente.Nome;
                     genero.IdGenero = generoExistente.IdGenero;
                 }
             }
             else
             {
-                MessageBox.Show("Informe o Genero");
+                MessageBox.Show("Informe o Gênero");
             }
+
 
             // Verificar se o nome da editora está vazio
             if (!string.IsNullOrEmpty(nomeEditora))
             {
-                if (!editoraController.VerificarEditoraExistente(nomeEditora))
+                Editora editoraExistente = editoraController.ObterEditoraPorNome(nomeEditora);
+
+                if (editoraExistente == null)
                 {
+                    // A editora não existe no banco de dados, portanto, você pode criar uma nova instância
                     Editora editora = new Editora { Nome = nomeEditora };
                     livro.Editora = editora.Nome;
+
+                    // Chame o método Insert do controlador EditoraController para cadastrar a nova editora no banco de dados
+                    editoraController.InserirEditora(editora);
                 }
                 else
                 {
-                    Editora editoraExistente = editoraController.ObterEditoraPorNome(nomeEditora);
+                    // A editora já existe, você pode atribuí-la diretamente ao livro
                     livro.Editora = editoraExistente.Nome;
                     editora.Id = editoraExistente.Id;
                 }

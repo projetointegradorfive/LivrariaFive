@@ -17,7 +17,8 @@ namespace LivrariaFive.View
     public partial class FrmTelaLoginAdmin : Form
     {
         // Referência da conexão
-        SqlConnection conexao = new SqlConnection(@"Data Source=IAN;Initial Catalog=Livraria;User ID=sa;Password=ianvictor123");
+        //SqlConnection conexao = new SqlConnection("Data Source = LABINFO - 9DC9A7\\SQLEXPRESS; Initial Catalog = Livraria; Integrated Security = True");
+        SqlConnection conexao = new SqlConnection(@"Data Source=LABINFO-9DC9A7\SQLEXPRESS;Initial Catalog=Livraria;Integrated Security=True");
 
         public FrmTelaLoginAdmin()
         {
@@ -35,8 +36,7 @@ namespace LivrariaFive.View
             }
         }
 
-
-        private void btnEntrar_Click(object sender, EventArgs e)
+        private void btnEntrar_Click_1(object sender, EventArgs e)
         {
             conexao.Open();
             verificar();
@@ -64,9 +64,12 @@ namespace LivrariaFive.View
             conexao.Close();
         }
 
-        private void btnFechar_Click(object sender, EventArgs e)
+        private void btnSair_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            FormLoginUser login = new FormLoginUser();
+            this.Hide();
+            login.Show();
+
         }
     }
 }
