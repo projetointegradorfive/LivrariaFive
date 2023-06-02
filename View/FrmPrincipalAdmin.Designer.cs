@@ -30,23 +30,14 @@ namespace LivrariaFive.View
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipalAdmin));
-            this.btnEncerrarSessao = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnGerenciarUsuarios = new System.Windows.Forms.Button();
             this.btnGerenciarLivros = new System.Windows.Forms.Button();
             this.btnRelatórios = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnEncerrarSessao
-            // 
-            this.btnEncerrarSessao.Location = new System.Drawing.Point(659, 12);
-            this.btnEncerrarSessao.Name = "btnEncerrarSessao";
-            this.btnEncerrarSessao.Size = new System.Drawing.Size(129, 29);
-            this.btnEncerrarSessao.TabIndex = 1;
-            this.btnEncerrarSessao.Text = "Encerrar Sessão";
-            this.btnEncerrarSessao.UseVisualStyleBackColor = true;
-            this.btnEncerrarSessao.Click += new System.EventHandler(this.btnEncerrarSessao_Click);
             // 
             // pictureBox1
             // 
@@ -85,29 +76,40 @@ namespace LivrariaFive.View
             this.btnRelatórios.Text = "Relatório de vendas";
             this.btnRelatórios.UseVisualStyleBackColor = true;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(728, -2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // FrmPrincipalAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnRelatórios);
             this.Controls.Add(this.btnGerenciarLivros);
             this.Controls.Add(this.btnGerenciarUsuarios);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnEncerrarSessao);
             this.Name = "FrmPrincipalAdmin";
             this.Text = "FrmPrincipalAdmin";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnEncerrarSessao;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnGerenciarUsuarios;
         private System.Windows.Forms.Button btnGerenciarLivros;
         private System.Windows.Forms.Button btnRelatórios;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

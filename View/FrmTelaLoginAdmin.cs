@@ -18,20 +18,20 @@ namespace LivrariaFive.View
     {
         // Referência da conexão
         //SqlConnection conexao = new SqlConnection("Data Source = LABINFO - 9DC9A7\\SQLEXPRESS; Initial Catalog = Livraria; Integrated Security = True");
-        SqlConnection conexao = new SqlConnection(@"Data Source=LABINFO-9DC9A7\SQLEXPRESS;Initial Catalog=Livraria;Integrated Security=True");
+        SqlConnection conexao = new SqlConnection(@"Data Source=IAN;Initial Catalog=Livraria;User ID=sa;Password=ianvictor123");
 
         public FrmTelaLoginAdmin()
         {
             InitializeComponent();
-            txtCpfAdmin.Select();
+            maskTxtCpfAdmin.Select();
         }
 
         public void verificar()
         {
-            if (txtCpfAdmin.Text == "" && txtSenhaAdmin.Text == "")
+            if (maskTxtCpfAdmin.Text == "" && txtSenhaAdmin.Text == "")
             {
                 MessageBox.Show("Preencha os campos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtCpfAdmin.Select();
+                maskTxtCpfAdmin.Select();
 
             }
         }
@@ -40,7 +40,9 @@ namespace LivrariaFive.View
         {
             conexao.Open();
             verificar();
-            string query = "SELECT * FROM tbAdministrador WHERE cpf = '" + txtCpfAdmin.Text + "' AND senha = '" + txtSenhaAdmin.Text + "'";
+            string query = "SELECT * FROM tbAdministrador WHERE cpf = '"
+                + maskTxtCpfAdmin.Text 
+                + "' AND senha = '" + txtSenhaAdmin.Text + "'";
             SqlDataAdapter dp = new SqlDataAdapter(query, conexao);
             DataTable dt = new DataTable();
             dp.Fill(dt);
@@ -57,9 +59,9 @@ namespace LivrariaFive.View
             catch (Exception erro)
             {
                 MessageBox.Show("Usuário ou senha inválidos" + erro);
-                txtCpfAdmin.Text = "";
+                maskTxtCpfAdmin.Text = "";
                 txtSenhaAdmin.Text = "";
-                txtCpfAdmin.Select();
+                maskTxtCpfAdmin.Select();
             }
             conexao.Close();
         }

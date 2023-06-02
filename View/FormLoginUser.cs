@@ -27,8 +27,8 @@ namespace LivrariaFive.View
             string email = txtEmailCadastro.Text;
             string senha = txtSenhaCadastro.Text;
             string endereco = txtEnderecoCadastro.Text;
-            string cpf = txtCpfCadastro.Text;
-            string telefone = txtTelefoneCadastro.Text;
+            string cpf = maskTxtCpfCadastro.Text;
+            string telefone = maskTxtTelefoneCadastro.Text;
             DateTime dataNascimento = dtpDataNascimentoCadastro.Value;
 
             // Criar uma instância do ClienteController

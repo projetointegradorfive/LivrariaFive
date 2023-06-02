@@ -9,7 +9,7 @@ namespace LivrariaFive.Persistence
 {
     public static class DatabaseConnection
     {
-        private const string ConnectionString = "Data Source=LABINFO-9DC9A7\\SQLEXPRESS;Initial Catalog=Livraria;Integrated Security=True";
+        private const string ConnectionString = (@"Data Source=IAN;Initial Catalog=Livraria;User ID=sa;Password=ianvictor123");
 
         public static SqlConnection GetConnection()
         {
