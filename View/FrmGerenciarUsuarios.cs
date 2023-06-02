@@ -10,23 +10,16 @@ using System.Windows.Forms;
 
 namespace LivrariaFive.View
 {
-    public partial class FrmPrincipalAdmin : Form
+    public partial class FrmGerenciarUsuarios : Form
     {
-        public FrmPrincipalAdmin()
+        public FrmGerenciarUsuarios()
         {
             InitializeComponent();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            FrmTelaLoginAdmin login = new FrmTelaLoginAdmin();
-            this.Hide();
-            login.Show();
-        }
-
-        private void btnGerenciarUsuarios_Click(object sender, EventArgs e)
-        {
-            FrmGerenciarUsuarios login = new FrmGerenciarUsuarios();
+            FrmPrincipalAdmin login = new FrmPrincipalAdmin();
             this.Hide();
             login.Show();
         }

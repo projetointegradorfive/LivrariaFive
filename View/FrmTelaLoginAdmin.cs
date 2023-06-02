@@ -20,6 +20,8 @@ namespace LivrariaFive.View
         //SqlConnection conexao = new SqlConnection("Data Source = LABINFO - 9DC9A7\\SQLEXPRESS; Initial Catalog = Livraria; Integrated Security = True");
         SqlConnection conexao = new SqlConnection(@"Data Source=IAN;Initial Catalog=Livraria;User ID=sa;Password=ianvictor123");
 
+        Boolean status_senha = false;
+
         public FrmTelaLoginAdmin()
         {
             InitializeComponent();
@@ -72,6 +74,19 @@ namespace LivrariaFive.View
             this.Hide();
             login.Show();
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (txtSenhaAdmin.UseSystemPasswordChar == true)
+            {
+                txtSenhaAdmin.UseSystemPasswordChar = false;
+                
+            }
+            else
+            {
+                txtSenhaAdmin.UseSystemPasswordChar = true;
+            }
         }
     }
 }

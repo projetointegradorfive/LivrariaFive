@@ -37,7 +37,9 @@ namespace LivrariaFive.View
             this.btnSair = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.maskTxtCpfAdmin = new System.Windows.Forms.MaskedTextBox();
+            this.verSenha = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verSenha)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEntrar
@@ -79,10 +81,11 @@ namespace LivrariaFive.View
             this.txtSenhaAdmin.Name = "txtSenhaAdmin";
             this.txtSenhaAdmin.Size = new System.Drawing.Size(279, 30);
             this.txtSenhaAdmin.TabIndex = 4;
+            this.txtSenhaAdmin.UseSystemPasswordChar = true;
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(171, 377);
+            this.btnSair.Location = new System.Drawing.Point(171, 360);
             this.btnSair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(181, 32);
@@ -112,12 +115,24 @@ namespace LivrariaFive.View
             this.maskTxtCpfAdmin.TabIndex = 7;
             this.maskTxtCpfAdmin.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
+            // verSenha
+            // 
+            this.verSenha.Image = ((System.Drawing.Image)(resources.GetObject("verSenha.Image")));
+            this.verSenha.Location = new System.Drawing.Point(410, 247);
+            this.verSenha.Name = "verSenha";
+            this.verSenha.Size = new System.Drawing.Size(41, 30);
+            this.verSenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.verSenha.TabIndex = 8;
+            this.verSenha.TabStop = false;
+            this.verSenha.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // FrmTelaLoginAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(533, 450);
+            this.Controls.Add(this.verSenha);
             this.Controls.Add(this.maskTxtCpfAdmin);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSair);
@@ -127,8 +142,10 @@ namespace LivrariaFive.View
             this.Controls.Add(this.btnEntrar);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmTelaLoginAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTelaLoginAdmin";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verSenha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +160,6 @@ namespace LivrariaFive.View
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MaskedTextBox maskTxtCpfAdmin;
+        private System.Windows.Forms.PictureBox verSenha;
     }
 }

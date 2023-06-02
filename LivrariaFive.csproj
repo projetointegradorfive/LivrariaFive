@@ -99,6 +99,12 @@
     <Compile Include="View\FormLoginUser.Designer.cs">
       <DependentUpon>FormLoginUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmGerenciarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmGerenciarUsuarios.Designer.cs">
+      <DependentUpon>FrmGerenciarUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmPrincipalAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormLoginUser.resx">
       <DependentUpon>FormLoginUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmGerenciarUsuarios.resx">
+      <DependentUpon>FrmGerenciarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmPrincipalAdmin.resx">
       <DependentUpon>FrmPrincipalAdmin.cs</DependentUpon>

@@ -57,6 +57,7 @@ namespace LivrariaFive.View
             this.btnGerenciarUsuarios.TabIndex = 3;
             this.btnGerenciarUsuarios.Text = "Gerenciar Usuários";
             this.btnGerenciarUsuarios.UseVisualStyleBackColor = true;
+            this.btnGerenciarUsuarios.Click += new System.EventHandler(this.btnGerenciarUsuarios_Click);
             // 
             // btnGerenciarLivros
             // 
@@ -79,7 +80,7 @@ namespace LivrariaFive.View
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(728, -2);
+            this.pictureBox2.Location = new System.Drawing.Point(723, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -98,6 +99,7 @@ namespace LivrariaFive.View
             this.Controls.Add(this.btnGerenciarUsuarios);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FrmPrincipalAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPrincipalAdmin";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
