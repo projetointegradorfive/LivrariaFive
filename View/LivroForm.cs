@@ -9,31 +9,33 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LivrariaFive.Controller;
 using LivrariaFive.Model;
+using LivrariaFive.View;
 
 namespace LivrariaFive.View
 {
     public partial class LivroForm : Form
     {
+
+        private CarrinhoController carrinhoController;
+        private Carrinho carrinho;
+        //private ItemDeCompraController itemDeCompraController;
         private Cliente clienteAtual;
         private LivroController livroController;
         private FormCarrinho formCarrinho;
-        public FormCarrinho FormCarrinho { get; set; }
 
 
-        public LivroForm(Cliente cliente, FormCarrinho carrinhoForm)
+
+
+        public LivroForm(Cliente cliente)
         {
             InitializeComponent();
             clienteAtual = cliente;
             livroController = new LivroController();
-            FormCarrinho = carrinhoForm;
-
-
-
+            
+          
         }
         private void LivroForm_Load_1(object sender, EventArgs e)
         {
-
-
             PrencherDataGrid();
             ConfigurarGrade();
         }
@@ -55,8 +57,6 @@ namespace LivrariaFive.View
             dataGridViewLivros.Columns["Genero"].Width = 150;
             dataGridViewLivros.Columns["Editora"].Width = 150;
             dataGridViewLivros.Columns["Autor"].Width = 150;
-
-
         }
 
 
@@ -212,18 +212,14 @@ namespace LivrariaFive.View
 
         private void btnAdicionarCarrinho_Click(object sender, EventArgs e)
         {
-            List<ItemDeCompra> itensSelecionados = ObterItensDeCompraSelecionados();
+            List<ItemDeCompra> itensSelecionados = new List<ItemDeCompra>();
+            itensSelecionados = ObterItensDeCompraSelecionados();
 
-            if (formCarrinho == null || formCarrinho.IsDisposed) // Verifique se o formulário não está aberto ou foi descartado
-            {
-                formCarrinho = new FormCarrinho(); // Crie uma nova instância do FormCarrinho
-            }
 
-            // Atualize os itens do carrinho no FormCarrinho
-            formCarrinho.AdicionarItensCarrinho(itensSelecionados);
 
-            // Limpar a seleção no DataGridView
-            LimparSelecaoDataGridView();
+            ItemDeCompraController itemDeCompraController = new ItemDeCompraController();
+            
+            itemDeCompraController.InserirItensDeCompra(12, itensSelecionados);
 
         }
 
@@ -242,61 +238,37 @@ namespace LivrariaFive.View
         {
             List<ItemDeCompra> itensSelecionados = new List<ItemDeCompra>();
 
+            // Obtém todos os livros da base de dados usando o método GetAllLivros do LivroController
+            LivroController livroController = new LivroController();
+            IList<Livro> livros = livroController.GetAllLivros();
+
             foreach (DataGridViewRow row in dataGridViewLivros.Rows)
             {
                 DataGridViewCheckBoxCell checkBoxCell = row.Cells["checkBoxColumn"] as DataGridViewCheckBoxCell;
 
                 if (checkBoxCell != null && checkBoxCell.Value != null && Convert.ToBoolean(checkBoxCell.Value))
                 {
-                    // Obter os valores das células correspondentes às colunas desejadas
-                    string titulo = row.Cells["Titulo"].Value?.ToString();
-                    string isbn = row.Cells["Isbn"].Value?.ToString();
-                    string preco = row.Cells["Preco"].Value?.ToString();
-                    string descricao = row.Cells["Descricao"].Value?.ToString();
-                    string genero = row.Cells["Genero"].Value?.ToString();
-                    string editora = row.Cells["Editora"].Value?.ToString();
-                    string autor = row.Cells["Autor"].Value?.ToString();
-                    Image imagem = (Image)row.Cells["Imagem"].Value;
+                    int livroId = Convert.ToInt32(row.Cells["Id"].Value);
 
-                    // Criar o objeto Livro com base nos valores obtidos
-                    Livro livro = new Livro()
+                    // Encontra o livro correspondente na lista de livros
+                    Livro livro = livros.FirstOrDefault(l => l.Id == livroId);
+
+                    if (livro != null)
                     {
-                        Titulo = titulo,
-                        Isbn = isbn,
-                        Preco = double.Parse(preco),
-                        Descricao = descricao,
-                        Genero = genero,
-                        Editora = editora,
-                        Autor = autor,
-                        Imagem = imagem
-                    };
+                        ItemDeCompra item = new ItemDeCompra()
+                        {
+                            Livro = livro,
+                            Quantidade = 1,
+                        };
 
-                    // Criar o ItemDeCompra com base no livro selecionado
-                    ItemDeCompra item = new ItemDeCompra()
-                    {
-                        Livro = livro,
-                        Quantidade = 1,  // Defina a quantidade desejada aqui
-                        PrecoUnitario = livro.Preco  // Defina o preço unitário do livro aqui
-                    };
-
-                    itensSelecionados.Add(item);
+                        itensSelecionados.Add(item);
+                    }
                 }
-            }
-
-            if (itensSelecionados.Count > 0)
-            {
-                // Exibir mensagem de sucesso se houver itens selecionados
-                MessageBox.Show("Livro(s) adicionado(s) ao carrinho com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
-            }
-            else
-            {
-                // Exibir mensagem de erro se nenhum item for selecionado
-                MessageBox.Show("Nenhum livro selecionado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return itensSelecionados;
         }
+
 
 
 
@@ -313,9 +285,13 @@ namespace LivrariaFive.View
 
         private void btnAbrirCarrinho_Click(object sender, EventArgs e)
         {
-
+            // Crie uma instância do FormCarrinho
             FormCarrinho formCarrinho = new FormCarrinho();
-            formCarrinho.ShowDialog();
+
+            // Abra o FormCarrinho
+            formCarrinho.Show(); // Use formCarrinho.ShowDialog() se quiser que seja um diálogo modal
+           
+
         }
     }
 }

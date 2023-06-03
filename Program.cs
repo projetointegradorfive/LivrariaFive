@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LivrariaFive.Controller;
 
 namespace LivrariaFive.View
 {
@@ -19,9 +20,8 @@ namespace LivrariaFive.View
             Application.SetCompatibleTextRenderingDefault(false);
             Livro livro = new Livro(); // Instancia um objeto Livro
             Cliente clienteAtual = new Cliente(); // Instancia um objeto Cliente
-            FormCarrinho formCarrinho = new FormCarrinho();
-
-            Application.Run(new LivroForm(clienteAtual, formCarrinho));
+   
+            Application.Run(new FormLoginUser());
         }
     }
 }

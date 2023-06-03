@@ -15,7 +15,7 @@ namespace LivrariaFive.Model
         public Carrinho()
         {
             ItensDeCompra = new List<ItemDeCompra>();
-            Total = 0;
+            
         }
     }
 }

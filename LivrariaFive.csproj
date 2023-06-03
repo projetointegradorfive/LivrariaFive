@@ -61,6 +61,7 @@
     <Compile Include="Controller\ClienteController.cs" />
     <Compile Include="Controller\EditoraController.cs" />
     <Compile Include="Controller\GeneroController.cs" />
+    <Compile Include="Controller\ItemDeCompraController.cs" />
     <Compile Include="Controller\LivroController.cs" />
     <Compile Include="Controller\PedidoController.cs" />
     <Compile Include="Model\Autor.cs" />

@@ -70,16 +70,14 @@ namespace LivrariaFive.View
 
             ClienteController clienteController = new ClienteController();
             Cliente cliente = clienteController.VerificarCredenciais(email, senha);
-
+            CarrinhoController carrinhoController = new CarrinhoController();
             if (cliente != null)
             {
                 // Definir o cliente atual
                 ClienteAtual = cliente;
 
-                FormCarrinho formCarrinho = new FormCarrinho();
-
                 // Exibir o formulário LivroForm e passar o cliente atual como argumento
-                LivroForm livroForm = new LivroForm(ClienteAtual, formCarrinho);
+                LivroForm livroForm = new LivroForm(ClienteAtual);
                 livroForm.Show();
                 this.Hide();
             }
@@ -89,6 +87,10 @@ namespace LivrariaFive.View
             }
         }
 
+        private void FormLoginUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
