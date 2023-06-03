@@ -20,8 +20,10 @@ namespace LivrariaFive.View
             Application.SetCompatibleTextRenderingDefault(false);
             Livro livro = new Livro(); // Instancia um objeto Livro
             Cliente clienteAtual = new Cliente(); // Instancia um objeto Cliente
+
    
             Application.Run(new FormLoginUser());
+
         }
     }
 }

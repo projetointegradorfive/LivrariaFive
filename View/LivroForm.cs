@@ -203,10 +203,11 @@ namespace LivrariaFive.View
 
             // Exibir o formulário de login
             FormLoginUser formLoginUser = new FormLoginUser();
+            this.Hide();
             formLoginUser.Show();
 
             // Fechar o formulário atual (LivroForm)
-            this.Close();
+            
 
         }
 
