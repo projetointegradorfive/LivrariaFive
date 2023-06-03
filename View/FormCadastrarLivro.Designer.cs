@@ -334,7 +334,6 @@ namespace LivrariaFive.View
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCadastrarLivro";
             this.Text = "FormCadastrarLivro";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormCadastrarLivro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.panel1.ResumeLayout(false);

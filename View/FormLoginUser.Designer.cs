@@ -100,6 +100,7 @@ namespace LivrariaFive.View
             // btnCadastrarUser
             // 
             this.btnCadastrarUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+
             this.btnCadastrarUser.Location = new System.Drawing.Point(4, 479);
             this.btnCadastrarUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnCadastrarUser.Name = "btnCadastrarUser";
@@ -122,10 +123,12 @@ namespace LivrariaFive.View
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(517, 30);
+
             this.tableLayoutPanel8.TabIndex = 4;
             // 
             // txtEnderecoCadastro
             // 
+
             this.txtEnderecoCadastro.Location = new System.Drawing.Point(100, 4);
             this.txtEnderecoCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.txtEnderecoCadastro.Name = "txtEnderecoCadastro";
@@ -271,6 +274,7 @@ namespace LivrariaFive.View
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(51, 25);
+
             this.label8.TabIndex = 7;
             this.label8.Text = "CPF:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -368,6 +372,7 @@ namespace LivrariaFive.View
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label1.Location = new System.Drawing.Point(4, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -431,6 +436,7 @@ namespace LivrariaFive.View
             this.txtSenhaLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtSenhaLogin.Location = new System.Drawing.Point(105, 38);
             this.txtSenhaLogin.Margin = new System.Windows.Forms.Padding(4);
+
             this.txtSenhaLogin.Name = "txtSenhaLogin";
             this.txtSenhaLogin.Size = new System.Drawing.Size(276, 22);
             this.txtSenhaLogin.TabIndex = 3;

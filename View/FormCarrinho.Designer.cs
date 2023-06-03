@@ -42,6 +42,7 @@ namespace LivrariaFive.View
             this.dataGridViewItensCarrinho.Name = "dataGridViewItensCarrinho";
             this.dataGridViewItensCarrinho.Size = new System.Drawing.Size(776, 352);
             this.dataGridViewItensCarrinho.TabIndex = 0;
+           
             // 
             // FormCarrinho
             // 
