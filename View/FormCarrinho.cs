@@ -38,19 +38,19 @@ namespace LivrariaFive.View
             carrinho = new Carrinho();
 
             // Carregar os itens do carrinho no DataGridView
-            List<ItemDeCompra> itens = carrinhoController.ObterCarrinho(carrinho);
+            //List<ItemDeCompra> itens = carrinhoController.ObterCarrinho(carrinho);
 
-            if (itens.Count > 0)
-            {
-                foreach (ItemDeCompra item in itens)
-                {
-                    dataGridViewItensCarrinho.Rows.Add(item.Livro.Id, item.NomeLivro, item.PrecoLivro, item.Quantidade, item.Livro.Imagem);
-                }
-            }
-            else
-            {
-                MessageBox.Show("O carrinho está vazio!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //if (itens.Count > 0)
+            //{
+            //    foreach (ItemDeCompra item in itens)
+            //    {
+            //        dataGridViewItensCarrinho.Rows.Add(item.Livro.Id, item.NomeLivro, item.PrecoLivro, item.Quantidade, item.Livro.Imagem);
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("O carrinho está vazio!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
         }
 
     }

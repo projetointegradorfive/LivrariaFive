@@ -31,6 +31,7 @@ namespace LivrariaFive.View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LivroForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridViewLivros = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnBuscarNome = new System.Windows.Forms.Button();
             this.txtBuscarNome = new System.Windows.Forms.TextBox();
@@ -39,16 +40,15 @@ namespace LivrariaFive.View
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAdicionarCarrinho = new System.Windows.Forms.Button();
-            this.dataGridViewLivros = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAbrirCarrinho = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAdicionarCarrinho = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLivros)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -68,6 +68,18 @@ namespace LivrariaFive.View
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
+            // dataGridViewLivros
+            // 
+            this.dataGridViewLivros.AllowUserToAddRows = false;
+            this.dataGridViewLivros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewLivros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewLivros.Location = new System.Drawing.Point(3, 80);
+            this.dataGridViewLivros.Name = "dataGridViewLivros";
+            this.dataGridViewLivros.Size = new System.Drawing.Size(794, 279);
+            this.dataGridViewLivros.TabIndex = 0;
+            this.dataGridViewLivros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLivros_CellContentClick);
+            this.dataGridViewLivros.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLivros_CellDoubleClick);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 5;
@@ -75,7 +87,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.12676F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 310F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel2.Controls.Add(this.btnBuscarNome, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtBuscarNome, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
@@ -98,7 +110,7 @@ namespace LivrariaFive.View
             this.btnBuscarNome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.btnBuscarNome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarNome.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarNome.Image")));
-            this.btnBuscarNome.Location = new System.Drawing.Point(315, 35);
+            this.btnBuscarNome.Location = new System.Drawing.Point(314, 35);
             this.btnBuscarNome.Name = "btnBuscarNome";
             this.btnBuscarNome.Size = new System.Drawing.Size(28, 21);
             this.btnBuscarNome.TabIndex = 5;
@@ -108,7 +120,7 @@ namespace LivrariaFive.View
             // txtBuscarNome
             // 
             this.txtBuscarNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarNome.Location = new System.Drawing.Point(62, 35);
+            this.txtBuscarNome.Location = new System.Drawing.Point(61, 35);
             this.txtBuscarNome.MaxLength = 70;
             this.txtBuscarNome.Name = "txtBuscarNome";
             this.txtBuscarNome.Size = new System.Drawing.Size(247, 23);
@@ -118,7 +130,7 @@ namespace LivrariaFive.View
             // 
             this.label2.Location = new System.Drawing.Point(3, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 23);
+            this.label2.Size = new System.Drawing.Size(52, 23);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nome:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -126,7 +138,7 @@ namespace LivrariaFive.View
             // txtBuscarGenero
             // 
             this.txtBuscarGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarGenero.Location = new System.Drawing.Point(62, 3);
+            this.txtBuscarGenero.Location = new System.Drawing.Point(61, 3);
             this.txtBuscarGenero.MaxLength = 70;
             this.txtBuscarGenero.Name = "txtBuscarGenero";
             this.txtBuscarGenero.Size = new System.Drawing.Size(247, 23);
@@ -136,7 +148,7 @@ namespace LivrariaFive.View
             // 
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 23);
+            this.label1.Size = new System.Drawing.Size(52, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Genero:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -147,7 +159,7 @@ namespace LivrariaFive.View
             this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(315, 3);
+            this.btnBuscar.Location = new System.Drawing.Point(314, 3);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(28, 19);
             this.btnBuscar.TabIndex = 2;
@@ -157,13 +169,36 @@ namespace LivrariaFive.View
             // btnSair
             // 
             this.btnSair.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSair.Location = new System.Drawing.Point(660, 35);
+            this.btnSair.Location = new System.Drawing.Point(659, 35);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(124, 29);
+            this.btnSair.Size = new System.Drawing.Size(125, 29);
             this.btnSair.TabIndex = 6;
             this.btnSair.Text = "Sign out";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.btnAbrirCarrinho, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(659, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(124, 25);
+            this.tableLayoutPanel4.TabIndex = 7;
+            // 
+            // btnAbrirCarrinho
+            // 
+            this.btnAbrirCarrinho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAbrirCarrinho.Location = new System.Drawing.Point(3, 3);
+            this.btnAbrirCarrinho.Name = "btnAbrirCarrinho";
+            this.btnAbrirCarrinho.Size = new System.Drawing.Size(118, 19);
+            this.btnAbrirCarrinho.TabIndex = 7;
+            this.btnAbrirCarrinho.Text = "Carrinho";
+            this.btnAbrirCarrinho.UseVisualStyleBackColor = true;
+            this.btnAbrirCarrinho.Click += new System.EventHandler(this.btnAbrirCarrinho_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -189,42 +224,6 @@ namespace LivrariaFive.View
             this.btnAdicionarCarrinho.UseVisualStyleBackColor = true;
             this.btnAdicionarCarrinho.Click += new System.EventHandler(this.btnAdicionarCarrinho_Click);
             // 
-            // dataGridViewLivros
-            // 
-            this.dataGridViewLivros.AllowUserToAddRows = false;
-            this.dataGridViewLivros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLivros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewLivros.Location = new System.Drawing.Point(3, 80);
-            this.dataGridViewLivros.Name = "dataGridViewLivros";
-            this.dataGridViewLivros.ReadOnly = true;
-            this.dataGridViewLivros.Size = new System.Drawing.Size(794, 279);
-            this.dataGridViewLivros.TabIndex = 0;
-            this.dataGridViewLivros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLivros_CellContentClick);
-            this.dataGridViewLivros.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLivros_CellDoubleClick);
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.btnAbrirCarrinho, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(660, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(124, 25);
-            this.tableLayoutPanel4.TabIndex = 7;
-            // 
-            // btnAbrirCarrinho
-            // 
-            this.btnAbrirCarrinho.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAbrirCarrinho.Location = new System.Drawing.Point(3, 3);
-            this.btnAbrirCarrinho.Name = "btnAbrirCarrinho";
-            this.btnAbrirCarrinho.Size = new System.Drawing.Size(118, 19);
-            this.btnAbrirCarrinho.TabIndex = 7;
-            this.btnAbrirCarrinho.Text = "Carrinho";
-            this.btnAbrirCarrinho.UseVisualStyleBackColor = true;
-            this.btnAbrirCarrinho.Click += new System.EventHandler(this.btnAbrirCarrinho_Click);
-            // 
             // LivroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,11 +236,11 @@ namespace LivrariaFive.View
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LivroForm_Load_1);
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLivros)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLivros)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
