@@ -16,12 +16,11 @@ namespace LivrariaFive.View
     public partial class LivroForm : Form
     {
 
-        private CarrinhoController carrinhoController;
-        private Carrinho carrinho;
+  
         //private ItemDeCompraController itemDeCompraController;
         private Cliente clienteAtual;
         private LivroController livroController;
-        private FormCarrinho formCarrinho;
+
 
 
 
@@ -31,8 +30,8 @@ namespace LivrariaFive.View
             InitializeComponent();
             clienteAtual = cliente;
             livroController = new LivroController();
-            
-          
+
+
         }
         private void LivroForm_Load_1(object sender, EventArgs e)
         {
@@ -77,16 +76,37 @@ namespace LivrariaFive.View
             {
                 Name = "Imagem",
                 HeaderText = "Imagem",
-                ImageLayout = DataGridViewImageCellLayout.Zoom, // Ajuste o layout da imagem conforme necessário
+                ImageLayout = DataGridViewImageCellLayout.Zoom,
                 Width = 100
             });
 
+            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
+            checkBoxColumn.HeaderText = "Selecionado";
+            checkBoxColumn.Name = "checkBoxColumn";
+            checkBoxColumn.ReadOnly = true; // Definindo a coluna como somente leitura
+            dataGridViewLivros.Columns.Add(checkBoxColumn);
 
+            DataGridViewTextBoxColumn quantidadeColumn = new DataGridViewTextBoxColumn();
+            quantidadeColumn.HeaderText = "Quantidade";
+            quantidadeColumn.Name = "quantidadeColumn";
+
+            // Definir valor padrão de 1 para a coluna de quantidade nas linhas adicionadas
+            dataGridViewLivros.RowsAdded += (sender, e) =>
+            {
+                foreach (DataGridViewRow row in dataGridViewLivros.Rows)
+                {
+                    row.Cells["quantidadeColumn"].Value = 1;
+                }
+            };
+
+
+            dataGridViewLivros.Columns.Add(quantidadeColumn);
 
             foreach (Livro livro in livros)
             {
-                string autor = livroController.GetAutorName(livro.Autor); //pegando o nome do autor
-                dataGridViewLivros.Rows.Add(
+                string autor = livroController.GetAutorName(livro.Autor);
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(dataGridViewLivros,
                     livro.Id,
                     livro.Titulo,
                     livro.Isbn,
@@ -94,21 +114,23 @@ namespace LivrariaFive.View
                     livro.Descricao,
                     livro.Genero,
                     livro.Editora,
-                    autor,  // Nome do autor
+                    autor,
                     livro.Imagem
                 );
+                row.Cells[dataGridViewLivros.Columns["checkBoxColumn"].Index].Value = false;
+                dataGridViewLivros.Rows.Add(row);
             }
 
-            // Crie uma nova instância de DataGridViewCheckBoxColumn
-            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
-            checkBoxColumn.HeaderText = "Selecionado";
-            checkBoxColumn.Name = "checkBoxColumn";
-
-            // Adicione a coluna ao DataGridView
-            dataGridViewLivros.Columns.Add(checkBoxColumn);
-
-
+            // Definindo as outras colunas como somente leitura
+            foreach (DataGridViewColumn column in dataGridViewLivros.Columns)
+            {
+                if (column.Name != "quantidadeColumn" && column.Name != "checkBoxColumn")
+                {
+                    column.ReadOnly = true;
+                }
+            }
         }
+
 
 
         private void dataGridViewLivros_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -206,21 +228,23 @@ namespace LivrariaFive.View
             this.Hide();
             formLoginUser.Show();
 
-            // Fechar o formulário atual (LivroForm)
-            
 
         }
 
         private void btnAdicionarCarrinho_Click(object sender, EventArgs e)
         {
+            //Obtem os itens selecionados no dataGrid
             List<ItemDeCompra> itensSelecionados = new List<ItemDeCompra>();
             itensSelecionados = ObterItensDeCompraSelecionados();
+            Carrinho carrinho = new Carrinho();
 
 
 
             ItemDeCompraController itemDeCompraController = new ItemDeCompraController();
-            
-            itemDeCompraController.InserirItensDeCompra(12, itensSelecionados);
+
+
+            //chama o método InserirItensDeCompra e passa por parâmetro o id do carrinho e lista de itens selecionados
+            itemDeCompraController.InserirItensDeCompra(11, itensSelecionados);
 
         }
 
@@ -249,17 +273,21 @@ namespace LivrariaFive.View
 
                 if (checkBoxCell != null && checkBoxCell.Value != null && Convert.ToBoolean(checkBoxCell.Value))
                 {
+                    //pega o id do livro selecionado
                     int livroId = Convert.ToInt32(row.Cells["Id"].Value);
+                    int quantidade = Convert.ToInt32(row.Cells["quantidadeColumn"].Value);
 
-                    // Encontra o livro correspondente na lista de livros
+                    // Encontra o livro correspondente na lista de livros pelo id
                     Livro livro = livros.FirstOrDefault(l => l.Id == livroId);
 
                     if (livro != null)
                     {
+                        //atribui o valor do livro para as propriedade de item de compra
                         ItemDeCompra item = new ItemDeCompra()
                         {
                             Livro = livro,
-                            Quantidade = 1,
+                            PrecoLivro = livro.Preco,
+                            Quantidade = quantidade,
                         };
 
                         itensSelecionados.Add(item);
@@ -269,10 +297,6 @@ namespace LivrariaFive.View
 
             return itensSelecionados;
         }
-
-
-
-
 
         private void dataGridViewLivros_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -291,7 +315,7 @@ namespace LivrariaFive.View
 
             // Abra o FormCarrinho
             formCarrinho.Show(); // Use formCarrinho.ShowDialog() se quiser que seja um diálogo modal
-           
+
 
         }
     }
