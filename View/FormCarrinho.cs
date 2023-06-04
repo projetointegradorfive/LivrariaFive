@@ -34,7 +34,6 @@ namespace LivrariaFive.View
             dgvCarrinho.Columns.Add("Titulo", "Título");
             dgvCarrinho.Columns.Add("Quantidade", "Quantidade");
             dgvCarrinho.Columns.Add("Preco", "Preço");
-
             // Carregar os itens do carrinho
             CarregarItensCarrinho();
         }

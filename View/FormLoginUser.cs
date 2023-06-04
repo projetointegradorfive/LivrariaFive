@@ -93,6 +93,11 @@ namespace LivrariaFive.View
             this.Hide();
             login.Show();
         }
+
+        private void FormLoginUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

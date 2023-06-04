@@ -12,7 +12,10 @@ namespace LivrariaFive.Model
         public string NomeLivro { get; set; }
         public double PrecoLivro { get; set; }
         public int Quantidade { get; set; }
-        public double PrecoTotal { get; set; }
+        public double PrecoTotal
+        {
+            get { return PrecoLivro * Quantidade; }
+        }
 
 
 
