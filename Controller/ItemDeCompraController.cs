@@ -15,6 +15,15 @@ namespace LivrariaFive.Controller
 {
     public class ItemDeCompraController
     {
+        private CarrinhoController carrinhoController;
+       
+        public ItemDeCompraController()
+        {
+            carrinhoController = new CarrinhoController();
+
+        }
+
+       
 
         public void InserirOuAtualizarItensDeCompra(int idCarrinho, List<ItemDeCompra> itensDeCompra)
         {
@@ -43,6 +52,9 @@ namespace LivrariaFive.Controller
                         // Insere um novo item de compra no carrinho
                         InserirItensDeCompra(idCarrinho, item);
                     }
+
+                    // Atualizar o preço total do carrinho
+                    carrinhoController.AtualizarPrecoTotalCarrinho(idCarrinho);
                 }
             }
         }
@@ -76,7 +88,7 @@ namespace LivrariaFive.Controller
             }
         }
 
-       
+
         public int ObterQuantidadeItem(int idCarrinho, int idLivro)
         {
             int quantidade = 0;
@@ -166,6 +178,10 @@ namespace LivrariaFive.Controller
                         updatePriceCommand.ExecuteNonQuery();
                     }
                 }
+               
+                // Atualizar o preço total do carrinho
+                carrinhoController.AtualizarPrecoTotalCarrinho(idCarrinho);
+
             }
             catch (Exception ex)
             {
@@ -232,6 +248,9 @@ namespace LivrariaFive.Controller
                     {
                         carrinho.ItensDeCompra.Remove(item);
                     }
+               
+                    // Atualizar o preço total do carrinho
+                    carrinhoController.AtualizarPrecoTotalCarrinho(carrinho.Id);
                 }
             }
             catch (Exception ex)
@@ -259,12 +278,15 @@ namespace LivrariaFive.Controller
 
                     // Limpar a lista de itens de compra do carrinho
                     carrinho.ItensDeCompra.Clear();
+
+                    // Atualizar o preço total do carrinho
+                    carrinhoController.AtualizarPrecoTotalCarrinho(carrinho.Id);
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Erro ao limpar carrinho: " + ex.Message);
             }
-        }   
+        }
     }
 }

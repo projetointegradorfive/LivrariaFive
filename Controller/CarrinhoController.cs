@@ -7,10 +7,11 @@ using LivrariaFive.Persistence;
 using System.Drawing;
 using System.IO;
 namespace LivrariaFive.Controller
+
 {
     public class CarrinhoController
     {
-
+       
         public Carrinho ObterCarrinho(int idCliente)
         {
             Carrinho carrinho = null;
@@ -123,21 +124,7 @@ namespace LivrariaFive.Controller
             return carrinho;
         }
 
-      
-
-        public void AtualizarQuantidadeItem(DataGridView dataGridViewCarrinho, int livroId, int quantidade)
-        {
-            foreach (DataGridViewRow row in dataGridViewCarrinho.Rows)
-            {
-                if (Convert.ToInt32(row.Cells["LivroId"].Value) == livroId)
-                {
-                    row.Cells["Quantidade"].Value = quantidade;
-                    break;
-                }
-            }
-        }
-
-        public void AtualizarCarrinho(Carrinho carrinho)
+        public void AtualizarPrecoTotalCarrinho(int idCarrinho)
         {
             try
             {
@@ -145,44 +132,35 @@ namespace LivrariaFive.Controller
                 {
                     connection.Open();
 
-                    // Atualizar o carrinho no banco de dados
-                    string query = "UPDATE tbCarrinho SET preco_total_carrinho = @PrecoTotal WHERE idCarrinho = @CarrinhoId";
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    // Calcular o preço total do carrinho
+                    string calculateTotalQuery = "SELECT SUM(preco_total) FROM tbItemDeCompra WHERE idCarrinho = @IdCarrinho";
+                    using (SqlCommand calculateTotalCommand = new SqlCommand(calculateTotalQuery, connection))
                     {
-                        command.Parameters.AddWithValue("@PrecoTotal", carrinho.Total);
-                        command.Parameters.AddWithValue("@CarrinhoId", carrinho.Id);
-                        command.ExecuteNonQuery();
-                    }
+                        calculateTotalCommand.Parameters.AddWithValue("@IdCarrinho", idCarrinho);
 
-                    // Remover todos os itens do carrinho existentes no banco de dados
-                    query = "DELETE FROM tbItemDeCompra WHERE idCarrinho = @CarrinhoId";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@CarrinhoId", carrinho.Id);
-                        command.ExecuteNonQuery();
-                    }
+                        object result = calculateTotalCommand.ExecuteScalar();
+                        decimal precoTotal = result != DBNull.Value ? Convert.ToDecimal(result) : 0;
 
-                    // Inserir os novos itens do carrinho no banco de dados
-                    foreach (ItemDeCompra item in carrinho.ItensDeCompra)
-                    {
-                        query = "INSERT INTO tbItemDeCompra (quantidade, preco_unitario, preco_total, idLivro, idCarrinho) VALUES (@Quantidade, @PrecoUnitario, @PrecoTotal, @LivroId, @CarrinhoId)";
-                        using (SqlCommand command = new SqlCommand(query, connection))
+                        // Atualizar o preço total do carrinho na tabela tbCarrinho
+                        string updateTotalQuery = "UPDATE tbCarrinho SET preco_total_carrinho = @PrecoTotal WHERE idCarrinho = @IdCarrinho";
+                        using (SqlCommand updateTotalCommand = new SqlCommand(updateTotalQuery, connection))
                         {
-                            command.Parameters.AddWithValue("@Quantidade", item.Quantidade);
-                            command.Parameters.AddWithValue("@PrecoUnitario", item.PrecoLivro);
-                            command.Parameters.AddWithValue("@PrecoTotal", item.PrecoTotal);
-                            command.Parameters.AddWithValue("@LivroId", item.Livro.Id);
-                            command.Parameters.AddWithValue("@CarrinhoId", carrinho.Id);
+                            updateTotalCommand.Parameters.AddWithValue("@PrecoTotal", precoTotal);
+                            updateTotalCommand.Parameters.AddWithValue("@IdCarrinho", idCarrinho);
 
-                            command.ExecuteNonQuery();
+                            updateTotalCommand.ExecuteNonQuery();
                         }
                     }
+
+
+
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erro ao atualizar o carrinho: " + ex.Message);
+                Console.WriteLine("Erro ao atualizar o preço total do carrinho no banco de dados: " + ex.Message);
             }
         }
+       
     }
 }

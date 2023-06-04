@@ -20,6 +20,8 @@ namespace LivrariaFive.View
         private Cliente cliente;
         private ItemDeCompraController itemDeCompraController;
 
+        private CarrinhoController carrinhoController;
+
 
 
         public FormCarrinho(Carrinho carrinho, Cliente cliente)
@@ -28,6 +30,7 @@ namespace LivrariaFive.View
             this.carrinho = carrinho;
             this.cliente = cliente;
             itemDeCompraController = new ItemDeCompraController();
+            carrinhoController = new CarrinhoController();
 
         }
 
@@ -43,6 +46,7 @@ namespace LivrariaFive.View
             ConfigurarGrade();
             // Carregar os itens do carrinho
             CarregarItensCarrinho();
+
         }
 
 
@@ -66,10 +70,12 @@ namespace LivrariaFive.View
             dgvCarrinho.Columns["Titulo"].ReadOnly = true; // Torna a coluna somente leitura
 
             dgvCarrinho.Columns["Quantidade"].Width = 100;
+            dgvCarrinho.Columns["Quantidade"].Name = "Quantidade";
             dgvCarrinho.Columns["Quantidade"].HeaderText = "Quantidade";
 
             dgvCarrinho.Columns["Preco"].Width = 100;
             dgvCarrinho.Columns["Preco"].HeaderText = "Preço";
+            dgvCarrinho.Columns["Preco"].Name = "Preco";
             dgvCarrinho.Columns["Preco"].DefaultCellStyle.Format = "C2"; // Formato de moeda (R$)
             dgvCarrinho.Columns["Preco"].ReadOnly = true; // Torna a coluna somente leitura
 
@@ -86,7 +92,6 @@ namespace LivrariaFive.View
         {
             dgvCarrinho.Rows.Clear();
 
-
             foreach (ItemDeCompra item in carrinho.ItensDeCompra)
             {
                 DataGridViewRow row = new DataGridViewRow();
@@ -94,9 +99,8 @@ namespace LivrariaFive.View
                 // Adicione o código para obter o ID do ItemDeCompra
                 int itemId = itemDeCompraController.ObterIdItemDeCompra(item.Livro.Id, carrinho.Id);
                 item.Id = itemId;
-                
+
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = item.Id });
-                
 
                 DataGridViewImageCell imageCell = new DataGridViewImageCell();
                 imageCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
@@ -108,11 +112,10 @@ namespace LivrariaFive.View
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = item.PrecoLivro });
                 row.Tag = item;
 
-
-
                 dgvCarrinho.Rows.Add(row);
             }
         }
+
 
         private List<ItemDeCompra> ObterItensDeCompraSelecionados()
         {
@@ -160,7 +163,6 @@ namespace LivrariaFive.View
 
         private void dgvCarrinho_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.ColumnIndex == dgvCarrinho.Columns["Quantidade"].Index)
             {
                 DataGridViewRow row = dgvCarrinho.Rows[e.RowIndex];
@@ -169,8 +171,58 @@ namespace LivrariaFive.View
 
                 // Atualize a quantidade no banco de dados
                 itemDeCompraController.AtualizarQuantidadeItem(carrinho.Id, item.Livro.Id, novaQuantidade);
+
+            }
+        }
+
+        private decimal CalcularTotalItensSelecionados()
+        {
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dgvCarrinho.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = row.Cells["checkBoxColumn"] as DataGridViewCheckBoxCell;
+
+                if (checkBoxCell != null && checkBoxCell.Value != null && Convert.ToBoolean(checkBoxCell.Value))
+                {
+                    object precoValue = row.Cells["Preco"].Value;
+                    object quantidadeValue = row.Cells["Quantidade"].Value;
+
+                    if (precoValue != null && quantidadeValue != null)
+                    {
+                        decimal precoUnitario = Convert.ToDecimal(precoValue);
+                        int quantidade = Convert.ToInt32(quantidadeValue);
+                        decimal subtotal = precoUnitario * quantidade;
+                        total += subtotal;
+                    }
+                }
             }
 
+            return total;
         }
+
+        private void dgvCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == dgvCarrinho.Columns["checkBoxColumn"].Index && e.RowIndex != -1)
+                {
+                    DataGridViewCheckBoxCell checkBoxCell = dgvCarrinho.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewCheckBoxCell;
+
+                    if (checkBoxCell != null)
+                    {
+                        dgvCarrinho.EndEdit();
+
+                        decimal total = CalcularTotalItensSelecionados();
+                        lblPrecoTotalCarrinho.Text = total.ToString("C");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao atualizar o valor total do carrinho: " + ex.Message);
+            }
+        }
+
     }
 }

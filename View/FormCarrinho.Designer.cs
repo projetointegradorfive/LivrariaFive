@@ -32,6 +32,8 @@ namespace LivrariaFive.View
             this.dgvCarrinho = new System.Windows.Forms.DataGridView();
             this.btnRemoverItemCarrinho = new System.Windows.Forms.Button();
             this.btnLimparCarrinho = new System.Windows.Forms.Button();
+            this.lblPrecoTotalCarrinho = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +46,7 @@ namespace LivrariaFive.View
             this.dgvCarrinho.Name = "dgvCarrinho";
             this.dgvCarrinho.Size = new System.Drawing.Size(776, 352);
             this.dgvCarrinho.TabIndex = 0;
+            this.dgvCarrinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrinho_CellContentClick);
             this.dgvCarrinho.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrinho_CellEndEdit);
             // 
             // btnRemoverItemCarrinho
@@ -66,11 +69,30 @@ namespace LivrariaFive.View
             this.btnLimparCarrinho.UseVisualStyleBackColor = true;
             this.btnLimparCarrinho.Click += new System.EventHandler(this.btnLimparCarrinho_Click);
             // 
+            // lblPrecoTotalCarrinho
+            // 
+            this.lblPrecoTotalCarrinho.Location = new System.Drawing.Point(422, 394);
+            this.lblPrecoTotalCarrinho.Name = "lblPrecoTotalCarrinho";
+            this.lblPrecoTotalCarrinho.Size = new System.Drawing.Size(88, 29);
+            this.lblPrecoTotalCarrinho.TabIndex = 3;
+            this.lblPrecoTotalCarrinho.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(363, 394);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 29);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Total do Carrinho:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormCarrinho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPrecoTotalCarrinho);
             this.Controls.Add(this.btnLimparCarrinho);
             this.Controls.Add(this.btnRemoverItemCarrinho);
             this.Controls.Add(this.dgvCarrinho);
@@ -87,5 +109,7 @@ namespace LivrariaFive.View
         private System.Windows.Forms.DataGridView dgvCarrinho;
         private System.Windows.Forms.Button btnRemoverItemCarrinho;
         private System.Windows.Forms.Button btnLimparCarrinho;
+        private System.Windows.Forms.Label lblPrecoTotalCarrinho;
+        private System.Windows.Forms.Label label1;
     }
 }
