@@ -25,11 +25,11 @@ namespace LivrariaFive.View
             carrinhoController = new CarrinhoController(); // Inicializar o carrinhoController
 
             // Adicionar as colunas ao DataGridView
-            dataGridViewItensCarrinho.Columns.Add("Id", "ID");
-            dataGridViewItensCarrinho.Columns.Add("NomeLivro", "Nome do Livro");
-            dataGridViewItensCarrinho.Columns.Add("PrecoLivro", "Preço do Livro");
-            dataGridViewItensCarrinho.Columns.Add("Quantidade", "Quantidade");
-            dataGridViewItensCarrinho.Columns.Add("Imagem", "Imagem");
+            dgvCarrinho.Columns.Add("Id", "ID");
+            dgvCarrinho.Columns.Add("NomeLivro", "Nome do Livro");
+            dgvCarrinho.Columns.Add("PrecoLivro", "Preço do Livro");
+            dgvCarrinho.Columns.Add("Quantidade", "Quantidade");
+            dgvCarrinho.Columns.Add("Imagem", "Imagem");
         }
 
         private void FormCarrinho_Load(object sender, EventArgs e)
