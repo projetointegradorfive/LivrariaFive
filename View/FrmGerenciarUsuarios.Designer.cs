@@ -43,6 +43,7 @@ namespace LivrariaFive.View
             this.lblTelefoneGerenciarUsuarios = new System.Windows.Forms.Label();
             this.lblDataNascimentoGerenciarUsuarios = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLimparTextBox = new System.Windows.Forms.Button();
             this.btnExcluirUsuarioGerenciarUsuarios = new System.Windows.Forms.Button();
             this.btnSalvarAlteracoesGerenciarUsuarios = new System.Windows.Forms.Button();
             this.btnNovoUsuarioGerenciarUsuarios = new System.Windows.Forms.Button();
@@ -52,7 +53,8 @@ namespace LivrariaFive.View
             this.txtEmailGerenciarUsuarios = new System.Windows.Forms.TextBox();
             this.lblEmailGerenciarUsuarios = new System.Windows.Forms.Label();
             this.maskTxtDataNascimentoGerenciarUsuarios = new System.Windows.Forms.MaskedTextBox();
-            this.btnLimparTextBox = new System.Windows.Forms.Button();
+            this.lblPesquisaUsuarios = new System.Windows.Forms.Label();
+            this.txtPesquisaUsuarios = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosGerenciarUsuarios)).BeginInit();
@@ -172,6 +174,16 @@ namespace LivrariaFive.View
             this.panel1.Size = new System.Drawing.Size(972, 87);
             this.panel1.TabIndex = 22;
             // 
+            // btnLimparTextBox
+            // 
+            this.btnLimparTextBox.Location = new System.Drawing.Point(96, 28);
+            this.btnLimparTextBox.Name = "btnLimparTextBox";
+            this.btnLimparTextBox.Size = new System.Drawing.Size(127, 32);
+            this.btnLimparTextBox.TabIndex = 3;
+            this.btnLimparTextBox.Text = "Limpar TextBox";
+            this.btnLimparTextBox.UseVisualStyleBackColor = true;
+            this.btnLimparTextBox.Click += new System.EventHandler(this.btnLimparTextBox_Click);
+            // 
             // btnExcluirUsuarioGerenciarUsuarios
             // 
             this.btnExcluirUsuarioGerenciarUsuarios.Location = new System.Drawing.Point(685, 28);
@@ -262,21 +274,30 @@ namespace LivrariaFive.View
             this.maskTxtDataNascimentoGerenciarUsuarios.TabIndex = 28;
             this.maskTxtDataNascimentoGerenciarUsuarios.ValidatingType = typeof(System.DateTime);
             // 
-            // btnLimparTextBox
+            // lblPesquisaUsuarios
             // 
-            this.btnLimparTextBox.Location = new System.Drawing.Point(96, 28);
-            this.btnLimparTextBox.Name = "btnLimparTextBox";
-            this.btnLimparTextBox.Size = new System.Drawing.Size(127, 32);
-            this.btnLimparTextBox.TabIndex = 3;
-            this.btnLimparTextBox.Text = "Limpar TextBox";
-            this.btnLimparTextBox.UseVisualStyleBackColor = true;
-            this.btnLimparTextBox.Click += new System.EventHandler(this.btnLimparTextBox_Click);
+            this.lblPesquisaUsuarios.AutoSize = true;
+            this.lblPesquisaUsuarios.Location = new System.Drawing.Point(270, 376);
+            this.lblPesquisaUsuarios.Name = "lblPesquisaUsuarios";
+            this.lblPesquisaUsuarios.Size = new System.Drawing.Size(139, 17);
+            this.lblPesquisaUsuarios.TabIndex = 29;
+            this.lblPesquisaUsuarios.Text = "Pesquisar Usuários: ";
+            // 
+            // txtPesquisaUsuarios
+            // 
+            this.txtPesquisaUsuarios.Location = new System.Drawing.Point(273, 396);
+            this.txtPesquisaUsuarios.Name = "txtPesquisaUsuarios";
+            this.txtPesquisaUsuarios.Size = new System.Drawing.Size(691, 22);
+            this.txtPesquisaUsuarios.TabIndex = 30;
+            this.txtPesquisaUsuarios.TextChanged += new System.EventHandler(this.txtPesquisaUsuarios_TextChanged);
             // 
             // FrmGerenciarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 508);
+            this.Controls.Add(this.txtPesquisaUsuarios);
+            this.Controls.Add(this.lblPesquisaUsuarios);
             this.Controls.Add(this.maskTxtDataNascimentoGerenciarUsuarios);
             this.Controls.Add(this.txtEmailGerenciarUsuarios);
             this.Controls.Add(this.lblEmailGerenciarUsuarios);
@@ -333,5 +354,7 @@ namespace LivrariaFive.View
         private System.Windows.Forms.Label lblEmailGerenciarUsuarios;
         private System.Windows.Forms.MaskedTextBox maskTxtDataNascimentoGerenciarUsuarios;
         private System.Windows.Forms.Button btnLimparTextBox;
+        private System.Windows.Forms.Label lblPesquisaUsuarios;
+        private System.Windows.Forms.TextBox txtPesquisaUsuarios;
     }
 }
