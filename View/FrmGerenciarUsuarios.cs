@@ -229,5 +229,33 @@ namespace LivrariaFive.View
         {
             LimparTextBoxes();
         }
+
+        private void txtPesquisaUsuarios_TextChanged(object sender, EventArgs e)
+        {
+            string pesquisa = txtPesquisaUsuarios.Text.Trim();
+
+            DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+                string query = "SELECT * FROM tbCliente WHERE nome LIKE @pesquisa OR cpf LIKE @pesquisa ORDER BY nome ASC";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@pesquisa", "%" + pesquisa + "%");
+                SqlDataAdapter dp = new SqlDataAdapter(command);
+                dp.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocorreu um erro ao obter os usuários." + ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            dgvUsuariosGerenciarUsuarios.DataSource = dt;
+            dgvUsuariosGerenciarUsuarios.Refresh();
+
+        }
     }
 }

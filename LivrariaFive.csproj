@@ -69,6 +69,11 @@
     <Compile Include="Controller\ItemDeCompraController.cs" />
     <Compile Include="Controller\LivroController.cs" />
     <Compile Include="Controller\PedidoController.cs" />
+    <Compile Include="Livraria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Livraria.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LivrariaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,6 +177,17 @@
     <EmbeddedResource Include="View\LivroForm.resx">
       <DependentUpon>LivroForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Livraria.xsc">
+      <DependentUpon>Livraria.xsd</DependentUpon>
+    </None>
+    <None Include="Livraria.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Livraria.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Livraria.xss">
+      <DependentUpon>Livraria.xsd</DependentUpon>
+    </None>
     <None Include="LivrariaDataSet.xsc">
       <DependentUpon>LivrariaDataSet.xsd</DependentUpon>
     </None>
