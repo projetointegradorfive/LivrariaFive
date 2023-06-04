@@ -26,9 +26,9 @@ namespace LivrariaFive.View
 
         private void btnGerenciarUsuarios_Click(object sender, EventArgs e)
         {
-            FrmGerenciarUsuarios login = new FrmGerenciarUsuarios();
-            this.Hide();
+            FrmGerenciarUsuarios login = new FrmGerenciarUsuarios();          
             login.Show();
+            this.Hide();
         }
     }
 }

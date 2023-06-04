@@ -16,6 +16,7 @@ namespace LivrariaFive.View
 {
     public partial class FrmGerenciarUsuarios : Form
     {
+
         private Cliente clienteSelecionado;
         SqlConnection connection = DatabaseConnection.GetConnection();
         public FrmGerenciarUsuarios()
