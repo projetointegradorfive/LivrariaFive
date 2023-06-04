@@ -52,6 +52,7 @@ namespace LivrariaFive.View
             this.txtEmailGerenciarUsuarios = new System.Windows.Forms.TextBox();
             this.lblEmailGerenciarUsuarios = new System.Windows.Forms.Label();
             this.maskTxtDataNascimentoGerenciarUsuarios = new System.Windows.Forms.MaskedTextBox();
+            this.btnLimparTextBox = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosGerenciarUsuarios)).BeginInit();
@@ -162,6 +163,7 @@ namespace LivrariaFive.View
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnLimparTextBox);
             this.panel1.Controls.Add(this.btnExcluirUsuarioGerenciarUsuarios);
             this.panel1.Controls.Add(this.btnSalvarAlteracoesGerenciarUsuarios);
             this.panel1.Controls.Add(this.btnNovoUsuarioGerenciarUsuarios);
@@ -172,7 +174,7 @@ namespace LivrariaFive.View
             // 
             // btnExcluirUsuarioGerenciarUsuarios
             // 
-            this.btnExcluirUsuarioGerenciarUsuarios.Location = new System.Drawing.Point(632, 30);
+            this.btnExcluirUsuarioGerenciarUsuarios.Location = new System.Drawing.Point(685, 28);
             this.btnExcluirUsuarioGerenciarUsuarios.Name = "btnExcluirUsuarioGerenciarUsuarios";
             this.btnExcluirUsuarioGerenciarUsuarios.Size = new System.Drawing.Size(156, 32);
             this.btnExcluirUsuarioGerenciarUsuarios.TabIndex = 2;
@@ -182,7 +184,7 @@ namespace LivrariaFive.View
             // 
             // btnSalvarAlteracoesGerenciarUsuarios
             // 
-            this.btnSalvarAlteracoesGerenciarUsuarios.Location = new System.Drawing.Point(407, 30);
+            this.btnSalvarAlteracoesGerenciarUsuarios.Location = new System.Drawing.Point(477, 28);
             this.btnSalvarAlteracoesGerenciarUsuarios.Name = "btnSalvarAlteracoesGerenciarUsuarios";
             this.btnSalvarAlteracoesGerenciarUsuarios.Size = new System.Drawing.Size(156, 32);
             this.btnSalvarAlteracoesGerenciarUsuarios.TabIndex = 1;
@@ -192,7 +194,7 @@ namespace LivrariaFive.View
             // 
             // btnNovoUsuarioGerenciarUsuarios
             // 
-            this.btnNovoUsuarioGerenciarUsuarios.Location = new System.Drawing.Point(193, 30);
+            this.btnNovoUsuarioGerenciarUsuarios.Location = new System.Drawing.Point(272, 28);
             this.btnNovoUsuarioGerenciarUsuarios.Name = "btnNovoUsuarioGerenciarUsuarios";
             this.btnNovoUsuarioGerenciarUsuarios.Size = new System.Drawing.Size(156, 32);
             this.btnNovoUsuarioGerenciarUsuarios.TabIndex = 0;
@@ -260,6 +262,16 @@ namespace LivrariaFive.View
             this.maskTxtDataNascimentoGerenciarUsuarios.TabIndex = 28;
             this.maskTxtDataNascimentoGerenciarUsuarios.ValidatingType = typeof(System.DateTime);
             // 
+            // btnLimparTextBox
+            // 
+            this.btnLimparTextBox.Location = new System.Drawing.Point(96, 28);
+            this.btnLimparTextBox.Name = "btnLimparTextBox";
+            this.btnLimparTextBox.Size = new System.Drawing.Size(127, 32);
+            this.btnLimparTextBox.TabIndex = 3;
+            this.btnLimparTextBox.Text = "Limpar TextBox";
+            this.btnLimparTextBox.UseVisualStyleBackColor = true;
+            this.btnLimparTextBox.Click += new System.EventHandler(this.btnLimparTextBox_Click);
+            // 
             // FrmGerenciarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -320,5 +332,6 @@ namespace LivrariaFive.View
         private System.Windows.Forms.TextBox txtEmailGerenciarUsuarios;
         private System.Windows.Forms.Label lblEmailGerenciarUsuarios;
         private System.Windows.Forms.MaskedTextBox maskTxtDataNascimentoGerenciarUsuarios;
+        private System.Windows.Forms.Button btnLimparTextBox;
     }
 }

@@ -40,7 +40,7 @@ namespace LivrariaFive.Controller
 
                 foreach (object[] parametrosItem in parametros)
                 {
-                    string query = "INSERT INTO tbItemDeCompra (quantidade, preco_unitario, idLivro, idCarrinho, preco_total) " +
+                    string query = "INSERT INTO tbItemDeCompra (quantidade, preco_unitario, idLivro, idCarrinho, preco_total_ItemDeCompra) " +
                                    "VALUES (@Quantidade, @PrecoUnitario, @IdLivro, @IdCarrinho, @PrecoTotal)";
 
                     SqlCommand command = new SqlCommand(query, connection);
