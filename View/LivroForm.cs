@@ -21,6 +21,8 @@ namespace LivrariaFive.View
         //private ItemDeCompraController itemDeCompraController;
         private Cliente clienteAtual;
         private LivroController livroController;
+        private ItemDeCompraController itemDeCompraController;
+
 
 
         public LivroForm(Cliente cliente)
@@ -29,6 +31,7 @@ namespace LivrariaFive.View
             clienteAtual = cliente;
             this.cliente = cliente;
             livroController = new LivroController();
+            itemDeCompraController = new ItemDeCompraController();
 
 
         }
@@ -254,6 +257,7 @@ namespace LivrariaFive.View
             {
                 MessageBox.Show("Carrinho não encontrado.");
             }
+            LimparSelecaoDataGridView();
         }
 
 
@@ -269,6 +273,7 @@ namespace LivrariaFive.View
         }
         private List<ItemDeCompra> ObterItensDeCompraSelecionados()
         {
+            
             List<ItemDeCompra> itensSelecionados = new List<ItemDeCompra>();
 
             // Obtém todos os livros da base de dados usando o método GetAllLivros do LivroController
@@ -281,7 +286,7 @@ namespace LivrariaFive.View
 
                 if (checkBoxCell != null && checkBoxCell.Value != null && Convert.ToBoolean(checkBoxCell.Value))
                 {
-                    //pega o id do livro selecionado
+                    // Pega o id do livro selecionado
                     int livroId = Convert.ToInt32(row.Cells["Id"].Value);
                     int quantidade = Convert.ToInt32(row.Cells["quantidadeColumn"].Value);
 
@@ -290,12 +295,13 @@ namespace LivrariaFive.View
 
                     if (livro != null)
                     {
-                        //atribui o valor do livro para as propriedade de item de compra
+                        // Crie o objeto ItemDeCompra e atribua o ID do item de compra vindo do banco
                         ItemDeCompra item = new ItemDeCompra()
                         {
                             Livro = livro,
                             PrecoLivro = livro.Preco,
                             Quantidade = quantidade,
+                            Id = itemDeCompraController.ObterIdItemDeCompra(livroId) // Chama o método para obter o ID do item de compra do banco
                         };
 
                         itensSelecionados.Add(item);
@@ -305,6 +311,10 @@ namespace LivrariaFive.View
 
             return itensSelecionados;
         }
+
+        
+
+
 
         private void dataGridViewLivros_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

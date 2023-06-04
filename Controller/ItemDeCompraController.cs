@@ -40,7 +40,7 @@ namespace LivrariaFive.Controller
 
                 foreach (object[] parametrosItem in parametros)
                 {
-                    string query = "INSERT INTO tbItemDeCompra (quantidade, preco_unitario, idLivro, idCarrinho, preco_total_ItemDeCompra) " +
+                    string query = "INSERT INTO tbItemDeCompra (quantidade, preco_unitario, idLivro, idCarrinho, preco_total) " +
                                    "VALUES (@Quantidade, @PrecoUnitario, @IdLivro, @IdCarrinho, @PrecoTotal)";
 
                     SqlCommand command = new SqlCommand(query, connection);
@@ -55,20 +55,98 @@ namespace LivrariaFive.Controller
             }
         }
 
+        public int ObterIdItemDeCompra(int livroId)
+        {
+            int itemId = 0;
+
+            // Consulte o banco de dados para obter o ID do item de compra com base no ID do livro
+            try
+            {
+                using (SqlConnection connection = DatabaseConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    string query = "SELECT idItemCompra FROM tbItemDeCompra WHERE idLivro = @LivroId";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LivroId", livroId);
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            itemId = Convert.ToInt32(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao obter o ID do item de compra do banco de dados: " + ex.Message);
+            }
+
+            return itemId;
+        }
+
+
 
         public void RemoverItemDoCarrinho(Carrinho carrinho, int livroId)
         {
-            var item = carrinho.ItensDeCompra.Find(i => i.Livro.Id == livroId);
-            if (item != null)
+            try
             {
-                carrinho.ItensDeCompra.Remove(item);
+                using (SqlConnection connection = DatabaseConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    // Remover o item de compra do banco de dados
+                    string deleteQuery = "DELETE FROM tbItemDeCompra WHERE idLivro = @LivroId";
+                    using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
+                    {
+                        deleteCommand.Parameters.AddWithValue("@LivroId", livroId);
+                        deleteCommand.ExecuteNonQuery();
+                    }
+
+                    // Remover o item de compra da lista no carrinho
+                    var item = carrinho.ItensDeCompra.Find(i => i.Livro.Id == livroId);
+                    if (item != null)
+                    {
+                        carrinho.ItensDeCompra.Remove(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao remover item de compra: " + ex.Message);
             }
         }
 
+
+
         public void LimparCarrinho(Carrinho carrinho)
         {
-            carrinho.ItensDeCompra.Clear();
+            try
+            {
+                using (SqlConnection connection = DatabaseConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    // Remover todos os itens de compra do banco de dados associados ao carrinho
+                    string deleteQuery = "DELETE FROM tbItemDeCompra WHERE idCarrinho = @CarrinhoId";
+                    using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
+                    {
+                        deleteCommand.Parameters.AddWithValue("@CarrinhoId", carrinho.Id);
+                        deleteCommand.ExecuteNonQuery();
+                    }
+
+                    // Limpar a lista de itens de compra do carrinho
+                    carrinho.ItensDeCompra.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao limpar carrinho: " + ex.Message);
+            }
         }
+
 
         public void AtualizarQuantidadeItem(Carrinho carrinho, int livroId, int quantidade)
         {
