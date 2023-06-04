@@ -44,6 +44,7 @@ namespace LivrariaFive.View
             this.dgvCarrinho.Name = "dgvCarrinho";
             this.dgvCarrinho.Size = new System.Drawing.Size(776, 352);
             this.dgvCarrinho.TabIndex = 0;
+            this.dgvCarrinho.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrinho_CellEndEdit);
             // 
             // btnRemoverItemCarrinho
             // 

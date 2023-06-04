@@ -303,7 +303,6 @@ namespace LivrariaFive.View
                             Livro = livro,
                             PrecoLivro = livro.Preco,
                             Quantidade = quantidade,
-                            Id = itemDeCompraController.ObterIdItemDeCompra(livroId, carrinho.Id)
                         };
 
                         itensSelecionados.Add(item);
@@ -315,10 +314,6 @@ namespace LivrariaFive.View
 
             return itensSelecionados;
         }
-
-        
-
-
 
         private void dataGridViewLivros_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

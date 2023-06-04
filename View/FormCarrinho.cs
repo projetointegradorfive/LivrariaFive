@@ -93,7 +93,9 @@ namespace LivrariaFive.View
 
                 // Adicione o código para obter o ID do ItemDeCompra
                 int itemId = itemDeCompraController.ObterIdItemDeCompra(item.Livro.Id, carrinho.Id);
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = itemId });
+                item.Id = itemId;
+                
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = item.Id });
                 
 
                 DataGridViewImageCell imageCell = new DataGridViewImageCell();
@@ -156,7 +158,19 @@ namespace LivrariaFive.View
             }
         }
 
-      
+        private void dgvCarrinho_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
 
+            if (e.ColumnIndex == dgvCarrinho.Columns["Quantidade"].Index)
+            {
+                DataGridViewRow row = dgvCarrinho.Rows[e.RowIndex];
+                ItemDeCompra item = row.Tag as ItemDeCompra;
+                int novaQuantidade = Convert.ToInt32(row.Cells["Quantidade"].Value);
+
+                // Atualize a quantidade no banco de dados
+                itemDeCompraController.AtualizarQuantidadeItem(carrinho.Id, item.Livro.Id, novaQuantidade);
+            }
+
+        }
     }
 }

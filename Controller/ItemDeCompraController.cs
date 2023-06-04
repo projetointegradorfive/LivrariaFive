@@ -137,7 +137,7 @@ namespace LivrariaFive.Controller
             }
         }
 
-        private void AtualizarQuantidadeItem(int idCarrinho, int idLivro, int quantidade)
+        public void AtualizarQuantidadeItem(int idCarrinho, int idLivro, int quantidade)
         {
             try
             {
@@ -145,14 +145,25 @@ namespace LivrariaFive.Controller
                 {
                     connection.Open();
 
-                    string query = "UPDATE tbItemDeCompra SET quantidade = @Quantidade WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro";
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    // Atualizar a quantidade do item de compra no banco de dados
+                    string updateQuery = "UPDATE tbItemDeCompra SET quantidade = @Quantidade WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro";
+                    using (SqlCommand command = new SqlCommand(updateQuery, connection))
                     {
                         command.Parameters.AddWithValue("@Quantidade", quantidade);
                         command.Parameters.AddWithValue("@IdCarrinho", idCarrinho);
                         command.Parameters.AddWithValue("@IdLivro", idLivro);
 
                         command.ExecuteNonQuery();
+                    }
+
+                    // Calcular e atualizar o preço total do item de compra no banco de dados
+                    string updatePriceQuery = "UPDATE tbItemDeCompra SET preco_total = (quantidade * preco_unitario) WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro";
+                    using (SqlCommand updatePriceCommand = new SqlCommand(updatePriceQuery, connection))
+                    {
+                        updatePriceCommand.Parameters.AddWithValue("@IdCarrinho", idCarrinho);
+                        updatePriceCommand.Parameters.AddWithValue("@IdLivro", idLivro);
+
+                        updatePriceCommand.ExecuteNonQuery();
                     }
                 }
             }
@@ -162,8 +173,9 @@ namespace LivrariaFive.Controller
             }
         }
 
-      
-       //obtendo o id do tem de compra corretamente
+
+
+        //obtendo o id do tem de compra corretamente
         public int ObterIdItemDeCompra(int livroId, int carrinhoId)
         {
             try
@@ -178,13 +190,10 @@ namespace LivrariaFive.Controller
                         command.Parameters.AddWithValue("@LivroId", livroId);
                         command.Parameters.AddWithValue("@CarrinhoId", carrinhoId);
 
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        object result = command.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
                         {
-                            if (reader.HasRows)
-                            {
-                                reader.Read();
-                                return reader.GetInt32(0);
-                            }
+                            return Convert.ToInt32(result);
                         }
                     }
                 }
@@ -197,6 +206,9 @@ namespace LivrariaFive.Controller
             return -1; // Retorna -1 para indicar que o ID não foi encontrado
         }
 
+
+
+
         public void RemoverItemDoCarrinho(Carrinho carrinho, int livroId)
         {
             try
@@ -206,9 +218,10 @@ namespace LivrariaFive.Controller
                     connection.Open();
 
                     // Remover o item de compra do banco de dados
-                    string deleteQuery = "DELETE FROM tbItemDeCompra WHERE idLivro = @LivroId";
+                    string deleteQuery = "DELETE FROM tbItemDeCompra WHERE idCarrinho = @CarrinhoId AND idLivro = @LivroId";
                     using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
                     {
+                        deleteCommand.Parameters.AddWithValue("@CarrinhoId", carrinho.Id);
                         deleteCommand.Parameters.AddWithValue("@LivroId", livroId);
                         deleteCommand.ExecuteNonQuery();
                     }
@@ -226,7 +239,8 @@ namespace LivrariaFive.Controller
                 Console.WriteLine("Erro ao remover item de compra: " + ex.Message);
             }
         }
-        
+
+
         public void LimparCarrinho(Carrinho carrinho)
         {
             try
