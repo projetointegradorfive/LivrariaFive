@@ -228,13 +228,6 @@ namespace LivrariaFive.Controller
             }
         }
 
-
-
-
-
-
-
-
         public void RemoverLivro(Livro livro)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())

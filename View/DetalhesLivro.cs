@@ -15,13 +15,14 @@ namespace LivrariaFive.View
 {
     public partial class DetalhesLivro : Form
     {
-        public DetalhesLivro(string titulo, string isbn, string preco, string descricao, string genero, string editora, string autor, Image imagem)
+        public DetalhesLivro(string titulo, string isbn, string preco, string estoque, string descricao, string genero, string editora, string autor, Image imagem)
         {
             InitializeComponent();
 
             lblTitulo.Text = titulo;
             lblIsbn.Text = isbn;
             lblPreco.Text = preco;
+            lblEstoqueLivro.Text = estoque;
             lblDescricao.Text = descricao;
             lblGenero.Text = genero;
             lblEditora.Text = editora;

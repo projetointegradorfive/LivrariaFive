@@ -11,22 +11,6 @@ namespace LivrariaFive.Controller
     public class CarrinhoController
     {
 
-        // Verificar se há itens no carrinho
-        //string queryCheckCarrinho = "SELECT L.idLivro,  L.titulo,  L.preco, L.livroImagem, I.quantidade " +
-        //    "FROM tbItemDeCompra I INNER JOIN tbLivro L ON" +
-        //    " I.idLivro = L.idLivro WHERE idCarrinho = @CarrinhoId";
-
-        //using (SqlCommand commandCheckCarrinho = new SqlCommand(queryCheckCarrinho, connection))
-        //{
-        //    commandCheckCarrinho.Parameters.AddWithValue("@CarrinhoId", 11);
-        //    int carrinhoCount = (int)commandCheckCarrinho.ExecuteScalar();
-
-        //    if (carrinhoCount == 0)
-        //    {
-        //        Console.WriteLine("Carrinho vazio.");
-        //        return carrinho;
-        //    }
-        //}
         public Carrinho ObterCarrinho(int idCliente)
         {
             Carrinho carrinho = null;
@@ -139,90 +123,7 @@ namespace LivrariaFive.Controller
             return carrinho;
         }
 
-
-
-
-
-
-        public void AdicionarItemNoCarrinho(Carrinho carrinho, ItemDeCompra item)
-        {
-            carrinho.ItensDeCompra.Add(item);
-
-            try
-            {
-                using (SqlConnection connection = DatabaseConnection.GetConnection())
-                {
-                    connection.Open();
-
-                    // Verificar se o livro existe antes de adicionar o item
-                    string queryVerificarLivro = "SELECT COUNT(*) FROM tbLivro WHERE idLivro = @LivroId";
-                    using (SqlCommand commandVerificarLivro = new SqlCommand(queryVerificarLivro, connection))
-                    {
-                        commandVerificarLivro.Parameters.AddWithValue("@LivroId", item.Livro.Id);
-                        int livroExistente = (int)commandVerificarLivro.ExecuteScalar();
-
-                        if (livroExistente > 0)
-                        {
-                            // Obter as informações do livro a partir do banco de dados
-                            string queryObterLivro = "SELECT titulo, preco FROM tbLivro WHERE idLivro = @LivroId";
-                            using (SqlCommand commandObterLivro = new SqlCommand(queryObterLivro, connection))
-                            {
-                                commandObterLivro.Parameters.AddWithValue("@LivroId", item.Livro.Id);
-
-                                using (SqlDataReader reader = commandObterLivro.ExecuteReader())
-                                {
-                                    if (reader.Read())
-                                    {
-                                        string titulo = reader.GetString(0);
-                                        double preco = reader.GetDouble(1);
-
-                                        // Criar uma instância do objeto Livro e atribuir as informações obtidas
-                                        Livro livro = new Livro
-                                        {
-                                            Id = item.Livro.Id,
-                                            Titulo = titulo,
-                                            Preco = preco
-                                        };
-
-                                        // Atualizar a propriedade Livro do objeto itemDeCompra
-                                        item.Livro = livro;
-
-                                        // Inserir o item no banco de dados
-                                        string query = "INSERT INTO tbItemDeCompra (quantidade, preco_unitario, preco_total, idLivro, idCarrinho) VALUES (@Quantidade, @PrecoUnitario, @PrecoTotal, @LivroId, @CarrinhoId)";
-                                        using (SqlCommand command = new SqlCommand(query, connection))
-                                        {
-                                            command.Parameters.AddWithValue("@Quantidade", item.Quantidade);
-                                            command.Parameters.AddWithValue("@PrecoUnitario", item.PrecoLivro);
-                                            command.Parameters.AddWithValue("@PrecoTotal", item.PrecoTotal);
-                                            command.Parameters.AddWithValue("@LivroId", item.Livro.Id);
-                                            command.Parameters.AddWithValue("@CarrinhoId", carrinho.Id);
-
-                                            command.ExecuteNonQuery();
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            // Livro não existe, exibir mensagem de erro ou executar ação apropriada
-                            Console.WriteLine("O livro selecionado não existe!");
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Erro ao adicionar o item no carrinho: " + ex.Message);
-            }
-        }
-
-
-
-        public void LimparCarrinho(DataGridView dataGridViewCarrinho)
-        {
-            dataGridViewCarrinho.Rows.Clear();
-        }
+      
 
         public void AtualizarQuantidadeItem(DataGridView dataGridViewCarrinho, int livroId, int quantidade)
         {

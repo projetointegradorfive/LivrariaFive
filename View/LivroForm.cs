@@ -67,6 +67,7 @@ namespace LivrariaFive.View
             dataGridViewLivros.Columns.Add("Titulo", "Título");
             dataGridViewLivros.Columns.Add("Isbn", "ISBN");
             dataGridViewLivros.Columns.Add("Preco", "Preço");
+            dataGridViewLivros.Columns.Add("Estoque", "Estoque");
             dataGridViewLivros.Columns.Add("Descricao", "Descrição");
             dataGridViewLivros.Columns.Add("Genero", "Gênero");
             dataGridViewLivros.Columns.Add("Editora", "Editora");
@@ -110,6 +111,7 @@ namespace LivrariaFive.View
                     livro.Titulo,
                     livro.Isbn,
                     livro.Preco,
+                    livro.Estoque,
                     livro.Descricao,
                     livro.Genero,
                     livro.Editora,
@@ -140,6 +142,7 @@ namespace LivrariaFive.View
                 string titulo = selectedRow.Cells["Titulo"].Value.ToString();
                 string isbn = selectedRow.Cells["Isbn"].Value.ToString();
                 string preco = selectedRow.Cells["Preco"].Value.ToString();
+                string estoque = selectedRow.Cells["Estoque"].Value.ToString();
                 string descricao = selectedRow.Cells["Descricao"].Value != null
                     ? selectedRow.Cells["Descricao"].Value.ToString()
                     : string.Empty;
@@ -157,7 +160,7 @@ namespace LivrariaFive.View
 
                 Image imagem = (Image)selectedRow.Cells["Imagem"].Value;
 
-                DetalhesLivro detalhesForm = new DetalhesLivro(titulo, isbn, preco, descricao, genero, editora, autor, imagem);
+                DetalhesLivro detalhesForm = new DetalhesLivro(titulo, isbn, preco, estoque, descricao, genero, editora, autor, imagem);
                 detalhesForm.ShowDialog();
             }
 
@@ -252,8 +255,6 @@ namespace LivrariaFive.View
                 MessageBox.Show("Carrinho não encontrado.");
             }
         }
-
-
 
 
         private void LimparSelecaoDataGridView()

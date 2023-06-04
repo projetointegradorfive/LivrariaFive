@@ -34,30 +34,13 @@ namespace LivrariaFive.View
             dgvCarrinho.Columns.Add("Titulo", "Título");
             dgvCarrinho.Columns.Add("Quantidade", "Quantidade");
             dgvCarrinho.Columns.Add("Preco", "Preço");
-            // Carregar os itens do carrinho
-            CarregarItensCarrinho();
-        }
 
-        private void CarregarItensCarrinho()
-        {
-            dgvCarrinho.Rows.Clear();
-
-            foreach (ItemDeCompra item in carrinho.ItensDeCompra)
-            {
-                DataGridViewRow row = new DataGridViewRow();
-
-                DataGridViewImageCell imageCell = new DataGridViewImageCell();
-                imageCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                imageCell.Value = item.Livro.Imagem;
-                row.Cells.Add(imageCell);
-
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = item.Livro.Titulo });
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = item.Quantidade });
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = item.PrecoLivro });
             ConfigurarGrade();
             // Carregar os itens do carrinho
             CarregarItensCarrinho();
         }
+
+
         private void ConfigurarGrade()
         {
             dgvCarrinho.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
@@ -103,8 +86,6 @@ namespace LivrariaFive.View
                 dgvCarrinho.Rows.Add(row);
             }
         }
-
-
 
     }
 }

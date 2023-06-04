@@ -56,12 +56,6 @@ namespace LivrariaFive.Controller
         }
 
 
-
-        public void AdicionarItemNoCarrinho(Carrinho carrinho, ItemDeCompra item)
-        {
-            carrinho.ItensDeCompra.Add(item);
-        }
-
         public void RemoverItemDoCarrinho(Carrinho carrinho, int livroId)
         {
             var item = carrinho.ItensDeCompra.Find(i => i.Livro.Id == livroId);
