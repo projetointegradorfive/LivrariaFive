@@ -86,6 +86,7 @@ namespace LivrariaFive.View
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
             checkBoxColumn.HeaderText = "Selecionado";
             checkBoxColumn.Name = "checkBoxColumn";
+            checkBoxColumn.Width = 110;
             checkBoxColumn.ReadOnly = true; // Definindo a coluna como somente leitura
             dataGridViewLivros.Columns.Add(checkBoxColumn);
 
