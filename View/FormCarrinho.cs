@@ -16,27 +16,44 @@ namespace LivrariaFive.View
 {
     public partial class FormCarrinho : Form
     {
-        private CarrinhoController carrinhoController;
         private Carrinho carrinho;
+        private Cliente cliente;
 
-        public FormCarrinho()
+
+        public FormCarrinho(Carrinho carrinho, Cliente cliente)
         {
             InitializeComponent();
-            carrinhoController = new CarrinhoController(); // Inicializar o carrinhoController
-
-            // Adicionar as colunas ao DataGridView
-            dgvCarrinho.Columns.Add("Id", "ID");
-            dgvCarrinho.Columns.Add("NomeLivro", "Nome do Livro");
-            dgvCarrinho.Columns.Add("PrecoLivro", "Preço do Livro");
-            dgvCarrinho.Columns.Add("Quantidade", "Quantidade");
-            dgvCarrinho.Columns.Add("Imagem", "Imagem");
+            this.carrinho = carrinho;
+            this.cliente = cliente;
         }
 
         private void FormCarrinho_Load(object sender, EventArgs e)
         {
-            // Inicializar o carrinho
-            carrinho = new Carrinho();
+            // Adicionar colunas ao DataGridView
+            dgvCarrinho.Columns.Add("Imagem", "Imagem");
+            dgvCarrinho.Columns.Add("Titulo", "Título");
+            dgvCarrinho.Columns.Add("Quantidade", "Quantidade");
+            dgvCarrinho.Columns.Add("Preco", "Preço");
+            // Carregar os itens do carrinho
+            CarregarItensCarrinho();
+        }
 
+        private void CarregarItensCarrinho()
+        {
+            dgvCarrinho.Rows.Clear();
+
+            foreach (ItemDeCompra item in carrinho.ItensDeCompra)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+
+                DataGridViewImageCell imageCell = new DataGridViewImageCell();
+                imageCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                imageCell.Value = item.Livro.Imagem;
+                row.Cells.Add(imageCell);
+
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = item.Livro.Titulo });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = item.Quantidade });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = item.PrecoLivro });
             ConfigurarGrade();
             // Carregar os itens do carrinho
             CarregarItensCarrinho();
