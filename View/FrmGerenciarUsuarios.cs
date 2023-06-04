@@ -26,6 +26,7 @@ namespace LivrariaFive.View
 
         private void LimparTextBoxes()
         {
+            txtIdGerenciarUsuarios.Text = "";
             txtNomeGerenciarUsuarios.Text = "";
             txtEmailGerenciarUsuarios.Text = "";
             txtSenhaGerenciarUsuarios.Text = "";
@@ -152,6 +153,7 @@ namespace LivrariaFive.View
                     {
                     MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dgvUsuariosGerenciarUsuarios.DataSource = ObtertodosUsuarios();
+                    LimparTextBoxes();
                     }
                     else
                     {
@@ -221,6 +223,11 @@ namespace LivrariaFive.View
             }
             
 
+        }
+
+        private void btnLimparTextBox_Click(object sender, EventArgs e)
+        {
+            LimparTextBoxes();
         }
     }
 }
