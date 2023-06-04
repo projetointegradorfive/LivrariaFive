@@ -16,65 +16,175 @@ namespace LivrariaFive.Controller
     public class ItemDeCompraController
     {
 
-        public void InserirItensDeCompra(int idCarrinho, List<ItemDeCompra> itensDeCompra)
+        public void InserirOuAtualizarItensDeCompra(int idCarrinho, List<ItemDeCompra> itensDeCompra)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
                 connection.Open();
 
-                List<object[]> parametros = new List<object[]>();
-
                 foreach (ItemDeCompra item in itensDeCompra)
                 {
-                    object[] parametrosItem = new object[]
+                    // Verifica se o item de compra já existe no carrinho
+                    bool itemExistente = VerificarItemExistente(idCarrinho, item.Livro.Id);
+
+                    if (itemExistente)
                     {
-                item.Quantidade,
-                item.PrecoLivro,
-                item.Livro.Id,
-                idCarrinho,
-                item.PrecoTotal
-                    };
+                        // Obtém a quantidade atual do item de compra no carrinho
+                        int quantidadeAtual = ObterQuantidadeItem(idCarrinho, item.Livro.Id);
 
-                    parametros.Add(parametrosItem);
-                }
+                        // Calcula a nova quantidade somando a quantidade atual com a quantidade do item adicionado
+                        int novaQuantidade = quantidadeAtual + item.Quantidade;
 
-                foreach (object[] parametrosItem in parametros)
-                {
-                    string query = "INSERT INTO tbItemDeCompra (quantidade, preco_unitario, idLivro, idCarrinho, preco_total) " +
-                                   "VALUES (@Quantidade, @PrecoUnitario, @IdLivro, @IdCarrinho, @PrecoTotal)";
-
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Quantidade", parametrosItem[0]);
-                    command.Parameters.AddWithValue("@PrecoUnitario", parametrosItem[1]);
-                    command.Parameters.AddWithValue("@IdLivro", parametrosItem[2]);
-                    command.Parameters.AddWithValue("@IdCarrinho", idCarrinho);
-                    command.Parameters.AddWithValue("@PrecoTotal", parametrosItem[4]);
-
-                    command.ExecuteNonQuery();
+                        // Atualiza a quantidade do item de compra no carrinho
+                        AtualizarQuantidadeItem(idCarrinho, item.Livro.Id, novaQuantidade);
+                    }
+                    else
+                    {
+                        // Insere um novo item de compra no carrinho
+                        InserirItensDeCompra(idCarrinho, item);
+                    }
                 }
             }
         }
 
-        public int ObterIdItemDeCompra(int livroId)
+        private void InserirItensDeCompra(int idCarrinho, ItemDeCompra item)
         {
-            int itemId = 0;
-
-            // Consulte o banco de dados para obter o ID do item de compra com base no ID do livro
             try
             {
                 using (SqlConnection connection = DatabaseConnection.GetConnection())
                 {
                     connection.Open();
 
-                    string query = "SELECT idItemCompra FROM tbItemDeCompra WHERE idLivro = @LivroId";
+                    string query = "INSERT INTO tbItemDeCompra (quantidade, preco_unitario, idLivro, idCarrinho, preco_total) " +
+                                   "VALUES (@Quantidade, @PrecoUnitario, @IdLivro, @IdCarrinho, @PrecoTotal)";
+
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@LivroId", livroId);
+                        command.Parameters.AddWithValue("@Quantidade", item.Quantidade);
+                        command.Parameters.AddWithValue("@PrecoUnitario", item.PrecoLivro);
+                        command.Parameters.AddWithValue("@IdLivro", item.Livro.Id);
+                        command.Parameters.AddWithValue("@IdCarrinho", idCarrinho);
+                        command.Parameters.AddWithValue("@PrecoTotal", item.PrecoTotal);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao inserir o item de compra no banco de dados: " + ex.Message);
+            }
+        }
+
+       
+        public int ObterQuantidadeItem(int idCarrinho, int idLivro)
+        {
+            int quantidade = 0;
+
+            try
+            {
+                using (SqlConnection connection = DatabaseConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    string query = "SELECT quantidade FROM tbItemDeCompra WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@IdCarrinho", idCarrinho);
+                        command.Parameters.AddWithValue("@IdLivro", idLivro);
                         object result = command.ExecuteScalar();
 
                         if (result != null && result != DBNull.Value)
                         {
-                            itemId = Convert.ToInt32(result);
+                            quantidade = Convert.ToInt32(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao obter a quantidade do item de compra do banco de dados: " + ex.Message);
+            }
+
+            return quantidade;
+        }
+
+
+
+        private bool VerificarItemExistente(int idCarrinho, int idLivro)
+        {
+            try
+            {
+                using (SqlConnection connection = DatabaseConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM tbItemDeCompra WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@IdCarrinho", idCarrinho);
+                        command.Parameters.AddWithValue("@IdLivro", idLivro);
+
+                        int count = Convert.ToInt32(command.ExecuteScalar());
+                        return count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao verificar se o item de compra existe no banco de dados: " + ex.Message);
+                return false;
+            }
+        }
+
+        private void AtualizarQuantidadeItem(int idCarrinho, int idLivro, int quantidade)
+        {
+            try
+            {
+                using (SqlConnection connection = DatabaseConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    string query = "UPDATE tbItemDeCompra SET quantidade = @Quantidade WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Quantidade", quantidade);
+                        command.Parameters.AddWithValue("@IdCarrinho", idCarrinho);
+                        command.Parameters.AddWithValue("@IdLivro", idLivro);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao atualizar a quantidade do item de compra no banco de dados: " + ex.Message);
+            }
+        }
+
+      
+       //obtendo o id do tem de compra corretamente
+        public int ObterIdItemDeCompra(int livroId, int carrinhoId)
+        {
+            try
+            {
+                using (SqlConnection connection = DatabaseConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    string query = "SELECT idItemCompra FROM tbItemDeCompra WHERE idLivro = @LivroId AND idCarrinho = @CarrinhoId";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LivroId", livroId);
+                        command.Parameters.AddWithValue("@CarrinhoId", carrinhoId);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                reader.Read();
+                                return reader.GetInt32(0);
+                            }
                         }
                     }
                 }
@@ -84,10 +194,8 @@ namespace LivrariaFive.Controller
                 Console.WriteLine("Erro ao obter o ID do item de compra do banco de dados: " + ex.Message);
             }
 
-            return itemId;
+            return -1; // Retorna -1 para indicar que o ID não foi encontrado
         }
-
-
 
         public void RemoverItemDoCarrinho(Carrinho carrinho, int livroId)
         {
@@ -118,9 +226,7 @@ namespace LivrariaFive.Controller
                 Console.WriteLine("Erro ao remover item de compra: " + ex.Message);
             }
         }
-
-
-
+        
         public void LimparCarrinho(Carrinho carrinho)
         {
             try
@@ -145,42 +251,6 @@ namespace LivrariaFive.Controller
             {
                 Console.WriteLine("Erro ao limpar carrinho: " + ex.Message);
             }
-        }
-
-
-        public void AtualizarQuantidadeItem(Carrinho carrinho, int livroId, int quantidade)
-        {
-            var item = carrinho.ItensDeCompra.Find(i => i.Livro.Id == livroId);
-            if (item != null)
-            {
-                item.Quantidade = quantidade;
-            }
-        }
-
-        public void AtualizarItemDeCompra(ItemDeCompra item)
-        {
-            try
-            {
-                using (SqlConnection connection = DatabaseConnection.GetConnection())
-                {
-                    connection.Open();
-
-                    string query = "UPDATE tbItemDeCompra SET quantidade = @Quantidade, preco_unitario = @PrecoUnitario, preco_total = @PrecoTotal WHERE idLivro = @LivroId";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Quantidade", item.Quantidade);
-                        command.Parameters.AddWithValue("@PrecoUnitario", item.PrecoLivro);
-                        command.Parameters.AddWithValue("@PrecoTotal", item.PrecoTotal);
-                        command.Parameters.AddWithValue("@LivroId", item.Livro.Id);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Erro ao atualizar o item de compra: " + ex.Message);
-            }
-        }
+        }   
     }
 }

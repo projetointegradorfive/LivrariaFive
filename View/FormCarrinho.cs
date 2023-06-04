@@ -34,6 +34,7 @@ namespace LivrariaFive.View
         private void FormCarrinho_Load(object sender, EventArgs e)
         {
             // Adicionar colunas ao DataGridView
+            dgvCarrinho.Columns.Add("Id", "Id");
             dgvCarrinho.Columns.Add("Imagem", "Imagem");
             dgvCarrinho.Columns.Add("Titulo", "Título");
             dgvCarrinho.Columns.Add("Quantidade", "Quantidade");
@@ -50,6 +51,10 @@ namespace LivrariaFive.View
             dgvCarrinho.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
             dgvCarrinho.DefaultCellStyle.Font = new Font("Arial", 12);
             dgvCarrinho.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            dgvCarrinho.Columns["Id"].Width = 100;
+            dgvCarrinho.Columns["Id"].HeaderText = "Imagem";
+            dgvCarrinho.Columns["Id"].DefaultCellStyle.NullValue = null; // Define a célula vazia como nula
 
             dgvCarrinho.Columns["Imagem"].Width = 100;
             dgvCarrinho.Columns["Imagem"].HeaderText = "Imagem";
@@ -86,6 +91,11 @@ namespace LivrariaFive.View
             {
                 DataGridViewRow row = new DataGridViewRow();
 
+                // Adicione o código para obter o ID do ItemDeCompra
+                int itemId = itemDeCompraController.ObterIdItemDeCompra(item.Livro.Id, carrinho.Id);
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = itemId });
+                
+
                 DataGridViewImageCell imageCell = new DataGridViewImageCell();
                 imageCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 imageCell.Value = item.Livro.Imagem;
@@ -95,6 +105,8 @@ namespace LivrariaFive.View
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = item.Quantidade });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = item.PrecoLivro });
                 row.Tag = item;
+
+
 
                 dgvCarrinho.Rows.Add(row);
             }
@@ -143,6 +155,8 @@ namespace LivrariaFive.View
                 CarregarItensCarrinho();
             }
         }
+
+      
 
     }
 }

@@ -239,7 +239,6 @@ namespace LivrariaFive.View
 
         private void btnAdicionarCarrinho_Click(object sender, EventArgs e)
         {
-
             // Obtem os itens selecionados no dataGridView
             List<ItemDeCompra> itensSelecionados = ObterItensDeCompraSelecionados();
 
@@ -250,7 +249,7 @@ namespace LivrariaFive.View
             {
                 // O carrinho existe, pode prosseguir com a inserção dos itens de compra
                 ItemDeCompraController itemDeCompraController = new ItemDeCompraController();
-                itemDeCompraController.InserirItensDeCompra(carrinho.Id, itensSelecionados);
+                itemDeCompraController.InserirOuAtualizarItensDeCompra(carrinho.Id, itensSelecionados);
 
                 MessageBox.Show("Itens adicionados ao carrinho com sucesso.");
             }
@@ -258,9 +257,9 @@ namespace LivrariaFive.View
             {
                 MessageBox.Show("Carrinho não encontrado.");
             }
+
             LimparSelecaoDataGridView();
         }
-
 
         private void LimparSelecaoDataGridView()
         {
@@ -274,7 +273,9 @@ namespace LivrariaFive.View
         }
         private List<ItemDeCompra> ObterItensDeCompraSelecionados()
         {
-            
+            CarrinhoController carrinhoController = new CarrinhoController();
+            Carrinho carrinho = carrinhoController.ObterCarrinho(clienteAtual.IdCliente);
+
             List<ItemDeCompra> itensSelecionados = new List<ItemDeCompra>();
 
             // Obtém todos os livros da base de dados usando o método GetAllLivros do LivroController
@@ -302,12 +303,14 @@ namespace LivrariaFive.View
                             Livro = livro,
                             PrecoLivro = livro.Preco,
                             Quantidade = quantidade,
-                            Id = itemDeCompraController.ObterIdItemDeCompra(livroId) // Chama o método para obter o ID do item de compra do banco
+                            Id = itemDeCompraController.ObterIdItemDeCompra(livroId, carrinho.Id)
                         };
 
                         itensSelecionados.Add(item);
                     }
                 }
+                
+
             }
 
             return itensSelecionados;
