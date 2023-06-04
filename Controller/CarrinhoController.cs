@@ -4,62 +4,95 @@ using System.Data.SqlClient;
 using LivrariaFive.Model;
 using System.Windows.Forms;
 using LivrariaFive.Persistence;
-
+using System.Drawing;
+using System.IO;
 namespace LivrariaFive.Controller
 {
     public class CarrinhoController
     {
-        public List<ItemDeCompra> ObterCarrinho(Carrinho carrinho)
-        {
-            List<ItemDeCompra> itens = new List<ItemDeCompra>();
 
+        // Verificar se há itens no carrinho
+        //string queryCheckCarrinho = "SELECT L.idLivro,  L.titulo,  L.preco, L.livroImagem, I.quantidade " +
+        //    "FROM tbItemDeCompra I INNER JOIN tbLivro L ON" +
+        //    " I.idLivro = L.idLivro WHERE idCarrinho = @CarrinhoId";
+
+        //using (SqlCommand commandCheckCarrinho = new SqlCommand(queryCheckCarrinho, connection))
+        //{
+        //    commandCheckCarrinho.Parameters.AddWithValue("@CarrinhoId", 11);
+        //    int carrinhoCount = (int)commandCheckCarrinho.ExecuteScalar();
+
+        //    if (carrinhoCount == 0)
+        //    {
+        //        Console.WriteLine("Carrinho vazio.");
+        //        return carrinho;
+        //    }
+        //}
+        public Carrinho ObterCarrinho(int idCliente)
+        {
+            Carrinho carrinho = null;
             try
             {
                 using (SqlConnection connection = DatabaseConnection.GetConnection())
                 {
+                    // Obter o carrinho com base no ID do cliente
+                    string query = "SELECT idCarrinho, preco_total_carrinho FROM tbCarrinho WHERE idCliente = @IdCliente";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@IdCliente", idCliente);
+
                     connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
 
-                    // Verificar se há itens no carrinho
-                    string queryCheckCarrinho = "SELECT COUNT(*) FROM tbCarrinho WHERE idCarrinho = @CarrinhoId";
-                    using (SqlCommand commandCheckCarrinho = new SqlCommand(queryCheckCarrinho, connection))
+                    if (reader.Read())
                     {
-                        commandCheckCarrinho.Parameters.AddWithValue("@CarrinhoId", carrinho.Id);
-                        int carrinhoCount = (int)commandCheckCarrinho.ExecuteScalar();
+                        carrinho = new Carrinho();
+                        carrinho.Id = reader.GetInt32(0);
+                        carrinho.Total = reader.GetDouble(1);
 
-                        if (carrinhoCount == 0)
+                        // Obter os itens do carrinho
+                        using (SqlConnection connectionItems = DatabaseConnection.GetConnection())
                         {
-                            Console.WriteLine("Carrinho vazio.");
-                            return itens;
-                        }
-                    }
+                            string queryItems = "SELECT L.idLivro, L.titulo, L.preco, L.livroImagem, I.quantidade " +
+                                               "FROM tbItemDeCompra I " +
+                                               "INNER JOIN tbLivro L ON I.idLivro = L.idLivro " +
+                                               "WHERE idCarrinho = @CarrinhoId";
 
-                    // Obter os itens do carrinho
-                    string query = "SELECT L.idLivro, L.titulo, L.preco, I.quantidade FROM tbItemDeCompra I INNER JOIN tbLivro L ON I.idLivro = L.idLivro WHERE I.idCarrinho = @CarrinhoId";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@CarrinhoId", carrinho.Id);
+                            SqlCommand commandItems = new SqlCommand(queryItems, connectionItems);
+                            commandItems.Parameters.AddWithValue("@CarrinhoId", carrinho.Id);
 
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
+                            connectionItems.Open();
+                            SqlDataReader readerItems = commandItems.ExecuteReader();
+
+                            while (readerItems.Read())
                             {
                                 Livro livro = new Livro();
-                                livro.Id = reader.GetInt32(0);
-                                livro.Titulo = reader.GetString(1);
-                                livro.Preco = reader.GetDouble(2);
-                                int quantidade = reader.GetInt32(3);
+                                livro.Id = readerItems.GetInt32(0);
+                                livro.Titulo = readerItems.GetString(1);
+                                livro.Preco = readerItems.GetDouble(2);
+
+                                byte[] imagemBytes = (byte[])readerItems.GetValue(3);
+                                using (MemoryStream ms = new MemoryStream(imagemBytes))
+                                {
+                                    livro.Imagem = Image.FromStream(ms);
+                                }
+
+                                int quantidade = readerItems.GetInt32(4);
 
                                 ItemDeCompra item = new ItemDeCompra
                                 {
                                     Livro = livro,
+                                    PrecoLivro = livro.Preco,
+                                    NomeLivro = livro.Titulo,
                                     Quantidade = quantidade
-
                                 };
 
-                                itens.Add(item);
+                                carrinho.ItensDeCompra.Add(item);
                             }
+
+                            readerItems.Close();
                         }
                     }
+
+                    reader.Close();
                 }
             }
             catch (Exception ex)
@@ -67,12 +100,14 @@ namespace LivrariaFive.Controller
                 Console.WriteLine("Erro ao obter o carrinho: " + ex.Message);
             }
 
-            return itens;
+            return carrinho;
         }
 
 
-        public Carrinho CriarCarrinho()
+
+        public Carrinho CriarCarrinho(Cliente clienteAtual)
         {
+            //CRIA UM CARRINHO PRO CLIENTE QUE ACABOU DE SE CADASTRAR
             Carrinho carrinho = new Carrinho();
 
             try
@@ -81,15 +116,17 @@ namespace LivrariaFive.Controller
                 {
                     connection.Open();
 
-                    // Inserir o carrinho no banco de dados com o ID do cliente
-                    string query = "INSERT INTO tbCarrinho (idCliente, preco_total_carrinho, itens_compra) VALUES (1, 0, 0); SELECT SCOPE_IDENTITY();";
+                    // Inserir o carrinho no banco de dados com o ID do cliente atual
+                    string query = "INSERT INTO tbCarrinho (idCliente, preco_total_carrinho) VALUES (@IdCliente, 0); SELECT SCOPE_IDENTITY();";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
+                        command.Parameters.AddWithValue("@IdCliente", clienteAtual.IdCliente);
 
                         object result = command.ExecuteScalar();
                         if (result != null)
                         {
                             carrinho.Id = Convert.ToInt32(result);
+                            carrinho.Cliente = clienteAtual;
                         }
                     }
                 }
@@ -101,6 +138,8 @@ namespace LivrariaFive.Controller
 
             return carrinho;
         }
+
+
 
 
 

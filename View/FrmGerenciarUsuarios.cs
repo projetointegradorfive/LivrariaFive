@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using LivrariaFive.Persistence;
 
 namespace LivrariaFive.View
 {
     public partial class FrmGerenciarUsuarios : Form
     {
-        SqlConnection conexao = new SqlConnection(@"Data Source=IAN;Initial Catalog=Livraria;User ID=sa;Password=ianvictor123");
+        SqlConnection connection = DatabaseConnection.GetConnection();
         public FrmGerenciarUsuarios()
         {
             InitializeComponent();
@@ -23,9 +24,9 @@ namespace LivrariaFive.View
             DataTable dt = new DataTable();
             try
             {
-                conexao.Open();
+                connection.Open();
                 string query = "SELECT * FROM tbCliente order by tbCliente.nome ASC";
-                SqlDataAdapter dp = new SqlDataAdapter(query, conexao);           
+                SqlDataAdapter dp = new SqlDataAdapter(query, connection);           
                 dp.Fill(dt);                
             }
             catch(Exception ex)
@@ -34,7 +35,7 @@ namespace LivrariaFive.View
             }
             finally
             {
-                conexao.Close();
+                connection.Close();
             }
             return dt;
 

@@ -29,37 +29,36 @@ namespace LivrariaFive.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewItensCarrinho = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItensCarrinho)).BeginInit();
+            this.dgvCarrinho = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridViewItensCarrinho
+            // dgvCarrinho
             // 
-            this.dataGridViewItensCarrinho.AllowUserToAddRows = false;
-            this.dataGridViewItensCarrinho.AllowUserToDeleteRows = false;
-            this.dataGridViewItensCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewItensCarrinho.Location = new System.Drawing.Point(16, 62);
-            this.dataGridViewItensCarrinho.Name = "dataGridViewItensCarrinho";
-            this.dataGridViewItensCarrinho.Size = new System.Drawing.Size(776, 352);
-            this.dataGridViewItensCarrinho.TabIndex = 0;
-           
+            this.dgvCarrinho.AllowUserToAddRows = false;
+            this.dgvCarrinho.AllowUserToDeleteRows = false;
+            this.dgvCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCarrinho.Location = new System.Drawing.Point(16, 62);
+            this.dgvCarrinho.Name = "dgvCarrinho";
+            this.dgvCarrinho.Size = new System.Drawing.Size(776, 352);
+            this.dgvCarrinho.TabIndex = 0;
             // 
             // FormCarrinho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridViewItensCarrinho);
+            this.Controls.Add(this.dgvCarrinho);
             this.Name = "FormCarrinho";
             this.Text = "FormCarrinho";
             this.Load += new System.EventHandler(this.FormCarrinho_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItensCarrinho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewItensCarrinho;
+        private System.Windows.Forms.DataGridView dgvCarrinho;
     }
 }

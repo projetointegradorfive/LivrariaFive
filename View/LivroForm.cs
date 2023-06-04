@@ -15,9 +15,10 @@ namespace LivrariaFive.View
 {
     public partial class LivroForm : Form
     {
+        private Cliente cliente;
 
-        private CarrinhoController carrinhoController;
-        private Carrinho carrinho;
+
+
         //private ItemDeCompraController itemDeCompraController;
         private Cliente clienteAtual;
         private LivroController livroController;
@@ -30,6 +31,7 @@ namespace LivrariaFive.View
         {
             InitializeComponent();
             clienteAtual = cliente;
+            this.cliente = cliente;
             livroController = new LivroController();
             
           
@@ -213,16 +215,27 @@ namespace LivrariaFive.View
 
         private void btnAdicionarCarrinho_Click(object sender, EventArgs e)
         {
-            List<ItemDeCompra> itensSelecionados = new List<ItemDeCompra>();
-            itensSelecionados = ObterItensDeCompraSelecionados();
+            // Obtem os itens selecionados no dataGridView
+            List<ItemDeCompra> itensSelecionados = ObterItensDeCompraSelecionados();
 
+            CarrinhoController carrinhoController = new CarrinhoController();
+            Carrinho carrinho = carrinhoController.ObterCarrinho(clienteAtual.IdCliente);
 
+            if (carrinho != null)
+            {
+                // O carrinho existe, pode prosseguir com a inserção dos itens de compra
+                ItemDeCompraController itemDeCompraController = new ItemDeCompraController();
+                itemDeCompraController.InserirItensDeCompra(carrinho.Id, itensSelecionados);
 
-            ItemDeCompraController itemDeCompraController = new ItemDeCompraController();
-            
-            itemDeCompraController.InserirItensDeCompra(12, itensSelecionados);
-
+                MessageBox.Show("Itens adicionados ao carrinho com sucesso.");
+            }
+            else
+            {
+                MessageBox.Show("Carrinho não encontrado.");
+            }
         }
+
+
 
 
         private void LimparSelecaoDataGridView()
@@ -286,12 +299,18 @@ namespace LivrariaFive.View
 
         private void btnAbrirCarrinho_Click(object sender, EventArgs e)
         {
-            // Crie uma instância do FormCarrinho
-            FormCarrinho formCarrinho = new FormCarrinho();
+            CarrinhoController carrinhoController = new CarrinhoController();
+            Carrinho carrinho = carrinhoController.ObterCarrinho(cliente.IdCliente);
 
-            // Abra o FormCarrinho
-            formCarrinho.Show(); // Use formCarrinho.ShowDialog() se quiser que seja um diálogo modal
-           
+            if (carrinho != null)
+            {
+                FormCarrinho formCarrinho = new FormCarrinho(carrinho, cliente);
+                formCarrinho.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("O carrinho está vazio.");
+            }
 
         }
     }

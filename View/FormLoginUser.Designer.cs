@@ -292,7 +292,8 @@ namespace LivrariaFive.View
             // 
             // maskTxtCpfCadastro
             // 
-            this.maskTxtCpfCadastro.Location = new System.Drawing.Point(342, 3);
+            this.maskTxtCpfCadastro.Location = new System.Drawing.Point(256, 2);
+            this.maskTxtCpfCadastro.Margin = new System.Windows.Forms.Padding(2);
             this.maskTxtCpfCadastro.Mask = "000,000,000-00";
             this.maskTxtCpfCadastro.Name = "maskTxtCpfCadastro";
             this.maskTxtCpfCadastro.Size = new System.Drawing.Size(170, 22);
@@ -301,7 +302,8 @@ namespace LivrariaFive.View
             // 
             // maskTxtTelefoneCadastro
             // 
-            this.maskTxtTelefoneCadastro.Location = new System.Drawing.Point(99, 72);
+            this.maskTxtTelefoneCadastro.Location = new System.Drawing.Point(74, 58);
+            this.maskTxtTelefoneCadastro.Margin = new System.Windows.Forms.Padding(2);
             this.maskTxtTelefoneCadastro.Mask = "(00) 0 0000-0000 ";
             this.maskTxtTelefoneCadastro.Name = "maskTxtTelefoneCadastro";
             this.maskTxtTelefoneCadastro.Size = new System.Drawing.Size(168, 22);
@@ -484,8 +486,8 @@ namespace LivrariaFive.View
             // 
             // btnLoginAdminRestrito
             // 
-            this.btnLoginAdminRestrito.Location = new System.Drawing.Point(3, 2);
-            this.btnLoginAdminRestrito.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLoginAdminRestrito.Location = new System.Drawing.Point(2, 2);
+            this.btnLoginAdminRestrito.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoginAdminRestrito.Name = "btnLoginAdminRestrito";
             this.btnLoginAdminRestrito.Size = new System.Drawing.Size(165, 28);
             this.btnLoginAdminRestrito.TabIndex = 5;
