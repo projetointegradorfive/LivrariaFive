@@ -114,6 +114,7 @@ namespace LivrariaFive.View
 
                 dgvCarrinho.Rows.Add(row);
             }
+            dgvCarrinho.Refresh();
         }
 
 
