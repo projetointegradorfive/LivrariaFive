@@ -16,6 +16,7 @@ namespace LivrariaFive.Controller
     public class ItemDeCompraController
     {
         private CarrinhoController carrinhoController;
+
        
         public ItemDeCompraController()
         {
@@ -51,6 +52,7 @@ namespace LivrariaFive.Controller
                     {
                         // Insere um novo item de compra no carrinho
                         InserirItensDeCompra(idCarrinho, item);
+                        
                     }
 
                     // Atualizar o preço total do carrinho
@@ -67,7 +69,7 @@ namespace LivrariaFive.Controller
                 {
                     connection.Open();
 
-                    string query = "INSERT INTO tbItemDeCompra (quantidade, preco_unitario, idLivro, idCarrinho, preco_total) " +
+                    string query = "INSERT INTO tbItemDeCompra (quantidade, preco_unitario, idLivro, idCarrinho, preco_total_ItemDeCompra) " +
                                    "VALUES (@Quantidade, @PrecoUnitario, @IdLivro, @IdCarrinho, @PrecoTotal)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -169,7 +171,7 @@ namespace LivrariaFive.Controller
                     }
 
                     // Calcular e atualizar o preço total do item de compra no banco de dados
-                    string updatePriceQuery = "UPDATE tbItemDeCompra SET preco_total = (quantidade * preco_unitario) WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro";
+                    string updatePriceQuery = "UPDATE tbItemDeCompra SET preco_total_ItemDeCompra = (quantidade * preco_unitario) WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro";
                     using (SqlCommand updatePriceCommand = new SqlCommand(updatePriceQuery, connection))
                     {
                         updatePriceCommand.Parameters.AddWithValue("@IdCarrinho", idCarrinho);

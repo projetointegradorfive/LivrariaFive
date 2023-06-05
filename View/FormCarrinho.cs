@@ -146,7 +146,7 @@ namespace LivrariaFive.View
             {
                 itemDeCompraController.RemoverItemDoCarrinho(carrinho, item.Livro.Id);
             }
-
+            
             CarregarItensCarrinho();
         }
 

@@ -133,7 +133,7 @@ namespace LivrariaFive.Controller
                     connection.Open();
 
                     // Calcular o preço total do carrinho
-                    string calculateTotalQuery = "SELECT SUM(preco_total) FROM tbItemDeCompra WHERE idCarrinho = @IdCarrinho";
+                    string calculateTotalQuery = "SELECT SUM(preco_total_ItemDeCompra) FROM tbItemDeCompra WHERE idCarrinho = @IdCarrinho";
                     using (SqlCommand calculateTotalCommand = new SqlCommand(calculateTotalQuery, connection))
                     {
                         calculateTotalCommand.Parameters.AddWithValue("@IdCarrinho", idCarrinho);

@@ -250,8 +250,11 @@ namespace LivrariaFive.View
                 // O carrinho existe, pode prosseguir com a inserção dos itens de compra
                 ItemDeCompraController itemDeCompraController = new ItemDeCompraController();
                 itemDeCompraController.InserirOuAtualizarItensDeCompra(carrinho.Id, itensSelecionados);
+                // Atualizar o dataGridViewLivros
+                dataGridViewLivros.Refresh();
 
                 MessageBox.Show("Itens adicionados ao carrinho com sucesso.");
+                
             }
             else
             {
