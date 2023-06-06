@@ -30,5 +30,12 @@ namespace LivrariaFive.View
             login.Show();
             this.Hide();
         }
+
+        private void btnGerenciarLivros_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarLivros login = new FrmGerenciarLivros();
+            this.Hide();
+            login.Show();
+        }
     }
 }
