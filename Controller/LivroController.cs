@@ -268,6 +268,33 @@ namespace LivrariaFive.Controller
                 command.ExecuteNonQuery();
             }
         }
+        public DataTable ObtertodosLivrosGerenciarLivros()
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+
+                DataTable dt = new DataTable();
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM tbLivro order by tbLivro.titulo ASC";
+                    SqlDataAdapter dp = new SqlDataAdapter(query, connection);
+                    dp.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Ocorreu um erro ao obter os usuários." + ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                return dt;
+            }
+
+
+
+        }
 
 
     }

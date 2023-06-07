@@ -37,17 +37,22 @@ namespace LivrariaFive.View
             // 
             // dgvMostrarLivros
             // 
+            this.dgvMostrarLivros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvMostrarLivros.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvMostrarLivros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMostrarLivros.Location = new System.Drawing.Point(367, 1);
+            this.dgvMostrarLivros.Location = new System.Drawing.Point(489, 1);
+            this.dgvMostrarLivros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvMostrarLivros.Name = "dgvMostrarLivros";
-            this.dgvMostrarLivros.Size = new System.Drawing.Size(807, 581);
+            this.dgvMostrarLivros.RowHeadersWidth = 51;
+            this.dgvMostrarLivros.Size = new System.Drawing.Size(1076, 715);
             this.dgvMostrarLivros.TabIndex = 0;
             // 
             // btnCadastrarLivroGerenciarLivros
             // 
-            this.btnCadastrarLivroGerenciarLivros.Location = new System.Drawing.Point(12, 12);
+            this.btnCadastrarLivroGerenciarLivros.Location = new System.Drawing.Point(16, 15);
+            this.btnCadastrarLivroGerenciarLivros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCadastrarLivroGerenciarLivros.Name = "btnCadastrarLivroGerenciarLivros";
-            this.btnCadastrarLivroGerenciarLivros.Size = new System.Drawing.Size(104, 29);
+            this.btnCadastrarLivroGerenciarLivros.Size = new System.Drawing.Size(139, 36);
             this.btnCadastrarLivroGerenciarLivros.TabIndex = 1;
             this.btnCadastrarLivroGerenciarLivros.Text = "Cadastrar Livros";
             this.btnCadastrarLivroGerenciarLivros.UseVisualStyleBackColor = true;
@@ -55,9 +60,10 @@ namespace LivrariaFive.View
             // 
             // btnVolta
             // 
-            this.btnVolta.Location = new System.Drawing.Point(279, 12);
+            this.btnVolta.Location = new System.Drawing.Point(372, 15);
+            this.btnVolta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVolta.Name = "btnVolta";
-            this.btnVolta.Size = new System.Drawing.Size(82, 26);
+            this.btnVolta.Size = new System.Drawing.Size(109, 32);
             this.btnVolta.TabIndex = 2;
             this.btnVolta.Text = "Voltar";
             this.btnVolta.UseVisualStyleBackColor = true;
@@ -65,14 +71,16 @@ namespace LivrariaFive.View
             // 
             // FrmGerenciarLivros
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 585);
+            this.ClientSize = new System.Drawing.Size(1567, 720);
             this.Controls.Add(this.btnVolta);
             this.Controls.Add(this.btnCadastrarLivroGerenciarLivros);
             this.Controls.Add(this.dgvMostrarLivros);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmGerenciarLivros";
             this.Text = "FrmGerenciarLivros";
+            this.Load += new System.EventHandler(this.FrmGerenciarLivros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarLivros)).EndInit();
             this.ResumeLayout(false);
 

@@ -18,7 +18,7 @@ namespace LivrariaFive.View
     {
         Cliente clienteSelecionado = new Cliente();
 
-        SqlConnection connection = new SqlConnection(@"Data Source=DTI-03440\SQLEXPRESS;Initial Catalog=Livraria;Integrated Security=True");
+        SqlConnection connection = new SqlConnection(@"Data Source=IAN;Initial Catalog=Livraria;Integrated Security=True");
 
         public FrmGerenciarUsuarios()
         {

@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using LivrariaFive.Controller;
+using LivrariaFive.Model;
 
 namespace LivrariaFive.View
 {
@@ -16,6 +19,7 @@ namespace LivrariaFive.View
         {
             InitializeComponent();
         }
+        
 
         private void btnCadastrarLivroGerenciarLivros_Click(object sender, EventArgs e)
         {
@@ -29,6 +33,14 @@ namespace LivrariaFive.View
             FrmPrincipalAdmin volta = new FrmPrincipalAdmin();
             this.Hide();
             volta.Show();
+        }
+
+        private void FrmGerenciarLivros_Load(object sender, EventArgs e)
+        {
+            LivroController livros = new LivroController();
+            DataTable dt = livros.ObtertodosLivrosGerenciarLivros();
+            dgvMostrarLivros.DataSource = dt;
+            dgvMostrarLivros.Refresh();
         }
     }
 }
