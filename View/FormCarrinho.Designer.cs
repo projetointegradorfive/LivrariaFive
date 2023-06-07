@@ -34,6 +34,7 @@ namespace LivrariaFive.View
             this.btnLimparCarrinho = new System.Windows.Forms.Button();
             this.lblPrecoTotalCarrinho = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnEfetuarPedido = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,11 +87,21 @@ namespace LivrariaFive.View
             this.label1.Text = "Total do Carrinho:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnEfetuarPedido
+            // 
+            this.btnEfetuarPedido.Location = new System.Drawing.Point(654, 394);
+            this.btnEfetuarPedido.Name = "btnEfetuarPedido";
+            this.btnEfetuarPedido.Size = new System.Drawing.Size(134, 34);
+            this.btnEfetuarPedido.TabIndex = 5;
+            this.btnEfetuarPedido.Text = "Fazer Pedido";
+            this.btnEfetuarPedido.UseVisualStyleBackColor = true;
+            // 
             // FormCarrinho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEfetuarPedido);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPrecoTotalCarrinho);
             this.Controls.Add(this.btnLimparCarrinho);
@@ -111,5 +122,6 @@ namespace LivrariaFive.View
         private System.Windows.Forms.Button btnLimparCarrinho;
         private System.Windows.Forms.Label lblPrecoTotalCarrinho;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnEfetuarPedido;
     }
 }

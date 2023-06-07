@@ -16,8 +16,9 @@ namespace LivrariaFive.View
 {
     public partial class FrmGerenciarUsuarios : Form
     {
+        Cliente clienteSelecionado = new Cliente();
 
-        SqlConnection conexao = new SqlConnection(@"Data Source=EMY;Initial Catalog=Livraria;Integrated Security=True");
+        SqlConnection connection = new SqlConnection(@"Data Source=DTI-03440\SQLEXPRESS;Initial Catalog=Livraria;Integrated Security=True");
 
         public FrmGerenciarUsuarios()
         {
@@ -101,6 +102,7 @@ namespace LivrariaFive.View
         {
 
             Cliente novoCliente = new Cliente();
+            
             novoCliente.Nome = txtNomeGerenciarUsuarios.Text;
             novoCliente.Email = txtEmailGerenciarUsuarios.Text;
             novoCliente.Senha = txtSenhaGerenciarUsuarios.Text;
@@ -135,7 +137,8 @@ namespace LivrariaFive.View
 
         private void btnSalvarAlteracoesGerenciarUsuarios_Click(object sender, EventArgs e)
         {
-                if (clienteSelecionado != null)
+            
+            if (clienteSelecionado != null)
                 {
                     // Atualizar as informações do cliente com base nas TextBox
                     clienteSelecionado.Nome = txtNomeGerenciarUsuarios.Text;

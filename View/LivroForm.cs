@@ -53,7 +53,10 @@ namespace LivrariaFive.View
 
             dataGridViewLivros.Columns["Titulo"].Width = 300;
             dataGridViewLivros.Columns["Isbn"].Width = 100;
+
             dataGridViewLivros.Columns["Preco"].Width = 100;
+            dataGridViewLivros.Columns["Preco"].DefaultCellStyle.Format = "C2";
+
             dataGridViewLivros.Columns["Descricao"].Width = 200;
             dataGridViewLivros.Columns["Genero"].Width = 150;
             dataGridViewLivros.Columns["Editora"].Width = 150;
