@@ -36,6 +36,10 @@
     <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
       <HintPath>packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -45,6 +49,7 @@
       <HintPath>packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,8 +66,24 @@
     <Compile Include="Controller\ClienteController.cs" />
     <Compile Include="Controller\EditoraController.cs" />
     <Compile Include="Controller\GeneroController.cs" />
+    <Compile Include="Controller\ItemDeCompraController.cs" />
     <Compile Include="Controller\LivroController.cs" />
     <Compile Include="Controller\PedidoController.cs" />
+    <Compile Include="Livraria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Livraria.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LivrariaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LivrariaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LivrariaDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LivrariaDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Autor.cs" />
     <Compile Include="Model\Carrinho.cs" />
     <Compile Include="Model\CarrinhoData.cs" />
@@ -99,6 +120,12 @@
     </Compile>
     <Compile Include="View\FormLoginUser.Designer.cs">
       <DependentUpon>FormLoginUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmGerenciarLivros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmGerenciarLivros.Designer.cs">
+      <DependentUpon>FrmGerenciarLivros.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FrmGerenciarUsuarios.cs">
       <SubType>Form</SubType>
@@ -145,6 +172,9 @@
     <EmbeddedResource Include="View\FormLoginUser.resx">
       <DependentUpon>FormLoginUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmGerenciarLivros.resx">
+      <DependentUpon>FrmGerenciarLivros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FrmGerenciarUsuarios.resx">
       <DependentUpon>FrmGerenciarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +187,39 @@
     <EmbeddedResource Include="View\LivroForm.resx">
       <DependentUpon>LivroForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Livraria.xsc">
+      <DependentUpon>Livraria.xsd</DependentUpon>
+    </None>
+    <None Include="Livraria.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Livraria.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Livraria.xss">
+      <DependentUpon>Livraria.xsd</DependentUpon>
+    </None>
+    <None Include="LivrariaDataSet.xsc">
+      <DependentUpon>LivrariaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LivrariaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LivrariaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LivrariaDataSet.xss">
+      <DependentUpon>LivrariaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LivrariaDataSet1.xsc">
+      <DependentUpon>LivrariaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="LivrariaDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LivrariaDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LivrariaDataSet1.xss">
+      <DependentUpon>LivrariaDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

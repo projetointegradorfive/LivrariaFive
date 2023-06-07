@@ -8,14 +8,16 @@ namespace LivrariaFive.Model
 {
     public class ItemDeCompra
     {
-        public int IdItemCompra { get; set; }
-        public double PrecoUnitario { get; set; }
-        public int Quantidade { get; set; }
-        public int CarrinhoId { get; set; }
-        public double PrecoTotal { get; set; }
+        public int Id { get; set; }
         public Livro Livro { get; set; }
-        public int PedidoId { get; set; }
-        
+        public string NomeLivro { get; set; }
+        public double PrecoLivro { get; set; }
+        public int Quantidade { get; set; }
+        public double PrecoTotal
+        {
+            get { return PrecoLivro * Quantidade; }
+        }
+
 
 
     }

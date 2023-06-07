@@ -11,11 +11,11 @@ namespace LivrariaFive.Model
         public int Id { get; set; }
         public List<ItemDeCompra> ItensDeCompra { get; set; }
         public double Total { get; set; }
-
+        public Cliente Cliente { get; set; }
         public Carrinho()
         {
             ItensDeCompra = new List<ItemDeCompra>();
-            Total = 0;
+            
         }
     }
 }

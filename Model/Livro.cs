@@ -43,9 +43,5 @@ namespace LivrariaFive.Model
             Estoque -= quantidade;
         }
 
-        //public override string ToString()
-        //{
-        //    return $"Id: {Id}, Titulo: {Titulo}, Autor: {Autor.Nome}, Editora: {Editora.Nome}, Isbn: {Isbn}, AnoPublicacao: {AnoPublicacao}, Preco: {Preco}, Estoque: {Estoque}, Descricao: {Descricao}, Genero: {Genero.Nome}, Idioma: {Idioma}";
-        //}
     }
 }

@@ -10,120 +10,220 @@ using System.Windows.Forms;
 using LivrariaFive.Model;
 using System.IO;
 using Newtonsoft.Json;
+using LivrariaFive.Controller;
 
 namespace LivrariaFive.View
 {
     public partial class FormCarrinho : Form
     {
-        private const string carrinhoFilePath = "carrinho.json"; //caminho e nome do arquivo de dados
+        private Carrinho carrinho;
+        private Cliente cliente;
+        private ItemDeCompraController itemDeCompraController;
 
-        private List<ItemDeCompra> itensCarrinho = new List<ItemDeCompra>();
+        private CarrinhoController carrinhoController;
 
 
-        public FormCarrinho()
+
+        public FormCarrinho(Carrinho carrinho, Cliente cliente)
         {
             InitializeComponent();
-            // Crie as colunas no evento Load do formulário
-            dataGridViewItensCarrinho.Columns.Add("Titulo", "Título");
-            dataGridViewItensCarrinho.Columns.Add("Preco", "Preço");
-            dataGridViewItensCarrinho.Columns.Add("Quantidade", "Quantidade");
-            dataGridViewItensCarrinho.Columns.Add("PrecoUnitario", "Preço Unitário");
-            dataGridViewItensCarrinho.Columns.Add("Imagem", "Imagem");
-
-        }
-
-        public void AdicionarItensCarrinho(List<ItemDeCompra> itensSelecionados)
-        {
-            foreach (ItemDeCompra itemSelecionado in itensSelecionados)
-            {
-                bool itemExistente = itensCarrinho.Any(i => i.Livro.Titulo == itemSelecionado.Livro.Titulo);
-                if (!itemExistente)
-                {
-                    itensCarrinho.Add(itemSelecionado);
-                }
-            }
-
-            // Salve os itens do carrinho em um arquivo
-            SaveCarrinhoData();
-
-            // Exiba os itens no DataGridView
-            ExibirItensCarrinho();
-        }
-
-
-
-        private void ExibirItensCarrinho()
-        {// Limpar as linhas existentes no DataGridView
-           
-
-            // Adicionar as linhas correspondentes aos itens do carrinho
-            foreach (ItemDeCompra item in itensCarrinho)
-            {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridViewItensCarrinho,
-                    item.Livro.Titulo,
-                    item.Livro.Preco,
-                    item.Quantidade,
-                    item.PrecoUnitario,
-                    null); // Célula de imagem vazia
-
-                dataGridViewItensCarrinho.Rows.Add(row);
-            }
-
+            this.carrinho = carrinho;
+            this.cliente = cliente;
+            itemDeCompraController = new ItemDeCompraController();
+            carrinhoController = new CarrinhoController();
 
         }
 
         private void FormCarrinho_Load(object sender, EventArgs e)
         {
-           
-            // Carregue os itens do carrinho do arquivo
+            // Adicionar colunas ao DataGridView
+            dgvCarrinho.Columns.Add("Id", "Id");
+            dgvCarrinho.Columns.Add("Imagem", "Imagem");
+            dgvCarrinho.Columns.Add("Titulo", "Título");
+            dgvCarrinho.Columns.Add("Quantidade", "Quantidade");
+            dgvCarrinho.Columns.Add("Preco", "Preço");
 
-            LoadCarrinhoData();
-
-            ExibirItensCarrinho();
+            ConfigurarGrade();
+            // Carregar os itens do carrinho
+            CarregarItensCarrinho();
 
         }
 
-        private void SaveCarrinhoData()
-        {
-            CarrinhoData carrinhoData = new CarrinhoData()
-            {
-                Itens = new List<ItemDeCompra>()
-            };
 
-            // Crie uma cópia dos itens do carrinho com a imagem removida
-            foreach (var item in itensCarrinho)
+        private void ConfigurarGrade()
+        {
+            dgvCarrinho.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
+            dgvCarrinho.DefaultCellStyle.Font = new Font("Arial", 12);
+            dgvCarrinho.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            dgvCarrinho.Columns["Id"].Width = 100;
+            dgvCarrinho.Columns["Id"].HeaderText = "Imagem";
+            dgvCarrinho.Columns["Id"].DefaultCellStyle.NullValue = null; // Define a célula vazia como nula
+
+            dgvCarrinho.Columns["Imagem"].Width = 100;
+            dgvCarrinho.Columns["Imagem"].HeaderText = "Imagem";
+            dgvCarrinho.Columns["Imagem"].DefaultCellStyle.NullValue = null; // Define a célula vazia como nula
+            dgvCarrinho.Columns["Imagem"].ReadOnly = true; // Torna a coluna somente leitura
+
+            dgvCarrinho.Columns["Titulo"].Width = 300;
+            dgvCarrinho.Columns["Titulo"].HeaderText = "Título";
+            dgvCarrinho.Columns["Titulo"].ReadOnly = true; // Torna a coluna somente leitura
+
+            dgvCarrinho.Columns["Quantidade"].Width = 100;
+            dgvCarrinho.Columns["Quantidade"].Name = "Quantidade";
+            dgvCarrinho.Columns["Quantidade"].HeaderText = "Quantidade";
+
+            dgvCarrinho.Columns["Preco"].Width = 100;
+            dgvCarrinho.Columns["Preco"].HeaderText = "Preço";
+            dgvCarrinho.Columns["Preco"].Name = "Preco";
+            dgvCarrinho.Columns["Preco"].DefaultCellStyle.Format = "C2"; // Formato de moeda (R$)
+            dgvCarrinho.Columns["Preco"].ReadOnly = true; // Torna a coluna somente leitura
+
+            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
+            checkBoxColumn.HeaderText = "Selecionado";
+            checkBoxColumn.Width = 110;
+            checkBoxColumn.Name = "checkBoxColumn";
+            checkBoxColumn.ReadOnly = false; // Definindo a coluna como somente leitura
+            dgvCarrinho.Columns.Add(checkBoxColumn);
+        }
+
+
+        private void CarregarItensCarrinho()
+        {
+            dgvCarrinho.Rows.Clear();
+
+            foreach (ItemDeCompra item in carrinho.ItensDeCompra)
             {
-                carrinhoData.Itens.Add(new ItemDeCompra
-                {
-                    Livro = new Livro
-                    {
-                        Titulo = item.Livro.Titulo,
-                        Preco = item.Livro.Preco
-                    },
-                    Quantidade = item.Quantidade,
-                    PrecoUnitario = item.PrecoUnitario
-                });
+                DataGridViewRow row = new DataGridViewRow();
+
+                // Adicione o código para obter o ID do ItemDeCompra
+                int itemId = itemDeCompraController.ObterIdItemDeCompra(item.Livro.Id, carrinho.Id);
+                item.Id = itemId;
+
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = item.Id });
+
+                DataGridViewImageCell imageCell = new DataGridViewImageCell();
+                imageCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                imageCell.Value = item.Livro.Imagem;
+                row.Cells.Add(imageCell);
+
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = item.Livro.Titulo });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = item.Quantidade });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = item.PrecoLivro });
+                row.Tag = item;
+
+                dgvCarrinho.Rows.Add(row);
             }
-
-            string json = JsonConvert.SerializeObject(carrinhoData);
-            File.WriteAllText(carrinhoFilePath, json);
+            dgvCarrinho.Refresh();
         }
 
-        private void LoadCarrinhoData()
-        {
-            if (File.Exists(carrinhoFilePath))
-            {
-                string json = File.ReadAllText(carrinhoFilePath);
-                CarrinhoData carrinhoData = JsonConvert.DeserializeObject<CarrinhoData>(json);
 
-                if (carrinhoData != null && carrinhoData.Itens != null)
+        private List<ItemDeCompra> ObterItensDeCompraSelecionados()
+        {
+            List<ItemDeCompra> itensSelecionados = new List<ItemDeCompra>();
+
+            foreach (DataGridViewRow row in dgvCarrinho.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = row.Cells["checkBoxColumn"] as DataGridViewCheckBoxCell;
+
+                if (checkBoxCell != null && checkBoxCell.Value != null && Convert.ToBoolean(checkBoxCell.Value))
                 {
-                    itensCarrinho.AddRange(carrinhoData.Itens);
+                    ItemDeCompra item = row.Tag as ItemDeCompra;
+                    if (item != null)
+                    {
+                        itensSelecionados.Add(item);
+                    }
                 }
             }
+
+            return itensSelecionados;
         }
 
-      
+        private void btnRemoverItemCarrinho_Click(object sender, EventArgs e)
+        {
+            List<ItemDeCompra> itensSelecionados = ObterItensDeCompraSelecionados();
+
+            foreach (ItemDeCompra item in itensSelecionados)
+            {
+                itemDeCompraController.RemoverItemDoCarrinho(carrinho, item.Livro.Id);
+            }
+            
+            CarregarItensCarrinho();
+        }
+
+        private void btnLimparCarrinho_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Tem certeza que deseja remover todos os produtos do seu carrinho?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                itemDeCompraController.LimparCarrinho(carrinho);
+                CarregarItensCarrinho();
+            }
+        }
+
+        private void dgvCarrinho_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvCarrinho.Columns["Quantidade"].Index)
+            {
+                DataGridViewRow row = dgvCarrinho.Rows[e.RowIndex];
+                ItemDeCompra item = row.Tag as ItemDeCompra;
+                int novaQuantidade = Convert.ToInt32(row.Cells["Quantidade"].Value);
+
+                // Atualize a quantidade no banco de dados
+                itemDeCompraController.AtualizarQuantidadeItem(carrinho.Id, item.Livro.Id, novaQuantidade);
+
+            }
+        }
+
+        private decimal CalcularTotalItensSelecionados()
+        {
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dgvCarrinho.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = row.Cells["checkBoxColumn"] as DataGridViewCheckBoxCell;
+
+                if (checkBoxCell != null && checkBoxCell.Value != null && Convert.ToBoolean(checkBoxCell.Value))
+                {
+                    object precoValue = row.Cells["Preco"].Value;
+                    object quantidadeValue = row.Cells["Quantidade"].Value;
+
+                    if (precoValue != null && quantidadeValue != null)
+                    {
+                        decimal precoUnitario = Convert.ToDecimal(precoValue);
+                        int quantidade = Convert.ToInt32(quantidadeValue);
+                        decimal subtotal = precoUnitario * quantidade;
+                        total += subtotal;
+                    }
+                }
+            }
+
+            return total;
+        }
+
+        private void dgvCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == dgvCarrinho.Columns["checkBoxColumn"].Index && e.RowIndex != -1)
+                {
+                    DataGridViewCheckBoxCell checkBoxCell = dgvCarrinho.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewCheckBoxCell;
+
+                    if (checkBoxCell != null)
+                    {
+                        dgvCarrinho.EndEdit();
+
+                        decimal total = CalcularTotalItensSelecionados();
+                        lblPrecoTotalCarrinho.Text = total.ToString("C");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao atualizar o valor total do carrinho: " + ex.Message);
+            }
+        }
+
     }
 }

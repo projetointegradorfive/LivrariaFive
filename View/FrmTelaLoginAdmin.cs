@@ -18,9 +18,8 @@ namespace LivrariaFive.View
     {
         // Referência da conexão
         //SqlConnection conexao = new SqlConnection("Data Source = LABINFO - 9DC9A7\\SQLEXPRESS; Initial Catalog = Livraria; Integrated Security = True");
-        SqlConnection conexao = new SqlConnection(@"Data Source=EMY;Initial Catalog=Livraria;Integrated Security=True");
 
-        Boolean status_senha = false;
+        SqlConnection connection = DatabaseConnection.GetConnection();
 
         public FrmTelaLoginAdmin()
         {
@@ -40,12 +39,13 @@ namespace LivrariaFive.View
 
         private void btnEntrar_Click_1(object sender, EventArgs e)
         {
-            conexao.Open();
+            
+            connection.Open();
             verificar();
             string query = "SELECT * FROM tbAdministrador WHERE cpf = '"
                 + maskTxtCpfAdmin.Text 
                 + "' AND senha = '" + txtSenhaAdmin.Text + "'";
-            SqlDataAdapter dp = new SqlDataAdapter(query, conexao);
+            SqlDataAdapter dp = new SqlDataAdapter(query, connection);
             DataTable dt = new DataTable();
             dp.Fill(dt);
             try
@@ -65,7 +65,7 @@ namespace LivrariaFive.View
                 txtSenhaAdmin.Text = "";
                 maskTxtCpfAdmin.Select();
             }
-            conexao.Close();
+            connection.Close();
         }
 
         private void btnSair_Click(object sender, EventArgs e)

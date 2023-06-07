@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using LivrariaFive.Model;
 using LivrariaFive.Persistence;
+using LivrariaFive.Controller;
 
 
 
@@ -20,7 +21,11 @@ namespace LivrariaFive.Controller
             {
                 using (SqlConnection connection = DatabaseConnection.GetConnection())
                 {
-                    string query = "INSERT INTO tbCliente (nome, email, senha, cpf, endereco, telefone, data_nascimento) VALUES (@Nome, @Email, @Senha, @CPF, @Endereco, @Telefone, @DataNascimento); SELECT SCOPE_IDENTITY();";
+                    connection.Open();
+
+                    string query = "INSERT INTO tbCliente (nome, email, senha, cpf, endereco, telefone, data_nascimento) " +
+                                   "VALUES (@Nome, @Email, @Senha, @CPF, @Endereco, @Telefone, @DataNascimento); " +
+                                   "SELECT SCOPE_IDENTITY();";
 
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Nome", cliente.Nome);
@@ -31,9 +36,11 @@ namespace LivrariaFive.Controller
                     command.Parameters.AddWithValue("@Telefone", cliente.Telefone);
                     command.Parameters.AddWithValue("@DataNascimento", cliente.DataNascimento);
 
-                    connection.Open();
                     int idCliente = Convert.ToInt32(command.ExecuteScalar());
                     cliente.IdCliente = idCliente;
+
+                    // Chamar o método CriarCarrinho passando o cliente atualizado
+                    Carrinho carrinho = new CarrinhoController().CriarCarrinho(cliente);
 
                     return cliente;
                 }
@@ -43,6 +50,9 @@ namespace LivrariaFive.Controller
                 return null;
             }
         }
+
+
+
 
         public Cliente VerificarCredenciais(string email, string senha)
         {
@@ -180,5 +190,46 @@ namespace LivrariaFive.Controller
                 command.ExecuteNonQuery();
             }
         }
+        public Cliente ObterClientePorNomeCPF(string nome, string cpf)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT idCliente, email, senha, endereco, telefone, data_nascimento FROM tbCliente WHERE LOWER(nome) LIKE LOWER(@Nome) AND cpf = @CPF";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nome", "%" + nome.ToLower() + "%");
+                command.Parameters.AddWithValue("@CPF", cpf);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    int idCliente = Convert.ToInt32(reader["idCliente"]);
+                    string email = reader["email"].ToString();
+                    string senha = reader["senha"].ToString();
+                    string endereco = reader["endereco"].ToString();
+                    string telefone = reader["telefone"].ToString();
+                    DateTime dataNascimento = Convert.ToDateTime(reader["data_nascimento"]);
+
+                    Cliente cliente = new Cliente
+                    {
+                        IdCliente = idCliente,
+                        Nome = reader["nome"].ToString(),
+                        Email = email,
+                        Senha = senha,
+                        CPF = cpf,
+                        Endereco = endereco,
+                        Telefone = telefone,
+                        DataNascimento = dataNascimento
+                    };
+
+                    return cliente;
+                }
+            }
+
+            return null;
+        }
+
     }
 }
