@@ -96,6 +96,7 @@
     <Compile Include="Persistence\DatabaseConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidaCadastroUser.cs" />
     <Compile Include="View\DetalhesLivro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +234,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,8 +17,8 @@ namespace LivrariaFive.View
     public partial class FrmGerenciarUsuarios : Form
     {
 
-        private Cliente clienteSelecionado;
-        SqlConnection connection = DatabaseConnection.GetConnection();
+        SqlConnection conexao = new SqlConnection(@"Data Source=EMY;Initial Catalog=Livraria;Integrated Security=True");
+
         public FrmGerenciarUsuarios()
         {
             InitializeComponent();

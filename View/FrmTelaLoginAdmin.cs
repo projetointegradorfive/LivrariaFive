@@ -18,6 +18,7 @@ namespace LivrariaFive.View
     {
         // Referência da conexão
         //SqlConnection conexao = new SqlConnection("Data Source = LABINFO - 9DC9A7\\SQLEXPRESS; Initial Catalog = Livraria; Integrated Security = True");
+
         SqlConnection connection = DatabaseConnection.GetConnection();
 
         public FrmTelaLoginAdmin()
