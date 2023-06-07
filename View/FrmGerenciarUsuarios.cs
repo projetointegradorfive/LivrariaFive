@@ -13,7 +13,7 @@ namespace LivrariaFive.View
 {
     public partial class FrmGerenciarUsuarios : Form
     {
-        SqlConnection conexao = new SqlConnection(@"Data Source=IAN;Initial Catalog=Livraria;User ID=sa;Password=ianvictor123");
+        SqlConnection conexao = new SqlConnection(@"Data Source=EMY;Initial Catalog=Livraria;Integrated Security=True");
         public FrmGerenciarUsuarios()
         {
             InitializeComponent();

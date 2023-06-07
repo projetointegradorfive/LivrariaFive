@@ -18,7 +18,7 @@ namespace LivrariaFive.View
     {
         // Referência da conexão
         //SqlConnection conexao = new SqlConnection("Data Source = LABINFO - 9DC9A7\\SQLEXPRESS; Initial Catalog = Livraria; Integrated Security = True");
-        SqlConnection conexao = new SqlConnection(@"Data Source=IAN;Initial Catalog=Livraria;User ID=sa;Password=ianvictor123");
+        SqlConnection conexao = new SqlConnection(@"Data Source=EMY;Initial Catalog=Livraria;Integrated Security=True");
 
         Boolean status_senha = false;
 

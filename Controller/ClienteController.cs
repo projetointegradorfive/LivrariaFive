@@ -86,8 +86,23 @@ namespace LivrariaFive.Controller
             return null; // Retorna null caso as credenciais não sejam válidas ou ocorra algum erro na consulta
         }
 
+        public bool VerificarEmailExistente(string email)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT COUNT(*) FROM tbCliente WHERE email = @Email";
 
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Email", email);
 
+                connection.Open();
+
+                int count = Convert.ToInt32(command.ExecuteScalar());
+
+                return count > 0;
+            }
+        }
+       
         public Cliente ObterClientePorId(int idCliente)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())

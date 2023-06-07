@@ -349,6 +349,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(525, 511);
             this.tableLayoutPanel3.TabIndex = 3;
+            this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
             // 
             // tableLayoutPanel10
             // 
@@ -421,15 +422,16 @@ namespace LivrariaFive.View
             this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 188);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(512, 64);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // txtSenhaLogin
             // 
             this.txtSenhaLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSenhaLogin.Location = new System.Drawing.Point(105, 38);
+            this.txtSenhaLogin.Location = new System.Drawing.Point(105, 18);
             this.txtSenhaLogin.Margin = new System.Windows.Forms.Padding(4);
             this.txtSenhaLogin.Name = "txtSenhaLogin";
             this.txtSenhaLogin.Size = new System.Drawing.Size(276, 22);
@@ -438,7 +440,7 @@ namespace LivrariaFive.View
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.Location = new System.Drawing.Point(46, 36);
+            this.label4.Location = new System.Drawing.Point(46, 16);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 28);
