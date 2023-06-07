@@ -22,7 +22,7 @@ namespace LivrariaFive.View
             Cliente clienteAtual = new Cliente(); // Instancia um objeto Cliente
 
    
-            Application.Run(new FrmGerenciarLivros());
+            Application.Run(new LivroForm(clienteAtual));
         }
     }
 }
