@@ -76,7 +76,7 @@ namespace LivrariaFive.Controller
                     string endereco = reader["endereco"].ToString();
                     string telefone = reader["telefone"].ToString();
                     DateTime dataNascimento = Convert.ToDateTime(reader["data_nascimento"]);
-
+                    //Passando os dados do cliente logado para as propriedades de Cliente(model)
                     Cliente cliente = new Cliente
                     {
                         IdCliente = idCliente,
@@ -88,7 +88,7 @@ namespace LivrariaFive.Controller
                         Telefone = telefone,
                         DataNascimento = dataNascimento
                     };
-
+                    //retorna a variável cliente com os dados do cliente atual
                     return cliente;
                 }
             }
