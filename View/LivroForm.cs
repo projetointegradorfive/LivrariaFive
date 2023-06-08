@@ -251,10 +251,11 @@ namespace LivrariaFive.View
                 ItemDeCompraController itemDeCompraController = new ItemDeCompraController();
                 itemDeCompraController.InserirOuAtualizarItensDeCompra(carrinho.Id, itensSelecionados);
                 // Atualizar o dataGridViewLivros
-                dataGridViewLivros.Refresh();
+                PrencherDataGrid();
+                ConfigurarGrade();
 
                 MessageBox.Show("Itens adicionados ao carrinho com sucesso.");
-                
+               
             }
             else
             {

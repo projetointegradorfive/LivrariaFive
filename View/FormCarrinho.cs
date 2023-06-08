@@ -57,7 +57,7 @@ namespace LivrariaFive.View
             dgvCarrinho.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
             dgvCarrinho.Columns["Id"].Width = 100;
-            dgvCarrinho.Columns["Id"].HeaderText = "Imagem";
+            dgvCarrinho.Columns["Id"].HeaderText = "ID";
             dgvCarrinho.Columns["Id"].DefaultCellStyle.NullValue = null; // Define a célula vazia como nula
 
             dgvCarrinho.Columns["Imagem"].Width = 100;
@@ -114,7 +114,7 @@ namespace LivrariaFive.View
 
                 dgvCarrinho.Rows.Add(row);
             }
-            dgvCarrinho.Refresh();
+            
         }
 
 
@@ -149,6 +149,7 @@ namespace LivrariaFive.View
             }
             
             CarregarItensCarrinho();
+            CalcularTotalItensSelecionados();
         }
 
         private void btnLimparCarrinho_Click(object sender, EventArgs e)
