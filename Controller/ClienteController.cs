@@ -7,9 +7,7 @@ using System.Data.SqlClient;
 using LivrariaFive.Model;
 using LivrariaFive.Persistence;
 using LivrariaFive.Controller;
-
-
-
+using System.Data;
 
 namespace LivrariaFive.Controller
 {
@@ -229,6 +227,31 @@ namespace LivrariaFive.Controller
             }
 
             return null;
+        }
+        public DataTable ObtertodosUsuarios()
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                DataTable dt = new DataTable();
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM tbCliente order by tbCliente.nome ASC";
+                    SqlDataAdapter dp = new SqlDataAdapter(query, connection);
+                    dp.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Ocorreu um erro ao obter os usuários." + ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                return dt;
+
+            }
+
         }
 
     }
