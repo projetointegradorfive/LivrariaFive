@@ -84,7 +84,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel9, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(403, 31);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(403, 32);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 5;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 83F));
@@ -322,7 +322,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.btnLogarUser, 0, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 31);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 32);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87F));
@@ -400,19 +400,15 @@ namespace LivrariaFive.View
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(512, 64);
-
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(388, 64);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // txtSenhaLogin
             // 
             this.txtSenhaLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-
-            this.txtSenhaLogin.Location = new System.Drawing.Point(105, 18);
+            this.txtSenhaLogin.Location = new System.Drawing.Point(80, 20);
             this.txtSenhaLogin.Margin = new System.Windows.Forms.Padding(4);
-
             this.txtSenhaLogin.Name = "txtSenhaLogin";
             this.txtSenhaLogin.Size = new System.Drawing.Size(208, 20);
             this.txtSenhaLogin.TabIndex = 3;
@@ -420,9 +416,8 @@ namespace LivrariaFive.View
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.Location = new System.Drawing.Point(46, 16);
+            this.label4.Location = new System.Drawing.Point(34, 21);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 23);
             this.label4.TabIndex = 2;
@@ -454,7 +449,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 422F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 451);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnLoginAdminRestrito
@@ -472,12 +467,11 @@ namespace LivrariaFive.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 451);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormLoginUser";
             this.Text = "FormLoginUser";
-            //this.Load += new System.EventHandler(this.FormLoginUser_Load);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();

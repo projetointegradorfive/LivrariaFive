@@ -55,18 +55,23 @@ namespace LivrariaFive.View
             this.maskTxtDataNascimentoGerenciarUsuarios = new System.Windows.Forms.MaskedTextBox();
             this.lblPesquisaUsuarios = new System.Windows.Forms.Label();
             this.txtPesquisaUsuarios = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosGerenciarUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(671, 1);
+            this.pictureBox2.Location = new System.Drawing.Point(678, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(75, 41);
+            this.pictureBox2.Size = new System.Drawing.Size(49, 42);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
@@ -75,7 +80,7 @@ namespace LivrariaFive.View
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(9, 50);
+            this.lblNome.Location = new System.Drawing.Point(9, 145);
             this.lblNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(41, 13);
@@ -85,7 +90,7 @@ namespace LivrariaFive.View
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
-            this.lblSenha.Location = new System.Drawing.Point(9, 100);
+            this.lblSenha.Location = new System.Drawing.Point(9, 195);
             this.lblSenha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(44, 13);
@@ -95,7 +100,7 @@ namespace LivrariaFive.View
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(9, 7);
+            this.lblId.Location = new System.Drawing.Point(9, 102);
             this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(24, 13);
@@ -104,7 +109,7 @@ namespace LivrariaFive.View
             // 
             // txtNomeGerenciarUsuarios
             // 
-            this.txtNomeGerenciarUsuarios.Location = new System.Drawing.Point(10, 67);
+            this.txtNomeGerenciarUsuarios.Location = new System.Drawing.Point(10, 162);
             this.txtNomeGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeGerenciarUsuarios.Name = "txtNomeGerenciarUsuarios";
             this.txtNomeGerenciarUsuarios.Size = new System.Drawing.Size(181, 20);
@@ -112,7 +117,7 @@ namespace LivrariaFive.View
             // 
             // txtSenhaGerenciarUsuarios
             // 
-            this.txtSenhaGerenciarUsuarios.Location = new System.Drawing.Point(9, 116);
+            this.txtSenhaGerenciarUsuarios.Location = new System.Drawing.Point(9, 211);
             this.txtSenhaGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.txtSenhaGerenciarUsuarios.Name = "txtSenhaGerenciarUsuarios";
             this.txtSenhaGerenciarUsuarios.Size = new System.Drawing.Size(182, 20);
@@ -120,7 +125,7 @@ namespace LivrariaFive.View
             // 
             // txtIdGerenciarUsuarios
             // 
-            this.txtIdGerenciarUsuarios.Location = new System.Drawing.Point(11, 24);
+            this.txtIdGerenciarUsuarios.Location = new System.Drawing.Point(11, 119);
             this.txtIdGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdGerenciarUsuarios.Name = "txtIdGerenciarUsuarios";
             this.txtIdGerenciarUsuarios.ReadOnly = true;
@@ -130,7 +135,7 @@ namespace LivrariaFive.View
             // lblCpfGerenciarUsuarios
             // 
             this.lblCpfGerenciarUsuarios.AutoSize = true;
-            this.lblCpfGerenciarUsuarios.Location = new System.Drawing.Point(9, 158);
+            this.lblCpfGerenciarUsuarios.Location = new System.Drawing.Point(9, 253);
             this.lblCpfGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCpfGerenciarUsuarios.Name = "lblCpfGerenciarUsuarios";
             this.lblCpfGerenciarUsuarios.Size = new System.Drawing.Size(33, 13);
@@ -139,7 +144,7 @@ namespace LivrariaFive.View
             // 
             // txtEnderecoGerenciarUsuarios
             // 
-            this.txtEnderecoGerenciarUsuarios.Location = new System.Drawing.Point(205, 320);
+            this.txtEnderecoGerenciarUsuarios.Location = new System.Drawing.Point(205, 415);
             this.txtEnderecoGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.txtEnderecoGerenciarUsuarios.Name = "txtEnderecoGerenciarUsuarios";
             this.txtEnderecoGerenciarUsuarios.Size = new System.Drawing.Size(518, 20);
@@ -148,7 +153,7 @@ namespace LivrariaFive.View
             // lblEnderecoGerenciarUsuarios
             // 
             this.lblEnderecoGerenciarUsuarios.AutoSize = true;
-            this.lblEnderecoGerenciarUsuarios.Location = new System.Drawing.Point(202, 303);
+            this.lblEnderecoGerenciarUsuarios.Location = new System.Drawing.Point(202, 398);
             this.lblEnderecoGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEnderecoGerenciarUsuarios.Name = "lblEnderecoGerenciarUsuarios";
             this.lblEnderecoGerenciarUsuarios.Size = new System.Drawing.Size(59, 13);
@@ -158,7 +163,7 @@ namespace LivrariaFive.View
             // lblTelefoneGerenciarUsuarios
             // 
             this.lblTelefoneGerenciarUsuarios.AutoSize = true;
-            this.lblTelefoneGerenciarUsuarios.Location = new System.Drawing.Point(7, 260);
+            this.lblTelefoneGerenciarUsuarios.Location = new System.Drawing.Point(7, 355);
             this.lblTelefoneGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefoneGerenciarUsuarios.Name = "lblTelefoneGerenciarUsuarios";
             this.lblTelefoneGerenciarUsuarios.Size = new System.Drawing.Size(55, 13);
@@ -168,7 +173,7 @@ namespace LivrariaFive.View
             // lblDataNascimentoGerenciarUsuarios
             // 
             this.lblDataNascimentoGerenciarUsuarios.AutoSize = true;
-            this.lblDataNascimentoGerenciarUsuarios.Location = new System.Drawing.Point(7, 217);
+            this.lblDataNascimentoGerenciarUsuarios.Location = new System.Drawing.Point(7, 312);
             this.lblDataNascimentoGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDataNascimentoGerenciarUsuarios.Name = "lblDataNascimentoGerenciarUsuarios";
             this.lblDataNascimentoGerenciarUsuarios.Size = new System.Drawing.Size(107, 13);
@@ -181,10 +186,10 @@ namespace LivrariaFive.View
             this.panel1.Controls.Add(this.btnExcluirUsuarioGerenciarUsuarios);
             this.panel1.Controls.Add(this.btnSalvarAlteracoesGerenciarUsuarios);
             this.panel1.Controls.Add(this.btnNovoUsuarioGerenciarUsuarios);
-            this.panel1.Location = new System.Drawing.Point(1, 344);
+            this.panel1.Location = new System.Drawing.Point(1, 439);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(729, 71);
+            this.panel1.Size = new System.Drawing.Size(723, 71);
             this.panel1.TabIndex = 22;
             // 
             // btnLimparTextBox
@@ -236,7 +241,7 @@ namespace LivrariaFive.View
             this.dgvUsuariosGerenciarUsuarios.AllowUserToAddRows = false;
             this.dgvUsuariosGerenciarUsuarios.AllowUserToDeleteRows = false;
             this.dgvUsuariosGerenciarUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuariosGerenciarUsuarios.Location = new System.Drawing.Point(205, 46);
+            this.dgvUsuariosGerenciarUsuarios.Location = new System.Drawing.Point(205, 141);
             this.dgvUsuariosGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.dgvUsuariosGerenciarUsuarios.Name = "dgvUsuariosGerenciarUsuarios";
             this.dgvUsuariosGerenciarUsuarios.ReadOnly = true;
@@ -250,7 +255,7 @@ namespace LivrariaFive.View
             // maskTxtCpfGerenciarUsuarios
             // 
             this.maskTxtCpfGerenciarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.maskTxtCpfGerenciarUsuarios.Location = new System.Drawing.Point(9, 175);
+            this.maskTxtCpfGerenciarUsuarios.Location = new System.Drawing.Point(9, 270);
             this.maskTxtCpfGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.maskTxtCpfGerenciarUsuarios.Mask = "000,000,000-00";
             this.maskTxtCpfGerenciarUsuarios.Name = "maskTxtCpfGerenciarUsuarios";
@@ -260,7 +265,7 @@ namespace LivrariaFive.View
             // 
             // maskTxtTelefoneGerenciarUsuarios
             // 
-            this.maskTxtTelefoneGerenciarUsuarios.Location = new System.Drawing.Point(11, 276);
+            this.maskTxtTelefoneGerenciarUsuarios.Location = new System.Drawing.Point(11, 371);
             this.maskTxtTelefoneGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.maskTxtTelefoneGerenciarUsuarios.Mask = "(00) 0 0000-0000 ";
             this.maskTxtTelefoneGerenciarUsuarios.Name = "maskTxtTelefoneGerenciarUsuarios";
@@ -270,7 +275,7 @@ namespace LivrariaFive.View
             // 
             // txtEmailGerenciarUsuarios
             // 
-            this.txtEmailGerenciarUsuarios.Location = new System.Drawing.Point(11, 322);
+            this.txtEmailGerenciarUsuarios.Location = new System.Drawing.Point(11, 417);
             this.txtEmailGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmailGerenciarUsuarios.Name = "txtEmailGerenciarUsuarios";
             this.txtEmailGerenciarUsuarios.Size = new System.Drawing.Size(182, 20);
@@ -279,7 +284,7 @@ namespace LivrariaFive.View
             // lblEmailGerenciarUsuarios
             // 
             this.lblEmailGerenciarUsuarios.AutoSize = true;
-            this.lblEmailGerenciarUsuarios.Location = new System.Drawing.Point(9, 306);
+            this.lblEmailGerenciarUsuarios.Location = new System.Drawing.Point(9, 401);
             this.lblEmailGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmailGerenciarUsuarios.Name = "lblEmailGerenciarUsuarios";
             this.lblEmailGerenciarUsuarios.Size = new System.Drawing.Size(41, 13);
@@ -289,7 +294,7 @@ namespace LivrariaFive.View
             // maskTxtDataNascimentoGerenciarUsuarios
             // 
             this.maskTxtDataNascimentoGerenciarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.maskTxtDataNascimentoGerenciarUsuarios.Location = new System.Drawing.Point(9, 233);
+            this.maskTxtDataNascimentoGerenciarUsuarios.Location = new System.Drawing.Point(9, 328);
             this.maskTxtDataNascimentoGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.maskTxtDataNascimentoGerenciarUsuarios.Mask = "00/00/0000";
             this.maskTxtDataNascimentoGerenciarUsuarios.Name = "maskTxtDataNascimentoGerenciarUsuarios";
@@ -300,7 +305,7 @@ namespace LivrariaFive.View
             // lblPesquisaUsuarios
             // 
             this.lblPesquisaUsuarios.AutoSize = true;
-            this.lblPesquisaUsuarios.Location = new System.Drawing.Point(202, 7);
+            this.lblPesquisaUsuarios.Location = new System.Drawing.Point(202, 102);
             this.lblPesquisaUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPesquisaUsuarios.Name = "lblPesquisaUsuarios";
             this.lblPesquisaUsuarios.Size = new System.Drawing.Size(103, 13);
@@ -309,18 +314,53 @@ namespace LivrariaFive.View
             // 
             // txtPesquisaUsuarios
             // 
-            this.txtPesquisaUsuarios.Location = new System.Drawing.Point(205, 24);
+            this.txtPesquisaUsuarios.Location = new System.Drawing.Point(205, 119);
             this.txtPesquisaUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.txtPesquisaUsuarios.Name = "txtPesquisaUsuarios";
             this.txtPesquisaUsuarios.Size = new System.Drawing.Size(462, 20);
             this.txtPesquisaUsuarios.TabIndex = 30;
             this.txtPesquisaUsuarios.TextChanged += new System.EventHandler(this.txtPesquisaUsuarios_TextChanged);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label9.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(83, 47);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(147, 27);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "FIVE Books";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(11, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(67, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label10.Location = new System.Drawing.Point(-2, -4);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(802, 83);
+            this.label10.TabIndex = 31;
+            // 
             // FrmGerenciarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 413);
+            this.ClientSize = new System.Drawing.Size(728, 512);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtPesquisaUsuarios);
             this.Controls.Add(this.lblPesquisaUsuarios);
             this.Controls.Add(this.maskTxtDataNascimentoGerenciarUsuarios);
@@ -341,7 +381,6 @@ namespace LivrariaFive.View
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.lblNome);
-            this.Controls.Add(this.pictureBox2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmGerenciarUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -350,6 +389,7 @@ namespace LivrariaFive.View
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosGerenciarUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,5 +422,8 @@ namespace LivrariaFive.View
         private System.Windows.Forms.Button btnLimparTextBox;
         private System.Windows.Forms.Label lblPesquisaUsuarios;
         private System.Windows.Forms.TextBox txtPesquisaUsuarios;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label10;
     }
 }
