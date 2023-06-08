@@ -95,6 +95,7 @@ namespace LivrariaFive.View
             this.btnEfetuarPedido.TabIndex = 5;
             this.btnEfetuarPedido.Text = "Fazer Pedido";
             this.btnEfetuarPedido.UseVisualStyleBackColor = true;
+            this.btnEfetuarPedido.Click += new System.EventHandler(this.btnEfetuarPedido_Click);
             // 
             // FormCarrinho
             // 

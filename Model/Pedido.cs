@@ -8,12 +8,12 @@ namespace LivrariaFive.Model
 {
     public class Pedido
     {
+        public List<ItemDeCompra> ItensDeCompra { get; set; }
         public int IdPedido { get; set; }
         public DateTime Data { get; set; }
         public double PrecoTotalPedido { get; set; }
-        public int ItensCompra { get; set; }
         public string FormaPagamento { get; set; }
         public string Status { get; set; }
-        public int ClienteId { get; set; }
+        public Cliente Cliente { get; set; }
     }
 }

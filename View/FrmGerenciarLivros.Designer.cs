@@ -62,6 +62,7 @@ namespace LivrariaFive.View
             // 
             // dgvMostrarLivros
             // 
+            this.dgvMostrarLivros.AllowUserToAddRows = false;
             this.dgvMostrarLivros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvMostrarLivros.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvMostrarLivros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

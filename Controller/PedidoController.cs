@@ -15,15 +15,14 @@ namespace LivrariaFive.Controller
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "INSERT INTO tbPedido (data, preco_total_pedido, itens_compra, forma_pagamento, status, idCliente) VALUES (@Data, @PrecoTotalPedido, @ItensCompra, @FormaPagamento, @Status, @ClienteId); SELECT SCOPE_IDENTITY();";
+                string query = "INSERT INTO tbPedido (data, preco_total_pedido, forma_pagamento, status, idCliente) VALUES (@Data, @PrecoTotalPedido, @FormaPagamento, @Status, @ClienteId); SELECT SCOPE_IDENTITY();";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Data", pedido.Data);
                 command.Parameters.AddWithValue("@PrecoTotalPedido", pedido.PrecoTotalPedido);
-                command.Parameters.AddWithValue("@ItensCompra", pedido.ItensCompra);
                 command.Parameters.AddWithValue("@FormaPagamento", pedido.FormaPagamento);
                 command.Parameters.AddWithValue("@Status", pedido.Status);
-                command.Parameters.AddWithValue("@ClienteId", pedido.ClienteId);
+                command.Parameters.AddWithValue("@ClienteId", pedido.Cliente.IdCliente);
 
                 connection.Open();
                 int idPedido = Convert.ToInt32(command.ExecuteScalar());
@@ -37,7 +36,7 @@ namespace LivrariaFive.Controller
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "SELECT data, preco_total_pedido, itens_compra, forma_pagamento, status, idCliente FROM tbPedido WHERE idPedido = @IdPedido";
+                string query = "SELECT data, preco_total_pedido, forma_pagamento, status, idCliente FROM tbPedido WHERE idPedido = @IdPedido";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@IdPedido", idPedido);
@@ -49,20 +48,22 @@ namespace LivrariaFive.Controller
                 {
                     DateTime data = Convert.ToDateTime(reader["data"]);
                     double precoTotalPedido = Convert.ToDouble(reader["preco_total_pedido"]);
-                    int itensCompra = Convert.ToInt32(reader["itens_compra"]);
                     string formaPagamento = reader["forma_pagamento"].ToString();
                     string status = reader["status"].ToString();
                     int clienteId = Convert.ToInt32(reader["idCliente"]);
+
+                    // Obter o objeto Cliente associado ao pedido
+                    ClienteController clienteController = new ClienteController();
+                    Cliente cliente = clienteController.ObterClientePorId(clienteId);
 
                     Pedido pedido = new Pedido
                     {
                         IdPedido = idPedido,
                         Data = data,
                         PrecoTotalPedido = precoTotalPedido,
-                        ItensCompra = itensCompra,
                         FormaPagamento = formaPagamento,
                         Status = status,
-                        ClienteId = clienteId
+                        Cliente = cliente // Define o objeto Cliente obtido do banco de dados
                     };
 
                     return pedido;
@@ -76,15 +77,14 @@ namespace LivrariaFive.Controller
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "UPDATE tbPedido SET data = @Data, preco_total_pedido = @PrecoTotalPedido, itens_compra = @ItensCompra, forma_pagamento = @FormaPagamento, status = @Status, idCliente = @ClienteId WHERE idPedido = @IdPedido";
+                string query = "UPDATE tbPedido SET data = @Data, preco_total_pedido = @PrecoTotalPedido, forma_pagamento = @FormaPagamento, status = @Status, idCliente = @ClienteId WHERE idPedido = @IdPedido";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Data", pedido.Data);
                 command.Parameters.AddWithValue("@PrecoTotalPedido", pedido.PrecoTotalPedido);
-                command.Parameters.AddWithValue("@ItensCompra", pedido.ItensCompra);
                 command.Parameters.AddWithValue("@FormaPagamento", pedido.FormaPagamento);
                 command.Parameters.AddWithValue("@Status", pedido.Status);
-                command.Parameters.AddWithValue("@ClienteId", pedido.ClienteId);
+                command.Parameters.AddWithValue("@ClienteId", pedido.Cliente.IdCliente);
                 command.Parameters.AddWithValue("@IdPedido", pedido.IdPedido);
 
                 connection.Open();

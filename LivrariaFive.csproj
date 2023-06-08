@@ -157,11 +157,11 @@
     <Compile Include="View\LivroForm.Designer.cs">
       <DependentUpon>LivroForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Pedido.cs">
+    <Compile Include="View\FormPedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Pedido.Designer.cs">
-      <DependentUpon>Pedido.cs</DependentUpon>
+    <Compile Include="View\FormPedido.Designer.cs">
+      <DependentUpon>FormPedido.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -202,8 +202,8 @@
     <EmbeddedResource Include="View\LivroForm.resx">
       <DependentUpon>LivroForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Pedido.resx">
-      <DependentUpon>Pedido.cs</DependentUpon>
+    <EmbeddedResource Include="View\FormPedido.resx">
+      <DependentUpon>FormPedido.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Livraria.xsc">
       <DependentUpon>Livraria.xsd</DependentUpon>

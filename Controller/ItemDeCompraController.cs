@@ -225,8 +225,6 @@ namespace LivrariaFive.Controller
         }
 
 
-
-
         public void RemoverItemDoCarrinho(Carrinho carrinho, int livroId)
         {
             try

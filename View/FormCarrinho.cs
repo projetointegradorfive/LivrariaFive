@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LivrariaFive.Model;
 using System.IO;
-using Newtonsoft.Json;
 using LivrariaFive.Controller;
 
 namespace LivrariaFive.View
 {
+
+   
     public partial class FormCarrinho : Form
     {
         private Carrinho carrinho;
         private Cliente cliente;
         private ItemDeCompraController itemDeCompraController;
-
         private CarrinhoController carrinhoController;
 
 
@@ -132,6 +132,7 @@ namespace LivrariaFive.View
                     if (item != null)
                     {
                         itensSelecionados.Add(item);
+                       
                     }
                 }
             }
@@ -177,9 +178,9 @@ namespace LivrariaFive.View
             }
         }
 
-        private decimal CalcularTotalItensSelecionados()
+        private double CalcularTotalItensSelecionados()
         {
-            decimal total = 0;
+            double total = 0;
 
             foreach (DataGridViewRow row in dgvCarrinho.Rows)
             {
@@ -192,9 +193,9 @@ namespace LivrariaFive.View
 
                     if (precoValue != null && quantidadeValue != null)
                     {
-                        decimal precoUnitario = Convert.ToDecimal(precoValue);
+                        double precoUnitario = Convert.ToDouble(precoValue);
                         int quantidade = Convert.ToInt32(quantidadeValue);
-                        decimal subtotal = precoUnitario * quantidade;
+                        double subtotal = precoUnitario * quantidade;
                         total += subtotal;
                     }
                 }
@@ -215,7 +216,7 @@ namespace LivrariaFive.View
                     {
                         dgvCarrinho.EndEdit();
 
-                        decimal total = CalcularTotalItensSelecionados();
+                        double total = CalcularTotalItensSelecionados();
                         lblPrecoTotalCarrinho.Text = total.ToString("C");
                     }
                 }
@@ -225,6 +226,30 @@ namespace LivrariaFive.View
                 Console.WriteLine("Erro ao atualizar o valor total do carrinho: " + ex.Message);
             }
         }
+
+        private void btnEfetuarPedido_Click(object sender, EventArgs e)
+        {
+            List<ItemDeCompra> itensSelecionados = ObterItensDeCompraSelecionados();
+
+            Pedido pedido = new Pedido();
+            pedido.ItensDeCompra = itensSelecionados;
+            pedido.Data = DateTime.Now; // Exemplo: usando a data atual
+            pedido.PrecoTotalPedido = CalcularTotalItensSelecionados(); // Calcula o preço total dos itens selecionados
+            pedido.FormaPagamento = "C"; // Exemplo: forma de pagamento selecionada no formulário
+            pedido.Status = "F"; // Exemplo: status inicial do pedido
+            pedido.Cliente = cliente; // Define o objeto Cliente completo
+
+            // Chama o método InserirPedido para inserir o pedido no banco de dados
+            PedidoController pedidoController = new PedidoController();
+            pedido = pedidoController.InserirPedido(pedido);
+
+            // Oculta o formulário de carrinho e mostra o formulário de pedido
+            FormPedido formPedido = new FormPedido(pedido);
+            this.Hide();
+            formPedido.Show();
+        }
+
+
 
     }
 }
