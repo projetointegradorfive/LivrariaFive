@@ -331,6 +331,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(394, 416);
             this.tableLayoutPanel3.TabIndex = 3;
+            this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
             // 
             // tableLayoutPanel10
             // 
@@ -397,15 +398,21 @@ namespace LivrariaFive.View
             this.tableLayoutPanel4.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 152);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(384, 52);
+
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(512, 64);
+
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // txtSenhaLogin
             // 
             this.txtSenhaLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSenhaLogin.Location = new System.Drawing.Point(79, 29);
+
+            this.txtSenhaLogin.Location = new System.Drawing.Point(105, 18);
+            this.txtSenhaLogin.Margin = new System.Windows.Forms.Padding(4);
+
             this.txtSenhaLogin.Name = "txtSenhaLogin";
             this.txtSenhaLogin.Size = new System.Drawing.Size(208, 20);
             this.txtSenhaLogin.TabIndex = 3;
@@ -413,7 +420,9 @@ namespace LivrariaFive.View
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.Location = new System.Drawing.Point(35, 29);
+            this.label4.Location = new System.Drawing.Point(46, 16);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 23);
             this.label4.TabIndex = 2;
@@ -468,7 +477,7 @@ namespace LivrariaFive.View
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormLoginUser";
             this.Text = "FormLoginUser";
-            this.Load += new System.EventHandler(this.FormLoginUser_Load);
+            //this.Load += new System.EventHandler(this.FormLoginUser_Load);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();

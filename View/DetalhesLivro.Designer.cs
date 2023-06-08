@@ -38,13 +38,13 @@ namespace LivrariaFive.View
             this.label8 = new System.Windows.Forms.Label();
             this.lblPreco = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblGenero = new System.Windows.Forms.Label();
-            this.lblIsbn = new System.Windows.Forms.Label();
-            this.lblEditora = new System.Windows.Forms.Label();
-            this.lblAutor = new System.Windows.Forms.Label();
             this.lblEstoqueLivro = new System.Windows.Forms.Label();
+            this.lblAutor = new System.Windows.Forms.Label();
+            this.lblEditora = new System.Windows.Forms.Label();
+            this.lblIsbn = new System.Windows.Forms.Label();
+            this.lblGenero = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblDescricao = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -91,7 +91,6 @@ namespace LivrariaFive.View
             this.label3.Size = new System.Drawing.Size(94, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Descrição:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -154,55 +153,15 @@ namespace LivrariaFive.View
             this.tableLayoutPanel2.Size = new System.Drawing.Size(402, 175);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
-            // label7
+            // lblEstoqueLivro
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(172, 55);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 20);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "ISBN:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(172, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 20);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Editora:";
-            // 
-            // lblGenero
-            // 
-            this.lblGenero.AutoSize = true;
-            this.lblGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenero.Location = new System.Drawing.Point(3, 0);
-            this.lblGenero.Name = "lblGenero";
-            this.lblGenero.Size = new System.Drawing.Size(58, 18);
-            this.lblGenero.TabIndex = 4;
-            this.lblGenero.Text = "Genero";
-            // 
-            // lblIsbn
-            // 
-            this.lblIsbn.AutoSize = true;
-            this.lblIsbn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsbn.Location = new System.Drawing.Point(253, 55);
-            this.lblIsbn.Name = "lblIsbn";
-            this.lblIsbn.Size = new System.Drawing.Size(42, 18);
-            this.lblIsbn.TabIndex = 3;
-            this.lblIsbn.Text = "ISBN";
-            // 
-            // lblEditora
-            // 
-            this.lblEditora.AutoSize = true;
-            this.lblEditora.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditora.Location = new System.Drawing.Point(253, 0);
-            this.lblEditora.Name = "lblEditora";
-            this.lblEditora.Size = new System.Drawing.Size(55, 18);
-            this.lblEditora.TabIndex = 2;
-            this.lblEditora.Text = "Editora";
+            this.lblEstoqueLivro.AutoSize = true;
+            this.lblEstoqueLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstoqueLivro.Location = new System.Drawing.Point(3, 100);
+            this.lblEstoqueLivro.Name = "lblEstoqueLivro";
+            this.lblEstoqueLivro.Size = new System.Drawing.Size(63, 18);
+            this.lblEstoqueLivro.TabIndex = 8;
+            this.lblEstoqueLivro.Text = "Estoque";
             // 
             // lblAutor
             // 
@@ -214,15 +173,55 @@ namespace LivrariaFive.View
             this.lblAutor.TabIndex = 5;
             this.lblAutor.Text = "Autor";
             // 
-            // lblEstoqueLivro
+            // lblEditora
             // 
-            this.lblEstoqueLivro.AutoSize = true;
-            this.lblEstoqueLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstoqueLivro.Location = new System.Drawing.Point(3, 100);
-            this.lblEstoqueLivro.Name = "lblEstoqueLivro";
-            this.lblEstoqueLivro.Size = new System.Drawing.Size(63, 18);
-            this.lblEstoqueLivro.TabIndex = 8;
-            this.lblEstoqueLivro.Text = "Estoque";
+            this.lblEditora.AutoSize = true;
+            this.lblEditora.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditora.Location = new System.Drawing.Point(253, 0);
+            this.lblEditora.Name = "lblEditora";
+            this.lblEditora.Size = new System.Drawing.Size(55, 18);
+            this.lblEditora.TabIndex = 2;
+            this.lblEditora.Text = "Editora";
+            // 
+            // lblIsbn
+            // 
+            this.lblIsbn.AutoSize = true;
+            this.lblIsbn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsbn.Location = new System.Drawing.Point(253, 55);
+            this.lblIsbn.Name = "lblIsbn";
+            this.lblIsbn.Size = new System.Drawing.Size(42, 18);
+            this.lblIsbn.TabIndex = 3;
+            this.lblIsbn.Text = "ISBN";
+            // 
+            // lblGenero
+            // 
+            this.lblGenero.AutoSize = true;
+            this.lblGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenero.Location = new System.Drawing.Point(3, 0);
+            this.lblGenero.Name = "lblGenero";
+            this.lblGenero.Size = new System.Drawing.Size(58, 18);
+            this.lblGenero.TabIndex = 4;
+            this.lblGenero.Text = "Genero";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(172, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 20);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Editora:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(172, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 20);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "ISBN:";
             // 
             // lblTitulo
             // 
@@ -239,7 +238,7 @@ namespace LivrariaFive.View
             this.lblDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescricao.Location = new System.Drawing.Point(3, 107);
             this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(70, 16);
+            this.lblDescricao.Size = new System.Drawing.Size(69, 16);
             this.lblDescricao.TabIndex = 2;
             this.lblDescricao.Text = "Descrição";
             // 

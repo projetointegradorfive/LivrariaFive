@@ -96,6 +96,7 @@
     <Compile Include="Persistence\DatabaseConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidaCadastroUser.cs" />
     <Compile Include="View\DetalhesLivro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +120,18 @@
     </Compile>
     <Compile Include="View\FormLoginUser.Designer.cs">
       <DependentUpon>FormLoginUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormPagamentoCartao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormPagamentoCartao.Designer.cs">
+      <DependentUpon>FormPagamentoCartao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmGerenciarLivros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmGerenciarLivros.Designer.cs">
+      <DependentUpon>FrmGerenciarLivros.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FrmGerenciarUsuarios.cs">
       <SubType>Form</SubType>
@@ -144,6 +157,12 @@
     <Compile Include="View\LivroForm.Designer.cs">
       <DependentUpon>LivroForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Pedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Pedido.Designer.cs">
+      <DependentUpon>Pedido.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -165,6 +184,12 @@
     <EmbeddedResource Include="View\FormLoginUser.resx">
       <DependentUpon>FormLoginUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormPagamentoCartao.resx">
+      <DependentUpon>FormPagamentoCartao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmGerenciarLivros.resx">
+      <DependentUpon>FrmGerenciarLivros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FrmGerenciarUsuarios.resx">
       <DependentUpon>FrmGerenciarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LivroForm.resx">
       <DependentUpon>LivroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Pedido.resx">
+      <DependentUpon>Pedido.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Livraria.xsc">
       <DependentUpon>Livraria.xsd</DependentUpon>
@@ -224,6 +252,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

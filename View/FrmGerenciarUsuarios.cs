@@ -16,9 +16,10 @@ namespace LivrariaFive.View
 {
     public partial class FrmGerenciarUsuarios : Form
     {
+        Cliente clienteSelecionado = new Cliente();
 
-        private Cliente clienteSelecionado;
-        SqlConnection connection = DatabaseConnection.GetConnection();
+        SqlConnection connection = new SqlConnection(@"Data Source=IAN;Initial Catalog=Livraria;Integrated Security=True");
+
         public FrmGerenciarUsuarios()
         {
             InitializeComponent();
@@ -35,29 +36,7 @@ namespace LivrariaFive.View
             maskTxtTelefoneGerenciarUsuarios.Text = "";
             maskTxtDataNascimentoGerenciarUsuarios.Text = "";
         }
-        public DataTable ObtertodosUsuarios()
-        {
-            DataTable dt = new DataTable();
-            try
-            {
-                connection.Open();
-                string query = "SELECT * FROM tbCliente order by tbCliente.nome ASC";
-                SqlDataAdapter dp = new SqlDataAdapter(query, connection);           
-                dp.Fill(dt);                
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Ocorreu um erro ao obter os usuários." + ex);
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return dt;
-
-
-
-        }
+        
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -68,7 +47,8 @@ namespace LivrariaFive.View
 
         private void FrmGerenciarUsuarios_Load(object sender, EventArgs e)
         {
-            DataTable dt = ObtertodosUsuarios();
+            ClienteController metodoObter = new ClienteController();
+            DataTable dt = metodoObter.ObtertodosUsuarios();
             dgvUsuariosGerenciarUsuarios.DataSource = dt;
             dgvUsuariosGerenciarUsuarios.Refresh();
         }
@@ -99,8 +79,10 @@ namespace LivrariaFive.View
 
         private void btnNovoUsuarioGerenciarUsuarios_Click(object sender, EventArgs e)
         {
+            ClienteController metodoObter = new ClienteController();
 
             Cliente novoCliente = new Cliente();
+            
             novoCliente.Nome = txtNomeGerenciarUsuarios.Text;
             novoCliente.Email = txtEmailGerenciarUsuarios.Text;
             novoCliente.Senha = txtSenhaGerenciarUsuarios.Text;
@@ -120,7 +102,7 @@ namespace LivrariaFive.View
                 {
                     MessageBox.Show("Novo Usuário Inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimparTextBoxes();
-                    dgvUsuariosGerenciarUsuarios.DataSource = ObtertodosUsuarios();
+                    dgvUsuariosGerenciarUsuarios.DataSource =  metodoObter.ObtertodosUsuarios();
                 }
                 else
                 {
@@ -135,7 +117,9 @@ namespace LivrariaFive.View
 
         private void btnSalvarAlteracoesGerenciarUsuarios_Click(object sender, EventArgs e)
         {
-                if (clienteSelecionado != null)
+            ClienteController metodoObter = new ClienteController();
+            
+            if (clienteSelecionado != null)
                 {
                     // Atualizar as informações do cliente com base nas TextBox
                     clienteSelecionado.Nome = txtNomeGerenciarUsuarios.Text;
@@ -152,7 +136,7 @@ namespace LivrariaFive.View
                     if (clienteAtualizado != null)
                     {
                     MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dgvUsuariosGerenciarUsuarios.DataSource = ObtertodosUsuarios();
+                    dgvUsuariosGerenciarUsuarios.DataSource = metodoObter.ObtertodosUsuarios();
                     LimparTextBoxes();
                     }
                     else
@@ -167,7 +151,9 @@ namespace LivrariaFive.View
         }
 
         private void btnExcluirUsuarioGerenciarUsuarios_Click(object sender, EventArgs e)
-        {    
+        {
+            ClienteController metodoObter = new ClienteController();
+
             if (clienteSelecionado != null)
             {
                 DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir o cliente?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -178,7 +164,7 @@ namespace LivrariaFive.View
                     clienteController.RemoverCliente(clienteSelecionado.IdCliente);
 
                     LimparTextBoxes();
-                    dgvUsuariosGerenciarUsuarios.DataSource = ObtertodosUsuarios();
+                    dgvUsuariosGerenciarUsuarios.DataSource = metodoObter.ObtertodosUsuarios();
 
                     MessageBox.Show("Cliente excluído com sucesso!");
                 }

@@ -181,5 +181,12 @@ namespace LivrariaFive.View
                 }
             }
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarLivros volta = new FrmGerenciarLivros();
+            this.Hide();
+            volta.Show();
+        }
     }
 }

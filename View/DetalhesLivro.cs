@@ -21,18 +21,15 @@ namespace LivrariaFive.View
 
             lblTitulo.Text = titulo;
             lblIsbn.Text = isbn;
-            lblPreco.Text = preco;
+            lblPreco.Text = decimal.Parse(preco).ToString("C");
             lblEstoqueLivro.Text = estoque;
             lblDescricao.Text = descricao;
             lblGenero.Text = genero;
             lblEditora.Text = editora;
             lblAutor.Text = autor;
             pictureBoxLivro.Image = imagem;
-        }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            
         }
 
         private void DetalhesLivro_Load(object sender, EventArgs e)

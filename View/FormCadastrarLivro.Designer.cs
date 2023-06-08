@@ -53,6 +53,7 @@ namespace LivrariaFive.View
             this.btnAddFoto = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtAnoPublicacao = new System.Windows.Forms.TextBox();
+            this.btnVoltar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -265,6 +266,7 @@ namespace LivrariaFive.View
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.txtAnoPublicacao);
             this.panel1.Controls.Add(this.btnAddFoto);
             this.panel1.Controls.Add(this.pbFoto);
@@ -297,10 +299,20 @@ namespace LivrariaFive.View
             // txtAnoPublicacao
             // 
             this.txtAnoPublicacao.Location = new System.Drawing.Point(156, 142);
-            this.txtAnoPublicacao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAnoPublicacao.Margin = new System.Windows.Forms.Padding(2);
             this.txtAnoPublicacao.Name = "txtAnoPublicacao";
             this.txtAnoPublicacao.Size = new System.Drawing.Size(179, 20);
             this.txtAnoPublicacao.TabIndex = 30;
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Location = new System.Drawing.Point(682, 12);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(106, 31);
+            this.btnVoltar.TabIndex = 31;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // FormCadastrarLivro
             // 
@@ -310,6 +322,7 @@ namespace LivrariaFive.View
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormCadastrarLivro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadastrarLivro";
             this.Load += new System.EventHandler(this.FormCadastrarLivro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
@@ -345,5 +358,6 @@ namespace LivrariaFive.View
         private System.Windows.Forms.Button btnAddFoto;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtAnoPublicacao;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }

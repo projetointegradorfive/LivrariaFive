@@ -7,9 +7,7 @@ using System.Data.SqlClient;
 using LivrariaFive.Model;
 using LivrariaFive.Persistence;
 using LivrariaFive.Controller;
-
-
-
+using System.Data;
 
 namespace LivrariaFive.Controller
 {
@@ -76,7 +74,7 @@ namespace LivrariaFive.Controller
                     string endereco = reader["endereco"].ToString();
                     string telefone = reader["telefone"].ToString();
                     DateTime dataNascimento = Convert.ToDateTime(reader["data_nascimento"]);
-
+                    //Passando os dados do cliente logado para as propriedades de Cliente(model)
                     Cliente cliente = new Cliente
                     {
                         IdCliente = idCliente,
@@ -88,7 +86,7 @@ namespace LivrariaFive.Controller
                         Telefone = telefone,
                         DataNascimento = dataNascimento
                     };
-
+                    //retorna a variável cliente com os dados do cliente atual
                     return cliente;
                 }
             }
@@ -96,8 +94,23 @@ namespace LivrariaFive.Controller
             return null; // Retorna null caso as credenciais não sejam válidas ou ocorra algum erro na consulta
         }
 
+        public bool VerificarEmailExistente(string email)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT COUNT(*) FROM tbCliente WHERE email = @Email";
 
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Email", email);
 
+                connection.Open();
+
+                int count = Convert.ToInt32(command.ExecuteScalar());
+
+                return count > 0;
+            }
+        }
+       
         public Cliente ObterClientePorId(int idCliente)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
@@ -214,6 +227,31 @@ namespace LivrariaFive.Controller
             }
 
             return null;
+        }
+        public DataTable ObtertodosUsuarios()
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                DataTable dt = new DataTable();
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM tbCliente order by tbCliente.nome ASC";
+                    SqlDataAdapter dp = new SqlDataAdapter(query, connection);
+                    dp.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Ocorreu um erro ao obter os usuários." + ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                return dt;
+
+            }
+
         }
 
     }
