@@ -27,6 +27,11 @@ namespace LivrariaFive.Controller
                 connection.Open();
                 int idPedido = Convert.ToInt32(command.ExecuteScalar());
                 pedido.IdPedido = idPedido;
+
+                ItemDeCompraController itemDeCompraController = new ItemDeCompraController();
+                itemDeCompraController.AtualizarItensDeCompra(idPedido, pedido.ItensDeCompra);
+
+
             }
 
             return pedido;

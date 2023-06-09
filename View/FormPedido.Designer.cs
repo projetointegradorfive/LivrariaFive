@@ -40,9 +40,11 @@
             this.cbxFormaPagamento = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblTotalPedido = new System.Windows.Forms.Label();
-            this.lblFazerPagamento = new System.Windows.Forms.Button();
+            this.btnFazerPagamento = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.lblTotalComFrete = new System.Windows.Forms.Label();
+            this.btnCancelarPedido = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpedido)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,15 +173,16 @@
             this.lblTotalPedido.TabIndex = 11;
             this.lblTotalPedido.Text = "0";
             // 
-            // lblFazerPagamento
+            // btnFazerPagamento
             // 
-            this.lblFazerPagamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFazerPagamento.Location = new System.Drawing.Point(604, 407);
-            this.lblFazerPagamento.Name = "lblFazerPagamento";
-            this.lblFazerPagamento.Size = new System.Drawing.Size(144, 30);
-            this.lblFazerPagamento.TabIndex = 12;
-            this.lblFazerPagamento.Text = "Ir para Pagamento";
-            this.lblFazerPagamento.UseVisualStyleBackColor = true;
+            this.btnFazerPagamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFazerPagamento.Location = new System.Drawing.Point(604, 407);
+            this.btnFazerPagamento.Name = "btnFazerPagamento";
+            this.btnFazerPagamento.Size = new System.Drawing.Size(144, 30);
+            this.btnFazerPagamento.TabIndex = 12;
+            this.btnFazerPagamento.Text = "Ir para Pagamento";
+            this.btnFazerPagamento.UseVisualStyleBackColor = true;
+            this.btnFazerPagamento.Click += new System.EventHandler(this.btnFazerPagamento_Click);
             // 
             // label8
             // 
@@ -203,14 +206,38 @@
             this.lblTotalComFrete.TabIndex = 14;
             this.lblTotalComFrete.Text = "0";
             // 
+            // btnCancelarPedido
+            // 
+            this.btnCancelarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarPedido.Location = new System.Drawing.Point(462, 407);
+            this.btnCancelarPedido.Name = "btnCancelarPedido";
+            this.btnCancelarPedido.Size = new System.Drawing.Size(127, 31);
+            this.btnCancelarPedido.TabIndex = 15;
+            this.btnCancelarPedido.Text = "Cancelar Pedido";
+            this.btnCancelarPedido.UseVisualStyleBackColor = true;
+            this.btnCancelarPedido.Click += new System.EventHandler(this.btnCancelarPedido_Click);
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVoltar.Location = new System.Drawing.Point(35, 406);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(127, 31);
+            this.btnVoltar.TabIndex = 16;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
             // FormPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.btnCancelarPedido);
             this.Controls.Add(this.lblTotalComFrete);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.lblFazerPagamento);
+            this.Controls.Add(this.btnFazerPagamento);
             this.Controls.Add(this.lblTotalPedido);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbxFormaPagamento);
@@ -225,6 +252,7 @@
             this.Controls.Add(this.dgvpedido);
             this.Name = "FormPedido";
             this.Text = "Pedido";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvpedido)).EndInit();
             this.ResumeLayout(false);
@@ -246,8 +274,10 @@
         private System.Windows.Forms.ComboBox cbxFormaPagamento;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblTotalPedido;
-        private System.Windows.Forms.Button lblFazerPagamento;
+        private System.Windows.Forms.Button btnFazerPagamento;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblTotalComFrete;
+        private System.Windows.Forms.Button btnCancelarPedido;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }

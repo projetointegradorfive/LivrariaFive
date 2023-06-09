@@ -234,19 +234,21 @@ namespace LivrariaFive.View
             Pedido pedido = new Pedido();
             pedido.ItensDeCompra = itensSelecionados;
             pedido.Data = DateTime.Now; // Exemplo: usando a data atual
-            pedido.PrecoTotalPedido = CalcularTotalItensSelecionados(); // Calcula o preço total dos itens selecionados
+            pedido.PrecoTotalPedido = CalcularTotalItensSelecionados() + 15; // Calcula o preço total dos itens selecionados
             pedido.FormaPagamento = "C"; // Exemplo: forma de pagamento selecionada no formulário
             pedido.Status = "F"; // Exemplo: status inicial do pedido
             pedido.Cliente = cliente; // Define o objeto Cliente completo
 
-            // Chama o método InserirPedido para inserir o pedido no banco de dados
-            PedidoController pedidoController = new PedidoController();
-            pedido = pedidoController.InserirPedido(pedido);
+           
 
             // Oculta o formulário de carrinho e mostra o formulário de pedido
-            FormPedido formPedido = new FormPedido(pedido);
+            LivroForm livroForm = new LivroForm(cliente);
+            FormPedido formPedido = new FormPedido(pedido, livroForm);
+
+            livroForm.Hide();          
             this.Hide();
-            formPedido.Show();
+
+            formPedido.ShowDialog();
         }
 
 

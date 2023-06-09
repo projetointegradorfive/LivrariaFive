@@ -18,13 +18,21 @@ namespace LivrariaFive.View
 
         private Pedido pedido;
         private ItemDeCompraController itemDeCompraController;
-        public FormPedido(Pedido pedido)
+        private LivroForm livroForm;
+
+
+        public FormPedido(Pedido pedido, LivroForm livroForm)
         {
+            this.livroForm = livroForm;
 
             InitializeComponent();
             this.pedido = pedido;
-
             itemDeCompraController = new ItemDeCompraController();
+
+            cbxFormaPagamento.Items.Add("Cartão de Crédito");
+            cbxFormaPagamento.Items.Add("Cartão de Débito");
+            cbxFormaPagamento.Items.Add("Boleto Bancário");
+            cbxFormaPagamento.Items.Add("Pix");
 
         }
         private void FormPedido_Load(object sender, EventArgs e)
@@ -34,6 +42,8 @@ namespace LivrariaFive.View
             dgvpedido.Columns.Add("Titulo", "Título");
             dgvpedido.Columns.Add("Quantidade", "Quantidade");
             dgvpedido.Columns.Add("Preco", "Preço");
+            cbxFormaPagamento.SelectedIndex = 0;
+
             ConfigurarGrade();
             CarregarItensPedido();
 
@@ -70,8 +80,9 @@ namespace LivrariaFive.View
         private void CarregarItensPedido()
         {
             lblEnderecoCliente.Text = pedido.Cliente.Endereco;
-            lblTotalPedido.Text = (pedido.PrecoTotalPedido).ToString();
-            lblTotalComFrete.Text = (pedido.PrecoTotalPedido + 15).ToString();
+            lblTotalPedido.Text = (pedido.PrecoTotalPedido - 15).ToString();
+            lblTotalComFrete.Text = (pedido.PrecoTotalPedido).ToString();
+            
             dgvpedido.Rows.Clear();
 
             foreach (ItemDeCompra item in pedido.ItensDeCompra)
@@ -94,6 +105,43 @@ namespace LivrariaFive.View
 
         }
 
+        private void btnCancelarPedido_Click(object sender, EventArgs e)
+        {        
+            this.Close();
+            livroForm.Show();
 
+        }
+
+        private void btnFazerPagamento_Click(object sender, EventArgs e)
+        {
+            string formaPagamentoSelecionada = cbxFormaPagamento.SelectedItem.ToString();
+
+            // Verificar a forma de pagamento selecionada e abrir o formulário correspondente
+            if (formaPagamentoSelecionada == "Cartão de Crédito" || formaPagamentoSelecionada == "Cartão de Débito")
+            {
+                FormPagamentoCartao formCartao = new FormPagamentoCartao(pedido);
+                formCartao.ShowDialog(); // Abre o formulário como diálogo
+            }
+            //else if (formaPagamentoSelecionada == "Boleto Bancário")
+            //{
+            //    FormBoletoBancario formBoletoBancario = new FormBoletoBancario();
+            //    formBoletoBancario.ShowDialog(); // Abre o formulário como diálogo
+            //}
+            //else if (formaPagamentoSelecionada == "Pix")
+            //{
+            //    FormPix formPix = new FormPix();
+            //    formPix.ShowDialog(); // Abre o formulário como diálogo
+            //}else
+            //{
+            //    // Forma de pagamento inválida
+            //    MessageBox.Show("Forma de pagamento inválida. Selecione uma opção válida.");
+            //}
+
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            livroForm.Show();
+        }
     }
 }

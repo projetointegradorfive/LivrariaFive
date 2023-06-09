@@ -61,6 +61,24 @@ namespace LivrariaFive.Controller
             }
         }
 
+        public void AtualizarItensDeCompra(int idPedido, List<ItemDeCompra> itensDeCompra)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "UPDATE tbItemDeCompra SET idPedido = @IdPedido WHERE idItemCompra = @IdItemDeCompra";
+
+                connection.Open();
+
+                foreach (ItemDeCompra item in itensDeCompra)
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@IdPedido", idPedido);
+                    command.Parameters.AddWithValue("@IdItemDeCompra", item.Id);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         private void InserirItensDeCompra(int idCarrinho, ItemDeCompra item)
         {
             try
