@@ -11,12 +11,20 @@ namespace LivrariaFive.Controller
 {
     public class PedidoController
     {
+
+        private Carrinho carrinho;
+        public PedidoController(Carrinho carrinho)
+        {
+            this.carrinho = carrinho;
+
+        }
         public Pedido InserirPedido(Pedido pedido)
         {
+
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
                 string query = "INSERT INTO tbPedido (data, preco_total_pedido, forma_pagamento, status, idCliente) VALUES (@Data, @PrecoTotalPedido, @FormaPagamento, @Status, @ClienteId); SELECT SCOPE_IDENTITY();";
-
+               
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Data", pedido.Data);
                 command.Parameters.AddWithValue("@PrecoTotalPedido", pedido.PrecoTotalPedido);
@@ -27,9 +35,19 @@ namespace LivrariaFive.Controller
                 connection.Open();
                 int idPedido = Convert.ToInt32(command.ExecuteScalar());
                 pedido.IdPedido = idPedido;
+                foreach (var item in pedido.ItensDeCompra)
+                {
+                    Console.WriteLine("ID do Item: " + item.Id);
+                    Console.WriteLine("ID do Livro: " + item.Livro.Id);
+                    Console.WriteLine("Quantidade: " + item.Quantidade);
+                    Console.WriteLine("Preço Unitário: " + item.PrecoLivro);
+                    Console.WriteLine("Preço Total: " + item.PrecoTotal);
+                    Console.WriteLine();
+                }
 
                 ItemDeCompraController itemDeCompraController = new ItemDeCompraController();
                 itemDeCompraController.AtualizarItensDeCompra(idPedido, pedido.ItensDeCompra);
+                
 
 
             }

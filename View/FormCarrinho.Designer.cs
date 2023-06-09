@@ -42,6 +42,8 @@ namespace LivrariaFive.View
             // 
             this.dgvCarrinho.AllowUserToAddRows = false;
             this.dgvCarrinho.AllowUserToDeleteRows = false;
+            this.dgvCarrinho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dgvCarrinho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrinho.Location = new System.Drawing.Point(12, 12);
             this.dgvCarrinho.Name = "dgvCarrinho";
@@ -52,6 +54,7 @@ namespace LivrariaFive.View
             // 
             // btnRemoverItemCarrinho
             // 
+            this.btnRemoverItemCarrinho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRemoverItemCarrinho.Location = new System.Drawing.Point(26, 394);
             this.btnRemoverItemCarrinho.Name = "btnRemoverItemCarrinho";
             this.btnRemoverItemCarrinho.Size = new System.Drawing.Size(117, 34);
@@ -62,6 +65,7 @@ namespace LivrariaFive.View
             // 
             // btnLimparCarrinho
             // 
+            this.btnLimparCarrinho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLimparCarrinho.Location = new System.Drawing.Point(186, 394);
             this.btnLimparCarrinho.Name = "btnLimparCarrinho";
             this.btnLimparCarrinho.Size = new System.Drawing.Size(117, 34);
@@ -72,6 +76,7 @@ namespace LivrariaFive.View
             // 
             // lblPrecoTotalCarrinho
             // 
+            this.lblPrecoTotalCarrinho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPrecoTotalCarrinho.Location = new System.Drawing.Point(422, 394);
             this.lblPrecoTotalCarrinho.Name = "lblPrecoTotalCarrinho";
             this.lblPrecoTotalCarrinho.Size = new System.Drawing.Size(88, 29);
@@ -80,6 +85,7 @@ namespace LivrariaFive.View
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.Location = new System.Drawing.Point(363, 394);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 29);
@@ -89,6 +95,7 @@ namespace LivrariaFive.View
             // 
             // btnEfetuarPedido
             // 
+            this.btnEfetuarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEfetuarPedido.Location = new System.Drawing.Point(654, 394);
             this.btnEfetuarPedido.Name = "btnEfetuarPedido";
             this.btnEfetuarPedido.Size = new System.Drawing.Size(134, 34);
@@ -108,6 +115,8 @@ namespace LivrariaFive.View
             this.Controls.Add(this.btnLimparCarrinho);
             this.Controls.Add(this.btnRemoverItemCarrinho);
             this.Controls.Add(this.dgvCarrinho);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormCarrinho";
             this.Text = "FormCarrinho";
             this.Load += new System.EventHandler(this.FormCarrinho_Load);

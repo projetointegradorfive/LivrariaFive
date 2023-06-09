@@ -19,13 +19,17 @@ namespace LivrariaFive.View
         private Pedido pedido;
         private ItemDeCompraController itemDeCompraController;
         private LivroForm livroForm;
+        private Carrinho carrinho;
+       
 
 
-        public FormPedido(Pedido pedido, LivroForm livroForm)
+        public FormPedido(Pedido pedido, LivroForm livroForm, Carrinho carrinho)
         {
-            this.livroForm = livroForm;
+            
 
             InitializeComponent();
+            this.livroForm = livroForm;
+            this.carrinho = carrinho;
             this.pedido = pedido;
             itemDeCompraController = new ItemDeCompraController();
 
@@ -76,12 +80,12 @@ namespace LivrariaFive.View
             dgvpedido.Columns["Preco"].DefaultCellStyle.Format = "C2"; // Formato de moeda (R$)
             dgvpedido.Columns["Preco"].ReadOnly = true; // Torna a coluna somente leitura
         }
-
+        
         private void CarregarItensPedido()
         {
             lblEnderecoCliente.Text = pedido.Cliente.Endereco;
-            lblTotalPedido.Text = (pedido.PrecoTotalPedido - 15).ToString();
-            lblTotalComFrete.Text = (pedido.PrecoTotalPedido).ToString();
+            lblTotalPedido.Text = (pedido.PrecoTotalPedido - 15).ToString("C");
+            lblTotalComFrete.Text = (pedido.PrecoTotalPedido).ToString("C");
             
             dgvpedido.Rows.Clear();
 
@@ -119,7 +123,7 @@ namespace LivrariaFive.View
             // Verificar a forma de pagamento selecionada e abrir o formulário correspondente
             if (formaPagamentoSelecionada == "Cartão de Crédito" || formaPagamentoSelecionada == "Cartão de Débito")
             {
-                FormPagamentoCartao formCartao = new FormPagamentoCartao(pedido);
+                FormPagamentoCartao formCartao = new FormPagamentoCartao(pedido, carrinho);
                 formCartao.ShowDialog(); // Abre o formulário como diálogo
             }
             //else if (formaPagamentoSelecionada == "Boleto Bancário")
@@ -127,21 +131,24 @@ namespace LivrariaFive.View
             //    FormBoletoBancario formBoletoBancario = new FormBoletoBancario();
             //    formBoletoBancario.ShowDialog(); // Abre o formulário como diálogo
             //}
-            //else if (formaPagamentoSelecionada == "Pix")
-            //{
-            //    FormPix formPix = new FormPix();
-            //    formPix.ShowDialog(); // Abre o formulário como diálogo
-            //}else
-            //{
-            //    // Forma de pagamento inválida
-            //    MessageBox.Show("Forma de pagamento inválida. Selecione uma opção válida.");
-            //}
+            else if (formaPagamentoSelecionada == "Pix")
+            {
+                FormPix formPix = new FormPix(pedido, carrinho);
+                formPix.ShowDialog(); // Abre o formulário como diálogo
+            }
+            else
+            {
+                // Forma de pagamento inválida
+                MessageBox.Show("Forma de pagamento inválida. Selecione uma opção válida.");
+            }
 
         }
 
+
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            livroForm.Show();
+            this.Close();
+            
         }
     }
 }

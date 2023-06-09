@@ -65,7 +65,7 @@ namespace LivrariaFive.Controller
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "UPDATE tbItemDeCompra SET idPedido = @IdPedido WHERE idItemCompra = @IdItemDeCompra";
+                string query = "UPDATE tbItemDeCompra SET idPedido = @IdPedido WHERE idItemCompra = @IdItemDeCompra AND idPedido is NULL";
 
                 connection.Open();
 
@@ -99,7 +99,7 @@ namespace LivrariaFive.Controller
                         command.Parameters.AddWithValue("@PrecoTotal", item.PrecoTotal);
 
                         command.ExecuteNonQuery();
-                    }
+                    }                 
                 }
             }
             catch (Exception ex)
@@ -119,7 +119,7 @@ namespace LivrariaFive.Controller
                 {
                     connection.Open();
 
-                    string query = "SELECT quantidade FROM tbItemDeCompra WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro";
+                    string query = "SELECT quantidade FROM tbItemDeCompra WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro AND idPedido is Null";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@IdCarrinho", idCarrinho);
@@ -141,8 +141,6 @@ namespace LivrariaFive.Controller
             return quantidade;
         }
 
-
-
         private bool VerificarItemExistente(int idCarrinho, int idLivro)
         {
             try
@@ -151,7 +149,7 @@ namespace LivrariaFive.Controller
                 {
                     connection.Open();
 
-                    string query = "SELECT COUNT(*) FROM tbItemDeCompra WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro";
+                    string query = "SELECT COUNT(*) FROM tbItemDeCompra WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro AND idPedido is NULL";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@IdCarrinho", idCarrinho);
@@ -178,7 +176,7 @@ namespace LivrariaFive.Controller
                     connection.Open();
 
                     // Atualizar a quantidade do item de compra no banco de dados
-                    string updateQuery = "UPDATE tbItemDeCompra SET quantidade = @Quantidade WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro";
+                    string updateQuery = "UPDATE tbItemDeCompra SET quantidade = @Quantidade WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro AND idPedido is NULL";
                     using (SqlCommand command = new SqlCommand(updateQuery, connection))
                     {
                         command.Parameters.AddWithValue("@Quantidade", quantidade);
@@ -189,7 +187,7 @@ namespace LivrariaFive.Controller
                     }
 
                     // Calcular e atualizar o preço total do item de compra no banco de dados
-                    string updatePriceQuery = "UPDATE tbItemDeCompra SET preco_total_ItemDeCompra = (quantidade * preco_unitario) WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro";
+                    string updatePriceQuery = "UPDATE tbItemDeCompra SET preco_total_ItemDeCompra = (quantidade * preco_unitario) WHERE idCarrinho = @IdCarrinho AND idLivro = @IdLivro AND idPedido is null";
                     using (SqlCommand updatePriceCommand = new SqlCommand(updatePriceQuery, connection))
                     {
                         updatePriceCommand.Parameters.AddWithValue("@IdCarrinho", idCarrinho);
@@ -210,7 +208,6 @@ namespace LivrariaFive.Controller
         }
 
 
-
         //obtendo o id do tem de compra corretamente
         public int ObterIdItemDeCompra(int livroId, int carrinhoId)
         {
@@ -220,7 +217,7 @@ namespace LivrariaFive.Controller
                 {
                     connection.Open();
 
-                    string query = "SELECT idItemCompra FROM tbItemDeCompra WHERE idLivro = @LivroId AND idCarrinho = @CarrinhoId";
+                    string query = "SELECT idItemCompra FROM tbItemDeCompra WHERE idLivro = @LivroId AND idCarrinho = @CarrinhoId AND idPedido is NULL";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@LivroId", livroId);
@@ -252,7 +249,7 @@ namespace LivrariaFive.Controller
                     connection.Open();
 
                     // Remover o item de compra do banco de dados
-                    string deleteQuery = "DELETE FROM tbItemDeCompra WHERE idCarrinho = @CarrinhoId AND idLivro = @LivroId";
+                    string deleteQuery = "DELETE FROM tbItemDeCompra WHERE idCarrinho = @CarrinhoId AND idLivro = @LivroId AND idPedido is NULL ";
                     using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
                     {
                         deleteCommand.Parameters.AddWithValue("@CarrinhoId", carrinho.Id);
@@ -276,8 +273,6 @@ namespace LivrariaFive.Controller
                 Console.WriteLine("Erro ao remover item de compra: " + ex.Message);
             }
         }
-
-
         public void LimparCarrinho(Carrinho carrinho)
         {
             try
@@ -286,8 +281,8 @@ namespace LivrariaFive.Controller
                 {
                     connection.Open();
 
-                    // Remover todos os itens de compra do banco de dados associados ao carrinho
-                    string deleteQuery = "DELETE FROM tbItemDeCompra WHERE idCarrinho = @CarrinhoId";
+                    // Remover todos os itens de compra do banco de dados associados ao carrinho e que não estão associados em um pedido
+                    string deleteQuery = "DELETE FROM tbItemDeCompra WHERE idCarrinho = @CarrinhoId AND idPedido is NULL";
                     using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
                     {
                         deleteCommand.Parameters.AddWithValue("@CarrinhoId", carrinho.Id);

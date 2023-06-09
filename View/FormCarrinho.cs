@@ -243,7 +243,7 @@ namespace LivrariaFive.View
 
             // Oculta o formulário de carrinho e mostra o formulário de pedido
             LivroForm livroForm = new LivroForm(cliente);
-            FormPedido formPedido = new FormPedido(pedido, livroForm);
+            FormPedido formPedido = new FormPedido(pedido, livroForm, carrinho);
 
             livroForm.Hide();          
             this.Hide();

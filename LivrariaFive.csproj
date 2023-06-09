@@ -127,6 +127,12 @@
     <Compile Include="View\FormPagamentoCartao.Designer.cs">
       <DependentUpon>FormPagamentoCartao.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormPix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormPix.Designer.cs">
+      <DependentUpon>FormPix.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmGerenciarLivros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormPagamentoCartao.resx">
       <DependentUpon>FormPagamentoCartao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormPix.resx">
+      <DependentUpon>FormPix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmGerenciarLivros.resx">
       <DependentUpon>FrmGerenciarLivros.cs</DependentUpon>

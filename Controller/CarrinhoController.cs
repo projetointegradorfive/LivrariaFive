@@ -11,7 +11,7 @@ namespace LivrariaFive.Controller
 {
     public class CarrinhoController
     {
-       
+
         public Carrinho ObterCarrinho(int idCliente)
         {
             Carrinho carrinho = null;
@@ -33,13 +33,13 @@ namespace LivrariaFive.Controller
                         carrinho.Id = reader.GetInt32(0);
                         carrinho.Total = reader.GetDouble(1);
 
-                        // Obter os itens do carrinho
+                        // Obter os itens do carrinho usando subconsulta
                         using (SqlConnection connectionItems = DatabaseConnection.GetConnection())
                         {
                             string queryItems = "SELECT L.idLivro, L.titulo, L.preco, L.livroImagem, I.quantidade " +
-                                               "FROM tbItemDeCompra I " +
-                                               "INNER JOIN tbLivro L ON I.idLivro = L.idLivro " +
-                                               "WHERE idCarrinho = @CarrinhoId";
+                                                "FROM tbLivro L " +
+                                                "INNER JOIN tbItemDeCompra I ON L.idLivro = I.idLivro " +
+                                                "WHERE I.idCarrinho = @CarrinhoId AND I.idPedido IS NULL";
 
                             SqlCommand commandItems = new SqlCommand(queryItems, connectionItems);
                             commandItems.Parameters.AddWithValue("@CarrinhoId", carrinho.Id);
@@ -90,6 +90,8 @@ namespace LivrariaFive.Controller
 
 
 
+
+
         public Carrinho CriarCarrinho(Cliente clienteAtual)
         {
             //CRIA UM CARRINHO PRO CLIENTE QUE ACABOU DE SE CADASTRAR
@@ -133,7 +135,7 @@ namespace LivrariaFive.Controller
                     connection.Open();
 
                     // Calcular o preço total do carrinho
-                    string calculateTotalQuery = "SELECT SUM(preco_total_ItemDeCompra) FROM tbItemDeCompra WHERE idCarrinho = @IdCarrinho";
+                    string calculateTotalQuery = "SELECT SUM(preco_total_ItemDeCompra) FROM tbItemDeCompra I WHERE idCarrinho = @IdCarrinho AND I.idPedido is NULL";
                     using (SqlCommand calculateTotalCommand = new SqlCommand(calculateTotalQuery, connection))
                     {
                         calculateTotalCommand.Parameters.AddWithValue("@IdCarrinho", idCarrinho);

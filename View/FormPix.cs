@@ -7,31 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LivrariaFive.Controller;
 using LivrariaFive.Model;
+using LivrariaFive.Controller;
 
 namespace LivrariaFive.View
 {
-    public partial class FormPagamentoCartao : Form
+    
+    public partial class FormPix : Form
     {
         private Pedido pedido;
-        private CarrinhoController carrinhoController;
         private Carrinho carrinho;
-
-        public FormPagamentoCartao(Pedido pedido, Carrinho carrinho)
+        private CarrinhoController carrinhoController;
+        public FormPix(Pedido pedido, Carrinho carrinho)
         {
             InitializeComponent();
-            this.carrinho = carrinho;
             this.pedido = pedido;
+            this.carrinho = carrinho;
             carrinhoController = new CarrinhoController();
         }
 
-        private void btnFazerPagamento_Click(object sender, EventArgs e)
+        private void btnPagamentoRealizado_Click(object sender, EventArgs e)
         {
             PedidoController pedidoController = new PedidoController(carrinho);
             pedidoController.InserirPedido(pedido);
             carrinhoController.AtualizarPrecoTotalCarrinho(carrinho.Id);
-            MessageBox.Show("Pedido Feito com Sucesso, logo será enviado!");
+            MessageBox.Show("O pagamento será verificado e logo seu pedido será enviado!");
             this.Close();
         }
     }
