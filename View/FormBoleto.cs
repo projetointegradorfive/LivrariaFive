@@ -87,7 +87,7 @@ namespace LivrariaFive.View
                 // Exiba uma mensagem de sucesso para o usuário
                 MessageBox.Show("Boleto gerado com sucesso!");
                 PedidoController pedidoController = new PedidoController(carrinho);
-
+                pedido.FormaPagamento = "Boleto";
                 pedido.Status = "Pendente de Análise";
                 pedidoController.InserirPedido(pedido);
                 carrinhoController.AtualizarPrecoTotalCarrinho(carrinho.Id);

@@ -30,6 +30,7 @@ namespace LivrariaFive.View
         private void btnPagamentoRealizado_Click(object sender, EventArgs e)
         {
             PedidoController pedidoController = new PedidoController(carrinho);
+            pedido.FormaPagamento = "Pix";
             pedido.Status = "Concluído";
             pedidoController.InserirPedido(pedido);
             carrinhoController.AtualizarPrecoTotalCarrinho(carrinho.Id);
