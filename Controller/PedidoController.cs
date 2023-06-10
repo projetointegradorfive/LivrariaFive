@@ -24,7 +24,6 @@ namespace LivrariaFive.Controller
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
                 string query = "INSERT INTO tbPedido (data, preco_total_pedido, forma_pagamento, status, idCliente) VALUES (@Data, @PrecoTotalPedido, @FormaPagamento, @Status, @ClienteId); SELECT SCOPE_IDENTITY();";
-               
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Data", pedido.Data);
                 command.Parameters.AddWithValue("@PrecoTotalPedido", pedido.PrecoTotalPedido);
