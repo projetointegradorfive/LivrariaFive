@@ -235,15 +235,15 @@ namespace LivrariaFive.View
             pedido.ItensDeCompra = itensSelecionados;
             pedido.Data = DateTime.Now; // Exemplo: usando a data atual
             pedido.PrecoTotalPedido = CalcularTotalItensSelecionados() + 15; // Calcula o preço total dos itens selecionados
-            pedido.FormaPagamento = "C"; // Exemplo: forma de pagamento selecionada no formulário
-            pedido.Status = "F"; // Exemplo: status inicial do pedido
+            pedido.FormaPagamento = "Cartão"; // Exemplo: forma de pagamento selecionada no formulário
+            pedido.Status = "Em andamento"; // Exemplo: status inicial do pedido
             pedido.Cliente = cliente; // Define o objeto Cliente completo
 
            
 
             // Oculta o formulário de carrinho e mostra o formulário de pedido
             LivroForm livroForm = new LivroForm(cliente);
-            FormPedido formPedido = new FormPedido(pedido, livroForm, carrinho);
+            FormPedido formPedido = new FormPedido(pedido, livroForm, carrinho, cliente);
 
             livroForm.Hide();          
             this.Hide();

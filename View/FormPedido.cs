@@ -20,10 +20,10 @@ namespace LivrariaFive.View
         private ItemDeCompraController itemDeCompraController;
         private LivroForm livroForm;
         private Carrinho carrinho;
-       
+        private Cliente cliente;
 
 
-        public FormPedido(Pedido pedido, LivroForm livroForm, Carrinho carrinho)
+        public FormPedido(Pedido pedido, LivroForm livroForm, Carrinho carrinho, Cliente cliente)
         {
             
 
@@ -31,6 +31,7 @@ namespace LivrariaFive.View
             this.livroForm = livroForm;
             this.carrinho = carrinho;
             this.pedido = pedido;
+            this.cliente = cliente;
             itemDeCompraController = new ItemDeCompraController();
 
             cbxFormaPagamento.Items.Add("Cartão de Crédito");
@@ -124,15 +125,18 @@ namespace LivrariaFive.View
             if (formaPagamentoSelecionada == "Cartão de Crédito" || formaPagamentoSelecionada == "Cartão de Débito")
             {
                 FormPagamentoCartao formCartao = new FormPagamentoCartao(pedido, carrinho);
+                pedido.Status = "Cartão";
                 formCartao.ShowDialog(); // Abre o formulário como diálogo
             }
-            //else if (formaPagamentoSelecionada == "Boleto Bancário")
-            //{
-            //    FormBoletoBancario formBoletoBancario = new FormBoletoBancario();
-            //    formBoletoBancario.ShowDialog(); // Abre o formulário como diálogo
-            //}
+            else if (formaPagamentoSelecionada == "Boleto Bancário")
+            {
+                pedido.Status = "Boleto";
+                FormBoleto formboletobancario = new FormBoleto(pedido, carrinho, cliente);
+                formboletobancario.ShowDialog(); // abre o formulário como diálogo
+            }
             else if (formaPagamentoSelecionada == "Pix")
             {
+                pedido.Status = "Pix";
                 FormPix formPix = new FormPix(pedido, carrinho);
                 formPix.ShowDialog(); // Abre o formulário como diálogo
             }
@@ -142,6 +146,8 @@ namespace LivrariaFive.View
                 MessageBox.Show("Forma de pagamento inválida. Selecione uma opção válida.");
             }
 
+            this.Hide();
+            
         }
 
 

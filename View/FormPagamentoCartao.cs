@@ -29,6 +29,7 @@ namespace LivrariaFive.View
         private void btnFazerPagamento_Click(object sender, EventArgs e)
         {
             PedidoController pedidoController = new PedidoController(carrinho);
+            pedido.Status = "Concluído";
             pedidoController.InserirPedido(pedido);
             carrinhoController.AtualizarPrecoTotalCarrinho(carrinho.Id);
             MessageBox.Show("Pedido Feito com Sucesso, logo será enviado!");

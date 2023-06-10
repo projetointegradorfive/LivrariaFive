@@ -87,7 +87,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.12676F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 310F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
             this.tableLayoutPanel2.Controls.Add(this.btnBuscarNome, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtBuscarNome, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
@@ -110,7 +110,7 @@ namespace LivrariaFive.View
             this.btnBuscarNome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.btnBuscarNome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarNome.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarNome.Image")));
-            this.btnBuscarNome.Location = new System.Drawing.Point(314, 35);
+            this.btnBuscarNome.Location = new System.Drawing.Point(313, 35);
             this.btnBuscarNome.Name = "btnBuscarNome";
             this.btnBuscarNome.Size = new System.Drawing.Size(28, 21);
             this.btnBuscarNome.TabIndex = 5;
@@ -123,7 +123,7 @@ namespace LivrariaFive.View
             this.txtBuscarNome.Location = new System.Drawing.Point(61, 35);
             this.txtBuscarNome.MaxLength = 70;
             this.txtBuscarNome.Name = "txtBuscarNome";
-            this.txtBuscarNome.Size = new System.Drawing.Size(247, 23);
+            this.txtBuscarNome.Size = new System.Drawing.Size(246, 23);
             this.txtBuscarNome.TabIndex = 4;
             // 
             // label2
@@ -141,7 +141,7 @@ namespace LivrariaFive.View
             this.txtBuscarGenero.Location = new System.Drawing.Point(61, 3);
             this.txtBuscarGenero.MaxLength = 70;
             this.txtBuscarGenero.Name = "txtBuscarGenero";
-            this.txtBuscarGenero.Size = new System.Drawing.Size(247, 23);
+            this.txtBuscarGenero.Size = new System.Drawing.Size(246, 23);
             this.txtBuscarGenero.TabIndex = 1;
             // 
             // label1
@@ -159,7 +159,7 @@ namespace LivrariaFive.View
             this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(314, 3);
+            this.btnBuscar.Location = new System.Drawing.Point(313, 3);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(28, 19);
             this.btnBuscar.TabIndex = 2;
@@ -169,9 +169,9 @@ namespace LivrariaFive.View
             // btnSair
             // 
             this.btnSair.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSair.Location = new System.Drawing.Point(659, 35);
+            this.btnSair.Location = new System.Drawing.Point(658, 35);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(125, 29);
+            this.btnSair.Size = new System.Drawing.Size(126, 29);
             this.btnSair.TabIndex = 6;
             this.btnSair.Text = "Sign out";
             this.btnSair.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.btnAbrirCarrinho, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(659, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(658, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));

@@ -12,12 +12,13 @@ using LivrariaFive.Controller;
 
 namespace LivrariaFive.View
 {
-    
+
     public partial class FormPix : Form
     {
         private Pedido pedido;
         private Carrinho carrinho;
         private CarrinhoController carrinhoController;
+
         public FormPix(Pedido pedido, Carrinho carrinho)
         {
             InitializeComponent();
@@ -29,9 +30,14 @@ namespace LivrariaFive.View
         private void btnPagamentoRealizado_Click(object sender, EventArgs e)
         {
             PedidoController pedidoController = new PedidoController(carrinho);
+            pedido.Status = "Concluído";
             pedidoController.InserirPedido(pedido);
             carrinhoController.AtualizarPrecoTotalCarrinho(carrinho.Id);
             MessageBox.Show("O pagamento será verificado e logo seu pedido será enviado!");
+           
+
+
+
             this.Close();
         }
     }
