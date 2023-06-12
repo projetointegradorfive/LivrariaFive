@@ -11,10 +11,12 @@ using System.Windows.Forms;
 namespace LivrariaFive.View
 {
     public partial class FrmPrincipalAdmin : Form
-    {
+    { 
+        private FormRelatorioVendas formRelatorioVendas;
         public FrmPrincipalAdmin()
         {
             InitializeComponent();
+            formRelatorioVendas = new FormRelatorioVendas();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -36,6 +38,13 @@ namespace LivrariaFive.View
             FrmGerenciarLivros login = new FrmGerenciarLivros();
             this.Hide();
             login.Show();
+        }
+
+        private void btnRelatórios_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            formRelatorioVendas.Show();
+
         }
     }
 }

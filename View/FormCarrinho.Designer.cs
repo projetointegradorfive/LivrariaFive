@@ -42,6 +42,7 @@ namespace LivrariaFive.View
             // 
             this.dgvCarrinho.AllowUserToAddRows = false;
             this.dgvCarrinho.AllowUserToDeleteRows = false;
+            this.dgvCarrinho.AllowUserToResizeColumns = false;
             this.dgvCarrinho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dgvCarrinho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

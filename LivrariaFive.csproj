@@ -214,6 +214,12 @@
     <Compile Include="View\FormPix.Designer.cs">
       <DependentUpon>FormPix.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormRelatorioVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormRelatorioVendas.Designer.cs">
+      <DependentUpon>FormRelatorioVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmGerenciarLivros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormPix.resx">
       <DependentUpon>FormPix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormRelatorioVendas.resx">
+      <DependentUpon>FormRelatorioVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmGerenciarLivros.resx">
       <DependentUpon>FrmGerenciarLivros.cs</DependentUpon>

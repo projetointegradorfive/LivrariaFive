@@ -43,7 +43,7 @@ namespace LivrariaFive.View
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(177, 27);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(232, 165);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -53,7 +53,7 @@ namespace LivrariaFive.View
             // btnGerenciarUsuarios
             // 
             this.btnGerenciarUsuarios.Location = new System.Drawing.Point(177, 219);
-            this.btnGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.btnGerenciarUsuarios.Name = "btnGerenciarUsuarios";
             this.btnGerenciarUsuarios.Size = new System.Drawing.Size(110, 41);
             this.btnGerenciarUsuarios.TabIndex = 3;
@@ -64,7 +64,7 @@ namespace LivrariaFive.View
             // btnGerenciarLivros
             // 
             this.btnGerenciarLivros.Location = new System.Drawing.Point(234, 277);
-            this.btnGerenciarLivros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGerenciarLivros.Margin = new System.Windows.Forms.Padding(2);
             this.btnGerenciarLivros.Name = "btnGerenciarLivros";
             this.btnGerenciarLivros.Size = new System.Drawing.Size(110, 41);
             this.btnGerenciarLivros.TabIndex = 4;
@@ -75,18 +75,19 @@ namespace LivrariaFive.View
             // btnRelatórios
             // 
             this.btnRelatórios.Location = new System.Drawing.Point(299, 219);
-            this.btnRelatórios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRelatórios.Margin = new System.Windows.Forms.Padding(2);
             this.btnRelatórios.Name = "btnRelatórios";
             this.btnRelatórios.Size = new System.Drawing.Size(110, 41);
             this.btnRelatórios.TabIndex = 5;
             this.btnRelatórios.Text = "Relatório de vendas";
             this.btnRelatórios.UseVisualStyleBackColor = true;
+            this.btnRelatórios.Click += new System.EventHandler(this.btnRelatórios_Click);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(542, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(75, 41);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -104,7 +105,7 @@ namespace LivrariaFive.View
             this.Controls.Add(this.btnGerenciarLivros);
             this.Controls.Add(this.btnGerenciarUsuarios);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmPrincipalAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPrincipalAdmin";
