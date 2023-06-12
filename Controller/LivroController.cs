@@ -283,7 +283,7 @@ namespace LivrariaFive.Controller
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Ocorreu um erro ao obter os usuários." + ex);
+                    Console.WriteLine("Ocorreu um erro ao obter os livros." + ex);
                 }
                 finally
                 {
