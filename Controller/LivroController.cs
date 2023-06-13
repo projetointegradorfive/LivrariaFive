@@ -228,7 +228,7 @@ namespace LivrariaFive.Controller
             }
         }
 
-        public void RemoverLivro(Livro livro)
+        public Livro RemoverLivro(Livro livro)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
@@ -239,21 +239,23 @@ namespace LivrariaFive.Controller
 
                 connection.Open();
                 command.ExecuteNonQuery();
+
+                return livro;
             }
         }
 
-        public void UpdateLivro(Livro livro)
+        public Livro UpdateLivro(Livro livro)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "UPDATE tbLivro SET titulo = @Titulo, autor = @Autor, editora = @Editora, isbn = @Isbn, " +
+                string query = "UPDATE tbLivro SET titulo = @Titulo, idEditora = @Editora, isbn = @Isbn, " +
                     "anoPublicacao = @AnoPublicacao, preco = @Preco, estoque = @Estoque, descricao = @Descricao, " +
-                    "genero = @Genero, idioma = @Idioma, livroImagem = @LivroImagem WHERE Id = @Id";
+                    "idGenero = @Genero, idioma = @Idioma, livroImagem = @LivroImagem WHERE idLivro = @Id";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Id", livro.Id);
                 command.Parameters.AddWithValue("@Titulo", livro.Titulo);
-                command.Parameters.AddWithValue("@Autor", livro.Autor);
+                //command.Parameters.AddWithValue("@Autor", livro.Autor);
                 command.Parameters.AddWithValue("@Editora", livro.Editora);
                 command.Parameters.AddWithValue("@Isbn", livro.Isbn);
                 command.Parameters.AddWithValue("@AnoPublicacao", livro.AnoPublicacao);
@@ -262,12 +264,30 @@ namespace LivrariaFive.Controller
                 command.Parameters.AddWithValue("@Descricao", livro.Descricao);
                 command.Parameters.AddWithValue("@Genero", livro.Genero);
                 command.Parameters.AddWithValue("@Idioma", livro.Idioma);
-                command.Parameters.AddWithValue("@LivroImagem", livro.Imagem); // Adiciona a imagem como parâmetro
+
+                if (livro.Imagem != null)
+                {
+                    // Converte a imagem para byte[]
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        livro.Imagem.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        byte[] imagemBytes = ms.ToArray();
+                        command.Parameters.AddWithValue("@LivroImagem", imagemBytes);
+                    }
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@LivroImagem", DBNull.Value);
+                }
 
                 connection.Open();
                 command.ExecuteNonQuery();
+
+                return livro;
             }
         }
+
+
         public DataTable ObtertodosLivrosGerenciarLivros()
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())

@@ -128,44 +128,32 @@ namespace LivrariaFive.View
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            // Obtenha o valor do campo txtBuscarAno
+            // Obtenha os valores dos campos de texto
             string txtAno = txtBuscarAno.Text.Trim();
-            int ano;
+            string txtMes = txtBuscarMes.Text.Trim();
+            string status = txtStatusPedido.Text.Trim();
 
-            // Verifique se o campo txtBuscarAno contém um valor válido
-            if (int.TryParse(txtAno, out ano))
+            // Inicialize as variáveis de filtro
+            int ano = 0;
+            int mes = 0;
+
+            // Verifique se o campo de ano está preenchido
+            if (!string.IsNullOrEmpty(txtAno))
             {
-                // Obtenha o valor do campo txtBuscarMes
-                string txtMes = txtBuscarMes.Text.Trim();
-                int mes;
-
-                // Verifique se o campo txtBuscarMes contém um valor válido
-                if (int.TryParse(txtMes, out mes))
-                {
-                    // Obtenha o valor do status do pedido
-                    string status = txtStatusPedido.Text.Trim();
-
-                    // Chame a função RelatorioDeVendasGeral passando os valores de ano, mês e status
-                    RelatorioDeVendasGeral(mes, ano, status);
-                }
-                else
-                {
-                    // Obtenha o valor do status do pedido
-                    string status = txtStatusPedido.Text.Trim();
-
-                    // Chame a função RelatorioDeVendasGeral passando o valor de ano e status
-                    RelatorioDeVendasGeral(0, ano, status);
-                }
+                int.TryParse(txtAno, out ano);
             }
-            else
+
+            // Verifique se o campo de mês está preenchido
+            if (!string.IsNullOrEmpty(txtMes))
             {
-                // Obtenha o valor do status do pedido
-                string status = txtStatusPedido.Text.Trim();
-
-                // Chame a função RelatorioDeVendasGeral passando o valor de status
-                RelatorioDeVendasGeral(0, 0, status);
+                int.TryParse(txtMes, out mes);
             }
+
+            // Chame a função RelatorioDeVendasGeral passando os valores de ano, mês e status
+            RelatorioDeVendasGeral(mes, ano, status);
         }
+
+
 
 
 

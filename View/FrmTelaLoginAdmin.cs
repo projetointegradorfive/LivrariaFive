@@ -39,17 +39,23 @@ namespace LivrariaFive.View
 
         private void btnEntrar_Click_1(object sender, EventArgs e)
         {
-            
-            connection.Open();
-            verificar();
-            string query = "SELECT * FROM tbAdministrador WHERE cpf = '"
-                + maskTxtCpfAdmin.Text 
-                + "' AND senha = '" + txtSenhaAdmin.Text + "'";
-            SqlDataAdapter dp = new SqlDataAdapter(query, connection);
-            DataTable dt = new DataTable();
-            dp.Fill(dt);
+
+            if (string.IsNullOrWhiteSpace(maskTxtCpfAdmin.Text) || string.IsNullOrWhiteSpace(txtSenhaAdmin.Text))
+            {
+                MessageBox.Show("Por favor, preencha todos os campos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             try
             {
+                connection.Open();
+                verificar();
+                string query = "SELECT * FROM tbAdministrador WHERE cpf = '"
+                    + maskTxtCpfAdmin.Text
+                    + "' AND senha = '" + txtSenhaAdmin.Text + "'";
+                SqlDataAdapter dp = new SqlDataAdapter(query, connection);
+                DataTable dt = new DataTable();
+                dp.Fill(dt);
 
                 if (dt.Rows.Count == 1)
                 {
@@ -57,15 +63,22 @@ namespace LivrariaFive.View
                     this.Hide();
                     principal.Show();
                 }
+                else
+                {
+                    MessageBox.Show("Usuário ou senha inválidos");
+                    maskTxtCpfAdmin.Text = "";
+                    txtSenhaAdmin.Text = "";
+                    maskTxtCpfAdmin.Select();
+                }
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Usuário ou senha inválidos" + erro);
-                maskTxtCpfAdmin.Text = "";
-                txtSenhaAdmin.Text = "";
-                maskTxtCpfAdmin.Select();
+                MessageBox.Show("Ocorreu um erro: " + erro.Message);
             }
-            connection.Close();
+            finally
+            {
+                connection.Close();
+            }
         }
 
         private void btnSair_Click(object sender, EventArgs e)

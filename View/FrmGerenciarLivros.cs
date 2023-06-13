@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using LivrariaFive.Controller;
 using LivrariaFive.Model;
 using System.IO;
+using LivrariaFive.Persistence;
 
 namespace LivrariaFive.View
 {
@@ -23,7 +24,21 @@ namespace LivrariaFive.View
         {
             InitializeComponent();
         }
-        
+
+        private void LimparTextBoxes()
+        {
+            txtId.Text = "";
+            txtTitulo.Text = "";
+            txtPreco.Text = "";
+            txtIsbn.Text = "";
+            txtIdioma.Text = "";
+            txtGenero.Text = "";
+            txtEstoque.Text = "";
+            txtEditora.Text = "";
+            txtDescricao.Text = "";
+            txtAnoPublicacao.Text = "";
+            pbFotoLivroGerenciarLivros.Image = null;
+        }
 
         private void btnCadastrarLivroGerenciarLivros_Click(object sender, EventArgs e)
         {
@@ -94,6 +109,92 @@ namespace LivrariaFive.View
         
 
             }   
+        }
+
+        private void btnEditarFotoGerenciarLivros_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.bmp";
+            openFileDialog.Title = "Selecionar Imagem";
+
+            Livro livro = new Livro();
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string caminhoImagem = openFileDialog.FileName;
+                    Image novaImagem = Image.FromFile(caminhoImagem);
+
+                    // Remover a imagem existente, se houver
+                    if (pbFotoLivroGerenciarLivros.Image != null)
+                    {
+                        pbFotoLivroGerenciarLivros.Image.Dispose();
+                    }
+
+                    // Exibir a nova imagem na PictureBox
+                    pbFotoLivroGerenciarLivros.Image = novaImagem;
+
+                    // Armazenar a nova imagem no livro
+                    livro.Imagem = novaImagem;
+
+                    MessageBox.Show("Imagem editada com sucesso!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao carregar a imagem: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnLimparTextBox_Click(object sender, EventArgs e)
+        {
+            LimparTextBoxes();
+        }
+
+        private void btnSalvarAlteracoesGerenciarLivros_Click(object sender, EventArgs e)
+        {
+            if (livroSelecionado != null)
+            {
+                // Atualizar as informações do livro com base nas TextBox
+                livroSelecionado.Titulo = txtTitulo.Text;
+                livroSelecionado.Isbn = txtIsbn.Text;
+                livroSelecionado.Preco = Convert.ToDouble(txtPreco.Text);
+                livroSelecionado.AnoPublicacao = Convert.ToInt32(txtAnoPublicacao.Text);
+                livroSelecionado.Idioma = txtIdioma.Text;
+                livroSelecionado.Estoque = Convert.ToInt32(txtEstoque.Text);
+                livroSelecionado.Genero = txtGenero.Text;
+                livroSelecionado.Editora = txtEditora.Text;
+                livroSelecionado.Descricao = txtDescricao.Text;
+
+                // Atualizar a imagem do livro
+                if (pbFotoLivroGerenciarLivros.Image != null)
+                {
+                    livroSelecionado.Imagem = pbFotoLivroGerenciarLivros.Image;
+                }
+                else
+                {
+                    livroSelecionado.Imagem = null;
+                }
+
+                // Chamar o método para atualizar o livro no banco de dados
+                LivroController livroController = new LivroController();
+                livroController.UpdateLivro(livroSelecionado);
+
+                MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimparTextBoxes();
+                pbFotoLivroGerenciarLivros.Image = null;
+
+                // Atualizar o DataGridView com os livros atualizados
+                LivroController livros = new LivroController();
+                DataTable dt = livros.ObtertodosLivrosGerenciarLivros();
+                dgvMostrarLivros.DataSource = dt;
+                dgvMostrarLivros.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Nenhum livro selecionado para editar.");
+            }
         }
     }
 }
