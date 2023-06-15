@@ -185,13 +185,14 @@ namespace LivrariaFive.View
                 }
 
                 AutorController autorController = new AutorController();
-                Autor autorExistente = autorController.ObterAutorPorNome(livroSelecionado.Autor);
+                Autor autorExistente = autorController.ObterAutorPorNome(txtAutorGerenciarLivros.Text);
                 LivroController livroController = new LivroController();
                 if (autorExistente == null)
                 {
                     // O autor não existe, então altere no banco de dados
-                    livroController.UpdateLivro(livroSelecionado, autorSelecionado);
-                    autorExistente = autorController.ObterAutorPorNome(livroSelecionado.Autor); // Obtém o autor recém-inserido com o ID
+                    Autor autor = new Autor { Nome = txtAutorGerenciarLivros.Text };
+                    livroController.UpdateLivro(livroSelecionado, autor);
+                    autorExistente = autorController.ObterAutorPorNome(autor.Nome); // Obtém o autor recém-inserido com o ID
                 }
                 autorSelecionado = autorExistente;
                 livroController.UpdateLivro(livroSelecionado, autorSelecionado);               
