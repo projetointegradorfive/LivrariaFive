@@ -377,14 +377,25 @@ namespace LivrariaFive.Controller
                 {
                     return Convert.ToInt32(result);
                 }
+                else
+                {
+                    // O nome não foi encontrado, então vamos inserir a editora no banco de dados
+                    query = "INSERT INTO tbEditora (nome) VALUES (@Nome); SELECT SCOPE_IDENTITY();";
+
+                    command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@Nome", nomeEditora);
+
+                    object insertedId = command.ExecuteScalar();
+
+                    if (insertedId != null && insertedId != DBNull.Value)
+                    {
+                        return Convert.ToInt32(insertedId);
+                    }
+                }
 
                 return -1;
             }
         }
-
-
-
-
 
         public int ObterIdGeneroPorNome(string nomeGenero)
         {
@@ -402,6 +413,21 @@ namespace LivrariaFive.Controller
                 if (result != null && result != DBNull.Value)
                 {
                     return Convert.ToInt32(result);
+                }
+                else
+                {
+                    // O nome não foi encontrado, então vamos inserir o gênero no banco de dados
+                    query = "INSERT INTO tbGenero (nome) VALUES (@Nome); SELECT SCOPE_IDENTITY();";
+
+                    command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@Nome", nomeGenero);
+
+                    object insertedId = command.ExecuteScalar();
+
+                    if (insertedId != null && insertedId != DBNull.Value)
+                    {
+                        return Convert.ToInt32(insertedId);
+                    }
                 }
 
                 return -1;
