@@ -193,6 +193,7 @@ namespace LivrariaFive.View
                     Autor autor = new Autor { Nome = txtAutorGerenciarLivros.Text };
                     livroController.UpdateLivro(livroSelecionado, autor);
                     autorExistente = autorController.ObterAutorPorNome(autor.Nome); // Obtém o autor recém-inserido com o ID
+                    MessageBox.Show("Um novo autor foi criado", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 autorSelecionado = autorExistente;
                 livroController.UpdateLivro(livroSelecionado, autorSelecionado);               
