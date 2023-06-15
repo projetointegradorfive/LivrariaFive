@@ -23,6 +23,8 @@ namespace LivrariaFive.Model
 
         public Image Imagem { get; set; } // Propriedade para a imagem
 
+        public string img64 { get; set; }
+
         public Livro()
         {
         }

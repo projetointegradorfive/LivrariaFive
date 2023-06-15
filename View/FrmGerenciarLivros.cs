@@ -18,6 +18,7 @@ namespace LivrariaFive.View
     public partial class FrmGerenciarLivros : Form
     {
         Livro livroSelecionado = new Livro();
+        Autor autorSelecionado = new Autor();
 
 
         public FrmGerenciarLivros()
@@ -37,6 +38,7 @@ namespace LivrariaFive.View
             txtEditora.Text = "";
             txtDescricao.Text = "";
             txtAnoPublicacao.Text = "";
+            txtAutorGerenciarLivros.Text = "";
             pbFotoLivroGerenciarLivros.Image = null;
         }
 
@@ -57,8 +59,8 @@ namespace LivrariaFive.View
         private void FrmGerenciarLivros_Load(object sender, EventArgs e)
         {
             LivroController livros = new LivroController();
-            DataTable dt = livros.ObtertodosLivrosGerenciarLivros();
-            dgvMostrarLivros.DataSource = dt;
+            dgvMostrarLivros.DataSource = livros.GetAllLivros();
+            dgvMostrarLivros.Columns["img64"].Visible = false;
             dgvMostrarLivros.Refresh();
         }
 
@@ -71,16 +73,18 @@ namespace LivrariaFive.View
                 // Atribuir o cliente selecionado com base na linha clicada do DataGridView
                 livroSelecionado = new Livro
                 {
-                    Id = Convert.ToInt32(row.Cells["idLivro"].Value),
-                    Titulo = row.Cells["titulo"].Value.ToString(),
-                    Isbn = row.Cells["isbn"].Value.ToString(),
-                    AnoPublicacao = Convert.ToInt32(row.Cells["anoPublicacao"].Value),
-                    Preco = Convert.ToInt32(row.Cells["preco"].Value),
-                    Estoque = Convert.ToInt32(row.Cells["estoque"].Value),
-                    Descricao = row.Cells["descricao"].Value.ToString(),
-                    Idioma = row.Cells["idioma"].Value.ToString(),
-                    Editora = row.Cells["idEditora"].Value.ToString(),
-                    Genero = row.Cells["idGenero"].Value.ToString()
+                    Id = Convert.ToInt32(row.Cells["Id"].Value),
+                    Titulo = row.Cells["Titulo"].Value.ToString(),
+                    Isbn = row.Cells["Isbn"].Value.ToString(),
+                    AnoPublicacao = Convert.ToInt32(row.Cells["AnoPublicacao"].Value),
+                    Preco = Convert.ToInt32(row.Cells["Preco"].Value),
+                    Estoque = Convert.ToInt32(row.Cells["Estoque"].Value),
+                    Descricao = row.Cells["Descricao"].Value.ToString(),
+                    Idioma = row.Cells["Idioma"].Value.ToString(),
+                    Editora = row.Cells["Editora"].Value.ToString(),
+                    Genero = row.Cells["Genero"].Value.ToString(),
+                    Autor = row.Cells["Autor"].Value.ToString(),
+                    img64 = row.Cells["img64"].Value.ToString()
 
                 };
 
@@ -95,20 +99,22 @@ namespace LivrariaFive.View
                 txtGenero.Text = livroSelecionado.Genero;
                 txtEditora.Text = livroSelecionado.Editora;
                 txtDescricao.Text = livroSelecionado.Descricao;
+                txtAutorGerenciarLivros.Text = livroSelecionado.Autor;
 
-                byte[] imagemBytes = (byte[])row.Cells["livroImagem"].Value;
-                Image imagem = null;
-                if (imagemBytes != null)
+                byte[] imagemBytes = Convert.FromBase64String(livroSelecionado.img64);
+
+                // Cria um MemoryStream com os bytes da imagem
+                using (MemoryStream ms = new MemoryStream(imagemBytes))
                 {
-                    using (MemoryStream ms = new MemoryStream(imagemBytes))
-                    {
-                        imagem = Image.FromStream(ms);
-                    }
-                }
-                pbFotoLivroGerenciarLivros.Image = imagem;
-        
+                    // Cria um objeto de imagem a partir do MemoryStream
+                    Image imagem = Image.FromStream(ms);
 
-            }   
+                    // Exibe a imagem na PictureBox
+                    pbFotoLivroGerenciarLivros.Image = imagem;
+                }
+                autorSelecionado = new Autor { Nome = livroSelecionado.Autor };
+
+            }
         }
 
         private void btnEditarFotoGerenciarLivros_Click(object sender, EventArgs e)
@@ -177,9 +183,28 @@ namespace LivrariaFive.View
                     livroSelecionado.Imagem = null;
                 }
 
+                AutorController autorController = new AutorController();
+                Autor autorExistente = autorController.ObterAutorPorNome(livroSelecionado.Autor);
+
+                if (autorExistente == null)
+                {
+                    // O autor não existe, então insira-o no banco de dados
+                    autorController.InserirAutor(new Autor { Nome = livroSelecionado.Autor });
+                    autorExistente = autorController.ObterAutorPorNome(livroSelecionado.Autor); // Obtém o autor recém-inserido com o ID
+                }
+                else
+                {
+                    // O autor já existe, atualize apenas o nome do autor
+                    autorExistente.Nome = livroSelecionado.Autor;
+                }
+
+                // Atualizar o objeto autorSelecionado com as informações do autor existente
+                autorSelecionado = autorExistente;
+
                 // Chamar o método para atualizar o livro no banco de dados
                 LivroController livroController = new LivroController();
-                livroController.UpdateLivro(livroSelecionado);
+                Console.WriteLine(Convert.ToString(livroSelecionado), autorSelecionado);
+                livroController.UpdateLivro(livroSelecionado, autorSelecionado);
 
                 MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimparTextBoxes();
@@ -187,8 +212,7 @@ namespace LivrariaFive.View
 
                 // Atualizar o DataGridView com os livros atualizados
                 LivroController livros = new LivroController();
-                DataTable dt = livros.ObtertodosLivrosGerenciarLivros();
-                dgvMostrarLivros.DataSource = dt;
+                dgvMostrarLivros.DataSource = livros.GetAllLivros();
                 dgvMostrarLivros.Refresh();
             }
             else

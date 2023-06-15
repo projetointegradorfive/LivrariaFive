@@ -195,6 +195,7 @@ namespace LivrariaFive.Controller
                         using (MemoryStream ms = new MemoryStream(imagemBytes))
                         {
                             livro.Imagem = Image.FromStream(ms);
+                            livro.img64 = Convert.ToBase64String(ms.ToArray());
                         }
                     }
 
@@ -203,8 +204,8 @@ namespace LivrariaFive.Controller
 
                 reader.Close();
             }
-
             return livros;
+
         }
         public string GetAutorName(string nomeAutor)
         {
@@ -244,48 +245,92 @@ namespace LivrariaFive.Controller
             }
         }
 
-        public Livro UpdateLivro(Livro livro)
+        public Livro UpdateLivro(Livro livro, Autor autor)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "UPDATE tbLivro SET titulo = @Titulo, idEditora = @Editora, isbn = @Isbn, " +
-                    "anoPublicacao = @AnoPublicacao, preco = @Preco, estoque = @Estoque, descricao = @Descricao, " +
-                    "idGenero = @Genero, idioma = @Idioma, livroImagem = @LivroImagem WHERE idLivro = @Id";
+                AutorController autorController = new AutorController();
+                Autor autorExistente = autorController.ObterAutorPorNome(autor.Nome);
 
-                SqlCommand command = new SqlCommand(query, connection);
+                if (autorExistente == null)
+                {
+                    // O autor não existe, então insira-o no banco de dados
+                    autorExistente = autorController.InserirAutor(autor);
+                }
+
+                // O autor já existe, atualize o objeto autor com o ID existente
+                autor.IdAutor = autorExistente.IdAutor;
+
+                //string query = "UPDATE tbLivro SET titulo = @Titulo, idEditora = @EditoraId, isbn = @Isbn, " +
+                //                "anoPublicacao = @AnoPublicacao, preco = @Preco, estoque = @Estoque, descricao = @Descricao, " +
+                //                "idGenero = @GeneroId, idioma = @Idioma, livroImagem = CONVERT(varbinary(max), @LivroImagem) WHERE idLivro = @Id; " +
+                //                "UPDATE tbAutor SET nome = @Autor WHERE idAutor = @IdAutor";
+
+                string queryLivro = "UPDATE tbLivro SET titulo = @Titulo, idEditora = @EditoraId, isbn = @Isbn, " +
+              "anoPublicacao = @AnoPublicacao, preco = @Preco, estoque = @Estoque, descricao = @Descricao, " +
+              "idGenero = @GeneroId, idioma = @Idioma, livroImagem = CONVERT(varbinary(max), @LivroImagem) WHERE idLivro = @Id;";
+
+                string queryAutor = "UPDATE tbAutor SET nome = @Autor WHERE idAutor = @IdAutor;";
+
+
+
+                int idEditora = ObterIdEditoraPorNome(livro.Editora);
+                int idGenero = ObterIdGeneroPorNome(livro.Genero);
+
+                SqlCommand command = new SqlCommand(queryLivro, connection);
                 command.Parameters.AddWithValue("@Id", livro.Id);
                 command.Parameters.AddWithValue("@Titulo", livro.Titulo);
-                //command.Parameters.AddWithValue("@Autor", livro.Autor);
-                command.Parameters.AddWithValue("@Editora", livro.Editora);
+                command.Parameters.AddWithValue("@EditoraId", idEditora);
                 command.Parameters.AddWithValue("@Isbn", livro.Isbn);
                 command.Parameters.AddWithValue("@AnoPublicacao", livro.AnoPublicacao);
                 command.Parameters.AddWithValue("@Preco", livro.Preco);
                 command.Parameters.AddWithValue("@Estoque", livro.Estoque);
                 command.Parameters.AddWithValue("@Descricao", livro.Descricao);
-                command.Parameters.AddWithValue("@Genero", livro.Genero);
+                command.Parameters.AddWithValue("@GeneroId", idGenero);
                 command.Parameters.AddWithValue("@Idioma", livro.Idioma);
 
-                if (livro.Imagem != null)
+                SqlCommand command2 = new SqlCommand(queryAutor, connection);
+                command2.Parameters.AddWithValue("@Autor", autor.Nome);
+                command2.Parameters.AddWithValue("@IdAutor", autor.IdAutor);
+
+                if (!string.IsNullOrEmpty(livro.img64))
                 {
-                    // Converte a imagem para byte[]
-                    using (MemoryStream ms = new MemoryStream())
-                    {
-                        livro.Imagem.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        byte[] imagemBytes = ms.ToArray();
-                        command.Parameters.AddWithValue("@LivroImagem", imagemBytes);
-                    }
+                    // Converte a string base64 em um array de bytes
+                    byte[] imagemBytes = Convert.FromBase64String(livro.img64);
+                    command.Parameters.AddWithValue("@LivroImagem", imagemBytes);
                 }
                 else
                 {
                     command.Parameters.AddWithValue("@LivroImagem", DBNull.Value);
                 }
 
+                //if (livro.Imagem != null)
+                //{
+                //    // Converte a imagem para byte[]
+                //    using (MemoryStream ms = new MemoryStream())
+                //    {
+                //        livro.Imagem.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                //        byte[] imagemBytes = ms.ToArray();
+                //        command.Parameters.AddWithValue("@LivroImagem", imagemBytes);
+                //    }
+                //}
+                //else
+                //{
+                //    command.Parameters.AddWithValue("@LivroImagem", DBNull.Value);
+                //}
+
                 connection.Open();
                 command.ExecuteNonQuery();
+
+                // Atualizar o nome do autor no objeto livro
+                livro.Autor = autor.Nome;
 
                 return livro;
             }
         }
+
+
+
 
 
         public DataTable ObtertodosLivrosGerenciarLivros()
@@ -312,9 +357,62 @@ namespace LivrariaFive.Controller
                 return dt;
             }
 
-
-
         }
+
+
+        public int ObterIdEditoraPorNome(string nomeEditora)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT idEditora FROM tbEditora WHERE nome = @Nome";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nome", nomeEditora);
+
+                connection.Open(); // Abre a conexão com o banco de dados
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    return Convert.ToInt32(result);
+                }
+
+                return -1;
+            }
+        }
+
+
+
+
+
+        public int ObterIdGeneroPorNome(string nomeGenero)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT idGenero FROM tbGenero WHERE nome = @Nome";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nome", nomeGenero);
+
+                connection.Open(); // Abre a conexão com o banco de dados
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    return Convert.ToInt32(result);
+                }
+
+                return -1;
+            }
+        }
+
+
+
+
+
+
 
 
     }
