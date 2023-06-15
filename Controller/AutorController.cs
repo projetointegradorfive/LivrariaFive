@@ -136,6 +136,29 @@ namespace LivrariaFive.Controller
                 return null;
             }
         }
+        public int ObterIdAutorPorNome(string nomeAutor)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT idAutor FROM tbAutor WHERE nome = @NomeAutor;";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@NomeAutor", nomeAutor);
+
+                connection.Open();
+
+                var result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    return -1; // Retorna um valor indicando que o autor não foi encontrado
+                }
+            }
+        }
 
     }
 }

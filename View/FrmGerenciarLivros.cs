@@ -172,6 +172,7 @@ namespace LivrariaFive.View
                 livroSelecionado.Genero = txtGenero.Text;
                 livroSelecionado.Editora = txtEditora.Text;
                 livroSelecionado.Descricao = txtDescricao.Text;
+                livroSelecionado.Autor = txtAutorGerenciarLivros.Text;
 
                 // Atualizar a imagem do livro
                 if (pbFotoLivroGerenciarLivros.Image != null)
@@ -185,30 +186,17 @@ namespace LivrariaFive.View
 
                 AutorController autorController = new AutorController();
                 Autor autorExistente = autorController.ObterAutorPorNome(livroSelecionado.Autor);
-
+                LivroController livroController = new LivroController();
                 if (autorExistente == null)
                 {
-                    // O autor não existe, então insira-o no banco de dados
-                    autorController.InserirAutor(new Autor { Nome = livroSelecionado.Autor });
+                    // O autor não existe, então altere no banco de dados
+                    livroController.UpdateLivro(livroSelecionado, autorSelecionado);
                     autorExistente = autorController.ObterAutorPorNome(livroSelecionado.Autor); // Obtém o autor recém-inserido com o ID
                 }
-                else
-                {
-                    // O autor já existe, atualize apenas o nome do autor
-                    autorExistente.Nome = livroSelecionado.Autor;
-                }
-
-                // Atualizar o objeto autorSelecionado com as informações do autor existente
                 autorSelecionado = autorExistente;
-
-                // Chamar o método para atualizar o livro no banco de dados
-                LivroController livroController = new LivroController();
-                Console.WriteLine(Convert.ToString(livroSelecionado), autorSelecionado);
-                livroController.UpdateLivro(livroSelecionado, autorSelecionado);
-
+                livroController.UpdateLivro(livroSelecionado, autorSelecionado);               
                 MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimparTextBoxes();
-                pbFotoLivroGerenciarLivros.Image = null;
+                LimparTextBoxes();               
 
                 // Atualizar o DataGridView com os livros atualizados
                 LivroController livros = new LivroController();
