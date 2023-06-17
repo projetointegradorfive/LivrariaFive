@@ -158,6 +158,7 @@ namespace LivrariaFive.View
 
             CarregarItensCarrinho();
             CalcularTotalItensSelecionados();
+            atualizarPrecoTotalCarrinho();
         }
 
         private void btnLimparCarrinho_Click(object sender, EventArgs e)
@@ -181,8 +182,18 @@ namespace LivrariaFive.View
 
                 // Atualize a quantidade no banco de dados
                 itemDeCompraController.AtualizarQuantidadeItem(carrinho.Id, item.Livro.Id, novaQuantidade);
+                atualizarPrecoTotalCarrinho();
+
+
 
             }
+        }
+
+        private void atualizarPrecoTotalCarrinho()
+        {
+            double total = CalcularTotalItensSelecionados();
+            lblPrecoTotalCarrinho.Text = total.ToString("C");
+
         }
 
         private double CalcularTotalItensSelecionados()
@@ -223,8 +234,7 @@ namespace LivrariaFive.View
                     {
                         dgvCarrinho.EndEdit();
 
-                        double total = CalcularTotalItensSelecionados();
-                        lblPrecoTotalCarrinho.Text = total.ToString("C");
+                        atualizarPrecoTotalCarrinho();
                     }
                 }
             }
@@ -261,28 +271,28 @@ namespace LivrariaFive.View
 
         private void btnSelecionarTudo_Click(object sender, EventArgs e)
         {
-            bool todosMarcados = true;
 
             foreach (DataGridViewRow row in dgvCarrinho.Rows)
             {
                 DataGridViewCheckBoxCell checkBoxCell = row.Cells["checkBoxColumn"] as DataGridViewCheckBoxCell;
                 if (checkBoxCell != null)
                 {
+                    // se o checkbox estiver desmarcado
                     if (checkBoxCell.Value == null || !Convert.ToBoolean(checkBoxCell.Value))
                     {
-                        todosMarcados = false;
+                        //marca o checbox
                         checkBoxCell.Value = true;
                     }
                     else
                     {
+                        //desmarca o checkbox
                         checkBoxCell.Value = false;
                     }
                 }
             }
-          
-                double total = CalcularTotalItensSelecionados();
-                lblPrecoTotalCarrinho.Text = total.ToString("C");
-            
+            // atualiza o preco total da compra
+            atualizarPrecoTotalCarrinho();
+
         }
     }
 }
