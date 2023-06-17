@@ -126,13 +126,20 @@ namespace LivrariaFive.View
             {
                 DataGridViewCheckBoxCell checkBoxCell = row.Cells["checkBoxColumn"] as DataGridViewCheckBoxCell;
 
+
                 if (checkBoxCell != null && checkBoxCell.Value != null && Convert.ToBoolean(checkBoxCell.Value))
                 {
                     ItemDeCompra item = row.Tag as ItemDeCompra;
                     if (item != null)
                     {
+                        // Obter a quantidade atualizada
+                        int novaQuantidade = Convert.ToInt32(row.Cells["Quantidade"].Value);
+
+                        // Atualizar a quantidade no objeto item
+                        item.Quantidade = novaQuantidade;
+
                         itensSelecionados.Add(item);
-                       
+
                     }
                 }
             }
@@ -230,6 +237,7 @@ namespace LivrariaFive.View
         private void btnEfetuarPedido_Click(object sender, EventArgs e)
         {
             List<ItemDeCompra> itensSelecionados = ObterItensDeCompraSelecionados();
+         
 
             Pedido pedido = new Pedido();
             pedido.ItensDeCompra = itensSelecionados;
