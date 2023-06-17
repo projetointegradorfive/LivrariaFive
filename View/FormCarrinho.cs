@@ -14,7 +14,7 @@ using LivrariaFive.Controller;
 namespace LivrariaFive.View
 {
 
-   
+
     public partial class FormCarrinho : Form
     {
         private Carrinho carrinho;
@@ -114,7 +114,7 @@ namespace LivrariaFive.View
 
                 dgvCarrinho.Rows.Add(row);
             }
-            
+
         }
 
 
@@ -155,7 +155,7 @@ namespace LivrariaFive.View
             {
                 itemDeCompraController.RemoverItemDoCarrinho(carrinho, item.Livro.Id);
             }
-            
+
             CarregarItensCarrinho();
             CalcularTotalItensSelecionados();
         }
@@ -237,7 +237,7 @@ namespace LivrariaFive.View
         private void btnEfetuarPedido_Click(object sender, EventArgs e)
         {
             List<ItemDeCompra> itensSelecionados = ObterItensDeCompraSelecionados();
-         
+
 
             Pedido pedido = new Pedido();
             pedido.ItensDeCompra = itensSelecionados;
@@ -247,19 +247,42 @@ namespace LivrariaFive.View
             pedido.Status = "Em andamento"; // Exemplo: status inicial do pedido
             pedido.Cliente = cliente; // Define o objeto Cliente completo
 
-           
+
 
             // Oculta o formulário de carrinho e mostra o formulário de pedido
             LivroForm livroForm = new LivroForm(cliente);
             FormPedido formPedido = new FormPedido(pedido, livroForm, carrinho, cliente);
 
-            livroForm.Hide();          
+            livroForm.Hide();
             this.Hide();
 
             formPedido.ShowDialog();
         }
 
+        private void btnSelecionarTudo_Click(object sender, EventArgs e)
+        {
+            bool todosMarcados = true;
 
-
+            foreach (DataGridViewRow row in dgvCarrinho.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = row.Cells["checkBoxColumn"] as DataGridViewCheckBoxCell;
+                if (checkBoxCell != null)
+                {
+                    if (checkBoxCell.Value == null || !Convert.ToBoolean(checkBoxCell.Value))
+                    {
+                        todosMarcados = false;
+                        checkBoxCell.Value = true;
+                    }
+                    else
+                    {
+                        checkBoxCell.Value = false;
+                    }
+                }
+            }
+          
+                double total = CalcularTotalItensSelecionados();
+                lblPrecoTotalCarrinho.Text = total.ToString("C");
+            
+        }
     }
 }
