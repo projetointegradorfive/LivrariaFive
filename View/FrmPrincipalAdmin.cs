@@ -52,5 +52,11 @@ namespace LivrariaFive.View
             FormRelatorioClientes formRelatorioClientes = new FormRelatorioClientes();
             formRelatorioClientes.Show();
         }
+
+        private void btnRelatorioEstoque_Click(object sender, EventArgs e)
+        {
+            FormRelatorioFaturamento formRelatorioFaturamento = new FormRelatorioFaturamento();
+            formRelatorioFaturamento.Show();
+        }
     }
 }

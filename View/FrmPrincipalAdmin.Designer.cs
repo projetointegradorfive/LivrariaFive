@@ -116,8 +116,9 @@ namespace LivrariaFive.View
             this.btnRelatorioEstoque.Name = "btnRelatorioEstoque";
             this.btnRelatorioEstoque.Size = new System.Drawing.Size(110, 41);
             this.btnRelatorioEstoque.TabIndex = 8;
-            this.btnRelatorioEstoque.Text = "Relatório de Estoque";
+            this.btnRelatorioEstoque.Text = "Relatório Faturamento";
             this.btnRelatorioEstoque.UseVisualStyleBackColor = true;
+            this.btnRelatorioEstoque.Click += new System.EventHandler(this.btnRelatorioEstoque_Click);
             // 
             // btnRelatorioProdutos
             // 
