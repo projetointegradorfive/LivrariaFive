@@ -157,6 +157,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidaCadastroUser.cs" />
+    <Compile Include="ValidaFormPagamentoCartao.cs" />
     <Compile Include="View\DetalhesLivro.cs">
       <SubType>Form</SubType>
     </Compile>
