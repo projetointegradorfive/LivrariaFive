@@ -20,7 +20,6 @@ namespace LivrariaFive.View
         {
             InitializeComponent();
         }
-
         private void btnCadastrarUser_Click(object sender, EventArgs e)
         {
             // Obter os dados do formulário
@@ -119,12 +118,7 @@ namespace LivrariaFive.View
             this.Hide();
             login.Show();
         }
-
-
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
+
 
