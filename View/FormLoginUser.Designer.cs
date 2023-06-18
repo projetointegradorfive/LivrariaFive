@@ -85,7 +85,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel9, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(537, 39);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 5;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
@@ -101,7 +101,7 @@ namespace LivrariaFive.View
             // 
             this.btnCadastrarUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCadastrarUser.Location = new System.Drawing.Point(4, 479);
-            this.btnCadastrarUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCadastrarUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnCadastrarUser.Name = "btnCadastrarUser";
             this.btnCadastrarUser.Size = new System.Drawing.Size(100, 28);
             this.btnCadastrarUser.TabIndex = 5;
@@ -117,7 +117,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel8.Controls.Add(this.txtEnderecoCadastro, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel8.Location = new System.Drawing.Point(4, 264);
-            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -127,7 +127,7 @@ namespace LivrariaFive.View
             // txtEnderecoCadastro
             // 
             this.txtEnderecoCadastro.Location = new System.Drawing.Point(100, 4);
-            this.txtEnderecoCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEnderecoCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.txtEnderecoCadastro.Name = "txtEnderecoCadastro";
             this.txtEnderecoCadastro.Size = new System.Drawing.Size(412, 22);
             this.txtEnderecoCadastro.TabIndex = 1;
@@ -151,7 +151,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel7.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.dtpDataNascimentoCadastro, 1, 0);
             this.tableLayoutPanel7.Location = new System.Drawing.Point(4, 221);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -172,7 +172,7 @@ namespace LivrariaFive.View
             // 
             this.dtpDataNascimentoCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataNascimentoCadastro.Location = new System.Drawing.Point(98, 4);
-            this.dtpDataNascimentoCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDataNascimentoCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDataNascimentoCadastro.Name = "dtpDataNascimentoCadastro";
             this.dtpDataNascimentoCadastro.Size = new System.Drawing.Size(108, 22);
             this.dtpDataNascimentoCadastro.TabIndex = 1;
@@ -195,7 +195,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel2.Controls.Add(this.maskTxtCpfCadastro, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.maskTxtTelefoneCadastro, 1, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 106);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.46819F));
@@ -219,7 +219,7 @@ namespace LivrariaFive.View
             // 
             this.txtNomeCadastro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtNomeCadastro.Location = new System.Drawing.Point(100, 4);
-            this.txtNomeCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNomeCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.txtNomeCadastro.Name = "txtNomeCadastro";
             this.txtNomeCadastro.Size = new System.Drawing.Size(167, 22);
             this.txtNomeCadastro.TabIndex = 2;
@@ -250,7 +250,7 @@ namespace LivrariaFive.View
             // 
             this.txtEmailCadastro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtEmailCadastro.Location = new System.Drawing.Point(100, 43);
-            this.txtEmailCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmailCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmailCadastro.Name = "txtEmailCadastro";
             this.txtEmailCadastro.Size = new System.Drawing.Size(167, 22);
             this.txtEmailCadastro.TabIndex = 5;
@@ -259,7 +259,7 @@ namespace LivrariaFive.View
             // 
             this.txtSenhaCadastro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtSenhaCadastro.Location = new System.Drawing.Point(343, 43);
-            this.txtSenhaCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSenhaCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.txtSenhaCadastro.Name = "txtSenhaCadastro";
             this.txtSenhaCadastro.Size = new System.Drawing.Size(168, 22);
             this.txtSenhaCadastro.TabIndex = 6;
@@ -312,7 +312,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel9.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -342,7 +342,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel3.Controls.Add(this.btnLogarUser, 0, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 39);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 107F));
@@ -359,7 +359,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel10.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -387,7 +387,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel5.Controls.Add(this.txtEmail, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(4, 111);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -398,7 +398,7 @@ namespace LivrariaFive.View
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtEmail.Location = new System.Drawing.Point(105, 43);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(276, 22);
             this.txtEmail.TabIndex = 4;
@@ -422,7 +422,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel4.Controls.Add(this.txtSenhaLogin, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 188);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -434,7 +434,7 @@ namespace LivrariaFive.View
             // 
             this.txtSenhaLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtSenhaLogin.Location = new System.Drawing.Point(107, 27);
-            this.txtSenhaLogin.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtSenhaLogin.Margin = new System.Windows.Forms.Padding(5);
             this.txtSenhaLogin.Name = "txtSenhaLogin";
             this.txtSenhaLogin.Size = new System.Drawing.Size(276, 22);
             this.txtSenhaLogin.TabIndex = 3;
@@ -454,7 +454,7 @@ namespace LivrariaFive.View
             // 
             this.btnLogarUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLogarUser.Location = new System.Drawing.Point(4, 479);
-            this.btnLogarUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogarUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogarUser.Name = "btnLogarUser";
             this.btnLogarUser.Size = new System.Drawing.Size(100, 28);
             this.btnLogarUser.TabIndex = 2;
@@ -472,7 +472,7 @@ namespace LivrariaFive.View
             this.tableLayoutPanel1.Controls.Add(this.btnLoginAdminRestrito, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -498,7 +498,7 @@ namespace LivrariaFive.View
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLoginUser";
             this.Text = "FormLoginUser";
             this.tableLayoutPanel6.ResumeLayout(false);
