@@ -54,25 +54,26 @@ namespace LivrariaFive.View
                             dgvVendas.Columns.Add("preco_total_pedido", "Preço Total");
                             dgvVendas.Columns.Add("forma_pagamento", "Forma de Pagamento");
                             dgvVendas.Columns.Add("status", "Status");
-                            dgvVendas.Columns.Add("idCliente", "ID Cliente");
                             dgvVendas.Columns.Add("nome", "Nome");
                             dgvVendas.Columns.Add("email", "Email");
                             dgvVendas.Columns.Add("cpf", "CPF");
                             dgvVendas.Columns.Add("endereco", "Endereço");
-                            dgvVendas.Columns.Add("telefone", "Telefone");
-                            dgvVendas.Columns.Add("data_nascimento", "Data de Nascimento");
-                            dgvVendas.Columns.Add("idItemCompra", "ID Item de Compra");
                             dgvVendas.Columns.Add("quantidade", "Quantidade");
-                            dgvVendas.Columns.Add("preco_unitario", "Preço Unitário");
-                            dgvVendas.Columns.Add("preco_total_itemDeCompra", "Preço Total Item");
-                            dgvVendas.Columns.Add("idLivro", "ID Livro");
+                            dgvVendas.Columns.Add("preco_unitario", "Preço Unitário").ToString("C");
+                            dgvVendas.Columns.Add("preco_total_itemDeCompra", "Preço Total Item").ToString("C");
+                           // dgvVendas.Columns.Add("idLivro", "ID Livro");
                             dgvVendas.Columns.Add("titulo", "Título");
+                            dgvVendas.Columns["preco_total_pedido"].DefaultCellStyle.Format = "C2";
+                            dgvVendas.Columns["preco_total_itemDeCompra"].DefaultCellStyle.Format = "C2";
+                            dgvVendas.Columns["preco_unitario"].DefaultCellStyle.Format = "C2";
 
                             // Preencha as linhas do DataGridView com os dados retornados
                             while (reader.Read())
                             {
                                 object[] rowData = new object[reader.FieldCount];
                                 reader.GetValues(rowData);
+                                
+
                                 dgvVendas.Rows.Add(rowData);
                             }
                         }
