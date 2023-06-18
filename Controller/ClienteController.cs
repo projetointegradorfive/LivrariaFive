@@ -56,7 +56,8 @@ namespace LivrariaFive.Controller
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "SELECT idCliente, nome, cpf, endereco, telefone, data_nascimento FROM tbCliente WHERE email = @Email AND senha = @Senha";
+                string query = "SELECT idCliente, nome, cpf, endereco, telefone, data_nascimento, ativo " +
+                               "FROM tbCliente WHERE email = @Email AND senha = @Senha";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Email", email);
@@ -74,25 +75,32 @@ namespace LivrariaFive.Controller
                     string endereco = reader["endereco"].ToString();
                     string telefone = reader["telefone"].ToString();
                     DateTime dataNascimento = Convert.ToDateTime(reader["data_nascimento"]);
-                    //Passando os dados do cliente logado para as propriedades de Cliente(model)
-                    Cliente cliente = new Cliente
+                    bool ativo = Convert.ToBoolean(reader["ativo"]);
+
+                    if (ativo) // Verifica se a conta está ativa
                     {
-                        IdCliente = idCliente,
-                        Nome = nome,
-                        Email = email,
-                        Senha = senha,
-                        CPF = cpf,
-                        Endereco = endereco,
-                        Telefone = telefone,
-                        DataNascimento = dataNascimento
-                    };
-                    //retorna a variável cliente com os dados do cliente atual
-                    return cliente;
+                        // Passando os dados do cliente logado para as propriedades de Cliente(model)
+                        Cliente cliente = new Cliente
+                        {
+                            IdCliente = idCliente,
+                            Nome = nome,
+                            Email = email,
+                            Senha = senha,
+                            CPF = cpf,
+                            Endereco = endereco,
+                            Telefone = telefone,
+                            DataNascimento = dataNascimento
+                        };
+
+                        // retorna a variável cliente com os dados do cliente atual
+                        return cliente;
+                    }
                 }
             }
 
-            return null; // Retorna null caso as credenciais não sejam válidas ou ocorra algum erro na consulta
+            return null; // Retorna null caso as credenciais não sejam válidas, a conta esteja inativa ou ocorra algum erro na consulta
         }
+
 
         public bool VerificarEmailExistente(string email)
         {
@@ -115,7 +123,9 @@ namespace LivrariaFive.Controller
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "SELECT nome, email, senha, cpf, endereco, telefone, data_nascimento FROM tbCliente WHERE idCliente = @IdCliente";
+                string query = "SELECT nome, email, senha, cpf, endereco, telefone, data_nascimento, ativo " +
+               "FROM tbCliente WHERE idCliente = @IdCliente";
+
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@IdCliente", idCliente);
@@ -175,19 +185,24 @@ namespace LivrariaFive.Controller
             return cliente;
         }
 
-        public void RemoverCliente(int idCliente)
+        public bool RemoverCliente(int idCliente)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "DELETE FROM tbCliente WHERE idCliente = @IdCliente";
+                string query = "UPDATE tbCliente SET ativo = @Ativo WHERE idCliente = @IdCliente";
 
                 SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Ativo", false); // Define o valor da coluna ativo como false
                 command.Parameters.AddWithValue("@IdCliente", idCliente);
 
                 connection.Open();
-                command.ExecuteNonQuery();
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0; // Retorna true se pelo menos uma linha for afetada (cliente atualizado com sucesso)
             }
         }
+
         public Cliente ObterClientePorNomeCPF(string nome, string cpf)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
@@ -253,6 +268,24 @@ namespace LivrariaFive.Controller
             }
 
         }
+        public bool AtivarContaDoCliente(int idCliente)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "UPDATE tbCliente SET ativo = @Ativo WHERE idCliente = @IdCliente";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Ativo", true); // Define o valor da coluna ativo como true
+                command.Parameters.AddWithValue("@IdCliente", idCliente);
+
+                connection.Open();
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0; // Retorna true se pelo menos uma linha for afetada (cliente atualizado com sucesso)
+            }
+        }
+
 
     }
 }

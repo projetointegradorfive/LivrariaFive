@@ -20,7 +20,7 @@ namespace LivrariaFive.Controller
         }
         public Pedido InserirPedido(Pedido pedido)
         {
-
+            pedido.Data = DateTime.Now;
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
                 string query = "INSERT INTO tbPedido (data, preco_total_pedido, forma_pagamento, status, idCliente) VALUES (@Data, @PrecoTotalPedido, @FormaPagamento, @Status, @ClienteId); SELECT SCOPE_IDENTITY();";

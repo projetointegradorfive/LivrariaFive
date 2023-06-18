@@ -52,8 +52,10 @@ namespace LivrariaFive.View
             this.pbFoto = new System.Windows.Forms.PictureBox();
             this.btnAddFoto = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtAnoPublicacao = new System.Windows.Forms.TextBox();
+            this.lstAutores = new System.Windows.Forms.ListBox();
+            this.btnSalvarAutores = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.txtAnoPublicacao = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -228,7 +230,7 @@ namespace LivrariaFive.View
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(107, 356);
+            this.label4.Location = new System.Drawing.Point(452, 212);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 25;
@@ -237,7 +239,7 @@ namespace LivrariaFive.View
             // txtEditora
             // 
             this.txtEditora.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEditora.Location = new System.Drawing.Point(156, 353);
+            this.txtEditora.Location = new System.Drawing.Point(501, 209);
             this.txtEditora.Name = "txtEditora";
             this.txtEditora.Size = new System.Drawing.Size(179, 20);
             this.txtEditora.TabIndex = 26;
@@ -246,7 +248,7 @@ namespace LivrariaFive.View
             // 
             this.pbFoto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFoto.Location = new System.Drawing.Point(501, 212);
+            this.pbFoto.Location = new System.Drawing.Point(457, 312);
             this.pbFoto.Name = "pbFoto";
             this.pbFoto.Size = new System.Drawing.Size(85, 113);
             this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -256,7 +258,7 @@ namespace LivrariaFive.View
             // btnAddFoto
             // 
             this.btnAddFoto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAddFoto.Location = new System.Drawing.Point(501, 180);
+            this.btnAddFoto.Location = new System.Drawing.Point(457, 280);
             this.btnAddFoto.Name = "btnAddFoto";
             this.btnAddFoto.Size = new System.Drawing.Size(85, 26);
             this.btnAddFoto.TabIndex = 28;
@@ -266,6 +268,8 @@ namespace LivrariaFive.View
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lstAutores);
+            this.panel1.Controls.Add(this.btnSalvarAutores);
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.txtAnoPublicacao);
             this.panel1.Controls.Add(this.btnAddFoto);
@@ -296,16 +300,29 @@ namespace LivrariaFive.View
             this.panel1.Size = new System.Drawing.Size(800, 450);
             this.panel1.TabIndex = 29;
             // 
-            // txtAnoPublicacao
+            // lstAutores
             // 
-            this.txtAnoPublicacao.Location = new System.Drawing.Point(156, 142);
-            this.txtAnoPublicacao.Margin = new System.Windows.Forms.Padding(2);
-            this.txtAnoPublicacao.Name = "txtAnoPublicacao";
-            this.txtAnoPublicacao.Size = new System.Drawing.Size(179, 20);
-            this.txtAnoPublicacao.TabIndex = 30;
+            this.lstAutores.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lstAutores.FormattingEnabled = true;
+            this.lstAutores.Location = new System.Drawing.Point(158, 344);
+            this.lstAutores.Name = "lstAutores";
+            this.lstAutores.Size = new System.Drawing.Size(176, 82);
+            this.lstAutores.TabIndex = 33;
+            // 
+            // btnSalvarAutores
+            // 
+            this.btnSalvarAutores.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSalvarAutores.Location = new System.Drawing.Point(341, 308);
+            this.btnSalvarAutores.Name = "btnSalvarAutores";
+            this.btnSalvarAutores.Size = new System.Drawing.Size(77, 20);
+            this.btnSalvarAutores.TabIndex = 32;
+            this.btnSalvarAutores.Text = "Salvar Autor";
+            this.btnSalvarAutores.UseVisualStyleBackColor = true;
+            this.btnSalvarAutores.Click += new System.EventHandler(this.btnSalvarAutores_Click);
             // 
             // btnVoltar
             // 
+            this.btnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnVoltar.Location = new System.Drawing.Point(682, 12);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(106, 31);
@@ -313,6 +330,15 @@ namespace LivrariaFive.View
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // txtAnoPublicacao
+            // 
+            this.txtAnoPublicacao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAnoPublicacao.Location = new System.Drawing.Point(156, 142);
+            this.txtAnoPublicacao.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAnoPublicacao.Name = "txtAnoPublicacao";
+            this.txtAnoPublicacao.Size = new System.Drawing.Size(179, 20);
+            this.txtAnoPublicacao.TabIndex = 30;
             // 
             // FormCadastrarLivro
             // 
@@ -324,7 +350,6 @@ namespace LivrariaFive.View
             this.Name = "FormCadastrarLivro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadastrarLivro";
-            this.Load += new System.EventHandler(this.FormCadastrarLivro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -359,5 +384,7 @@ namespace LivrariaFive.View
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtAnoPublicacao;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.ListBox lstAutores;
+        private System.Windows.Forms.Button btnSalvarAutores;
     }
 }

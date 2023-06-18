@@ -21,5 +21,7 @@ namespace LivrariaFive.Model
         public string NomeTitular { get; internal set; }
         public string NumeroCartao { get; internal set; }
         public string CodigoSeguranca { get; internal set; }
+        public bool Ativo { get; set; } = true;
+
     }
 }

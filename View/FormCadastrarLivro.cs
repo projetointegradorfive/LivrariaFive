@@ -23,13 +23,11 @@ namespace LivrariaFive.View
         Genero genero = new Genero();
         EditoraController editoraController = new EditoraController();
         Editora editora = new Editora();
+        private List<Autor> autores;
         public FormCadastrarLivro()
         {
             InitializeComponent();
-
-        }
-        private void FormCadastrarLivro_Load(object sender, EventArgs e)
-        {
+            autores = new List<Autor>(); ;
 
         }
 
@@ -37,7 +35,7 @@ namespace LivrariaFive.View
         {
             string nomeLivro = txtNomeLivro.Text;
             string nomeGenero = txtGeneroLivro.Text;
-            string nomeAutor = txtAutorLivro.Text;
+            //string nomeAutor = txtAutorLivro.Text;
             string nomeEditora = txtEditora.Text;
 
             // Verificar se o nome do livro está vazio
@@ -46,6 +44,7 @@ namespace LivrariaFive.View
                 MessageBox.Show("Digite o nome do livro.");
                 return;
             }
+
 
             // Criar uma instância do objeto Livro e preencher suas propriedades
             Livro livro = new Livro();
@@ -58,17 +57,19 @@ namespace LivrariaFive.View
             livro.Idioma = txtIdioma.Text;
             livro.Imagem = pbFoto.Image;
 
-
-            // Verificar se o nome do autor está vazio
-            if (!string.IsNullOrEmpty(nomeAutor))
+            // Adicionar os autores selecionados ao livro
+            // Adicionar os autores selecionados ao livro
+            livro.Autores = new List<Autor>();
+            foreach (var item in lstAutores.Items)
             {
+                string nomeAutor = item.ToString();
                 Autor autorExistente = autorController.ObterAutorPorNome(nomeAutor);
 
                 if (autorExistente == null)
                 {
                     // O autor não existe no banco de dados, portanto, você pode criar uma nova instância
                     Autor autor = new Autor { Nome = nomeAutor };
-                    livro.Autor = autor.Nome;
+                    livro.Autores.Add(autor);
 
                     // Chame o método Insert do controlador AutorController para cadastrar o novo autor no banco de dados
                     autorController.InserirAutor(autor);
@@ -76,13 +77,8 @@ namespace LivrariaFive.View
                 else
                 {
                     // O autor já existe, você pode atribuí-lo diretamente ao livro
-                    livro.Autor = autorExistente.Nome;
-                    autor.IdAutor = autorExistente.IdAutor;
+                    livro.Autores.Add(autorExistente);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Informe o Autor");
             }
 
 
@@ -143,7 +139,7 @@ namespace LivrariaFive.View
 
             // Chamar o método Insert do controlador LivroController para cadastrar o livro
             LivroController livroController = new LivroController();
-            livroController.Insert(livro);
+            livroController.Insert(livro, livro.Autores);
 
             // Exibir mensagem de sucesso
             MessageBox.Show("Livro cadastrado com sucesso!");
@@ -187,6 +183,35 @@ namespace LivrariaFive.View
             FrmGerenciarLivros volta = new FrmGerenciarLivros();
             this.Hide();
             volta.Show();
+        }
+
+        private void btnSalvarAutores_Click(object sender, EventArgs e)
+        {
+            string autorTxt = txtAutorLivro.Text;
+            if (!string.IsNullOrWhiteSpace(autorTxt))
+            {
+                lstAutores.Items.Add(autorTxt);
+                txtAutorLivro.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Informe pelo menos um autor");
+            }
+
+            // Percorrer os itens selecionados no ListBox e adicionar os autores à lista
+            foreach (var item in lstAutores.Items)
+            {
+                string nomeAutor = item.ToString();
+                Autor autorExistente = autores.FirstOrDefault(a => a.Nome == nomeAutor);
+
+                if (autorExistente == null)
+                {
+                    // O autor não existe na lista, então podemos adicionar
+                    Autor autor = new Autor { Nome = nomeAutor };
+                    autores.Add(autor);
+                }
+            }
+
         }
     }
 }

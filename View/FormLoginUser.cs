@@ -30,6 +30,7 @@ namespace LivrariaFive.View
             string cpf = maskTxtCpfCadastro.Text;
             string telefone = maskTxtTelefoneCadastro.Text;
             DateTime dataNascimento = dtpDataNascimentoCadastro.Value;
+            bool ativo = true;
 
             // Criar uma instância do ClienteController
             ClienteController clienteController = new ClienteController();
@@ -43,7 +44,8 @@ namespace LivrariaFive.View
                 Endereco = endereco,
                 CPF = cpf,
                 Telefone = telefone,
-                DataNascimento = dataNascimento
+                DataNascimento = dataNascimento,
+                Ativo = ativo
             };
 
             if (ValidaCadastroUser.ValidarCliente(cliente, out string mensagemErro))
@@ -92,17 +94,21 @@ namespace LivrariaFive.View
             CarrinhoController carrinhoController = new CarrinhoController();
             if (cliente != null)
             {
-                // Definir o cliente atual
-                ClienteAtual = cliente;
+                // Verifica se a conta está ativa
+                if (cliente.Ativo)
+                {
+                    // Definir o cliente atual
+                    ClienteAtual = cliente;
 
-                // Exibir o formulário LivroForm e passar o cliente atual como argumento
-                LivroForm livroForm = new LivroForm(ClienteAtual);
-                livroForm.Show();
-                this.Hide();
+                    // Exibir o formulário LivroForm e passar o cliente atual como argumento
+                    LivroForm livroForm = new LivroForm(ClienteAtual);
+                    livroForm.Show();
+                    this.Hide();
+                }               
             }
             else
             {
-                MessageBox.Show("Credenciais inválidas. Por favor, tente novamente.");
+                MessageBox.Show("Essa conta não existe.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

@@ -16,25 +16,32 @@ namespace LivrariaFive.Controller
     {
         public Autor InserirAutor(Autor autor)
         {
-            //if (VerificarAutorExistente(autor.Nome))
-            //{
-            //    // Autor já existe, não é necessário inserir novamente
-            //    return ObterAutorPorNome(autor.Nome);
-            //}
+            if (VerificarAutorExistente(autor.Nome))
+            {
+                // Autor já existe, não é necessário inserir novamente
+                return ObterAutorPorNome(autor.Nome);
+            }
 
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "INSERT INTO tbAutor (nome) VALUES (@Nome)";
+                string query = "INSERT INTO tbAutor (nome) VALUES (@Nome); SELECT SCOPE_IDENTITY();";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Nome", autor.Nome);
 
                 connection.Open();
-                command.ExecuteNonQuery();
-            }
 
-            return autor;
+                // Executar o comando e obter o ID do autor inserido
+                int autorId = Convert.ToInt32(command.ExecuteScalar());
+
+                // Atribuir o ID ao objeto Autor
+                autor.IdAutor = autorId;
+
+                return autor;
+            }
         }
+
+
 
         public void RemoverAutor(Autor autor)
         {
@@ -118,28 +125,84 @@ namespace LivrariaFive.Controller
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
                 string query = "SELECT idAutor, nome FROM tbAutor WHERE nome = @Nome";
-
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Nome", nome);
 
                 connection.Open();
-
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    int idAutor = Convert.ToInt32(reader["idAutor"]);
-                    string nomeAutor = reader["nome"].ToString();
-
                     Autor autor = new Autor();
-                    autor.IdAutor = idAutor;
-                    autor.Nome = nomeAutor;
-
+                    autor.IdAutor = Convert.ToInt32(reader["idAutor"]);
+                    autor.Nome = reader["nome"].ToString();
                     return autor;
                 }
+
+                return null;
+            }
+        }
+        public List<Autor> GetAutoresPorLivro(int livroId)
+        {
+            List<Autor> autores = new List<Autor>();
+
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = @"
+            SELECT A.idAutor, A.nome
+            FROM tbAutor A
+            INNER JOIN tbLivroAutor LA ON A.idAutor = LA.idAutor
+            WHERE LA.idLivro = @LivroId";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@LivroId", livroId);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int idAutor = reader.GetInt32(0);
+                    string nome = reader.GetString(1);
+
+                    Autor autor = new Autor
+                    {
+                        IdAutor = idAutor,
+                        Nome = nome
+                    };
+
+                    autores.Add(autor);
+                }
+
+                reader.Close();
             }
 
-            return null; // Retornar null caso o autor não seja encontrado
+            return autores;
         }
+
+        public int ObterIdAutorPorNome(string nomeAutor)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT idAutor FROM tbAutor WHERE nome = @NomeAutor;";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@NomeAutor", nomeAutor);
+
+                connection.Open();
+
+                var result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    return -1; // Retorna um valor indicando que o autor não foi encontrado
+                }
+            }
+        }
+
     }
 }

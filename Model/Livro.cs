@@ -20,28 +20,20 @@ namespace LivrariaFive.Model
         public string Descricao { get; set; }
         public string Genero { get; set; }
         public string Idioma { get; set; }
+        public List<Autor> Autores { get; set; }
+        public string NomesAutores
+        {
+            get { return string.Join(", ", Autores.Select(a => a.Nome)); }
+        }
 
         public Image Imagem { get; set; } // Propriedade para a imagem
+
+        public string img64 { get; set; }
 
         public Livro()
         {
         }
 
-
-        public int CalcularPrecoTotal(int quantidade)
-        {
-            return (int)(Preco * quantidade);
-        }
-
-        public void AdicionarEstoque(int quantidade)
-        {
-            Estoque += quantidade;
-        }
-
-        public void RemoverEstoque(int quantidade)
-        {
-            Estoque -= quantidade;
-        }
 
     }
 }

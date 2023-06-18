@@ -55,7 +55,6 @@ namespace LivrariaFive.View
             this.DetalhesEndereco = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txtEmail
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -65,7 +64,7 @@ namespace LivrariaFive.View
             this.txtEmail.Size = new System.Drawing.Size(285, 26);
             this.txtEmail.TabIndex = 4;
             // 
-            // txtSenhaLogin
+
             // 
             this.txtSenhaLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtSenhaLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -75,7 +74,7 @@ namespace LivrariaFive.View
             this.txtSenhaLogin.Size = new System.Drawing.Size(285, 26);
             this.txtSenhaLogin.TabIndex = 3;
             // 
-            // btnLogarUser
+
             // 
             this.btnLogarUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLogarUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -108,6 +107,7 @@ namespace LivrariaFive.View
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 25);
+
             this.label5.TabIndex = 1;
             this.label5.Text = "Nome:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -144,6 +144,7 @@ namespace LivrariaFive.View
             this.txtNomeCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.txtNomeCadastro.Name = "txtNomeCadastro";
             this.txtNomeCadastro.Size = new System.Drawing.Size(167, 26);
+
             this.txtNomeCadastro.TabIndex = 2;
             // 
             // label8
@@ -181,25 +182,27 @@ namespace LivrariaFive.View
             this.txtEmailCadastro.TabIndex = 5;
             // 
             // label6
-            // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(596, 408);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 28);
+
             this.label6.TabIndex = 3;
             this.label6.Text = "E-mail:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
+
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(608, 357);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 28);
+
             this.label7.TabIndex = 4;
             this.label7.Text = "Senha:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -224,9 +227,11 @@ namespace LivrariaFive.View
             this.label10.Size = new System.Drawing.Size(108, 57);
             this.label10.TabIndex = 0;
             this.label10.Text = "Data de\r\nnascimento:";
+
             // 
             // label11
             // 
+
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(596, 453);
@@ -235,6 +240,7 @@ namespace LivrariaFive.View
             this.label11.Size = new System.Drawing.Size(104, 26);
             this.label11.TabIndex = 0;
             this.label11.Text = "Endereço:";
+
             // 
             // dtpDataNascimentoCadastro
             // 
@@ -249,6 +255,7 @@ namespace LivrariaFive.View
             // 
             // txtEnderecoCadastro
             // 
+
             this.txtEnderecoCadastro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtEnderecoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEnderecoCadastro.Location = new System.Drawing.Point(699, 453);
@@ -256,9 +263,11 @@ namespace LivrariaFive.View
             this.txtEnderecoCadastro.Name = "txtEnderecoCadastro";
             this.txtEnderecoCadastro.Size = new System.Drawing.Size(480, 26);
             this.txtEnderecoCadastro.TabIndex = 1;
+
             // 
             // btnCadastrarUser
             // 
+
             this.btnCadastrarUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCadastrarUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarUser.Location = new System.Drawing.Point(839, 531);
@@ -290,12 +299,14 @@ namespace LivrariaFive.View
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 28);
+
             this.label4.TabIndex = 2;
             this.label4.Text = "Senha:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
+
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -306,6 +317,7 @@ namespace LivrariaFive.View
             this.label1.Text = "LOGIN USUÁRIO";
             // 
             // label2
+
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
@@ -325,6 +337,7 @@ namespace LivrariaFive.View
             this.DetalhesEndereco.Size = new System.Drawing.Size(213, 15);
             this.DetalhesEndereco.TabIndex = 15;
             this.DetalhesEndereco.Text = "Cidade, Bairro, Logradouro e Número";
+
             // 
             // FormLoginUser
             // 
@@ -355,6 +368,7 @@ namespace LivrariaFive.View
             this.Controls.Add(this.btnLogarUser);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.btnLoginAdminRestrito);
+
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLoginUser";

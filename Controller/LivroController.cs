@@ -18,25 +18,13 @@ namespace LivrariaFive.Controller
         public LivroController()
         {
         }
-        public Livro Insert(Livro livro)
+        public Livro Insert(Livro livro, List<Autor> autores)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
 
             {
                 //Convertendo imagem para guardar no banco
                 byte[] imagemBytes = ObterBytesImagem(livro.Imagem);
-
-                AutorController autorController = new AutorController();
-                Autor autor = autorController.ObterAutorPorNome(livro.Autor);
-
-                if (!autorController.VerificarAutorExistente(livro.Autor))
-                {
-                    // O autor não existe, então insira-o no banco de dados
-                    autor = new Autor { Nome = livro.Autor };
-                    autorController.InserirAutor(autor);
-                }
-
-
                 // Inserir o gênero
                 GeneroController generoController = new GeneroController();
                 Genero genero = generoController.ObterGeneroPorNome(livro.Genero);
@@ -56,9 +44,6 @@ namespace LivrariaFive.Controller
                     editoraController.InserirEditora(editora);
 
                 }
-
-                // Obter o ID do autor inserido
-                int autorId = autor.IdAutor;
 
                 // Obter o ID do gênero inserido
                 int generoId = genero.IdGenero;
@@ -83,19 +68,38 @@ namespace LivrariaFive.Controller
                 command.Parameters.Add("@Imagem", SqlDbType.VarBinary).Value = (object)imagemBytes ?? DBNull.Value;
 
 
-
-
-
                 connection.Open();
 
                 // Executar o comando e obter o ID do livro inserido
                 int livroId = Convert.ToInt32(command.ExecuteScalar());
+                AutorController autorController = new AutorController();
+                foreach (var autor in autores)
+                {
+                    Autor autorExistente = autorController.ObterAutorPorNome(autor.Nome);
 
-                // Inserir na tabela LivroAutor
-                InserirLivroAutor(livroId, autorId);
+                    Autor autor2;
+                    int autorId;
+
+                    if (autorExistente == null)
+                    {
+                        // O autor não existe, então insira-o no banco de dados e obtenha o ID
+                        autor2 = autorController.InserirAutor(autor);
+                        autorId = autor2.IdAutor;
+                    }
+                    else
+                    {
+                        // O autor já existe, obtenha o ID diretamente
+                        autorId = autorExistente.IdAutor;
+                    }
+
+                    // Inserir na tabela LivroAutor
+                    InserirLivroAutor(livroId, autorId);
+                }
+
+                return livro;
+
+
             }
-
-            return livro;
         }
 
         public byte[] ObterBytesImagem(Image imagem)
@@ -113,11 +117,6 @@ namespace LivrariaFive.Controller
 
             return imagemBytes;
         }
-
-
-
-
-
 
 
 
@@ -143,14 +142,13 @@ namespace LivrariaFive.Controller
 
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "SELECT l.idLivro, l.Titulo, l.Isbn, l.AnoPublicacao, l.Preco, l.Estoque, l.Descricao, l.Idioma, " +
-                               "g.Nome AS Genero, e.Nome AS Editora, " +
-                               "a.Nome AS Autor, l.livroImagem " +
-                               "FROM tbLivro l " +
-                               "LEFT JOIN tbGenero g ON l.idGenero = g.IdGenero " +
-                               "LEFT JOIN tbEditora e ON l.idEditora = e.IdEditora " +
-                               "LEFT JOIN tbLivroAutor la ON l.idLivro = la.idLivro " +
-                               "LEFT JOIN tbAutor a ON la.idAutor = a.IdAutor";
+                string query = @"SELECT l.idLivro, l.Titulo, l.Isbn, l.AnoPublicacao, l.Preco, l.Estoque, l.Descricao, l.Idioma, 
+                                g.Nome AS Genero, e.Nome AS Editora, a.Nome AS Autor, l.livroImagem
+                        FROM tbLivro l 
+                        LEFT JOIN tbGenero g ON l.idGenero = g.IdGenero 
+                        LEFT JOIN tbEditora e ON l.idEditora = e.IdEditora
+                        LEFT JOIN tbLivroAutor la ON l.idLivro = la.idLivro
+                        LEFT JOIN tbAutor a ON la.idAutor = a.IdAutor";
 
                 SqlCommand command = new SqlCommand(query, connection);
 
@@ -159,46 +157,53 @@ namespace LivrariaFive.Controller
 
                 while (reader.Read())
                 {
-                    Livro livro = new Livro
-                    {
-                        Id = reader.GetInt32(0),
-                        Titulo = reader.GetString(1),
-                        Isbn = reader.GetString(2),
-                        AnoPublicacao = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
-                        Preco = reader.IsDBNull(4) ? 0.0 : reader.GetDouble(4),
-                        Estoque = reader.IsDBNull(5) ? 0 : reader.GetInt32(5),
-                        Descricao = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
-                        Idioma = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
-                        Genero = reader.GetString(8),
-                        Editora = reader.GetString(9),
+                    int livroId = reader.GetInt32(0);
 
-                    };
+                    Livro livro = livros.FirstOrDefault(l => l.Id == livroId);
 
-                    if (reader.IsDBNull(10))
+                    if (livro == null)
                     {
-                        livro.Autor = string.Empty;
-                        Console.WriteLine("Nome do autor é nulo.");
+                        livro = new Livro
+                        {
+                            Id = livroId,
+                            Titulo = reader.GetString(1),
+                            Isbn = reader.GetString(2),
+                            AnoPublicacao = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
+                            Preco = reader.IsDBNull(4) ? 0.0 : reader.GetDouble(4),
+                            Estoque = reader.IsDBNull(5) ? 0 : reader.GetInt32(5),
+                            Descricao = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                            Idioma = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
+                            Genero = reader.GetString(8),
+                            Editora = reader.GetString(9),
+                            Autores = new List<Autor>(), // Inicializa a lista de autores
+                        };
+
+                        if (!reader.IsDBNull(10))
+                        {
+                            Autor autor = new Autor { Nome = reader.GetString(10) };
+                            livro.Autores.Add(autor); // Adiciona o autor atual à lista de autores
+                        }
+
+                        if (!reader.IsDBNull(11))
+                        {
+                            byte[] imagemBytes = (byte[])reader.GetValue(11);
+                            using (MemoryStream ms = new MemoryStream(imagemBytes))
+                            {
+                                livro.Imagem = Image.FromStream(ms);
+                                livro.img64 = Convert.ToBase64String(ms.ToArray());
+                            }
+                        }
+
+                        livros.Add(livro);
                     }
                     else
                     {
                         if (!reader.IsDBNull(10))
                         {
-                            livro.Autor = reader.GetString(10);
-                            Console.WriteLine("Nome do autor: " + livro.Autor);
-                        }
-                        Console.WriteLine("Nome do autor: " + livro.Autor);
-                    }
-
-                    if (!reader.IsDBNull(11))
-                    {
-                        byte[] imagemBytes = (byte[])reader.GetValue(11);
-                        using (MemoryStream ms = new MemoryStream(imagemBytes))
-                        {
-                            livro.Imagem = Image.FromStream(ms);
+                            Autor autor = new Autor { Nome = reader.GetString(10) };
+                            livro.Autores.Add(autor); // Adiciona o autor atual à lista de autores do livro existente
                         }
                     }
-
-                    livros.Add(livro);
                 }
 
                 reader.Close();
@@ -206,6 +211,8 @@ namespace LivrariaFive.Controller
 
             return livros;
         }
+
+
         public string GetAutorName(string nomeAutor)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
@@ -228,7 +235,7 @@ namespace LivrariaFive.Controller
             }
         }
 
-        public void RemoverLivro(Livro livro)
+        public Livro RemoverLivro(Livro livro)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
@@ -239,62 +246,212 @@ namespace LivrariaFive.Controller
 
                 connection.Open();
                 command.ExecuteNonQuery();
+
+                return livro;
             }
         }
 
-        public void UpdateLivro(Livro livro)
+        public Livro UpdateLivro(Livro livro, List<Autor> autores)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "UPDATE tbLivro SET titulo = @Titulo, autor = @Autor, editora = @Editora, isbn = @Isbn, " +
-                    "anoPublicacao = @AnoPublicacao, preco = @Preco, estoque = @Estoque, descricao = @Descricao, " +
-                    "genero = @Genero, idioma = @Idioma, livroImagem = @LivroImagem WHERE Id = @Id";
+                AutorController autorController = new AutorController();
+                List<int> autorIds = new List<int>();
 
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Id", livro.Id);
-                command.Parameters.AddWithValue("@Titulo", livro.Titulo);
-                command.Parameters.AddWithValue("@Autor", livro.Autor);
-                command.Parameters.AddWithValue("@Editora", livro.Editora);
-                command.Parameters.AddWithValue("@Isbn", livro.Isbn);
-                command.Parameters.AddWithValue("@AnoPublicacao", livro.AnoPublicacao);
-                command.Parameters.AddWithValue("@Preco", livro.Preco);
-                command.Parameters.AddWithValue("@Estoque", livro.Estoque);
-                command.Parameters.AddWithValue("@Descricao", livro.Descricao);
-                command.Parameters.AddWithValue("@Genero", livro.Genero);
-                command.Parameters.AddWithValue("@Idioma", livro.Idioma);
-                command.Parameters.AddWithValue("@LivroImagem", livro.Imagem); // Adiciona a imagem como parâmetro
-
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-        }
-        public DataTable ObtertodosLivrosGerenciarLivros()
-        {
-            using (SqlConnection connection = DatabaseConnection.GetConnection())
-            {
-
-                DataTable dt = new DataTable();
-                try
+                foreach (Autor autor in autores)
                 {
+                    int autorId = ObterIdAutorPorNome(autor.Nome);
+
+                    if (autorId == -1)
+                    {
+                        // O autor não existe, insere um novo autor no banco de dados
+                        Autor novoAutor = autorController.InserirAutor(autor);
+                        livro.Autores.Add(novoAutor);
+                        autorIds.Add(novoAutor.IdAutor);
+                    }
+                    else
+                    {
+                        autorIds.Add(autorId);
+                    }
+                }
+
+                string queryLivro = "UPDATE tbLivro SET titulo = @Titulo, idEditora = @EditoraId, isbn = @Isbn, " +
+                                    "anoPublicacao = @AnoPublicacao, preco = @Preco, estoque = @Estoque, descricao = @Descricao, " +
+                                    "idGenero = @GeneroId, idioma = @Idioma, livroImagem = CONVERT(varbinary(max), @LivroImagem) WHERE idLivro = @Id;";
+
+                int idEditora = ObterIdEditoraPorNome(livro.Editora);
+                int idGenero = ObterIdGeneroPorNome(livro.Genero);
+
+                using (SqlCommand commandLivro = new SqlCommand(queryLivro, connection))
+                {
+                    commandLivro.Parameters.AddWithValue("@Id", livro.Id);
+                    commandLivro.Parameters.AddWithValue("@Titulo", livro.Titulo);
+                    commandLivro.Parameters.AddWithValue("@EditoraId", idEditora);
+                    commandLivro.Parameters.AddWithValue("@Isbn", livro.Isbn);
+                    commandLivro.Parameters.AddWithValue("@AnoPublicacao", livro.AnoPublicacao);
+                    commandLivro.Parameters.AddWithValue("@Preco", livro.Preco);
+                    commandLivro.Parameters.AddWithValue("@Estoque", livro.Estoque);
+                    commandLivro.Parameters.AddWithValue("@Descricao", livro.Descricao);
+                    commandLivro.Parameters.AddWithValue("@GeneroId", idGenero);
+                    commandLivro.Parameters.AddWithValue("@Idioma", livro.Idioma);
+
+                    if (!string.IsNullOrEmpty(livro.img64))
+                    {
+                        // Converte a string base64 em um array de bytes
+                        byte[] imagemBytes = Convert.FromBase64String(livro.img64);
+                        commandLivro.Parameters.AddWithValue("@LivroImagem", imagemBytes);
+                    }
+                    else
+                    {
+                        commandLivro.Parameters.AddWithValue("@LivroImagem", DBNull.Value);
+                    }
+
                     connection.Open();
-                    string query = "SELECT * FROM tbLivro order by tbLivro.titulo ASC";
-                    SqlDataAdapter dp = new SqlDataAdapter(query, connection);
-                    dp.Fill(dt);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Ocorreu um erro ao obter os livros." + ex);
-                }
-                finally
-                {
+                    commandLivro.ExecuteNonQuery();
                     connection.Close();
                 }
-                return dt;
+
+                // Atualizar os autores do livro na tabela de associação tbLivroAutor
+                string queryDeleteLivroAutor = "DELETE FROM tbLivroAutor WHERE idLivro = @LivroId;";
+                string queryInsertLivroAutor = "INSERT INTO tbLivroAutor (idLivro, idAutor) VALUES (@LivroId, @AutorId);";
+
+                using (SqlCommand commandDeleteLivroAutor = new SqlCommand(queryDeleteLivroAutor, connection))
+                {
+                    commandDeleteLivroAutor.Parameters.AddWithValue("@LivroId", livro.Id);
+                    connection.Open();
+                    commandDeleteLivroAutor.ExecuteNonQuery();
+                    connection.Close();
+                }
+
+                using (SqlCommand commandInsertLivroAutor = new SqlCommand(queryInsertLivroAutor, connection))
+                {
+                    commandInsertLivroAutor.Parameters.AddWithValue("@LivroId", livro.Id);
+                    foreach (int autorId in autorIds)
+                    {
+                        commandInsertLivroAutor.Parameters.Clear();
+                        commandInsertLivroAutor.Parameters.AddWithValue("@LivroId", livro.Id);
+                        commandInsertLivroAutor.Parameters.AddWithValue("@AutorId", autorId);
+
+                        connection.Open();
+                        commandInsertLivroAutor.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                }
+
+                // Atualizar a lista de autores no objeto livro
+                livro.Autores.Clear();
+                livro.Autores.AddRange(autores);
+
+                return livro;
             }
-
-
-
         }
+
+
+
+
+
+        public int ObterIdEditoraPorNome(string nomeEditora)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT idEditora FROM tbEditora WHERE nome = @Nome";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nome", nomeEditora);
+
+                connection.Open(); // Abre a conexão com o banco de dados
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    // O nome não foi encontrado, então vamos inserir a editora no banco de dados
+                    query = "INSERT INTO tbEditora (nome) VALUES (@Nome); SELECT SCOPE_IDENTITY();";
+
+                    command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@Nome", nomeEditora);
+
+                    object insertedId = command.ExecuteScalar();
+
+                    if (insertedId != null && insertedId != DBNull.Value)
+                    {
+                        return Convert.ToInt32(insertedId);
+                    }
+                }
+
+                return -1;
+            }
+        }
+
+        public int ObterIdGeneroPorNome(string nomeGenero)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT idGenero FROM tbGenero WHERE nome = @Nome";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nome", nomeGenero);
+
+                connection.Open(); // Abre a conexão com o banco de dados
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    // O nome não foi encontrado, então vamos inserir o gênero no banco de dados
+                    query = "INSERT INTO tbGenero (nome) VALUES (@Nome); SELECT SCOPE_IDENTITY();";
+
+                    command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@Nome", nomeGenero);
+
+                    object insertedId = command.ExecuteScalar();
+
+                    if (insertedId != null && insertedId != DBNull.Value)
+                    {
+                        return Convert.ToInt32(insertedId);
+                    }
+                }
+
+                return -1;
+            }
+        }
+        public int ObterIdAutorPorNome(string nomeAutor)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "SELECT idAutor FROM tbAutor WHERE nome = @NomeAutor;";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@NomeAutor", nomeAutor);
+
+                connection.Open();
+
+                var result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    return -1; // Retorna um valor indicando que o autor não foi encontrado
+                }
+            }
+        }
+
+
+
+
+
+
 
 
     }

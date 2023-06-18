@@ -23,7 +23,17 @@ namespace LivrariaFive.View
         private void FormRelatorioVendas_Load_1(object sender, EventArgs e)
         {
             RelatorioDeVendasGeral();
+
+            ConfigurarGrade();
         }
+
+        public void ConfigurarGrade()
+        {
+            dgvVendas.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
+            dgvVendas.DefaultCellStyle.Font = new Font("Arial", 12);
+            dgvVendas.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        }
+
         public void RelatorioDeVendasGeral(int mes = 0, int ano = 0, string status = "")
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
@@ -54,25 +64,26 @@ namespace LivrariaFive.View
                             dgvVendas.Columns.Add("preco_total_pedido", "Preço Total");
                             dgvVendas.Columns.Add("forma_pagamento", "Forma de Pagamento");
                             dgvVendas.Columns.Add("status", "Status");
-                            dgvVendas.Columns.Add("idCliente", "ID Cliente");
-                            dgvVendas.Columns.Add("nome", "Nome");
-                            dgvVendas.Columns.Add("email", "Email");
-                            dgvVendas.Columns.Add("cpf", "CPF");
-                            dgvVendas.Columns.Add("endereco", "Endereço");
-                            dgvVendas.Columns.Add("telefone", "Telefone");
-                            dgvVendas.Columns.Add("data_nascimento", "Data de Nascimento");
-                            dgvVendas.Columns.Add("idItemCompra", "ID Item de Compra");
+                            dgvVendas.Columns.Add("nome", "Cliente");
+                            dgvVendas.Columns.Add("email", "Email do Cliente");
+                            dgvVendas.Columns.Add("cpf", "CPF do Cliente");
+                            dgvVendas.Columns.Add("endereco", "Endereço do Cliente");
                             dgvVendas.Columns.Add("quantidade", "Quantidade");
-                            dgvVendas.Columns.Add("preco_unitario", "Preço Unitário");
-                            dgvVendas.Columns.Add("preco_total_itemDeCompra", "Preço Total Item");
+                            dgvVendas.Columns.Add("preco_unitario", "Preço Unitário").ToString("C");
+                            //dgvVendas.Columns.Add("preco_total_itemDeCompra", "Preço Total Item").ToString("C");
                             dgvVendas.Columns.Add("idLivro", "ID Livro");
                             dgvVendas.Columns.Add("titulo", "Título");
+                            dgvVendas.Columns["preco_total_pedido"].DefaultCellStyle.Format = "C2";
+                            //dgvVendas.Columns["preco_total_itemDeCompra"].DefaultCellStyle.Format = "C2";
+                            dgvVendas.Columns["preco_unitario"].DefaultCellStyle.Format = "C2";
 
                             // Preencha as linhas do DataGridView com os dados retornados
                             while (reader.Read())
                             {
                                 object[] rowData = new object[reader.FieldCount];
                                 reader.GetValues(rowData);
+                                
+
                                 dgvVendas.Rows.Add(rowData);
                             }
                         }
@@ -128,49 +139,36 @@ namespace LivrariaFive.View
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            // Obtenha o valor do campo txtBuscarAno
+            // Obtenha os valores dos campos de texto
             string txtAno = txtBuscarAno.Text.Trim();
-            int ano;
+            string txtMes = txtBuscarMes.Text.Trim();
+            string status = txtStatusPedido.Text.Trim();
 
-            // Verifique se o campo txtBuscarAno contém um valor válido
-            if (int.TryParse(txtAno, out ano))
+            // Inicialize as variáveis de filtro
+            int ano = 0;
+            int mes = 0;
+
+            // Verifique se o campo de ano está preenchido
+            if (!string.IsNullOrEmpty(txtAno))
             {
-                // Obtenha o valor do campo txtBuscarMes
-                string txtMes = txtBuscarMes.Text.Trim();
-                int mes;
-
-                // Verifique se o campo txtBuscarMes contém um valor válido
-                if (int.TryParse(txtMes, out mes))
-                {
-                    // Obtenha o valor do status do pedido
-                    string status = txtStatusPedido.Text.Trim();
-
-                    // Chame a função RelatorioDeVendasGeral passando os valores de ano, mês e status
-                    RelatorioDeVendasGeral(mes, ano, status);
-                }
-                else
-                {
-                    // Obtenha o valor do status do pedido
-                    string status = txtStatusPedido.Text.Trim();
-
-                    // Chame a função RelatorioDeVendasGeral passando o valor de ano e status
-                    RelatorioDeVendasGeral(0, ano, status);
-                }
+                int.TryParse(txtAno, out ano);
             }
-            else
+
+            // Verifique se o campo de mês está preenchido
+            if (!string.IsNullOrEmpty(txtMes))
             {
-                // Obtenha o valor do status do pedido
-                string status = txtStatusPedido.Text.Trim();
-
-                // Chame a função RelatorioDeVendasGeral passando o valor de status
-                RelatorioDeVendasGeral(0, 0, status);
+                int.TryParse(txtMes, out mes);
             }
+
+            // Chame a função RelatorioDeVendasGeral passando os valores de ano, mês e status
+            RelatorioDeVendasGeral(mes, ano, status);
         }
 
-
-
-
-
-
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FrmPrincipalAdmin admin = new FrmPrincipalAdmin();
+            admin.Show();
+            this.Close();
+        }
     }
 }
