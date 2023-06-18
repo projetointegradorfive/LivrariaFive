@@ -276,5 +276,32 @@ namespace LivrariaFive.View
         {
 
         }
+
+        private void btnAtivarConta_Click(object sender, EventArgs e)
+        {
+            ClienteController ativa = new ClienteController();
+            
+            if (clienteSelecionado != null)
+            {
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja ativar o cliente?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    ClienteController clienteController = new ClienteController();
+
+                    ativa.AtivarContaDoCliente(clienteSelecionado.IdCliente);
+
+                    LimparTextBoxes();
+                    dgvUsuariosGerenciarUsuarios.DataSource = ativa.ObtertodosUsuarios();
+
+                    MessageBox.Show("Cliente ativado com sucesso!");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Nenhum cliente selecionado para ativar.");
+            }
+        }
     }
 }

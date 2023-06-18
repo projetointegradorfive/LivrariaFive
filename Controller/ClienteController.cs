@@ -268,6 +268,24 @@ namespace LivrariaFive.Controller
             }
 
         }
+        public bool AtivarContaDoCliente(int idCliente)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "UPDATE tbCliente SET ativo = @Ativo WHERE idCliente = @IdCliente";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Ativo", true); // Define o valor da coluna ativo como true
+                command.Parameters.AddWithValue("@IdCliente", idCliente);
+
+                connection.Open();
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0; // Retorna true se pelo menos uma linha for afetada (cliente atualizado com sucesso)
+            }
+        }
+
 
     }
 }
