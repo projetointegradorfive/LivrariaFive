@@ -19,11 +19,13 @@ namespace LivrariaFive.View
     {
         Livro livroSelecionado = new Livro();
         Autor autorSelecionado = new Autor();
+        private List<Autor> autoresAtualizados;
 
 
         public FrmGerenciarLivros()
         {
             InitializeComponent();
+            autoresAtualizados = new List<Autor>();
         }
 
         private void LimparTextBoxes()
@@ -42,6 +44,7 @@ namespace LivrariaFive.View
             pbFotoLivroGerenciarLivros.Image = null;
         }
 
+
         private void btnCadastrarLivroGerenciarLivros_Click(object sender, EventArgs e)
         {
             FormCadastrarLivro cadastrarLivro = new FormCadastrarLivro();
@@ -59,6 +62,41 @@ namespace LivrariaFive.View
         private void FrmGerenciarLivros_Load(object sender, EventArgs e)
         {
             LivroController livros = new LivroController();
+            dgvMostrarLivros.AutoGenerateColumns = false; // Desabilita a geração automática das colunas
+
+            // Adicione as colunas necessárias aqui
+            dgvMostrarLivros.Columns.Add("Id", "ID");
+            dgvMostrarLivros.Columns.Add("Titulo", "Título");
+            dgvMostrarLivros.Columns.Add("Autores", "Autores");
+            dgvMostrarLivros.Columns["Autores"].DataPropertyName = "NomesAutores";
+            dgvMostrarLivros.Columns["Autores"].Width = 200;
+            dgvMostrarLivros.Columns.Add("Isbn", "ISBN");
+            dgvMostrarLivros.Columns.Add("AnoPublicacao", "Ano de Publicação");
+            dgvMostrarLivros.Columns.Add("Preco", "Preço");
+            dgvMostrarLivros.Columns.Add("Estoque", "Estoque");
+            dgvMostrarLivros.Columns.Add("Descricao", "Descrição");
+            dgvMostrarLivros.Columns.Add("Idioma", "Idioma");
+            dgvMostrarLivros.Columns.Add("Editora", "Editora");
+            dgvMostrarLivros.Columns.Add("Genero", "Gênero");
+            dgvMostrarLivros.Columns.Add("img64", "Imagem");
+
+            // Configure as propriedades das colunas, como largura e alinhamento, se necessário
+            dgvMostrarLivros.Columns["Id"].Width = 50;
+            dgvMostrarLivros.Columns["Preco"].DefaultCellStyle.Format = "C2";
+
+            // Mapeie as colunas para as propriedades corretas do objeto Livro
+            dgvMostrarLivros.Columns["Id"].DataPropertyName = "Id";
+            dgvMostrarLivros.Columns["Titulo"].DataPropertyName = "Titulo";
+            dgvMostrarLivros.Columns["Isbn"].DataPropertyName = "Isbn";
+            dgvMostrarLivros.Columns["AnoPublicacao"].DataPropertyName = "AnoPublicacao";
+            dgvMostrarLivros.Columns["Preco"].DataPropertyName = "Preco";
+            dgvMostrarLivros.Columns["Estoque"].DataPropertyName = "Estoque";
+            dgvMostrarLivros.Columns["Descricao"].DataPropertyName = "Descricao";
+            dgvMostrarLivros.Columns["Idioma"].DataPropertyName = "Idioma";
+            dgvMostrarLivros.Columns["Editora"].DataPropertyName = "Editora";
+            dgvMostrarLivros.Columns["Genero"].DataPropertyName = "Genero";
+            dgvMostrarLivros.Columns["img64"].DataPropertyName = "img64";
+
             dgvMostrarLivros.DataSource = livros.GetAllLivros();
             dgvMostrarLivros.Columns["img64"].Visible = false;
             dgvMostrarLivros.Refresh();
@@ -70,22 +108,21 @@ namespace LivrariaFive.View
             {
                 DataGridViewRow row = dgvMostrarLivros.Rows[e.RowIndex];
 
-                // Atribuir o cliente selecionado com base na linha clicada do DataGridView
+                // Atribuir o livro selecionado com base na linha clicada do DataGridView
                 livroSelecionado = new Livro
                 {
                     Id = Convert.ToInt32(row.Cells["Id"].Value),
                     Titulo = row.Cells["Titulo"].Value.ToString(),
                     Isbn = row.Cells["Isbn"].Value.ToString(),
                     AnoPublicacao = Convert.ToInt32(row.Cells["AnoPublicacao"].Value),
-                    Preco = Convert.ToInt32(row.Cells["Preco"].Value),
+                    Preco = Convert.ToDouble(row.Cells["Preco"].Value),
                     Estoque = Convert.ToInt32(row.Cells["Estoque"].Value),
                     Descricao = row.Cells["Descricao"].Value.ToString(),
                     Idioma = row.Cells["Idioma"].Value.ToString(),
                     Editora = row.Cells["Editora"].Value.ToString(),
+                    Autor = row.Cells["Autores"].Value.ToString(),
                     Genero = row.Cells["Genero"].Value.ToString(),
-                    Autor = row.Cells["Autor"].Value.ToString(),
                     img64 = row.Cells["img64"].Value.ToString()
-
                 };
 
                 // Preencher as TextBox com as informações do livro selecionado
@@ -101,6 +138,8 @@ namespace LivrariaFive.View
                 txtDescricao.Text = livroSelecionado.Descricao;
                 txtAutorGerenciarLivros.Text = livroSelecionado.Autor;
 
+
+
                 byte[] imagemBytes = Convert.FromBase64String(livroSelecionado.img64);
 
                 // Cria um MemoryStream com os bytes da imagem
@@ -112,10 +151,9 @@ namespace LivrariaFive.View
                     // Exibe a imagem na PictureBox
                     pbFotoLivroGerenciarLivros.Image = imagem;
                 }
-                autorSelecionado = new Autor { Nome = livroSelecionado.Autor };
-
             }
         }
+
 
         private void btnEditarFotoGerenciarLivros_Click(object sender, EventArgs e)
         {
@@ -157,6 +195,27 @@ namespace LivrariaFive.View
         {
             LimparTextBoxes();
         }
+        //public void ConfigurarGrade()
+        //{
+        //    dgvMostrarLivros.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
+        //    dgvMostrarLivros.DefaultCellStyle.Font = new Font("Arial", 12);
+        //    dgvMostrarLivros.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+        //    dgvMostrarLivros.Columns["Id"].Width = 50;
+        //    dgvMostrarLivros.Columns["Id"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        //    dgvMostrarLivros.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+        //    dgvMostrarLivros.Columns["Titulo"].Width = 300;
+        //    dgvMostrarLivros.Columns["Isbn"].Width = 100;
+
+        //    dgvMostrarLivros.Columns["Preco"].Width = 100;
+        //    dgvMostrarLivros.Columns["Preco"].DefaultCellStyle.Format = "C2";
+
+        //    dgvMostrarLivros.Columns["Descricao"].Width = 200;
+        //    dgvMostrarLivros.Columns["Genero"].Width = 150;
+        //    dgvMostrarLivros.Columns["Editora"].Width = 150;
+        //    dgvMostrarLivros.Columns["Autor"].Width = 150;
+        //}
 
         private void btnSalvarAlteracoesGerenciarLivros_Click(object sender, EventArgs e)
         {
@@ -172,7 +231,6 @@ namespace LivrariaFive.View
                 livroSelecionado.Genero = txtGenero.Text;
                 livroSelecionado.Editora = txtEditora.Text;
                 livroSelecionado.Descricao = txtDescricao.Text;
-                livroSelecionado.Autor = txtAutorGerenciarLivros.Text;
 
                 // Atualizar a imagem do livro
                 if (pbFotoLivroGerenciarLivros.Image != null)
@@ -185,20 +243,34 @@ namespace LivrariaFive.View
                 }
 
                 AutorController autorController = new AutorController();
-                Autor autorExistente = autorController.ObterAutorPorNome(txtAutorGerenciarLivros.Text);
-                LivroController livroController = new LivroController();
-                if (autorExistente == null)
+                string[] autores = txtAutorGerenciarLivros.Text.Split(',');
+
+                // Atualizar os autores do livro
+                //List<Autor> autoresAtualizados = new List<Autor>();
+                foreach (string autorNome in autores)
                 {
-                    // O autor não existe, então altere no banco de dados
-                    Autor autor = new Autor { Nome = txtAutorGerenciarLivros.Text };
-                    livroController.UpdateLivro(livroSelecionado, autor);
-                    autorExistente = autorController.ObterAutorPorNome(autor.Nome); // Obtém o autor recém-inserido com o ID
-                    MessageBox.Show("Um novo autor foi criado", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string nome = autorNome.Trim();
+                    Autor autorExistente = autorController.ObterAutorPorNome(nome);
+
+                    if (autorExistente == null)
+                    {
+                        // O autor não existe, insere um novo autor no banco de dados
+                        Autor novoAutor = new Autor { Nome = nome };
+                        autorController.InserirAutor(novoAutor);
+                        autorExistente = novoAutor;
+                    }
+
+                    autoresAtualizados.Add(autorExistente);
                 }
-                autorSelecionado = autorExistente;
-                livroController.UpdateLivro(livroSelecionado, autorSelecionado);               
+
+                livroSelecionado.Autores = autoresAtualizados;
+
+
+                LivroController livroController = new LivroController();
+                livroController.UpdateLivro(livroSelecionado, autoresAtualizados);
+
                 MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimparTextBoxes();               
+                LimparTextBoxes();
 
                 // Atualizar o DataGridView com os livros atualizados
                 LivroController livros = new LivroController();

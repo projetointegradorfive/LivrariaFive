@@ -37,7 +37,7 @@ namespace LivrariaFive.View
         }
         private void LivroForm_Load_1(object sender, EventArgs e)
         {
-            PrencherDataGrid();
+            PreencherDataGrid();
             ConfigurarGrade();
         }
 
@@ -64,7 +64,7 @@ namespace LivrariaFive.View
         }
 
 
-        public void PrencherDataGrid()
+        public void PreencherDataGrid()
         {
             IList<Livro> livros = livroController.GetAllLivros();
             dataGridViewLivros.Columns.Clear();
@@ -111,7 +111,7 @@ namespace LivrariaFive.View
 
             foreach (Livro livro in livros)
             {
-                string autor = livroController.GetAutorName(livro.Autor);
+                string autores = string.Join(", ", livro.Autores.Select(autor => autor.Nome));
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(dataGridViewLivros,
                     livro.Id,
@@ -122,7 +122,7 @@ namespace LivrariaFive.View
                     livro.Descricao,
                     livro.Genero,
                     livro.Editora,
-                    autor,
+                    autores,
                     livro.Imagem
                 );
                 row.Cells[dataGridViewLivros.Columns["checkBoxColumn"].Index].Value = false;
@@ -138,6 +138,7 @@ namespace LivrariaFive.View
                 }
             }
         }
+
 
 
 
@@ -175,25 +176,23 @@ namespace LivrariaFive.View
 
         private void btnBuscarGenero_Click(object sender, EventArgs e)
         {
-            string filtroGenero = txtBuscarGenero.Text; // Valor digitado no campo de texto para o gênero
+            string filtroGenero = txtBuscarGenero.Text.ToLower(); // Valor digitado no campo de texto para o gênero, convertido para minúsculas
             FiltrarLivrosPorGenero(filtroGenero);
-
         }
 
         private void btnBuscarNome_Click(object sender, EventArgs e)
         {
-            string filtroNome = txtBuscarNome.Text; // Valor digitado no campo de texto para o nome
-
+            string filtroNome = txtBuscarNome.Text.ToLower(); // Valor digitado no campo de texto para o nome, convertido para minúsculas
             FiltrarLivrosPorNome(filtroNome);
-
         }
+
 
         private void FiltrarLivrosPorNome(string filtroNome)
         {
             // Percorrer as linhas do DataGridView
             foreach (DataGridViewRow row in dataGridViewLivros.Rows)
             {
-                string titulo = row.Cells["Titulo"].Value?.ToString();
+                string titulo = row.Cells["Titulo"].Value?.ToString()?.ToLower(); // Obtém o título convertido para minúsculas
 
                 // Verificar se o título corresponde ao filtro de nome
                 if ((!string.IsNullOrEmpty(titulo) && titulo.Contains(filtroNome)))
@@ -212,7 +211,7 @@ namespace LivrariaFive.View
             // Percorrer as linhas do DataGridView
             foreach (DataGridViewRow row in dataGridViewLivros.Rows)
             {
-                string genero = row.Cells["Genero"].Value?.ToString();
+                string genero = row.Cells["Genero"].Value?.ToString()?.ToLower(); // Obtém o gênero convertido para minúsculas
 
                 // Verificar se o gênero corresponde ao filtro de gênero
                 if ((!string.IsNullOrEmpty(genero) && genero.Contains(filtroGenero)))
@@ -225,6 +224,7 @@ namespace LivrariaFive.View
                 }
             }
         }
+
 
         private void btnSair_Click(object sender, EventArgs e)
         {
@@ -254,7 +254,7 @@ namespace LivrariaFive.View
                 ItemDeCompraController itemDeCompraController = new ItemDeCompraController();
                 itemDeCompraController.InserirOuAtualizarItensDeCompra(carrinho.Id, itensSelecionados);
                 // Atualizar o dataGridViewLivros
-                PrencherDataGrid();
+                PreencherDataGrid();
                 ConfigurarGrade();
 
                 MessageBox.Show("Itens adicionados ao carrinho com sucesso.");
@@ -348,7 +348,6 @@ namespace LivrariaFive.View
             }
 
         }
-
     }
 }
 

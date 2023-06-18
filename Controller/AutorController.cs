@@ -24,17 +24,23 @@ namespace LivrariaFive.Controller
 
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "INSERT INTO tbAutor (nome) VALUES (@Nome)";
+                string query = "INSERT INTO tbAutor (nome) VALUES (@Nome); SELECT SCOPE_IDENTITY();";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Nome", autor.Nome);
 
                 connection.Open();
-                command.ExecuteNonQuery();
-            }
 
-            return autor;
+                // Executar o comando e obter o ID do autor inserido
+                int autorId = Convert.ToInt32(command.ExecuteScalar());
+
+                // Atribuir o ID ao objeto Autor
+                autor.IdAutor = autorId;
+
+                return autor;
+            }
         }
+
 
 
         public void RemoverAutor(Autor autor)
@@ -136,6 +142,44 @@ namespace LivrariaFive.Controller
                 return null;
             }
         }
+        public List<Autor> GetAutoresPorLivro(int livroId)
+        {
+            List<Autor> autores = new List<Autor>();
+
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = @"
+            SELECT A.idAutor, A.nome
+            FROM tbAutor A
+            INNER JOIN tbLivroAutor LA ON A.idAutor = LA.idAutor
+            WHERE LA.idLivro = @LivroId";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@LivroId", livroId);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int idAutor = reader.GetInt32(0);
+                    string nome = reader.GetString(1);
+
+                    Autor autor = new Autor
+                    {
+                        IdAutor = idAutor,
+                        Nome = nome
+                    };
+
+                    autores.Add(autor);
+                }
+
+                reader.Close();
+            }
+
+            return autores;
+        }
+
         public int ObterIdAutorPorNome(string nomeAutor)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())

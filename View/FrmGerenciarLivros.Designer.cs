@@ -66,23 +66,21 @@ namespace LivrariaFive.View
             // dgvMostrarLivros
             // 
             this.dgvMostrarLivros.AllowUserToAddRows = false;
-            this.dgvMostrarLivros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvMostrarLivros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMostrarLivros.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvMostrarLivros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMostrarLivros.Location = new System.Drawing.Point(489, 1);
-            this.dgvMostrarLivros.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvMostrarLivros.Location = new System.Drawing.Point(367, 1);
             this.dgvMostrarLivros.Name = "dgvMostrarLivros";
             this.dgvMostrarLivros.RowHeadersWidth = 51;
-            this.dgvMostrarLivros.Size = new System.Drawing.Size(1076, 715);
+            this.dgvMostrarLivros.Size = new System.Drawing.Size(807, 581);
             this.dgvMostrarLivros.TabIndex = 0;
             this.dgvMostrarLivros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMostrarLivros_CellClick);
             // 
             // btnCadastrarLivroGerenciarLivros
             // 
-            this.btnCadastrarLivroGerenciarLivros.Location = new System.Drawing.Point(13, 13);
-            this.btnCadastrarLivroGerenciarLivros.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCadastrarLivroGerenciarLivros.Location = new System.Drawing.Point(10, 11);
             this.btnCadastrarLivroGerenciarLivros.Name = "btnCadastrarLivroGerenciarLivros";
-            this.btnCadastrarLivroGerenciarLivros.Size = new System.Drawing.Size(139, 36);
+            this.btnCadastrarLivroGerenciarLivros.Size = new System.Drawing.Size(104, 29);
             this.btnCadastrarLivroGerenciarLivros.TabIndex = 1;
             this.btnCadastrarLivroGerenciarLivros.Text = "Cadastrar Livros";
             this.btnCadastrarLivroGerenciarLivros.UseVisualStyleBackColor = true;
@@ -90,10 +88,9 @@ namespace LivrariaFive.View
             // 
             // btnVolta
             // 
-            this.btnVolta.Location = new System.Drawing.Point(271, 15);
-            this.btnVolta.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVolta.Location = new System.Drawing.Point(203, 12);
             this.btnVolta.Name = "btnVolta";
-            this.btnVolta.Size = new System.Drawing.Size(211, 34);
+            this.btnVolta.Size = new System.Drawing.Size(158, 28);
             this.btnVolta.TabIndex = 2;
             this.btnVolta.Text = "Voltar para página anterior";
             this.btnVolta.UseVisualStyleBackColor = true;
@@ -101,211 +98,188 @@ namespace LivrariaFive.View
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(288, 93);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtId.Location = new System.Drawing.Point(216, 76);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(132, 22);
+            this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 3;
             // 
             // lblIdGerenciarLivros
             // 
             this.lblIdGerenciarLivros.AutoSize = true;
-            this.lblIdGerenciarLivros.Location = new System.Drawing.Point(285, 72);
-            this.lblIdGerenciarLivros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIdGerenciarLivros.Location = new System.Drawing.Point(214, 58);
             this.lblIdGerenciarLivros.Name = "lblIdGerenciarLivros";
-            this.lblIdGerenciarLivros.Size = new System.Drawing.Size(29, 17);
+            this.lblIdGerenciarLivros.Size = new System.Drawing.Size(24, 13);
             this.lblIdGerenciarLivros.TabIndex = 4;
             this.lblIdGerenciarLivros.Text = "ID: ";
             // 
             // lblTituloGerenciarLivros
             // 
             this.lblTituloGerenciarLivros.AutoSize = true;
-            this.lblTituloGerenciarLivros.Location = new System.Drawing.Point(284, 148);
-            this.lblTituloGerenciarLivros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTituloGerenciarLivros.Location = new System.Drawing.Point(213, 120);
             this.lblTituloGerenciarLivros.Name = "lblTituloGerenciarLivros";
-            this.lblTituloGerenciarLivros.Size = new System.Drawing.Size(47, 17);
+            this.lblTituloGerenciarLivros.Size = new System.Drawing.Size(36, 13);
             this.lblTituloGerenciarLivros.TabIndex = 5;
             this.lblTituloGerenciarLivros.Text = "Titulo:";
             // 
             // lblIsbnGerenciarLivros
             // 
             this.lblIsbnGerenciarLivros.AutoSize = true;
-            this.lblIsbnGerenciarLivros.Location = new System.Drawing.Point(13, 169);
-            this.lblIsbnGerenciarLivros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIsbnGerenciarLivros.Location = new System.Drawing.Point(10, 137);
             this.lblIsbnGerenciarLivros.Name = "lblIsbnGerenciarLivros";
-            this.lblIsbnGerenciarLivros.Size = new System.Drawing.Size(42, 17);
+            this.lblIsbnGerenciarLivros.Size = new System.Drawing.Size(32, 13);
             this.lblIsbnGerenciarLivros.TabIndex = 6;
             this.lblIsbnGerenciarLivros.Text = "isbn: ";
             // 
             // lblAnoPublicacaoGerenciarLivros
             // 
             this.lblAnoPublicacaoGerenciarLivros.AutoSize = true;
-            this.lblAnoPublicacaoGerenciarLivros.Location = new System.Drawing.Point(285, 300);
-            this.lblAnoPublicacaoGerenciarLivros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAnoPublicacaoGerenciarLivros.Location = new System.Drawing.Point(214, 244);
             this.lblAnoPublicacaoGerenciarLivros.Name = "lblAnoPublicacaoGerenciarLivros";
-            this.lblAnoPublicacaoGerenciarLivros.Size = new System.Drawing.Size(130, 17);
+            this.lblAnoPublicacaoGerenciarLivros.Size = new System.Drawing.Size(100, 13);
             this.lblAnoPublicacaoGerenciarLivros.TabIndex = 7;
             this.lblAnoPublicacaoGerenciarLivros.Text = "Ano de Publicação:";
             // 
             // lblIdEditora
             // 
             this.lblIdEditora.AutoSize = true;
-            this.lblIdEditora.Location = new System.Drawing.Point(284, 432);
-            this.lblIdEditora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIdEditora.Location = new System.Drawing.Point(213, 351);
             this.lblIdEditora.Name = "lblIdEditora";
-            this.lblIdEditora.Size = new System.Drawing.Size(57, 17);
+            this.lblIdEditora.Size = new System.Drawing.Size(43, 13);
             this.lblIdEditora.TabIndex = 8;
             this.lblIdEditora.Text = "Editora:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 480);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(12, 390);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 17);
+            this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 9;
             this.label6.Text = "Descrição:";
             // 
             // lblGeneroGerenciarLivros
             // 
             this.lblGeneroGerenciarLivros.AutoSize = true;
-            this.lblGeneroGerenciarLivros.Location = new System.Drawing.Point(12, 407);
-            this.lblGeneroGerenciarLivros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGeneroGerenciarLivros.Location = new System.Drawing.Point(9, 331);
             this.lblGeneroGerenciarLivros.Name = "lblGeneroGerenciarLivros";
-            this.lblGeneroGerenciarLivros.Size = new System.Drawing.Size(60, 17);
+            this.lblGeneroGerenciarLivros.Size = new System.Drawing.Size(45, 13);
             this.lblGeneroGerenciarLivros.TabIndex = 10;
             this.lblGeneroGerenciarLivros.Text = "Gênero:";
             // 
             // lblPrecoGerenciarLivros
             // 
             this.lblPrecoGerenciarLivros.AutoSize = true;
-            this.lblPrecoGerenciarLivros.Location = new System.Drawing.Point(12, 247);
-            this.lblPrecoGerenciarLivros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrecoGerenciarLivros.Location = new System.Drawing.Point(9, 201);
             this.lblPrecoGerenciarLivros.Name = "lblPrecoGerenciarLivros";
-            this.lblPrecoGerenciarLivros.Size = new System.Drawing.Size(49, 17);
+            this.lblPrecoGerenciarLivros.Size = new System.Drawing.Size(38, 13);
             this.lblPrecoGerenciarLivros.TabIndex = 11;
             this.lblPrecoGerenciarLivros.Text = "Preço:";
             // 
             // lblEstoqueGerenciarLivros
             // 
             this.lblEstoqueGerenciarLivros.AutoSize = true;
-            this.lblEstoqueGerenciarLivros.Location = new System.Drawing.Point(281, 365);
-            this.lblEstoqueGerenciarLivros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEstoqueGerenciarLivros.Location = new System.Drawing.Point(211, 297);
             this.lblEstoqueGerenciarLivros.Name = "lblEstoqueGerenciarLivros";
-            this.lblEstoqueGerenciarLivros.Size = new System.Drawing.Size(68, 17);
+            this.lblEstoqueGerenciarLivros.Size = new System.Drawing.Size(52, 13);
             this.lblEstoqueGerenciarLivros.TabIndex = 12;
             this.lblEstoqueGerenciarLivros.Text = "Estoque: ";
             // 
             // lblImagemLivro
             // 
             this.lblImagemLivro.AutoSize = true;
-            this.lblImagemLivro.Location = new System.Drawing.Point(165, 528);
-            this.lblImagemLivro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblImagemLivro.Location = new System.Drawing.Point(124, 429);
             this.lblImagemLivro.Name = "lblImagemLivro";
-            this.lblImagemLivro.Size = new System.Drawing.Size(116, 17);
+            this.lblImagemLivro.Size = new System.Drawing.Size(88, 13);
             this.lblImagemLivro.TabIndex = 13;
             this.lblImagemLivro.Text = "Imagem do Livro:";
             // 
             // lblIdiomaGerenciarLivros
             // 
             this.lblIdiomaGerenciarLivros.AutoSize = true;
-            this.lblIdiomaGerenciarLivros.Location = new System.Drawing.Point(12, 321);
-            this.lblIdiomaGerenciarLivros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIdiomaGerenciarLivros.Location = new System.Drawing.Point(9, 261);
             this.lblIdiomaGerenciarLivros.Name = "lblIdiomaGerenciarLivros";
-            this.lblIdiomaGerenciarLivros.Size = new System.Drawing.Size(53, 17);
+            this.lblIdiomaGerenciarLivros.Size = new System.Drawing.Size(41, 13);
             this.lblIdiomaGerenciarLivros.TabIndex = 14;
             this.lblIdiomaGerenciarLivros.Text = "Idioma:";
             // 
             // txtTitulo
             // 
-            this.txtTitulo.Location = new System.Drawing.Point(288, 169);
-            this.txtTitulo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTitulo.Location = new System.Drawing.Point(216, 137);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(132, 22);
+            this.txtTitulo.Size = new System.Drawing.Size(100, 20);
             this.txtTitulo.TabIndex = 15;
             // 
             // txtIsbn
             // 
-            this.txtIsbn.Location = new System.Drawing.Point(13, 189);
-            this.txtIsbn.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIsbn.Location = new System.Drawing.Point(10, 154);
             this.txtIsbn.Name = "txtIsbn";
-            this.txtIsbn.Size = new System.Drawing.Size(132, 22);
+            this.txtIsbn.Size = new System.Drawing.Size(100, 20);
             this.txtIsbn.TabIndex = 16;
             // 
             // txtAnoPublicacao
             // 
-            this.txtAnoPublicacao.Location = new System.Drawing.Point(284, 321);
-            this.txtAnoPublicacao.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAnoPublicacao.Location = new System.Drawing.Point(213, 261);
             this.txtAnoPublicacao.Name = "txtAnoPublicacao";
-            this.txtAnoPublicacao.Size = new System.Drawing.Size(132, 22);
+            this.txtAnoPublicacao.Size = new System.Drawing.Size(100, 20);
             this.txtAnoPublicacao.TabIndex = 17;
             // 
             // txtPreco
             // 
-            this.txtPreco.Location = new System.Drawing.Point(16, 266);
-            this.txtPreco.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPreco.Location = new System.Drawing.Point(12, 216);
             this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(132, 22);
+            this.txtPreco.Size = new System.Drawing.Size(100, 20);
             this.txtPreco.TabIndex = 18;
             // 
             // txtEstoque
             // 
-            this.txtEstoque.Location = new System.Drawing.Point(284, 386);
-            this.txtEstoque.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEstoque.Location = new System.Drawing.Point(213, 314);
             this.txtEstoque.Name = "txtEstoque";
-            this.txtEstoque.Size = new System.Drawing.Size(132, 22);
+            this.txtEstoque.Size = new System.Drawing.Size(100, 20);
             this.txtEstoque.TabIndex = 19;
             // 
             // txtIdioma
             // 
-            this.txtIdioma.Location = new System.Drawing.Point(16, 341);
-            this.txtIdioma.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdioma.Location = new System.Drawing.Point(12, 277);
             this.txtIdioma.Name = "txtIdioma";
-            this.txtIdioma.Size = new System.Drawing.Size(132, 22);
+            this.txtIdioma.Size = new System.Drawing.Size(100, 20);
             this.txtIdioma.TabIndex = 21;
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(16, 500);
-            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDescricao.Location = new System.Drawing.Point(12, 406);
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(468, 22);
+            this.txtDescricao.Size = new System.Drawing.Size(352, 20);
             this.txtDescricao.TabIndex = 22;
             // 
             // txtGenero
             // 
-            this.txtGenero.Location = new System.Drawing.Point(16, 427);
-            this.txtGenero.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGenero.Location = new System.Drawing.Point(12, 347);
             this.txtGenero.Name = "txtGenero";
-            this.txtGenero.Size = new System.Drawing.Size(132, 22);
+            this.txtGenero.Size = new System.Drawing.Size(100, 20);
             this.txtGenero.TabIndex = 23;
             // 
             // txtEditora
             // 
-            this.txtEditora.Location = new System.Drawing.Point(286, 453);
-            this.txtEditora.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEditora.Location = new System.Drawing.Point(214, 368);
             this.txtEditora.Name = "txtEditora";
-            this.txtEditora.Size = new System.Drawing.Size(132, 22);
+            this.txtEditora.Size = new System.Drawing.Size(100, 20);
             this.txtEditora.TabIndex = 24;
             // 
             // pbFotoLivroGerenciarLivros
             // 
-            this.pbFotoLivroGerenciarLivros.Location = new System.Drawing.Point(161, 548);
-            this.pbFotoLivroGerenciarLivros.Margin = new System.Windows.Forms.Padding(4);
+            this.pbFotoLivroGerenciarLivros.Location = new System.Drawing.Point(121, 445);
             this.pbFotoLivroGerenciarLivros.Name = "pbFotoLivroGerenciarLivros";
-            this.pbFotoLivroGerenciarLivros.Size = new System.Drawing.Size(133, 169);
+            this.pbFotoLivroGerenciarLivros.Size = new System.Drawing.Size(100, 137);
             this.pbFotoLivroGerenciarLivros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFotoLivroGerenciarLivros.TabIndex = 25;
             this.pbFotoLivroGerenciarLivros.TabStop = false;
             // 
             // btnEditarFotoGerenciarLivros
             // 
-            this.btnEditarFotoGerenciarLivros.Location = new System.Drawing.Point(16, 614);
-            this.btnEditarFotoGerenciarLivros.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditarFotoGerenciarLivros.Location = new System.Drawing.Point(12, 499);
             this.btnEditarFotoGerenciarLivros.Name = "btnEditarFotoGerenciarLivros";
-            this.btnEditarFotoGerenciarLivros.Size = new System.Drawing.Size(119, 44);
+            this.btnEditarFotoGerenciarLivros.Size = new System.Drawing.Size(89, 36);
             this.btnEditarFotoGerenciarLivros.TabIndex = 28;
             this.btnEditarFotoGerenciarLivros.Text = "Editar Foto";
             this.btnEditarFotoGerenciarLivros.UseVisualStyleBackColor = true;
@@ -313,10 +287,9 @@ namespace LivrariaFive.View
             // 
             // btnLimparTextBox
             // 
-            this.btnLimparTextBox.Location = new System.Drawing.Point(13, 107);
-            this.btnLimparTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimparTextBox.Location = new System.Drawing.Point(10, 87);
             this.btnLimparTextBox.Name = "btnLimparTextBox";
-            this.btnLimparTextBox.Size = new System.Drawing.Size(139, 36);
+            this.btnLimparTextBox.Size = new System.Drawing.Size(104, 29);
             this.btnLimparTextBox.TabIndex = 29;
             this.btnLimparTextBox.Text = "Limpar TextBox";
             this.btnLimparTextBox.UseVisualStyleBackColor = true;
@@ -324,10 +297,9 @@ namespace LivrariaFive.View
             // 
             // btnSalvarAlteracoesGerenciarLivros
             // 
-            this.btnSalvarAlteracoesGerenciarLivros.Location = new System.Drawing.Point(13, 57);
-            this.btnSalvarAlteracoesGerenciarLivros.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalvarAlteracoesGerenciarLivros.Location = new System.Drawing.Point(10, 46);
             this.btnSalvarAlteracoesGerenciarLivros.Name = "btnSalvarAlteracoesGerenciarLivros";
-            this.btnSalvarAlteracoesGerenciarLivros.Size = new System.Drawing.Size(139, 36);
+            this.btnSalvarAlteracoesGerenciarLivros.Size = new System.Drawing.Size(104, 29);
             this.btnSalvarAlteracoesGerenciarLivros.TabIndex = 30;
             this.btnSalvarAlteracoesGerenciarLivros.Text = "Salvar Alterações";
             this.btnSalvarAlteracoesGerenciarLivros.UseVisualStyleBackColor = true;
@@ -335,25 +307,27 @@ namespace LivrariaFive.View
             // 
             // txtAutorGerenciarLivros
             // 
-            this.txtAutorGerenciarLivros.Location = new System.Drawing.Point(284, 242);
+            this.txtAutorGerenciarLivros.Location = new System.Drawing.Point(213, 197);
+            this.txtAutorGerenciarLivros.Margin = new System.Windows.Forms.Padding(2);
             this.txtAutorGerenciarLivros.Name = "txtAutorGerenciarLivros";
-            this.txtAutorGerenciarLivros.Size = new System.Drawing.Size(134, 22);
+            this.txtAutorGerenciarLivros.Size = new System.Drawing.Size(102, 20);
             this.txtAutorGerenciarLivros.TabIndex = 31;
             // 
             // lblAutor
             // 
             this.lblAutor.AutoSize = true;
-            this.lblAutor.Location = new System.Drawing.Point(283, 222);
+            this.lblAutor.Location = new System.Drawing.Point(212, 180);
+            this.lblAutor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAutor.Name = "lblAutor";
-            this.lblAutor.Size = new System.Drawing.Size(46, 17);
+            this.lblAutor.Size = new System.Drawing.Size(35, 13);
             this.lblAutor.TabIndex = 32;
             this.lblAutor.Text = "Autor:";
             // 
             // FrmGerenciarLivros
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1567, 720);
+            this.ClientSize = new System.Drawing.Size(1028, 585);
             this.Controls.Add(this.lblAutor);
             this.Controls.Add(this.txtAutorGerenciarLivros);
             this.Controls.Add(this.btnSalvarAlteracoesGerenciarLivros);
@@ -384,7 +358,6 @@ namespace LivrariaFive.View
             this.Controls.Add(this.btnVolta);
             this.Controls.Add(this.btnCadastrarLivroGerenciarLivros);
             this.Controls.Add(this.dgvMostrarLivros);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmGerenciarLivros";
             this.Text = "FrmGerenciarLivros";
             this.Load += new System.EventHandler(this.FrmGerenciarLivros_Load);
