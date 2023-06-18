@@ -62,6 +62,16 @@ namespace LivrariaFive.View
         private void FrmGerenciarLivros_Load(object sender, EventArgs e)
         {
             LivroController livros = new LivroController();
+            PreencherDataGridLivros();
+            dgvMostrarLivros.DataSource = livros.GetAllLivros();
+            dgvMostrarLivros.Columns["img64"].Visible = false;
+            dgvMostrarLivros.Refresh();
+
+
+        }
+
+        public void PreencherDataGridLivros()
+        {
             dgvMostrarLivros.AutoGenerateColumns = false; // Desabilita a geração automática das colunas
 
             // Adicione as colunas necessárias aqui
@@ -97,9 +107,8 @@ namespace LivrariaFive.View
             dgvMostrarLivros.Columns["Genero"].DataPropertyName = "Genero";
             dgvMostrarLivros.Columns["img64"].DataPropertyName = "img64";
 
-            dgvMostrarLivros.DataSource = livros.GetAllLivros();
-            dgvMostrarLivros.Columns["img64"].Visible = false;
-            dgvMostrarLivros.Refresh();
+           
+            ConfigurarGrade();
         }
 
         private void dgvMostrarLivros_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -195,27 +204,52 @@ namespace LivrariaFive.View
         {
             LimparTextBoxes();
         }
-        //public void ConfigurarGrade()
-        //{
-        //    dgvMostrarLivros.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
-        //    dgvMostrarLivros.DefaultCellStyle.Font = new Font("Arial", 12);
-        //    dgvMostrarLivros.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        public void ConfigurarGrade()
+        {
+            dgvMostrarLivros.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
+            dgvMostrarLivros.DefaultCellStyle.Font = new Font("Arial", 12);
+            dgvMostrarLivros.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-        //    dgvMostrarLivros.Columns["Id"].Width = 50;
-        //    dgvMostrarLivros.Columns["Id"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        //    dgvMostrarLivros.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvMostrarLivros.Columns["Id"].Width = 50;
+            dgvMostrarLivros.Columns["Id"].HeaderText = "ID";
+            dgvMostrarLivros.Columns["Id"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvMostrarLivros.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-        //    dgvMostrarLivros.Columns["Titulo"].Width = 300;
-        //    dgvMostrarLivros.Columns["Isbn"].Width = 100;
+            dgvMostrarLivros.Columns["Titulo"].Width = 300;
+            dgvMostrarLivros.Columns["Titulo"].HeaderText = "Título";
 
-        //    dgvMostrarLivros.Columns["Preco"].Width = 100;
-        //    dgvMostrarLivros.Columns["Preco"].DefaultCellStyle.Format = "C2";
+            dgvMostrarLivros.Columns["Autores"].Width = 200;
+            dgvMostrarLivros.Columns["Autores"].HeaderText = "Autores";
+            dgvMostrarLivros.Columns["Autores"].DataPropertyName = "NomesAutores";
 
-        //    dgvMostrarLivros.Columns["Descricao"].Width = 200;
-        //    dgvMostrarLivros.Columns["Genero"].Width = 150;
-        //    dgvMostrarLivros.Columns["Editora"].Width = 150;
-        //    dgvMostrarLivros.Columns["Autor"].Width = 150;
-        //}
+            dgvMostrarLivros.Columns["Isbn"].Width = 100;
+            dgvMostrarLivros.Columns["Isbn"].HeaderText = "ISBN";
+
+            dgvMostrarLivros.Columns["AnoPublicacao"].Width = 150;
+            dgvMostrarLivros.Columns["AnoPublicacao"].HeaderText = "Ano de Publicação";
+
+            dgvMostrarLivros.Columns["Preco"].Width = 100;
+            dgvMostrarLivros.Columns["Preco"].HeaderText = "Preço";
+            dgvMostrarLivros.Columns["Preco"].DefaultCellStyle.Format = "C2";
+
+            dgvMostrarLivros.Columns["Estoque"].Width = 100;
+            dgvMostrarLivros.Columns["Estoque"].HeaderText = "Estoque";
+
+            dgvMostrarLivros.Columns["Descricao"].Width = 200;
+            dgvMostrarLivros.Columns["Descricao"].HeaderText = "Descrição";
+
+            dgvMostrarLivros.Columns["Idioma"].Width = 100;
+            dgvMostrarLivros.Columns["Idioma"].HeaderText = "Idioma";
+
+            dgvMostrarLivros.Columns["Editora"].Width = 150;
+            dgvMostrarLivros.Columns["Editora"].HeaderText = "Editora";
+
+            dgvMostrarLivros.Columns["Genero"].Width = 150;
+            dgvMostrarLivros.Columns["Genero"].HeaderText = "Gênero";
+
+            dgvMostrarLivros.Columns["img64"].Visible = false; // Esconder a coluna da imagem
+        }
+
 
         private void btnSalvarAlteracoesGerenciarLivros_Click(object sender, EventArgs e)
         {

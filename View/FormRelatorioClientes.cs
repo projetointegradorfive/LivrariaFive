@@ -20,7 +20,15 @@ namespace LivrariaFive.View
         {
             InitializeComponent();
             PreencherGridClientes();
+            ConfigurarGrade();
         }
+        public void ConfigurarGrade()
+        {
+            dgvClientes.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
+            dgvClientes.DefaultCellStyle.Font = new Font("Arial", 12);
+            dgvClientes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        }
+
         private void PreencherGridClientes(string filtroNome = null, int? filtroAnoNascimento = null)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
@@ -81,5 +89,11 @@ namespace LivrariaFive.View
             }
         }
 
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FrmPrincipalAdmin admin = new FrmPrincipalAdmin();
+            admin.Show();
+            this.Close();
+        }
     }
 }

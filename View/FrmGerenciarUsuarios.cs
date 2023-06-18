@@ -18,7 +18,8 @@ namespace LivrariaFive.View
     {
         Cliente clienteSelecionado = new Cliente();
 
-        SqlConnection connection = new SqlConnection(@"Data Source=IAN;Initial Catalog=Livraria;Integrated Security=True");
+        //SqlConnection connection = new SqlConnection(@"Data Source=IAN;Initial Catalog=Livraria;Integrated Security=True");
+        SqlConnection connection = DatabaseConnection.GetConnection();
 
         public FrmGerenciarUsuarios()
         {
@@ -51,6 +52,7 @@ namespace LivrariaFive.View
             DataTable dt = metodoObter.ObtertodosUsuarios();
             dgvUsuariosGerenciarUsuarios.DataSource = dt;
             dgvUsuariosGerenciarUsuarios.Refresh();
+            ConfigurarGrade();
         }
 
         private void dgvUsuariosGerenciarUsuarios_SelectionChanged(object sender, EventArgs e)
@@ -178,6 +180,31 @@ namespace LivrariaFive.View
 
 
         }
+        private void ConfigurarGrade()
+        {
+            dgvUsuariosGerenciarUsuarios.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
+            dgvUsuariosGerenciarUsuarios.DefaultCellStyle.Font = new Font("Arial", 12);
+            dgvUsuariosGerenciarUsuarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            dgvUsuariosGerenciarUsuarios.Columns["idCliente"].Visible = false; // Ocultar a coluna "idCliente"
+
+            dgvUsuariosGerenciarUsuarios.Columns["Nome"].Width = 200;
+            dgvUsuariosGerenciarUsuarios.Columns["Email"].Width = 200;
+            dgvUsuariosGerenciarUsuarios.Columns["Senha"].Visible = false; // Ocultar a coluna "Senha"
+            dgvUsuariosGerenciarUsuarios.Columns["CPF"].Width = 150;
+            dgvUsuariosGerenciarUsuarios.Columns["Endereco"].Width = 200;
+            dgvUsuariosGerenciarUsuarios.Columns["Telefone"].Width = 150;
+            dgvUsuariosGerenciarUsuarios.Columns["data_nascimento"].HeaderText = "Data de Nascimento";
+            dgvUsuariosGerenciarUsuarios.Columns["data_nascimento"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvUsuariosGerenciarUsuarios.Columns["data_nascimento"].Width = 150;
+
+            // Ajustar o preenchimento das células para alinhar ao centro
+            foreach (DataGridViewColumn column in dgvUsuariosGerenciarUsuarios.Columns)
+            {
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+        }
+
 
         private void dgvUsuariosGerenciarUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -241,6 +268,12 @@ namespace LivrariaFive.View
 
             dgvUsuariosGerenciarUsuarios.DataSource = dt;
             dgvUsuariosGerenciarUsuarios.Refresh();
+
+        }
+
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
