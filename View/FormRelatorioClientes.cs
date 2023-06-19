@@ -27,6 +27,9 @@ namespace LivrariaFive.View
             dgvClientes.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
             dgvClientes.DefaultCellStyle.Font = new Font("Arial", 12);
             dgvClientes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // Ajustar as colunas para mostrar todo o conteúdo
+            dgvClientes.AutoResizeColumns();
         }
 
         private void PreencherGridClientes(string filtroNome = null, int? filtroAnoNascimento = null)

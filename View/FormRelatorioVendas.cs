@@ -23,7 +23,6 @@ namespace LivrariaFive.View
         private void FormRelatorioVendas_Load_1(object sender, EventArgs e)
         {
             RelatorioDeVendasGeral();
-
             ConfigurarGrade();
         }
 
@@ -32,6 +31,9 @@ namespace LivrariaFive.View
             dgvVendas.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
             dgvVendas.DefaultCellStyle.Font = new Font("Arial", 12);
             dgvVendas.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // Ajustar as colunas para mostrar todo o conteúdo
+            dgvVendas.AutoResizeColumns();
         }
 
         public void RelatorioDeVendasGeral(int mes = 0, int ano = 0, string status = "")
@@ -65,26 +67,17 @@ namespace LivrariaFive.View
                             dgvVendas.Columns.Add("forma_pagamento", "Forma de Pagamento");
                             dgvVendas.Columns.Add("status", "Status");
                             dgvVendas.Columns.Add("nome", "Cliente");
-                            dgvVendas.Columns.Add("email", "Email do Cliente");
-                            dgvVendas.Columns.Add("cpf", "CPF do Cliente");
-                            dgvVendas.Columns.Add("endereco", "Endereço do Cliente");
-                            dgvVendas.Columns.Add("quantidade", "Quantidade");
-                            dgvVendas.Columns.Add("preco_unitario", "Preço Unitário").ToString("C");
-                            //dgvVendas.Columns.Add("preco_total_itemDeCompra", "Preço Total Item").ToString("C");
-                            dgvVendas.Columns.Add("idLivro", "ID Livro");
                             dgvVendas.Columns.Add("titulo", "Título");
                             dgvVendas.Columns["preco_total_pedido"].DefaultCellStyle.Format = "C2";
-                            //dgvVendas.Columns["preco_total_itemDeCompra"].DefaultCellStyle.Format = "C2";
-                            dgvVendas.Columns["preco_unitario"].DefaultCellStyle.Format = "C2";
 
                             // Preencha as linhas do DataGridView com os dados retornados
                             while (reader.Read())
                             {
                                 object[] rowData = new object[reader.FieldCount];
                                 reader.GetValues(rowData);
-                                
 
                                 dgvVendas.Rows.Add(rowData);
+                                ConfigurarGrade();
                             }
                         }
                     }
@@ -122,6 +115,7 @@ namespace LivrariaFive.View
                                 object[] rowData = new object[reader.FieldCount];
                                 reader.GetValues(rowData);
                                 dgvVendas.Rows.Add(rowData);
+                                ConfigurarGrade();
                             }
                         }
                     }
@@ -132,10 +126,7 @@ namespace LivrariaFive.View
         private void btnRelatorioVendas_Click(object sender, EventArgs e)
         {
             RelatorioDeVendasGeral();
-
         }
-
-
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
