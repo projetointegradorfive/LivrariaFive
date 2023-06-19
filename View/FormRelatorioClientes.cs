@@ -19,6 +19,10 @@ namespace LivrariaFive.View
         public FormRelatorioClientes()
         {
             InitializeComponent();
+           
+        }
+        private void FormRelatorioClientes_Load(object sender, EventArgs e)
+        {
             PreencherGridClientes();
             ConfigurarGrade();
         }
@@ -64,6 +68,7 @@ namespace LivrariaFive.View
                         dgvClientes.Columns["TotalCompras"].HeaderText = "Total Compras (R$)";
                         dgvClientes.Columns["TotalCompras"].DefaultCellStyle.Format = "C2";
                         dgvClientes.Columns["TotalCompras"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                        
                     }
                 }
             }
@@ -98,5 +103,7 @@ namespace LivrariaFive.View
             admin.Show();
             this.Close();
         }
+
+       
     }
 }
