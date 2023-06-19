@@ -61,5 +61,13 @@ namespace LivrariaFive.View
             this.Hide();
 
         }
+
+        private void btnRelatorioProdutos_Click(object sender, EventArgs e)
+        {
+            FormRelatorioProdutos formRelatorioProdutos = new FormRelatorioProdutos();
+            formRelatorioProdutos.Show();
+            this.Hide();
+
+        }
     }
 }

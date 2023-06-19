@@ -129,6 +129,7 @@ namespace LivrariaFive.View
             this.btnRelatorioProdutos.TabIndex = 9;
             this.btnRelatorioProdutos.Text = "Relatório de Produtos";
             this.btnRelatorioProdutos.UseVisualStyleBackColor = true;
+            this.btnRelatorioProdutos.Click += new System.EventHandler(this.btnRelatorioProdutos_Click);
             // 
             // FrmPrincipalAdmin
             // 

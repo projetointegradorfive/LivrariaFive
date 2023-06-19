@@ -132,6 +132,7 @@ namespace LivrariaFive.View
             this.Controls.Add(this.dgvClientes);
             this.Name = "FormRelatorioClientes";
             this.Text = "FormRelatorioClientes";
+            this.Load += new System.EventHandler(this.FormRelatorioClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

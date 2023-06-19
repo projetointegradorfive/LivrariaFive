@@ -212,6 +212,12 @@
     <Compile Include="View\FormRelatorioFaturamento.Designer.cs">
       <DependentUpon>FormRelatorioFaturamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormRelatorioProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormRelatorioProdutos.Designer.cs">
+      <DependentUpon>FormRelatorioProdutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormRelatorioVendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormRelatorioFaturamento.resx">
       <DependentUpon>FormRelatorioFaturamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormRelatorioProdutos.resx">
+      <DependentUpon>FormRelatorioProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormRelatorioVendas.resx">
       <DependentUpon>FormRelatorioVendas.cs</DependentUpon>
