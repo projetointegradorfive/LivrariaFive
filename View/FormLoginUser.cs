@@ -20,6 +20,18 @@ namespace LivrariaFive.View
         {
             InitializeComponent();
         }
+
+        private void LimparCampos()
+        {
+            txtNomeCadastro.Text = string.Empty;
+            txtEmailCadastro.Text = string.Empty;
+            txtSenhaCadastro.Text = string.Empty;
+            txtEnderecoCadastro.Text = string.Empty;
+            maskTxtCpfCadastro.Text = string.Empty;
+            maskTxtTelefoneCadastro.Text = string.Empty;
+            // Limpar outros campos que você tenha no formulário
+        }
+
         private void btnCadastrarUser_Click(object sender, EventArgs e)
         {
             // Obter os dados do formulário
@@ -63,6 +75,7 @@ namespace LivrariaFive.View
                     {
                         // Cliente cadastrado com sucesso
                         MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimparCampos();
                     }
                     else
                     {
@@ -104,11 +117,15 @@ namespace LivrariaFive.View
                     LivroForm livroForm = new LivroForm(ClienteAtual);
                     livroForm.Show();
                     this.Hide();
-                }               
+                
+                }
             }
             else
             {
                 MessageBox.Show("Essa conta não existe.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Limpar os campos do formulário
+                    txtEmail.Clear();
+                    txtSenhaLogin.Clear();
             }
         }
 
@@ -120,5 +137,3 @@ namespace LivrariaFive.View
         }
     }
 }
-
-
