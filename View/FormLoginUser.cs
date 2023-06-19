@@ -102,9 +102,31 @@ namespace LivrariaFive.View
             string email = txtEmail.Text;
             string senha = txtSenhaLogin.Text;
 
+            // Verificar se o email e a senha estão em branco
+            if (string.IsNullOrWhiteSpace(email) && string.IsNullOrWhiteSpace(senha))
+            {
+                MessageBox.Show("Por favor, digite seu email e senha.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Verificar se o email está em branco
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                MessageBox.Show("Por favor, digite seu email.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Verificar se a senha está em branco
+            if (string.IsNullOrWhiteSpace(senha))
+            {
+                MessageBox.Show("Por favor, digite sua senha.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             ClienteController clienteController = new ClienteController();
             Cliente cliente = clienteController.VerificarCredenciais(email, senha);
             CarrinhoController carrinhoController = new CarrinhoController();
+
             if (cliente != null)
             {
                 // Verifica se a conta está ativa
@@ -117,17 +139,18 @@ namespace LivrariaFive.View
                     LivroForm livroForm = new LivroForm(ClienteAtual);
                     livroForm.Show();
                     this.Hide();
-                
                 }
             }
             else
             {
                 MessageBox.Show("Essa conta não existe.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 // Limpar os campos do formulário
-                    txtEmail.Clear();
-                    txtSenhaLogin.Clear();
+                txtEmail.Clear();
+                txtSenhaLogin.Clear();
             }
         }
+
 
         private void btnLoginAdminRestrito_Click(object sender, EventArgs e)
         {

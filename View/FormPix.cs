@@ -35,10 +35,6 @@ namespace LivrariaFive.View
             pedidoController.InserirPedido(pedido);
             carrinhoController.AtualizarPrecoTotalCarrinho(carrinho.Id);
             MessageBox.Show("O pagamento será verificado e logo seu pedido será enviado!");
-           
-
-
-
             this.Close();
         }
     }
