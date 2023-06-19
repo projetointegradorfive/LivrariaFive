@@ -33,6 +33,21 @@ namespace LivrariaFive.View
 
         private void btnCadastrarLivro_Click(object sender, EventArgs e)
         {
+            // Verificar se todos os campos obrigatórios estão preenchidos
+            if (string.IsNullOrWhiteSpace(txtNomeLivro.Text) ||
+                string.IsNullOrWhiteSpace(txtGeneroLivro.Text) ||
+                string.IsNullOrWhiteSpace(txtISBN.Text) ||
+                string.IsNullOrWhiteSpace(txtAnoPublicacao.Text) ||
+                string.IsNullOrWhiteSpace(txtPreco.Text) ||
+                string.IsNullOrWhiteSpace(txtEstoque.Text) ||
+                string.IsNullOrWhiteSpace(txtDescricao.Text) ||
+                string.IsNullOrWhiteSpace(txtIdioma.Text) ||
+                pbFoto.Image == null)
+            {
+                MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             string nomeLivro = txtNomeLivro.Text;
             string nomeGenero = txtGeneroLivro.Text;
             //string nomeAutor = txtAutorLivro.Text;
@@ -144,9 +159,6 @@ namespace LivrariaFive.View
             // Exibir mensagem de sucesso
             MessageBox.Show("Livro cadastrado com sucesso!");
         }
-
-
-
 
         private void btnAddFoto_Click(object sender, EventArgs e)
         {
