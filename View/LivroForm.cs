@@ -87,6 +87,7 @@ namespace LivrariaFive.View
             });
 
             dataGridViewLivros.Columns["Estoque"].Visible = false;
+            dataGridViewLivros.Columns["Id"].Visible = false;
 
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
             checkBoxColumn.HeaderText = "Selecionado";
