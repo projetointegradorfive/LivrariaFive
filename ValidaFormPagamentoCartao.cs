@@ -26,8 +26,7 @@ namespace LivrariaFive
 
             if (!ValidarCodigoSeguranca(cliente.CodigoSeguranca, out string codigoSegurancaErro))
                 mensagemErro += $"- CVV: {codigoSegurancaErro}\n";
-
-            // Outras validações...
+         
 
             if (mensagemErro.Length > 0)
                 return false;

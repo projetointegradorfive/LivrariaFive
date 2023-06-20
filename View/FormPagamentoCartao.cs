@@ -17,7 +17,7 @@ namespace LivrariaFive.View
         private readonly Pedido pedido;
         private readonly CarrinhoController carrinhoController;
         private readonly Carrinho carrinho;
-
+       
         public FormPagamentoCartao()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace LivrariaFive.View
         {
             InitializeComponent();
             this.carrinho = carrinho;
-            this.pedido = pedido;
+            this.pedido = pedido;          
             carrinhoController = new CarrinhoController();
         }
 
@@ -64,6 +64,13 @@ namespace LivrariaFive.View
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnCancelarPagamento_Click(object sender, EventArgs e)
+        {
+          
+            this.Close();
+
         }
     }
 }

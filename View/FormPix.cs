@@ -34,8 +34,16 @@ namespace LivrariaFive.View
             pedido.Status = "Concluído";
             pedidoController.InserirPedido(pedido);
             carrinhoController.AtualizarPrecoTotalCarrinho(carrinho.Id);
-            MessageBox.Show("O pagamento será verificado e logo seu pedido será enviado!");
+            MessageBox.Show("O pagamento será verificado e logo seu pedido será enviado!");         
             this.Close();
+           
+        }
+
+        private void btnCancelarPagamento_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
         }
     }
 }

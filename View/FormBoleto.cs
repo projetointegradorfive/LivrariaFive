@@ -32,9 +32,8 @@ namespace LivrariaFive.View
             clienteController = new ClienteController();
             this.pedido = pedido;
             this.carrinho = carrinho;
-            this.cliente = cliente;
-            
-            carrinhoController = new CarrinhoController();
+            this.cliente = cliente;          
+           carrinhoController = new CarrinhoController();
 
 
         }
@@ -95,8 +94,10 @@ namespace LivrariaFive.View
 
                 // Abra o arquivo PDF para download
                 System.Diagnostics.Process.Start(caminhoBoleto);
+                
                 this.Close();
-             
+               
+
             }
             catch (Exception ex)
             {
@@ -104,5 +105,10 @@ namespace LivrariaFive.View
             }
         }
 
+        private void FormBoleto_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+            this.Close();
+        }
     }
 }

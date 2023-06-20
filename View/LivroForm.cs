@@ -86,6 +86,8 @@ namespace LivrariaFive.View
                 Width = 100
             });
 
+            dataGridViewLivros.Columns["Estoque"].Visible = false;
+
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
             checkBoxColumn.HeaderText = "Selecionado";
             checkBoxColumn.Name = "checkBoxColumn";
@@ -347,6 +349,17 @@ namespace LivrariaFive.View
                 MessageBox.Show("O carrinho está vazio.");
             }
 
+        }
+
+        private void LivroForm_Activated(object sender, EventArgs e)
+        {
+            dataGridViewLivros.Refresh();
+        }
+
+        private void btnAtulizarPágina_Click(object sender, EventArgs e)
+        {
+            PreencherDataGrid();
+            ConfigurarGrade();
         }
     }
 }

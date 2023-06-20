@@ -43,8 +43,10 @@
             this.MskValidade = new System.Windows.Forms.MaskedTextBox();
             this.MskNumCartao = new System.Windows.Forms.MaskedTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCancelarPagamento = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -169,7 +171,7 @@
             // 
             this.MskCvv.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MskCvv.Location = new System.Drawing.Point(403, 53);
-            this.MskCvv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MskCvv.Margin = new System.Windows.Forms.Padding(2);
             this.MskCvv.Mask = "000";
             this.MskCvv.Name = "MskCvv";
             this.MskCvv.PromptChar = '0';
@@ -180,18 +182,19 @@
             // 
             this.MskValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MskValidade.Location = new System.Drawing.Point(79, 244);
-            this.MskValidade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MskValidade.Mask = "00/00";
+            this.MskValidade.Margin = new System.Windows.Forms.Padding(2);
+            this.MskValidade.Mask = "00/0000";
             this.MskValidade.Name = "MskValidade";
             this.MskValidade.PromptChar = '0';
-            this.MskValidade.Size = new System.Drawing.Size(56, 29);
+            this.MskValidade.Size = new System.Drawing.Size(75, 29);
             this.MskValidade.TabIndex = 14;
+            this.MskValidade.ValidatingType = typeof(System.DateTime);
             // 
             // MskNumCartao
             // 
             this.MskNumCartao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MskNumCartao.Location = new System.Drawing.Point(79, 149);
-            this.MskNumCartao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MskNumCartao.Margin = new System.Windows.Forms.Padding(2);
             this.MskNumCartao.Mask = "0000 0000 0000 0000";
             this.MskNumCartao.Name = "MskNumCartao";
             this.MskNumCartao.PromptChar = '0';
@@ -202,16 +205,30 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.btnCancelarPagamento);
             this.panel2.Location = new System.Drawing.Point(22, 404);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(746, 45);
             this.panel2.TabIndex = 13;
+            // 
+            // btnCancelarPagamento
+            // 
+            this.btnCancelarPagamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarPagamento.Location = new System.Drawing.Point(3, 3);
+            this.btnCancelarPagamento.Name = "btnCancelarPagamento";
+            this.btnCancelarPagamento.Size = new System.Drawing.Size(215, 34);
+            this.btnCancelarPagamento.TabIndex = 12;
+            this.btnCancelarPagamento.Text = "Cancelar Pagamento";
+            this.btnCancelarPagamento.UseVisualStyleBackColor = true;
+            this.btnCancelarPagamento.Click += new System.EventHandler(this.btnCancelarPagamento_Click);
             // 
             // FormPagamentoCartao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.BtnFazerPagamento);
             this.Controls.Add(this.pictureBox1);
@@ -221,6 +238,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -241,5 +259,6 @@
         private System.Windows.Forms.MaskedTextBox MskNumCartao;
         private System.Windows.Forms.MaskedTextBox MskValidade;
         private System.Windows.Forms.MaskedTextBox MskCvv;
+        private System.Windows.Forms.Button btnCancelarPagamento;
     }
 }

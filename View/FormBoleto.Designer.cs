@@ -50,10 +50,10 @@ namespace LivrariaFive.View
             this.ClientSize = new System.Drawing.Size(335, 196);
             this.Controls.Add(this.btnGerarBoleto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.MaximizeBox = false;
             this.Name = "FormBoleto";
             this.Text = "FormBoleto";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormBoleto_FormClosed);
             this.ResumeLayout(false);
 
         }
