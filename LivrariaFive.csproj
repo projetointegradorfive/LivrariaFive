@@ -188,11 +188,23 @@
     <Compile Include="View\FormLoginUser.Designer.cs">
       <DependentUpon>FormLoginUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormMeusPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormMeusPedidos.Designer.cs">
+      <DependentUpon>FormMeusPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormPagamentoCartao.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FormPagamentoCartao.Designer.cs">
       <DependentUpon>FormPagamentoCartao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormPerfilUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormPerfilUsuario.Designer.cs">
+      <DependentUpon>FormPerfilUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormPix.cs">
       <SubType>Form</SubType>
@@ -284,8 +296,14 @@
     <EmbeddedResource Include="View\FormLoginUser.resx">
       <DependentUpon>FormLoginUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormMeusPedidos.resx">
+      <DependentUpon>FormMeusPedidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormPagamentoCartao.resx">
       <DependentUpon>FormPagamentoCartao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormPerfilUsuario.resx">
+      <DependentUpon>FormPerfilUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormPix.resx">
       <DependentUpon>FormPix.cs</DependentUpon>
