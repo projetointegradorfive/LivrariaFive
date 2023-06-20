@@ -45,21 +45,21 @@ namespace LivrariaFive.View
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnAtulizarPágina = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnMeuPerfil = new System.Windows.Forms.Button();
+            this.btnAtualizarPágina = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLivros)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -263,29 +263,47 @@ namespace LivrariaFive.View
             this.label3.Text = "FiveBooks";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnAtulizarPágina
+            // tableLayoutPanel3
             // 
-            this.btnAtulizarPágina.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnAtulizarPágina.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAtulizarPágina.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnAtulizarPágina.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtulizarPágina.Location = new System.Drawing.Point(9, 3);
-            this.btnAtulizarPágina.Name = "btnAtulizarPágina";
-            this.btnAtulizarPágina.Size = new System.Drawing.Size(122, 27);
-            this.btnAtulizarPágina.TabIndex = 11;
-            this.btnAtulizarPágina.Text = "Atualizar Página";
-            this.btnAtulizarPágina.UseVisualStyleBackColor = false;
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.btnMeuPerfil, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.btnAtualizarPágina, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(651, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(140, 75);
+            this.tableLayoutPanel3.TabIndex = 11;
             // 
-            // pictureBox2
+            // btnMeuPerfil
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(608, 45);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(37, 33);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
+            this.btnMeuPerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMeuPerfil.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnMeuPerfil.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnMeuPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMeuPerfil.Location = new System.Drawing.Point(3, 42);
+            this.btnMeuPerfil.Name = "btnMeuPerfil";
+            this.btnMeuPerfil.Size = new System.Drawing.Size(134, 30);
+            this.btnMeuPerfil.TabIndex = 12;
+            this.btnMeuPerfil.Text = "Meu Perfil";
+            this.btnMeuPerfil.UseVisualStyleBackColor = false;
+            this.btnMeuPerfil.Click += new System.EventHandler(this.btnMeuPerfil_Click);
+            // 
+            // btnAtualizarPágina
+            // 
+            this.btnAtualizarPágina.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAtualizarPágina.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAtualizarPágina.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnAtualizarPágina.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtualizarPágina.Location = new System.Drawing.Point(9, 3);
+            this.btnAtualizarPágina.Name = "btnAtualizarPágina";
+            this.btnAtualizarPágina.Size = new System.Drawing.Size(122, 27);
+            this.btnAtualizarPágina.TabIndex = 11;
+            this.btnAtualizarPágina.Text = "Atualizar Página";
+            this.btnAtualizarPágina.UseVisualStyleBackColor = false;
+            this.btnAtualizarPágina.Click += new System.EventHandler(this.btnAtualizarPágina_Click);
             // 
             // pictureBox3
             // 
@@ -309,33 +327,16 @@ namespace LivrariaFive.View
             this.pictureBox4.TabIndex = 14;
             this.pictureBox4.TabStop = false;
             // 
-            // tableLayoutPanel3
+            // pictureBox2
             // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.btnMeuPerfil, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.btnAtulizarPágina, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(651, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(140, 75);
-            this.tableLayoutPanel3.TabIndex = 11;
-            // 
-            // btnMeuPerfil
-            // 
-            this.btnMeuPerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMeuPerfil.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnMeuPerfil.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnMeuPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMeuPerfil.Location = new System.Drawing.Point(3, 42);
-            this.btnMeuPerfil.Name = "btnMeuPerfil";
-            this.btnMeuPerfil.Size = new System.Drawing.Size(134, 30);
-            this.btnMeuPerfil.TabIndex = 12;
-            this.btnMeuPerfil.Text = "Meu Perfil";
-            this.btnMeuPerfil.UseVisualStyleBackColor = false;
-            this.btnMeuPerfil.Click += new System.EventHandler(this.btnMeuPerfil_Click);
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(608, 45);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(37, 33);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
             // 
             // LivroForm
             // 
@@ -355,10 +356,10 @@ namespace LivrariaFive.View
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -379,7 +380,7 @@ namespace LivrariaFive.View
         private System.Windows.Forms.TextBox txtBuscarNome;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.Button btnAtulizarPágina;
+        private System.Windows.Forms.Button btnAtualizarPágina;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;

@@ -357,16 +357,17 @@ namespace LivrariaFive.View
             dataGridViewLivros.Refresh();
         }
 
-        private void btnAtulizarPágina_Click(object sender, EventArgs e)
-        {
-            PreencherDataGrid();
-            ConfigurarGrade();
-        }
 
         private void btnMeuPerfil_Click(object sender, EventArgs e)
         {
             FormPerfilUsuario formPerfil = new FormPerfilUsuario(clienteAtual);
             formPerfil.ShowDialog();
+        }
+
+        private void btnAtualizarPágina_Click(object sender, EventArgs e)
+        {
+            PreencherDataGrid();
+            ConfigurarGrade();
         }
     }
 }
