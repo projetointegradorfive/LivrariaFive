@@ -54,21 +54,28 @@ namespace LivrariaFive.View
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
 
+
+                            // Verificar se a tabela possui registros
                             // Verificar se a tabela possui registros
                             if (dataTable.Rows.Count > 0)
                             {
                                 // Obter o valor do faturamento total da primeira linha
                                 decimal faturamentoTotal = Convert.ToDecimal(dataTable.Rows[0]["FaturamentoTotal"]);
 
-                                // Definir o valor do faturamento total nas demais linhas como DBNull
-                                for (int i = 1; i < dataTable.Rows.Count; i++)
+                                // Remover a coluna "FaturamentoTotal" de todas as linhas, exceto da última
+                                for (int i = 0; i < dataTable.Rows.Count; i++)
                                 {
-                                    dataTable.Rows[i]["FaturamentoTotal"] = DBNull.Value;
+                                    dataTable.Rows[i].SetField("FaturamentoTotal", DBNull.Value);
                                 }
+                                DataRow totalRow = dataTable.NewRow();
+                                totalRow["FaturamentoTotal"] = faturamentoTotal;
+                                dataTable.Rows.Add(totalRow);
 
-                                // Atualizar o valor do faturamento total na primeira linha
-                                dataTable.Rows[0]["FaturamentoTotal"] = faturamentoTotal;
+                                // Atualizar o valor do faturamento total apenas na última linha
+                                dataTable.Rows[dataTable.Rows.Count - 1]["FaturamentoTotal"] = faturamentoTotal;
                             }
+
+
 
                             dgvFaturamento.DataSource = dataTable;
                             DefinicaoDeColunas();

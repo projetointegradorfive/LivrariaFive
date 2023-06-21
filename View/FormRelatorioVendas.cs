@@ -76,6 +76,11 @@ namespace LivrariaFive.View
                                 object[] rowData = new object[reader.FieldCount];
                                 reader.GetValues(rowData);
 
+                                // Obter a data do pedido e converter para a parte da data apenas
+                                DateTime dataPedido = (DateTime)rowData[1];
+                                string dataPedidoFormatada = dataPedido.ToShortDateString();
+                                rowData[1] = dataPedidoFormatada;
+
                                 dgvVendas.Rows.Add(rowData);
                                 ConfigurarGrade();
                             }

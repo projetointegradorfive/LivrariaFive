@@ -87,9 +87,9 @@ namespace LivrariaFive.View
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(299, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 16);
+            this.label2.Size = new System.Drawing.Size(92, 16);
             this.label2.TabIndex = 26;
-            this.label2.Text = "Preço Minimo:";
+            this.label2.Text = "Preço Mínimo:";
             // 
             // label1
             // 
@@ -97,7 +97,7 @@ namespace LivrariaFive.View
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(19, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 16);
+            this.label1.Size = new System.Drawing.Size(116, 16);
             this.label1.TabIndex = 25;
             this.label1.Text = "Nome do Produto:";
             // 
@@ -134,9 +134,9 @@ namespace LivrariaFive.View
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(299, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 16);
+            this.label3.Size = new System.Drawing.Size(96, 16);
             this.label3.TabIndex = 30;
-            this.label3.Text = "Preço Minimo:";
+            this.label3.Text = "Preço Máximo:";
             // 
             // FormRelatorioProdutos
             // 
