@@ -179,5 +179,10 @@ namespace LivrariaFive.View
             }
         }
 
+        private void btnVerTudo_Click(object sender, EventArgs e)
+        {
+            PreencherGridFaturamento();
+            ConfigurarGrade();
+        }
     }
 }
