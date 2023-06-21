@@ -49,6 +49,8 @@ namespace LivrariaFive.View
             this.dgvFaturamento.Name = "dgvFaturamento";
             this.dgvFaturamento.Size = new System.Drawing.Size(869, 398);
             this.dgvFaturamento.TabIndex = 12;
+            this.dgvFaturamento.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvFaturamento_CellFormatting);
+            this.dgvFaturamento.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvFaturamento_CellPainting);
             // 
             // dtpDataInicial
             // 
@@ -138,6 +140,7 @@ namespace LivrariaFive.View
             this.Controls.Add(this.dgvFaturamento);
             this.Name = "FormRelatorioFaturamento";
             this.Text = "FormRelatorioFaturamento";
+            this.Load += new System.EventHandler(this.FormRelatorioFaturamento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFaturamento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

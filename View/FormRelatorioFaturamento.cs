@@ -12,8 +12,13 @@ namespace LivrariaFive.View
         public FormRelatorioFaturamento()
         {
             InitializeComponent();
-            ConfigurarGrade();
+            
+           
+        }
+        private void FormRelatorioFaturamento_Load(object sender, EventArgs e)
+        {
             PreencherGridFaturamento();
+            ConfigurarGrade();
         }
 
         private void ConfigurarGrade()
@@ -22,6 +27,12 @@ namespace LivrariaFive.View
             dgvFaturamento.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
             dgvFaturamento.DefaultCellStyle.Font = new Font("Arial", 12);
             dgvFaturamento.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // Adicionar coluna de números das linhas
+            DataGridViewTextBoxColumn colunaNumeroLinha = new DataGridViewTextBoxColumn();
+            colunaNumeroLinha.HeaderText = "Nº";
+            colunaNumeroLinha.Name = "NumeroLinha";
+            dgvFaturamento.Columns.Insert(0, colunaNumeroLinha);
 
             // Ajustar as colunas para mostrar todo o conteúdo
             dgvFaturamento.AutoResizeColumns();
@@ -53,6 +64,8 @@ namespace LivrariaFive.View
                         {
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
+
+
 
 
                             // Verificar se a tabela possui registros
@@ -94,6 +107,8 @@ namespace LivrariaFive.View
             dgvFaturamento.Columns["FaturamentoTotal"].HeaderText = "Faturamento Total (R$)";
             dgvFaturamento.Columns["FaturamentoTotal"].DefaultCellStyle.Format = "C2";
             dgvFaturamento.Columns["FaturamentoTotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+          
+
 
             dgvFaturamento.Columns["TotalPedido"].HeaderText = "Total do Pedido (R$)";
             dgvFaturamento.Columns["TotalPedido"].DefaultCellStyle.Format = "C2";
@@ -109,11 +124,6 @@ namespace LivrariaFive.View
             dgvFaturamento.Columns["Cliente"].HeaderText = "Nome do Cliente";
         }
 
-        private void FormRelatorioFaturamento_Load(object sender, EventArgs e)
-        {
-            // Neste momento, você pode chamar o método PreencherGridFaturamento sem passar nenhum parâmetro para exibir todos os registros
-            PreencherGridFaturamento();
-        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -137,5 +147,37 @@ namespace LivrariaFive.View
             admin.Show();
             this.Close();
         }
+
+        private void dgvFaturamento_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0) // Verifica se é uma célula de cabeçalho de linha
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
+
+                using (var brush = new SolidBrush(e.CellStyle.ForeColor))
+                {
+                    var stringFormat = new StringFormat
+                    {
+                        Alignment = StringAlignment.Center,
+                        LineAlignment = StringAlignment.Center
+                    };
+
+                    e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.CellStyle.Font, brush, e.CellBounds, stringFormat);
+                }
+
+                e.Handled = true;
+            }
+        }
+
+        private void dgvFaturamento_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dgvFaturamento.Columns["FaturamentoTotal"].Index && e.RowIndex == dgvFaturamento.Rows.Count - 1)
+            {
+                e.CellStyle.BackColor = Color.Yellow;
+                e.CellStyle.ForeColor = Color.Red;
+                e.CellStyle.Font = new Font(dgvFaturamento.DefaultCellStyle.Font, FontStyle.Bold);
+            }
+        }
+
     }
 }
