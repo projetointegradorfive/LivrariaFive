@@ -159,6 +159,11 @@ namespace LivrariaFive.View
             login.Show();
         }
 
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void verSenha_Click(object sender, EventArgs e)
         {
             if (txtSenhaLogin.UseSystemPasswordChar == true)
