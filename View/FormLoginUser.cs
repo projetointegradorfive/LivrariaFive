@@ -135,5 +135,10 @@ namespace LivrariaFive.View
             this.Hide();
             login.Show();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
