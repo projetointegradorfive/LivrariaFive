@@ -63,7 +63,7 @@ namespace LivrariaFive.View
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1287, 36);
+            this.pictureBox2.Location = new System.Drawing.Point(1289, 10);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 49);
@@ -151,7 +151,7 @@ namespace LivrariaFive.View
             // 
             this.txtEnderecoGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEnderecoGerenciarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEnderecoGerenciarUsuarios.Location = new System.Drawing.Point(337, 640);
+            this.txtEnderecoGerenciarUsuarios.Location = new System.Drawing.Point(69, 639);
             this.txtEnderecoGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEnderecoGerenciarUsuarios.Name = "txtEnderecoGerenciarUsuarios";
             this.txtEnderecoGerenciarUsuarios.Size = new System.Drawing.Size(689, 29);
@@ -162,7 +162,7 @@ namespace LivrariaFive.View
             this.lblEnderecoGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEnderecoGerenciarUsuarios.AutoSize = true;
             this.lblEnderecoGerenciarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnderecoGerenciarUsuarios.Location = new System.Drawing.Point(333, 619);
+            this.lblEnderecoGerenciarUsuarios.Location = new System.Drawing.Point(65, 618);
             this.lblEnderecoGerenciarUsuarios.Name = "lblEnderecoGerenciarUsuarios";
             this.lblEnderecoGerenciarUsuarios.Size = new System.Drawing.Size(104, 24);
             this.lblEnderecoGerenciarUsuarios.TabIndex = 16;
@@ -303,10 +303,10 @@ namespace LivrariaFive.View
             // 
             this.btnSalvarAlteracoesGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSalvarAlteracoesGerenciarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarAlteracoesGerenciarUsuarios.Location = new System.Drawing.Point(663, 715);
+            this.btnSalvarAlteracoesGerenciarUsuarios.Location = new System.Drawing.Point(646, 715);
             this.btnSalvarAlteracoesGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.btnSalvarAlteracoesGerenciarUsuarios.Name = "btnSalvarAlteracoesGerenciarUsuarios";
-            this.btnSalvarAlteracoesGerenciarUsuarios.Size = new System.Drawing.Size(156, 32);
+            this.btnSalvarAlteracoesGerenciarUsuarios.Size = new System.Drawing.Size(173, 32);
             this.btnSalvarAlteracoesGerenciarUsuarios.TabIndex = 1;
             this.btnSalvarAlteracoesGerenciarUsuarios.Text = "Salvar Alterações";
             this.btnSalvarAlteracoesGerenciarUsuarios.UseVisualStyleBackColor = true;
