@@ -255,6 +255,7 @@ namespace LivrariaFive.Controller
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
+                byte[] imagemBytes = ObterBytesImagem(livro.Imagem);
                 AutorController autorController = new AutorController();
                 List<int> autorIds = new List<int>();
 
@@ -277,7 +278,7 @@ namespace LivrariaFive.Controller
 
                 string queryLivro = "UPDATE tbLivro SET titulo = @Titulo, idEditora = @EditoraId, isbn = @Isbn, " +
                                     "anoPublicacao = @AnoPublicacao, preco = @Preco, estoque = @Estoque, descricao = @Descricao, " +
-                                    "idGenero = @GeneroId, idioma = @Idioma, livroImagem = CONVERT(varbinary(max), @LivroImagem) WHERE idLivro = @Id;";
+                                    "idGenero = @GeneroId, idioma = @Idioma, livroImagem = @Imagem WHERE idLivro = @Id;";
 
                 int idEditora = ObterIdEditoraPorNome(livro.Editora);
                 int idGenero = ObterIdGeneroPorNome(livro.Genero);
@@ -294,17 +295,8 @@ namespace LivrariaFive.Controller
                     commandLivro.Parameters.AddWithValue("@Descricao", livro.Descricao);
                     commandLivro.Parameters.AddWithValue("@GeneroId", idGenero);
                     commandLivro.Parameters.AddWithValue("@Idioma", livro.Idioma);
+                    commandLivro.Parameters.Add("@Imagem", SqlDbType.VarBinary).Value = (object)imagemBytes ?? DBNull.Value;
 
-                    if (!string.IsNullOrEmpty(livro.img64))
-                    {
-                        // Converte a string base64 em um array de bytes
-                        byte[] imagemBytes = Convert.FromBase64String(livro.img64);
-                        commandLivro.Parameters.AddWithValue("@LivroImagem", imagemBytes);
-                    }
-                    else
-                    {
-                        commandLivro.Parameters.AddWithValue("@LivroImagem", DBNull.Value);
-                    }
 
                     connection.Open();
                     commandLivro.ExecuteNonQuery();

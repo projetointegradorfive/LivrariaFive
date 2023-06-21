@@ -148,7 +148,6 @@ namespace LivrariaFive.View
                 txtAutorGerenciarLivros.Text = livroSelecionado.Autor;
 
 
-
                 byte[] imagemBytes = Convert.FromBase64String(livroSelecionado.img64);
 
                 // Cria um MemoryStream com os bytes da imagem
@@ -170,7 +169,6 @@ namespace LivrariaFive.View
             openFileDialog.Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.bmp";
             openFileDialog.Title = "Selecionar Imagem";
 
-            Livro livro = new Livro();
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -189,7 +187,7 @@ namespace LivrariaFive.View
                     pbFotoLivroGerenciarLivros.Image = novaImagem;
 
                     // Armazenar a nova imagem no livro
-                    livro.Imagem = novaImagem;
+                    livroSelecionado.Imagem = novaImagem;
 
                     MessageBox.Show("Imagem editada com sucesso!");
                 }
@@ -247,6 +245,7 @@ namespace LivrariaFive.View
             dgvMostrarLivros.Columns["Genero"].Width = 150;
             dgvMostrarLivros.Columns["Genero"].HeaderText = "Gênero";
 
+
             dgvMostrarLivros.Columns["img64"].Visible = false; // Esconder a coluna da imagem
         }
 
@@ -280,7 +279,6 @@ namespace LivrariaFive.View
                 string[] autores = txtAutorGerenciarLivros.Text.Split(',');
 
                 // Atualizar os autores do livro
-                //List<Autor> autoresAtualizados = new List<Autor>();
                 foreach (string autorNome in autores)
                 {
                     string nome = autorNome.Trim();
@@ -298,6 +296,9 @@ namespace LivrariaFive.View
                 }
 
                 livroSelecionado.Autores = autoresAtualizados;
+
+                    
+                    
 
 
                 LivroController livroController = new LivroController();
