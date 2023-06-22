@@ -78,7 +78,7 @@ namespace LivrariaFive.View
             // 
             this.lblNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.Font = new System.Drawing.Font("Ink Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome.Location = new System.Drawing.Point(24, 167);
             this.lblNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNome.Name = "lblNome";
@@ -90,7 +90,7 @@ namespace LivrariaFive.View
             // 
             this.lblSenha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSenha.AutoSize = true;
-            this.lblSenha.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenha.Font = new System.Drawing.Font("Ink Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSenha.Location = new System.Drawing.Point(26, 222);
             this.lblSenha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSenha.Name = "lblSenha";
@@ -102,7 +102,7 @@ namespace LivrariaFive.View
             // 
             this.lblId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Font = new System.Drawing.Font("Ink Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.Location = new System.Drawing.Point(25, 110);
             this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblId.Name = "lblId";
@@ -113,40 +113,40 @@ namespace LivrariaFive.View
             // txtNomeGerenciarUsuarios
             // 
             this.txtNomeGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNomeGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeGerenciarUsuarios.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeGerenciarUsuarios.Location = new System.Drawing.Point(25, 184);
             this.txtNomeGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtNomeGerenciarUsuarios.Name = "txtNomeGerenciarUsuarios";
-            this.txtNomeGerenciarUsuarios.Size = new System.Drawing.Size(181, 27);
+            this.txtNomeGerenciarUsuarios.Size = new System.Drawing.Size(181, 26);
             this.txtNomeGerenciarUsuarios.TabIndex = 11;
             // 
             // txtSenhaGerenciarUsuarios
             // 
             this.txtSenhaGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSenhaGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenhaGerenciarUsuarios.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenhaGerenciarUsuarios.Location = new System.Drawing.Point(26, 238);
             this.txtSenhaGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtSenhaGerenciarUsuarios.Name = "txtSenhaGerenciarUsuarios";
-            this.txtSenhaGerenciarUsuarios.Size = new System.Drawing.Size(182, 27);
+            this.txtSenhaGerenciarUsuarios.Size = new System.Drawing.Size(182, 26);
             this.txtSenhaGerenciarUsuarios.TabIndex = 12;
             // 
             // txtIdGerenciarUsuarios
             // 
             this.txtIdGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtIdGerenciarUsuarios.BackColor = System.Drawing.SystemColors.Window;
-            this.txtIdGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdGerenciarUsuarios.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdGerenciarUsuarios.Location = new System.Drawing.Point(27, 127);
             this.txtIdGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtIdGerenciarUsuarios.Name = "txtIdGerenciarUsuarios";
             this.txtIdGerenciarUsuarios.ReadOnly = true;
-            this.txtIdGerenciarUsuarios.Size = new System.Drawing.Size(180, 27);
+            this.txtIdGerenciarUsuarios.Size = new System.Drawing.Size(180, 26);
             this.txtIdGerenciarUsuarios.TabIndex = 13;
             // 
             // lblCpfGerenciarUsuarios
             // 
             this.lblCpfGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpfGerenciarUsuarios.AutoSize = true;
-            this.lblCpfGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCpfGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCpfGerenciarUsuarios.Location = new System.Drawing.Point(24, 272);
             this.lblCpfGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCpfGerenciarUsuarios.Name = "lblCpfGerenciarUsuarios";
@@ -159,7 +159,7 @@ namespace LivrariaFive.View
             this.txtEnderecoGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEnderecoGerenciarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEnderecoGerenciarUsuarios.Location = new System.Drawing.Point(253, 520);
-            this.txtEnderecoGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEnderecoGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.txtEnderecoGerenciarUsuarios.Name = "txtEnderecoGerenciarUsuarios";
             this.txtEnderecoGerenciarUsuarios.Size = new System.Drawing.Size(518, 24);
             this.txtEnderecoGerenciarUsuarios.TabIndex = 17;
@@ -169,7 +169,7 @@ namespace LivrariaFive.View
             this.lblEnderecoGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEnderecoGerenciarUsuarios.AutoSize = true;
             this.lblEnderecoGerenciarUsuarios.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblEnderecoGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnderecoGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnderecoGerenciarUsuarios.Location = new System.Drawing.Point(250, 502);
             this.lblEnderecoGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEnderecoGerenciarUsuarios.Name = "lblEnderecoGerenciarUsuarios";
@@ -181,7 +181,7 @@ namespace LivrariaFive.View
             // 
             this.lblTelefoneGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTelefoneGerenciarUsuarios.AutoSize = true;
-            this.lblTelefoneGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefoneGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefoneGerenciarUsuarios.Location = new System.Drawing.Point(21, 380);
             this.lblTelefoneGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefoneGerenciarUsuarios.Name = "lblTelefoneGerenciarUsuarios";
@@ -193,7 +193,7 @@ namespace LivrariaFive.View
             // 
             this.lblDataNascimentoGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDataNascimentoGerenciarUsuarios.AutoSize = true;
-            this.lblDataNascimentoGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataNascimentoGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataNascimentoGerenciarUsuarios.Location = new System.Drawing.Point(22, 325);
             this.lblDataNascimentoGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDataNascimentoGerenciarUsuarios.Name = "lblDataNascimentoGerenciarUsuarios";
@@ -208,7 +208,7 @@ namespace LivrariaFive.View
             this.dgvUsuariosGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvUsuariosGerenciarUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuariosGerenciarUsuarios.Location = new System.Drawing.Point(253, 75);
-            this.dgvUsuariosGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvUsuariosGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.dgvUsuariosGerenciarUsuarios.Name = "dgvUsuariosGerenciarUsuarios";
             this.dgvUsuariosGerenciarUsuarios.ReadOnly = true;
             this.dgvUsuariosGerenciarUsuarios.RowHeadersWidth = 51;
@@ -221,42 +221,42 @@ namespace LivrariaFive.View
             // maskTxtCpfGerenciarUsuarios
             // 
             this.maskTxtCpfGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskTxtCpfGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskTxtCpfGerenciarUsuarios.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskTxtCpfGerenciarUsuarios.Location = new System.Drawing.Point(24, 289);
             this.maskTxtCpfGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.maskTxtCpfGerenciarUsuarios.Mask = "000,000,000-00";
             this.maskTxtCpfGerenciarUsuarios.Name = "maskTxtCpfGerenciarUsuarios";
-            this.maskTxtCpfGerenciarUsuarios.Size = new System.Drawing.Size(182, 27);
+            this.maskTxtCpfGerenciarUsuarios.Size = new System.Drawing.Size(182, 26);
             this.maskTxtCpfGerenciarUsuarios.TabIndex = 24;
             this.maskTxtCpfGerenciarUsuarios.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // maskTxtTelefoneGerenciarUsuarios
             // 
             this.maskTxtTelefoneGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskTxtTelefoneGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskTxtTelefoneGerenciarUsuarios.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskTxtTelefoneGerenciarUsuarios.Location = new System.Drawing.Point(25, 397);
             this.maskTxtTelefoneGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.maskTxtTelefoneGerenciarUsuarios.Mask = "(00) 0 0000-0000 ";
             this.maskTxtTelefoneGerenciarUsuarios.Name = "maskTxtTelefoneGerenciarUsuarios";
-            this.maskTxtTelefoneGerenciarUsuarios.Size = new System.Drawing.Size(180, 27);
+            this.maskTxtTelefoneGerenciarUsuarios.Size = new System.Drawing.Size(180, 26);
             this.maskTxtTelefoneGerenciarUsuarios.TabIndex = 25;
             this.maskTxtTelefoneGerenciarUsuarios.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // txtEmailGerenciarUsuarios
             // 
             this.txtEmailGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEmailGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailGerenciarUsuarios.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmailGerenciarUsuarios.Location = new System.Drawing.Point(24, 453);
             this.txtEmailGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtEmailGerenciarUsuarios.Name = "txtEmailGerenciarUsuarios";
-            this.txtEmailGerenciarUsuarios.Size = new System.Drawing.Size(182, 27);
+            this.txtEmailGerenciarUsuarios.Size = new System.Drawing.Size(182, 26);
             this.txtEmailGerenciarUsuarios.TabIndex = 27;
             // 
             // lblEmailGerenciarUsuarios
             // 
             this.lblEmailGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEmailGerenciarUsuarios.AutoSize = true;
-            this.lblEmailGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmailGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmailGerenciarUsuarios.Location = new System.Drawing.Point(22, 435);
             this.lblEmailGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmailGerenciarUsuarios.Name = "lblEmailGerenciarUsuarios";
@@ -267,12 +267,12 @@ namespace LivrariaFive.View
             // maskTxtDataNascimentoGerenciarUsuarios
             // 
             this.maskTxtDataNascimentoGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskTxtDataNascimentoGerenciarUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskTxtDataNascimentoGerenciarUsuarios.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskTxtDataNascimentoGerenciarUsuarios.Location = new System.Drawing.Point(24, 343);
             this.maskTxtDataNascimentoGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.maskTxtDataNascimentoGerenciarUsuarios.Mask = "00/00/0000";
             this.maskTxtDataNascimentoGerenciarUsuarios.Name = "maskTxtDataNascimentoGerenciarUsuarios";
-            this.maskTxtDataNascimentoGerenciarUsuarios.Size = new System.Drawing.Size(182, 27);
+            this.maskTxtDataNascimentoGerenciarUsuarios.Size = new System.Drawing.Size(182, 26);
             this.maskTxtDataNascimentoGerenciarUsuarios.TabIndex = 28;
             this.maskTxtDataNascimentoGerenciarUsuarios.ValidatingType = typeof(System.DateTime);
             // 
@@ -281,7 +281,7 @@ namespace LivrariaFive.View
             this.lblPesquisaUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPesquisaUsuarios.AutoSize = true;
             this.lblPesquisaUsuarios.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblPesquisaUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPesquisaUsuarios.Font = new System.Drawing.Font("Ink Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPesquisaUsuarios.Location = new System.Drawing.Point(250, 27);
             this.lblPesquisaUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPesquisaUsuarios.Name = "lblPesquisaUsuarios";
@@ -367,6 +367,7 @@ namespace LivrariaFive.View
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label1.Location = new System.Drawing.Point(230, 0);
             this.label1.Name = "label1";
@@ -405,7 +406,7 @@ namespace LivrariaFive.View
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmGerenciarUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciar Usuarios";

@@ -65,7 +65,7 @@ namespace LivrariaFive.View
             // btnRemoverItemCarrinho
             // 
             this.btnRemoverItemCarrinho.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRemoverItemCarrinho.Font = new System.Drawing.Font("Ink Free", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoverItemCarrinho.Font = new System.Drawing.Font("Ink Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoverItemCarrinho.Location = new System.Drawing.Point(12, 488);
             this.btnRemoverItemCarrinho.Name = "btnRemoverItemCarrinho";
             this.btnRemoverItemCarrinho.Size = new System.Drawing.Size(117, 34);
@@ -77,7 +77,7 @@ namespace LivrariaFive.View
             // btnLimparCarrinho
             // 
             this.btnLimparCarrinho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLimparCarrinho.Font = new System.Drawing.Font("Ink Free", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimparCarrinho.Font = new System.Drawing.Font("Ink Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimparCarrinho.Location = new System.Drawing.Point(135, 488);
             this.btnLimparCarrinho.Name = "btnLimparCarrinho";
             this.btnLimparCarrinho.Size = new System.Drawing.Size(117, 34);
@@ -89,18 +89,18 @@ namespace LivrariaFive.View
             // lblPrecoTotalCarrinho
             // 
             this.lblPrecoTotalCarrinho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblPrecoTotalCarrinho.Font = new System.Drawing.Font("Ink Free", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecoTotalCarrinho.Location = new System.Drawing.Point(550, 488);
+            this.lblPrecoTotalCarrinho.Font = new System.Drawing.Font("Ink Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecoTotalCarrinho.Location = new System.Drawing.Point(527, 488);
             this.lblPrecoTotalCarrinho.Name = "lblPrecoTotalCarrinho";
-            this.lblPrecoTotalCarrinho.Size = new System.Drawing.Size(88, 29);
+            this.lblPrecoTotalCarrinho.Size = new System.Drawing.Size(111, 29);
             this.lblPrecoTotalCarrinho.TabIndex = 3;
             this.lblPrecoTotalCarrinho.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.Font = new System.Drawing.Font("Ink Free", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(469, 484);
+            this.label1.Font = new System.Drawing.Font("Ink Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(430, 482);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 47);
             this.label1.TabIndex = 4;
@@ -110,7 +110,7 @@ namespace LivrariaFive.View
             // btnEfetuarPedido
             // 
             this.btnEfetuarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEfetuarPedido.Font = new System.Drawing.Font("Ink Free", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEfetuarPedido.Font = new System.Drawing.Font("Ink Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEfetuarPedido.Location = new System.Drawing.Point(654, 488);
             this.btnEfetuarPedido.Name = "btnEfetuarPedido";
             this.btnEfetuarPedido.Size = new System.Drawing.Size(134, 34);
@@ -122,7 +122,7 @@ namespace LivrariaFive.View
             // btnSelecionarTudo
             // 
             this.btnSelecionarTudo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSelecionarTudo.Font = new System.Drawing.Font("Ink Free", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelecionarTudo.Font = new System.Drawing.Font("Ink Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelecionarTudo.Location = new System.Drawing.Point(258, 488);
             this.btnSelecionarTudo.Name = "btnSelecionarTudo";
             this.btnSelecionarTudo.Size = new System.Drawing.Size(117, 34);
@@ -176,7 +176,7 @@ namespace LivrariaFive.View
             // 
             this.label2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label2.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(663, 56);
+            this.label2.Location = new System.Drawing.Point(657, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 23);
             this.label2.TabIndex = 28;

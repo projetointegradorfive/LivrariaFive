@@ -65,20 +65,20 @@ namespace LivrariaFive.View
             // txtEmail
             // 
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(121, 295);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(215, 23);
+            this.txtEmail.Size = new System.Drawing.Size(215, 26);
             this.txtEmail.TabIndex = 4;
             // 
             // txtSenhaLogin
             // 
             this.txtSenhaLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSenhaLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenhaLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenhaLogin.Location = new System.Drawing.Point(121, 364);
-            this.txtSenhaLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSenhaLogin.Margin = new System.Windows.Forms.Padding(4);
             this.txtSenhaLogin.Name = "txtSenhaLogin";
-            this.txtSenhaLogin.Size = new System.Drawing.Size(215, 23);
+            this.txtSenhaLogin.Size = new System.Drawing.Size(215, 26);
             this.txtSenhaLogin.TabIndex = 3;
             this.txtSenhaLogin.UseSystemPasswordChar = true;
             // 
@@ -96,11 +96,12 @@ namespace LivrariaFive.View
             // 
             // btnLoginAdminRestrito
             // 
-            this.btnLoginAdminRestrito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLoginAdminRestrito.Location = new System.Drawing.Point(9, 98);
-            this.btnLoginAdminRestrito.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoginAdminRestrito.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLoginAdminRestrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoginAdminRestrito.Location = new System.Drawing.Point(3, 83);
+            this.btnLoginAdminRestrito.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoginAdminRestrito.Name = "btnLoginAdminRestrito";
-            this.btnLoginAdminRestrito.Size = new System.Drawing.Size(124, 23);
+            this.btnLoginAdminRestrito.Size = new System.Drawing.Size(124, 28);
             this.btnLoginAdminRestrito.TabIndex = 5;
             this.btnLoginAdminRestrito.Text = "Login Restrito";
             this.btnLoginAdminRestrito.UseVisualStyleBackColor = true;
@@ -108,7 +109,7 @@ namespace LivrariaFive.View
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(434, 254);
             this.label5.Name = "label5";
@@ -121,18 +122,18 @@ namespace LivrariaFive.View
             // maskTxtTelefoneCadastro
             // 
             this.maskTxtTelefoneCadastro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskTxtTelefoneCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskTxtTelefoneCadastro.Location = new System.Drawing.Point(769, 311);
-            this.maskTxtTelefoneCadastro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maskTxtTelefoneCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskTxtTelefoneCadastro.Location = new System.Drawing.Point(745, 311);
+            this.maskTxtTelefoneCadastro.Margin = new System.Windows.Forms.Padding(2);
             this.maskTxtTelefoneCadastro.Mask = "(00) 0 0000-0000 ";
             this.maskTxtTelefoneCadastro.Name = "maskTxtTelefoneCadastro";
-            this.maskTxtTelefoneCadastro.Size = new System.Drawing.Size(104, 23);
+            this.maskTxtTelefoneCadastro.Size = new System.Drawing.Size(128, 26);
             this.maskTxtTelefoneCadastro.TabIndex = 12;
             this.maskTxtTelefoneCadastro.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(660, 311);
             this.label9.Name = "label9";
@@ -144,15 +145,15 @@ namespace LivrariaFive.View
             // txtNomeCadastro
             // 
             this.txtNomeCadastro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNomeCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeCadastro.Location = new System.Drawing.Point(517, 254);
             this.txtNomeCadastro.Name = "txtNomeCadastro";
-            this.txtNomeCadastro.Size = new System.Drawing.Size(126, 23);
+            this.txtNomeCadastro.Size = new System.Drawing.Size(126, 26);
             this.txtNomeCadastro.TabIndex = 2;
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(434, 293);
             this.label8.Name = "label8";
@@ -164,28 +165,28 @@ namespace LivrariaFive.View
             // maskTxtCpfCadastro
             // 
             this.maskTxtCpfCadastro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskTxtCpfCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskTxtCpfCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskTxtCpfCadastro.Location = new System.Drawing.Point(517, 292);
-            this.maskTxtCpfCadastro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maskTxtCpfCadastro.Margin = new System.Windows.Forms.Padding(2);
             this.maskTxtCpfCadastro.Mask = "000,000,000-00";
             this.maskTxtCpfCadastro.Name = "maskTxtCpfCadastro";
-            this.maskTxtCpfCadastro.Size = new System.Drawing.Size(112, 23);
+            this.maskTxtCpfCadastro.Size = new System.Drawing.Size(126, 26);
             this.maskTxtCpfCadastro.TabIndex = 11;
             this.maskTxtCpfCadastro.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // txtEmailCadastro
             // 
             this.txtEmailCadastro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEmailCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmailCadastro.Location = new System.Drawing.Point(517, 376);
             this.txtEmailCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmailCadastro.Name = "txtEmailCadastro";
-            this.txtEmailCadastro.Size = new System.Drawing.Size(356, 23);
+            this.txtEmailCadastro.Size = new System.Drawing.Size(356, 26);
             this.txtEmailCadastro.TabIndex = 5;
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(434, 376);
             this.label6.Name = "label6";
@@ -196,7 +197,7 @@ namespace LivrariaFive.View
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(434, 335);
             this.label7.Name = "label7";
@@ -208,15 +209,15 @@ namespace LivrariaFive.View
             // txtSenhaCadastro
             // 
             this.txtSenhaCadastro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSenhaCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenhaCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenhaCadastro.Location = new System.Drawing.Point(517, 335);
             this.txtSenhaCadastro.Name = "txtSenhaCadastro";
-            this.txtSenhaCadastro.Size = new System.Drawing.Size(111, 23);
+            this.txtSenhaCadastro.Size = new System.Drawing.Size(126, 26);
             this.txtSenhaCadastro.TabIndex = 6;
             // 
             // label10
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(660, 254);
             this.label10.Name = "label10";
@@ -226,7 +227,7 @@ namespace LivrariaFive.View
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(434, 411);
             this.label11.Name = "label11";
@@ -237,37 +238,38 @@ namespace LivrariaFive.View
             // dtpDataNascimentoCadastro
             // 
             this.dtpDataNascimentoCadastro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpDataNascimentoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataNascimentoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataNascimentoCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataNascimentoCadastro.Location = new System.Drawing.Point(769, 268);
+            this.dtpDataNascimentoCadastro.Location = new System.Drawing.Point(767, 268);
             this.dtpDataNascimentoCadastro.Name = "dtpDataNascimentoCadastro";
-            this.dtpDataNascimentoCadastro.Size = new System.Drawing.Size(104, 23);
+            this.dtpDataNascimentoCadastro.Size = new System.Drawing.Size(106, 26);
             this.dtpDataNascimentoCadastro.TabIndex = 1;
             // 
             // txtEnderecoCadastro
             // 
-            this.txtEnderecoCadastro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtEnderecoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEnderecoCadastro.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEnderecoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEnderecoCadastro.Location = new System.Drawing.Point(517, 411);
             this.txtEnderecoCadastro.Name = "txtEnderecoCadastro";
-            this.txtEnderecoCadastro.Size = new System.Drawing.Size(356, 23);
+            this.txtEnderecoCadastro.Size = new System.Drawing.Size(356, 26);
             this.txtEnderecoCadastro.TabIndex = 1;
             // 
             // btnCadastrarUser
             // 
-            this.btnCadastrarUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCadastrarUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCadastrarUser.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCadastrarUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarUser.Location = new System.Drawing.Point(627, 478);
             this.btnCadastrarUser.Name = "btnCadastrarUser";
             this.btnCadastrarUser.Size = new System.Drawing.Size(85, 30);
             this.btnCadastrarUser.TabIndex = 5;
             this.btnCadastrarUser.Text = "Cadastrar";
-            this.btnCadastrarUser.UseVisualStyleBackColor = true;
+            this.btnCadastrarUser.UseVisualStyleBackColor = false;
             this.btnCadastrarUser.Click += new System.EventHandler(this.btnCadastrarUser_Click);
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label3.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(56, 298);
@@ -279,7 +281,7 @@ namespace LivrariaFive.View
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label4.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(58, 364);
@@ -292,7 +294,7 @@ namespace LivrariaFive.View
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label1.Font = new System.Drawing.Font("Ink Free", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -330,6 +332,7 @@ namespace LivrariaFive.View
             // 
             // label12
             // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label12.Location = new System.Drawing.Point(25, 144);
             this.label12.Name = "label12";
@@ -338,6 +341,7 @@ namespace LivrariaFive.View
             // 
             // label13
             // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label13.Location = new System.Drawing.Point(23, 143);
             this.label13.Name = "label13";
@@ -346,6 +350,7 @@ namespace LivrariaFive.View
             // 
             // label14
             // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label14.Location = new System.Drawing.Point(0, -1);
             this.label14.Name = "label14";
@@ -354,6 +359,7 @@ namespace LivrariaFive.View
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(9, 13);
@@ -365,6 +371,7 @@ namespace LivrariaFive.View
             // 
             // label15
             // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label15.Font = new System.Drawing.Font("Ink Free", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));

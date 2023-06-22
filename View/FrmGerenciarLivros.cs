@@ -317,5 +317,25 @@ namespace LivrariaFive.View
                 MessageBox.Show("Nenhum livro selecionado para editar.");
             }
         }
+
+        private void txtIsbn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPreco_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIdioma_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

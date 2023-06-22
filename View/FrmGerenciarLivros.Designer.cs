@@ -70,7 +70,7 @@ namespace LivrariaFive.View
             this.dgvMostrarLivros.AllowUserToAddRows = false;
             this.dgvMostrarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvMostrarLivros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMostrarLivros.Location = new System.Drawing.Point(409, 0);
+            this.dgvMostrarLivros.Location = new System.Drawing.Point(432, 0);
             this.dgvMostrarLivros.Name = "dgvMostrarLivros";
             this.dgvMostrarLivros.RowHeadersWidth = 51;
             this.dgvMostrarLivros.Size = new System.Drawing.Size(740, 631);
@@ -80,7 +80,8 @@ namespace LivrariaFive.View
             // btnCadastrarLivroGerenciarLivros
             // 
             this.btnCadastrarLivroGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCadastrarLivroGerenciarLivros.Location = new System.Drawing.Point(27, 22);
+            this.btnCadastrarLivroGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarLivroGerenciarLivros.Location = new System.Drawing.Point(50, 22);
             this.btnCadastrarLivroGerenciarLivros.Name = "btnCadastrarLivroGerenciarLivros";
             this.btnCadastrarLivroGerenciarLivros.Size = new System.Drawing.Size(104, 29);
             this.btnCadastrarLivroGerenciarLivros.TabIndex = 1;
@@ -91,9 +92,10 @@ namespace LivrariaFive.View
             // btnVolta
             // 
             this.btnVolta.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnVolta.Location = new System.Drawing.Point(220, 22);
+            this.btnVolta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolta.Location = new System.Drawing.Point(243, 22);
             this.btnVolta.Name = "btnVolta";
-            this.btnVolta.Size = new System.Drawing.Size(158, 27);
+            this.btnVolta.Size = new System.Drawing.Size(158, 29);
             this.btnVolta.TabIndex = 2;
             this.btnVolta.Text = "Voltar para página anterior";
             this.btnVolta.UseVisualStyleBackColor = true;
@@ -102,11 +104,11 @@ namespace LivrariaFive.View
             // txtId
             // 
             this.txtId.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(233, 87);
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(256, 87);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(100, 22);
+            this.txtId.Size = new System.Drawing.Size(143, 26);
             this.txtId.TabIndex = 3;
             // 
             // lblIdGerenciarLivros
@@ -114,9 +116,10 @@ namespace LivrariaFive.View
             this.lblIdGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdGerenciarLivros.AutoSize = true;
             this.lblIdGerenciarLivros.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblIdGerenciarLivros.Location = new System.Drawing.Point(231, 68);
+            this.lblIdGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdGerenciarLivros.Location = new System.Drawing.Point(254, 68);
             this.lblIdGerenciarLivros.Name = "lblIdGerenciarLivros";
-            this.lblIdGerenciarLivros.Size = new System.Drawing.Size(24, 13);
+            this.lblIdGerenciarLivros.Size = new System.Drawing.Size(30, 18);
             this.lblIdGerenciarLivros.TabIndex = 4;
             this.lblIdGerenciarLivros.Text = "ID: ";
             // 
@@ -125,10 +128,10 @@ namespace LivrariaFive.View
             this.lblTituloGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTituloGerenciarLivros.AutoSize = true;
             this.lblTituloGerenciarLivros.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblTituloGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloGerenciarLivros.Location = new System.Drawing.Point(230, 130);
+            this.lblTituloGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloGerenciarLivros.Location = new System.Drawing.Point(254, 126);
             this.lblTituloGerenciarLivros.Name = "lblTituloGerenciarLivros";
-            this.lblTituloGerenciarLivros.Size = new System.Drawing.Size(44, 16);
+            this.lblTituloGerenciarLivros.Size = new System.Drawing.Size(48, 18);
             this.lblTituloGerenciarLivros.TabIndex = 5;
             this.lblTituloGerenciarLivros.Text = "Titulo:";
             // 
@@ -137,10 +140,10 @@ namespace LivrariaFive.View
             this.lblIsbnGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIsbnGerenciarLivros.AutoSize = true;
             this.lblIsbnGerenciarLivros.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblIsbnGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsbnGerenciarLivros.Location = new System.Drawing.Point(27, 147);
+            this.lblIsbnGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsbnGerenciarLivros.Location = new System.Drawing.Point(51, 143);
             this.lblIsbnGerenciarLivros.Name = "lblIsbnGerenciarLivros";
-            this.lblIsbnGerenciarLivros.Size = new System.Drawing.Size(42, 16);
+            this.lblIsbnGerenciarLivros.Size = new System.Drawing.Size(46, 18);
             this.lblIsbnGerenciarLivros.TabIndex = 6;
             this.lblIsbnGerenciarLivros.Text = "ISBN:";
             // 
@@ -149,10 +152,10 @@ namespace LivrariaFive.View
             this.lblAnoPublicacaoGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblAnoPublicacaoGerenciarLivros.AutoSize = true;
             this.lblAnoPublicacaoGerenciarLivros.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblAnoPublicacaoGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAnoPublicacaoGerenciarLivros.Location = new System.Drawing.Point(231, 254);
+            this.lblAnoPublicacaoGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnoPublicacaoGerenciarLivros.Location = new System.Drawing.Point(255, 250);
             this.lblAnoPublicacaoGerenciarLivros.Name = "lblAnoPublicacaoGerenciarLivros";
-            this.lblAnoPublicacaoGerenciarLivros.Size = new System.Drawing.Size(125, 16);
+            this.lblAnoPublicacaoGerenciarLivros.Size = new System.Drawing.Size(135, 18);
             this.lblAnoPublicacaoGerenciarLivros.TabIndex = 7;
             this.lblAnoPublicacaoGerenciarLivros.Text = "Ano de Publicação:";
             // 
@@ -161,10 +164,10 @@ namespace LivrariaFive.View
             this.lblIdEditora.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdEditora.AutoSize = true;
             this.lblIdEditora.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblIdEditora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdEditora.Location = new System.Drawing.Point(230, 361);
+            this.lblIdEditora.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdEditora.Location = new System.Drawing.Point(254, 357);
             this.lblIdEditora.Name = "lblIdEditora";
-            this.lblIdEditora.Size = new System.Drawing.Size(54, 16);
+            this.lblIdEditora.Size = new System.Drawing.Size(59, 18);
             this.lblIdEditora.TabIndex = 8;
             this.lblIdEditora.Text = "Editora:";
             // 
@@ -173,10 +176,10 @@ namespace LivrariaFive.View
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(29, 400);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(53, 396);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 16);
+            this.label6.Size = new System.Drawing.Size(80, 18);
             this.label6.TabIndex = 9;
             this.label6.Text = "Descrição:";
             // 
@@ -185,10 +188,10 @@ namespace LivrariaFive.View
             this.lblGeneroGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblGeneroGerenciarLivros.AutoSize = true;
             this.lblGeneroGerenciarLivros.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblGeneroGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGeneroGerenciarLivros.Location = new System.Drawing.Point(26, 341);
+            this.lblGeneroGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGeneroGerenciarLivros.Location = new System.Drawing.Point(50, 337);
             this.lblGeneroGerenciarLivros.Name = "lblGeneroGerenciarLivros";
-            this.lblGeneroGerenciarLivros.Size = new System.Drawing.Size(56, 16);
+            this.lblGeneroGerenciarLivros.Size = new System.Drawing.Size(62, 18);
             this.lblGeneroGerenciarLivros.TabIndex = 10;
             this.lblGeneroGerenciarLivros.Text = "Gênero:";
             // 
@@ -197,10 +200,10 @@ namespace LivrariaFive.View
             this.lblPrecoGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPrecoGerenciarLivros.AutoSize = true;
             this.lblPrecoGerenciarLivros.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblPrecoGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecoGerenciarLivros.Location = new System.Drawing.Point(26, 211);
+            this.lblPrecoGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecoGerenciarLivros.Location = new System.Drawing.Point(50, 207);
             this.lblPrecoGerenciarLivros.Name = "lblPrecoGerenciarLivros";
-            this.lblPrecoGerenciarLivros.Size = new System.Drawing.Size(47, 16);
+            this.lblPrecoGerenciarLivros.Size = new System.Drawing.Size(52, 18);
             this.lblPrecoGerenciarLivros.TabIndex = 11;
             this.lblPrecoGerenciarLivros.Text = "Preço:";
             // 
@@ -209,10 +212,10 @@ namespace LivrariaFive.View
             this.lblEstoqueGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEstoqueGerenciarLivros.AutoSize = true;
             this.lblEstoqueGerenciarLivros.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblEstoqueGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstoqueGerenciarLivros.Location = new System.Drawing.Point(228, 308);
+            this.lblEstoqueGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstoqueGerenciarLivros.Location = new System.Drawing.Point(252, 304);
             this.lblEstoqueGerenciarLivros.Name = "lblEstoqueGerenciarLivros";
-            this.lblEstoqueGerenciarLivros.Size = new System.Drawing.Size(64, 16);
+            this.lblEstoqueGerenciarLivros.Size = new System.Drawing.Size(71, 18);
             this.lblEstoqueGerenciarLivros.TabIndex = 12;
             this.lblEstoqueGerenciarLivros.Text = "Estoque: ";
             // 
@@ -221,10 +224,10 @@ namespace LivrariaFive.View
             this.lblImagemLivro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblImagemLivro.AutoSize = true;
             this.lblImagemLivro.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblImagemLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImagemLivro.Location = new System.Drawing.Point(142, 463);
+            this.lblImagemLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImagemLivro.Location = new System.Drawing.Point(166, 459);
             this.lblImagemLivro.Name = "lblImagemLivro";
-            this.lblImagemLivro.Size = new System.Drawing.Size(111, 16);
+            this.lblImagemLivro.Size = new System.Drawing.Size(122, 18);
             this.lblImagemLivro.TabIndex = 13;
             this.lblImagemLivro.Text = "Imagem do Livro:";
             // 
@@ -233,98 +236,101 @@ namespace LivrariaFive.View
             this.lblIdiomaGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdiomaGerenciarLivros.AutoSize = true;
             this.lblIdiomaGerenciarLivros.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblIdiomaGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdiomaGerenciarLivros.Location = new System.Drawing.Point(26, 271);
+            this.lblIdiomaGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdiomaGerenciarLivros.Location = new System.Drawing.Point(50, 267);
             this.lblIdiomaGerenciarLivros.Name = "lblIdiomaGerenciarLivros";
-            this.lblIdiomaGerenciarLivros.Size = new System.Drawing.Size(52, 16);
+            this.lblIdiomaGerenciarLivros.Size = new System.Drawing.Size(56, 18);
             this.lblIdiomaGerenciarLivros.TabIndex = 14;
             this.lblIdiomaGerenciarLivros.Text = "Idioma:";
             // 
             // txtTitulo
             // 
             this.txtTitulo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitulo.Location = new System.Drawing.Point(233, 147);
+            this.txtTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitulo.Location = new System.Drawing.Point(256, 147);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(100, 22);
+            this.txtTitulo.Size = new System.Drawing.Size(143, 26);
             this.txtTitulo.TabIndex = 15;
             // 
             // txtIsbn
             // 
             this.txtIsbn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtIsbn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIsbn.Location = new System.Drawing.Point(27, 165);
+            this.txtIsbn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIsbn.Location = new System.Drawing.Point(50, 165);
             this.txtIsbn.Name = "txtIsbn";
-            this.txtIsbn.Size = new System.Drawing.Size(100, 22);
+            this.txtIsbn.Size = new System.Drawing.Size(100, 26);
             this.txtIsbn.TabIndex = 16;
+            this.txtIsbn.TextChanged += new System.EventHandler(this.txtIsbn_TextChanged);
             // 
             // txtAnoPublicacao
             // 
             this.txtAnoPublicacao.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAnoPublicacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnoPublicacao.Location = new System.Drawing.Point(230, 271);
+            this.txtAnoPublicacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAnoPublicacao.Location = new System.Drawing.Point(253, 271);
             this.txtAnoPublicacao.Name = "txtAnoPublicacao";
-            this.txtAnoPublicacao.Size = new System.Drawing.Size(100, 22);
+            this.txtAnoPublicacao.Size = new System.Drawing.Size(146, 26);
             this.txtAnoPublicacao.TabIndex = 17;
             // 
             // txtPreco
             // 
             this.txtPreco.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPreco.Location = new System.Drawing.Point(29, 226);
+            this.txtPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPreco.Location = new System.Drawing.Point(52, 226);
             this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(100, 22);
+            this.txtPreco.Size = new System.Drawing.Size(100, 26);
             this.txtPreco.TabIndex = 18;
+            this.txtPreco.TextChanged += new System.EventHandler(this.txtPreco_TextChanged);
             // 
             // txtEstoque
             // 
             this.txtEstoque.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstoque.Location = new System.Drawing.Point(230, 323);
+            this.txtEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEstoque.Location = new System.Drawing.Point(253, 323);
             this.txtEstoque.Name = "txtEstoque";
-            this.txtEstoque.Size = new System.Drawing.Size(100, 22);
+            this.txtEstoque.Size = new System.Drawing.Size(146, 26);
             this.txtEstoque.TabIndex = 19;
             // 
             // txtIdioma
             // 
             this.txtIdioma.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdioma.Location = new System.Drawing.Point(29, 287);
+            this.txtIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdioma.Location = new System.Drawing.Point(52, 287);
             this.txtIdioma.Name = "txtIdioma";
-            this.txtIdioma.Size = new System.Drawing.Size(100, 22);
+            this.txtIdioma.Size = new System.Drawing.Size(100, 26);
             this.txtIdioma.TabIndex = 21;
+            this.txtIdioma.TextChanged += new System.EventHandler(this.txtIdioma_TextChanged);
             // 
             // txtDescricao
             // 
             this.txtDescricao.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescricao.Location = new System.Drawing.Point(29, 416);
+            this.txtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescricao.Location = new System.Drawing.Point(52, 416);
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(352, 22);
+            this.txtDescricao.Size = new System.Drawing.Size(347, 26);
             this.txtDescricao.TabIndex = 22;
             // 
             // txtGenero
             // 
             this.txtGenero.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGenero.Location = new System.Drawing.Point(29, 357);
+            this.txtGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGenero.Location = new System.Drawing.Point(52, 357);
             this.txtGenero.Name = "txtGenero";
-            this.txtGenero.Size = new System.Drawing.Size(100, 22);
+            this.txtGenero.Size = new System.Drawing.Size(100, 26);
             this.txtGenero.TabIndex = 23;
             // 
             // txtEditora
             // 
             this.txtEditora.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEditora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditora.Location = new System.Drawing.Point(231, 378);
+            this.txtEditora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEditora.Location = new System.Drawing.Point(254, 378);
             this.txtEditora.Name = "txtEditora";
-            this.txtEditora.Size = new System.Drawing.Size(100, 22);
+            this.txtEditora.Size = new System.Drawing.Size(145, 26);
             this.txtEditora.TabIndex = 24;
             // 
             // pbFotoLivroGerenciarLivros
             // 
             this.pbFotoLivroGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbFotoLivroGerenciarLivros.Location = new System.Drawing.Point(146, 482);
+            this.pbFotoLivroGerenciarLivros.Location = new System.Drawing.Point(169, 482);
             this.pbFotoLivroGerenciarLivros.Name = "pbFotoLivroGerenciarLivros";
             this.pbFotoLivroGerenciarLivros.Size = new System.Drawing.Size(100, 137);
             this.pbFotoLivroGerenciarLivros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -334,9 +340,10 @@ namespace LivrariaFive.View
             // btnEditarFotoGerenciarLivros
             // 
             this.btnEditarFotoGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEditarFotoGerenciarLivros.Location = new System.Drawing.Point(27, 536);
+            this.btnEditarFotoGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarFotoGerenciarLivros.Location = new System.Drawing.Point(50, 536);
             this.btnEditarFotoGerenciarLivros.Name = "btnEditarFotoGerenciarLivros";
-            this.btnEditarFotoGerenciarLivros.Size = new System.Drawing.Size(89, 36);
+            this.btnEditarFotoGerenciarLivros.Size = new System.Drawing.Size(89, 30);
             this.btnEditarFotoGerenciarLivros.TabIndex = 28;
             this.btnEditarFotoGerenciarLivros.Text = "Editar Foto";
             this.btnEditarFotoGerenciarLivros.UseVisualStyleBackColor = true;
@@ -345,7 +352,8 @@ namespace LivrariaFive.View
             // btnLimparTextBox
             // 
             this.btnLimparTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLimparTextBox.Location = new System.Drawing.Point(27, 97);
+            this.btnLimparTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimparTextBox.Location = new System.Drawing.Point(50, 97);
             this.btnLimparTextBox.Name = "btnLimparTextBox";
             this.btnLimparTextBox.Size = new System.Drawing.Size(104, 29);
             this.btnLimparTextBox.TabIndex = 29;
@@ -356,7 +364,8 @@ namespace LivrariaFive.View
             // btnSalvarAlteracoesGerenciarLivros
             // 
             this.btnSalvarAlteracoesGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalvarAlteracoesGerenciarLivros.Location = new System.Drawing.Point(27, 56);
+            this.btnSalvarAlteracoesGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvarAlteracoesGerenciarLivros.Location = new System.Drawing.Point(50, 56);
             this.btnSalvarAlteracoesGerenciarLivros.Name = "btnSalvarAlteracoesGerenciarLivros";
             this.btnSalvarAlteracoesGerenciarLivros.Size = new System.Drawing.Size(104, 29);
             this.btnSalvarAlteracoesGerenciarLivros.TabIndex = 30;
@@ -367,11 +376,11 @@ namespace LivrariaFive.View
             // txtAutorGerenciarLivros
             // 
             this.txtAutorGerenciarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAutorGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAutorGerenciarLivros.Location = new System.Drawing.Point(230, 206);
+            this.txtAutorGerenciarLivros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAutorGerenciarLivros.Location = new System.Drawing.Point(253, 206);
             this.txtAutorGerenciarLivros.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtAutorGerenciarLivros.Name = "txtAutorGerenciarLivros";
-            this.txtAutorGerenciarLivros.Size = new System.Drawing.Size(102, 22);
+            this.txtAutorGerenciarLivros.Size = new System.Drawing.Size(146, 26);
             this.txtAutorGerenciarLivros.TabIndex = 31;
             // 
             // lblAutor
@@ -379,27 +388,29 @@ namespace LivrariaFive.View
             this.lblAutor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblAutor.AutoSize = true;
             this.lblAutor.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.lblAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAutor.Location = new System.Drawing.Point(230, 189);
+            this.lblAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAutor.Location = new System.Drawing.Point(254, 185);
             this.lblAutor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAutor.Name = "lblAutor";
-            this.lblAutor.Size = new System.Drawing.Size(42, 16);
+            this.lblAutor.Size = new System.Drawing.Size(47, 18);
             this.lblAutor.TabIndex = 32;
             this.lblAutor.Text = "Autor:";
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Location = new System.Drawing.Point(-2, 0);
+            this.label1.Location = new System.Drawing.Point(21, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(415, 631);
             this.label1.TabIndex = 33;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // FrmGerenciarLivros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 631);
+            this.ClientSize = new System.Drawing.Size(1195, 631);
             this.Controls.Add(this.lblAutor);
             this.Controls.Add(this.txtAutorGerenciarLivros);
             this.Controls.Add(this.btnSalvarAlteracoesGerenciarLivros);
