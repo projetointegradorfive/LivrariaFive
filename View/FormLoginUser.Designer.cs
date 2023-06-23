@@ -59,7 +59,9 @@ namespace LivrariaFive.View
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.verSenha = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verSenha)).BeginInit();
             this.SuspendLayout();
             // 
             // txtEmail
@@ -68,7 +70,7 @@ namespace LivrariaFive.View
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(121, 295);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(215, 26);
+            this.txtEmail.Size = new System.Drawing.Size(243, 26);
             this.txtEmail.TabIndex = 4;
             // 
             // txtSenhaLogin
@@ -117,7 +119,6 @@ namespace LivrariaFive.View
             this.label5.TabIndex = 1;
             this.label5.Text = "Nome:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // maskTxtTelefoneCadastro
             // 
@@ -381,11 +382,25 @@ namespace LivrariaFive.View
             this.label15.TabIndex = 20;
             this.label15.Text = "Five Books";
             // 
+            // verSenha
+            // 
+            this.verSenha.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.verSenha.Image = ((System.Drawing.Image)(resources.GetObject("verSenha.Image")));
+            this.verSenha.Location = new System.Drawing.Point(333, 364);
+            this.verSenha.Margin = new System.Windows.Forms.Padding(2);
+            this.verSenha.Name = "verSenha";
+            this.verSenha.Size = new System.Drawing.Size(31, 26);
+            this.verSenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.verSenha.TabIndex = 21;
+            this.verSenha.TabStop = false;
+            this.verSenha.Click += new System.EventHandler(this.verSenha_Click);
+            // 
             // FormLoginUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 572);
+            this.Controls.Add(this.verSenha);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label14);
@@ -420,6 +435,7 @@ namespace LivrariaFive.View
             this.Name = "FormLoginUser";
             this.Text = "FormLoginUser";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verSenha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,5 +471,6 @@ namespace LivrariaFive.View
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.PictureBox verSenha;
     }
 }

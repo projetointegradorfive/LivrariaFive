@@ -175,6 +175,7 @@ namespace LivrariaFive.View
             {
                 txtSenhaLogin.UseSystemPasswordChar = true;
             }
+
         }
     }
 }
