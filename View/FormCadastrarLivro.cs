@@ -72,6 +72,15 @@ namespace LivrariaFive.View
             livro.Idioma = txtIdioma.Text;
             livro.Imagem = pbFoto.Image;
 
+            
+            byte[] byteArray;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                livro.Imagem.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                byteArray = ms.ToArray();
+            }
+            livro.img64 = Convert.ToBase64String(byteArray);
+
             // Adicionar os autores selecionados ao livro
             // Adicionar os autores selecionados ao livro
             livro.Autores = new List<Autor>();
@@ -165,23 +174,34 @@ namespace LivrariaFive.View
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.bmp";
             openFileDialog.Title = "Selecionar Imagem";
-
-            Livro livro = new Livro();
+            Livro livroSelecionado = new Livro();
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
                     string caminhoImagem = openFileDialog.FileName;
-                    Image imagem = Image.FromFile(caminhoImagem);
+                    Image novaImagem = Image.FromFile(caminhoImagem);
 
-                    // Exibir a imagem selecionada na PictureBox
-                    pbFoto.Image = imagem;
+                    // Remover a imagem existente, se houver
+                    if (pbFoto.Image != null)
+                    {
+                        pbFoto.Image.Dispose();
+                    }
 
-                    // Armazenar a imagem no livro
-                    livro.Imagem = imagem;
+                    // Exibir a nova imagem na PictureBox
+                    pbFoto.Image = novaImagem;
 
-                    MessageBox.Show("Imagem adicionada com sucesso!");
+                    // Armazenar a nova imagem no livro
+                    livroSelecionado.Imagem = novaImagem;
+                    byte[] byteArray;
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        novaImagem.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                        byteArray = ms.ToArray();
+                    }
+                    livroSelecionado.img64 = Convert.ToBase64String(byteArray);
+                    MessageBox.Show("Imagem editada com sucesso!");
                 }
                 catch (Exception ex)
                 {

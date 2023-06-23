@@ -24,7 +24,7 @@ namespace LivrariaFive.Controller
 
             {
                 //Convertendo imagem para guardar no banco
-                byte[] imagemBytes = ObterBytesImagem(livro.img64);
+                byte[] imagemBytes = Convert.FromBase64String(livro.img64);          
                 // Inserir o gênero
                 GeneroController generoController = new GeneroController();
                 Genero genero = generoController.ObterGeneroPorNome(livro.Genero);
@@ -65,7 +65,8 @@ namespace LivrariaFive.Controller
                 command.Parameters.AddWithValue("@Idioma", livro.Idioma);
                 command.Parameters.AddWithValue("@IdEditora", editoraId);
                 command.Parameters.AddWithValue("@IdGenero", generoId);
-                command.Parameters.Add("@Imagem", SqlDbType.VarBinary).Value = (object)imagemBytes ?? DBNull.Value;
+                command.Parameters.Add("@Imagem", SqlDbType.VarBinary).Value = imagemBytes != null ? (object)imagemBytes : DBNull.Value;
+
 
 
                 connection.Open();
@@ -101,8 +102,8 @@ namespace LivrariaFive.Controller
 
             }
         }
-
-        public byte[] ObterBytesImagem(string imagemBase64)
+ 
+            public byte[] ObterBytesImagem(string imagemBase64)
         {
             byte[] imagemBytes = null;
 
