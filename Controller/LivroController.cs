@@ -24,7 +24,7 @@ namespace LivrariaFive.Controller
 
             {
                 //Convertendo imagem para guardar no banco
-                byte[] imagemBytes = ObterBytesImagem(livro.Imagem);
+                byte[] imagemBytes = ObterBytesImagem(livro.img64);
                 // Inserir o gênero
                 GeneroController generoController = new GeneroController();
                 Genero genero = generoController.ObterGeneroPorNome(livro.Genero);
@@ -102,21 +102,30 @@ namespace LivrariaFive.Controller
             }
         }
 
-        public byte[] ObterBytesImagem(Image imagem)
+        public byte[] ObterBytesImagem(string imagemBase64)
         {
             byte[] imagemBytes = null;
 
-            if (imagem != null)
+            if (!string.IsNullOrEmpty(imagemBase64))
             {
-                using (MemoryStream ms = new MemoryStream())
+                byte[] bytes = Convert.FromBase64String(imagemBase64);
+
+                using (MemoryStream ms = new MemoryStream(bytes))
                 {
-                    imagem.Save(ms, imagem.RawFormat);
-                    imagemBytes = ms.ToArray();
+                    using (Image imagem = Image.FromStream(ms))
+                    {
+                        using (MemoryStream msOutput = new MemoryStream())
+                        {
+                            imagem.Save(msOutput, imagem.RawFormat);
+                            imagemBytes = msOutput.ToArray();
+                        }
+                    }
                 }
             }
 
             return imagemBytes;
         }
+
 
 
 
@@ -255,7 +264,11 @@ namespace LivrariaFive.Controller
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                byte[] imagemBytes = ObterBytesImagem(livro.Imagem);
+                byte[] imagemBytes = null;
+                if (livro.Imagem != null)
+                {
+                    imagemBytes = ObterBytesImagem(livro.img64);
+                }
                 AutorController autorController = new AutorController();
                 List<int> autorIds = new List<int>();
 

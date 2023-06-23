@@ -188,7 +188,13 @@ namespace LivrariaFive.View
 
                     // Armazenar a nova imagem no livro
                     livroSelecionado.Imagem = novaImagem;
-
+                    byte[] byteArray;
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        novaImagem.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                        byteArray = ms.ToArray();
+                    }
+                    livroSelecionado.img64 = Convert.ToBase64String(byteArray);
                     MessageBox.Show("Imagem editada com sucesso!");
                 }
                 catch (Exception ex)

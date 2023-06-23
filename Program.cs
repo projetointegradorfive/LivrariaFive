@@ -23,7 +23,7 @@ namespace LivrariaFive.View
 
 
             //Application.Run(new LivroForm(clienteAtual));
-            Application.Run(new FormLoginUser());
+            Application.Run(new FrmGerenciarLivros());
         }
     }
 }
