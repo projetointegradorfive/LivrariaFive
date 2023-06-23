@@ -97,12 +97,12 @@ namespace LivrariaFive.View
             // 
             this.btnVolta.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnVolta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolta.Location = new System.Drawing.Point(320, 13);
+            this.btnVolta.Location = new System.Drawing.Point(337, 13);
             this.btnVolta.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolta.Name = "btnVolta";
-            this.btnVolta.Size = new System.Drawing.Size(211, 36);
+            this.btnVolta.Size = new System.Drawing.Size(194, 36);
             this.btnVolta.TabIndex = 2;
-            this.btnVolta.Text = "Voltar para página anterior";
+            this.btnVolta.Text = "Voltar";
             this.btnVolta.UseVisualStyleBackColor = true;
             this.btnVolta.Click += new System.EventHandler(this.btnVolta_Click);
             // 
@@ -381,10 +381,10 @@ namespace LivrariaFive.View
             // 
             this.btnLimparTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLimparTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimparTextBox.Location = new System.Drawing.Point(320, 57);
+            this.btnLimparTextBox.Location = new System.Drawing.Point(337, 57);
             this.btnLimparTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimparTextBox.Name = "btnLimparTextBox";
-            this.btnLimparTextBox.Size = new System.Drawing.Size(211, 36);
+            this.btnLimparTextBox.Size = new System.Drawing.Size(194, 36);
             this.btnLimparTextBox.TabIndex = 29;
             this.btnLimparTextBox.Text = "Limpar TextBox";
             this.btnLimparTextBox.UseVisualStyleBackColor = true;
@@ -429,7 +429,7 @@ namespace LivrariaFive.View
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Location = new System.Drawing.Point(28, 0);
+            this.label1.Location = new System.Drawing.Point(24, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(553, 777);
@@ -445,7 +445,7 @@ namespace LivrariaFive.View
             this.btnExcluirGerenciarLivros.Name = "btnExcluirGerenciarLivros";
             this.btnExcluirGerenciarLivros.Size = new System.Drawing.Size(139, 36);
             this.btnExcluirGerenciarLivros.TabIndex = 34;
-            this.btnExcluirGerenciarLivros.Text = "Apagar";
+            this.btnExcluirGerenciarLivros.Text = "Desativar";
             this.btnExcluirGerenciarLivros.UseVisualStyleBackColor = true;
             this.btnExcluirGerenciarLivros.Click += new System.EventHandler(this.btnExcluirGerenciarLivros_Click);
             // 
@@ -458,7 +458,7 @@ namespace LivrariaFive.View
             this.btnReativa.Name = "btnReativa";
             this.btnReativa.Size = new System.Drawing.Size(139, 36);
             this.btnReativa.TabIndex = 35;
-            this.btnReativa.Text = "Reativar";
+            this.btnReativa.Text = "Ativar";
             this.btnReativa.UseVisualStyleBackColor = true;
             this.btnReativa.Click += new System.EventHandler(this.btnReativa_Click);
             // 
@@ -503,7 +503,7 @@ namespace LivrariaFive.View
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmGerenciarLivros";
-            this.Text = "FrmGerenciarLivros";
+            this.Text = "Gerenciador de Livros";
             this.Load += new System.EventHandler(this.FrmGerenciarLivros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarLivros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoLivroGerenciarLivros)).EndInit();

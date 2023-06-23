@@ -34,9 +34,10 @@ namespace LivrariaFive.View
             // 
             // btnGerarBoleto
             // 
-            this.btnGerarBoleto.Location = new System.Drawing.Point(46, 72);
+            this.btnGerarBoleto.Location = new System.Drawing.Point(61, 89);
+            this.btnGerarBoleto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGerarBoleto.Name = "btnGerarBoleto";
-            this.btnGerarBoleto.Size = new System.Drawing.Size(241, 58);
+            this.btnGerarBoleto.Size = new System.Drawing.Size(321, 71);
             this.btnGerarBoleto.TabIndex = 4;
             this.btnGerarBoleto.Tag = "GerarBoleto";
             this.btnGerarBoleto.Text = "Gerar Boleto";
@@ -45,14 +46,15 @@ namespace LivrariaFive.View
             // 
             // FormBoleto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 196);
+            this.ClientSize = new System.Drawing.Size(447, 241);
             this.Controls.Add(this.btnGerarBoleto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FormBoleto";
-            this.Text = "FormBoleto";
+            this.Text = "Forma de Pagamento Boleto";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormBoleto_FormClosed);
             this.ResumeLayout(false);
 

@@ -46,9 +46,11 @@ namespace LivrariaFive.View
             this.dgvFaturamento.AllowUserToAddRows = false;
             this.dgvFaturamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFaturamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFaturamento.Location = new System.Drawing.Point(35, 84);
+            this.dgvFaturamento.Location = new System.Drawing.Point(47, 103);
+            this.dgvFaturamento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvFaturamento.Name = "dgvFaturamento";
-            this.dgvFaturamento.Size = new System.Drawing.Size(869, 398);
+            this.dgvFaturamento.RowHeadersWidth = 51;
+            this.dgvFaturamento.Size = new System.Drawing.Size(1159, 490);
             this.dgvFaturamento.TabIndex = 12;
             this.dgvFaturamento.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvFaturamento_CellFormatting);
             this.dgvFaturamento.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvFaturamento_CellPainting);
@@ -57,27 +59,30 @@ namespace LivrariaFive.View
             // 
             this.dtpDataInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataInicial.Location = new System.Drawing.Point(169, 38);
+            this.dtpDataInicial.Location = new System.Drawing.Point(225, 47);
+            this.dtpDataInicial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDataInicial.Name = "dtpDataInicial";
-            this.dtpDataInicial.Size = new System.Drawing.Size(118, 29);
+            this.dtpDataInicial.Size = new System.Drawing.Size(156, 34);
             this.dtpDataInicial.TabIndex = 13;
             // 
             // dtpDataFinal
             // 
             this.dtpDataFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataFinal.Location = new System.Drawing.Point(318, 37);
+            this.dtpDataFinal.Location = new System.Drawing.Point(424, 46);
+            this.dtpDataFinal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDataFinal.Name = "dtpDataFinal";
-            this.dtpDataFinal.Size = new System.Drawing.Size(114, 29);
+            this.dtpDataFinal.Size = new System.Drawing.Size(151, 34);
             this.dtpDataFinal.TabIndex = 14;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(293, 41);
+            this.label1.Location = new System.Drawing.Point(391, 50);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 24);
+            this.label1.Size = new System.Drawing.Size(26, 29);
             this.label1.TabIndex = 15;
             this.label1.Text = "a";
             // 
@@ -85,9 +90,10 @@ namespace LivrariaFive.View
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(32, 39);
+            this.label2.Location = new System.Drawing.Point(43, 48);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 24);
+            this.label2.Size = new System.Drawing.Size(166, 29);
             this.label2.TabIndex = 16;
             this.label2.Text = "Período entre:";
             // 
@@ -97,9 +103,10 @@ namespace LivrariaFive.View
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(453, 37);
+            this.btnBuscar.Location = new System.Drawing.Point(604, 46);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(99, 30);
+            this.btnBuscar.Size = new System.Drawing.Size(132, 37);
             this.btnBuscar.TabIndex = 22;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -113,9 +120,10 @@ namespace LivrariaFive.View
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
             this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoltar.Location = new System.Drawing.Point(816, 30);
+            this.btnVoltar.Location = new System.Drawing.Point(1088, 37);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(88, 30);
+            this.btnVoltar.Size = new System.Drawing.Size(117, 37);
             this.btnVoltar.TabIndex = 23;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -127,9 +135,10 @@ namespace LivrariaFive.View
             this.btnVerTudo.BackColor = System.Drawing.Color.Transparent;
             this.btnVerTudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerTudo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerTudo.Location = new System.Drawing.Point(589, 38);
+            this.btnVerTudo.Location = new System.Drawing.Point(785, 47);
+            this.btnVerTudo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVerTudo.Name = "btnVerTudo";
-            this.btnVerTudo.Size = new System.Drawing.Size(103, 29);
+            this.btnVerTudo.Size = new System.Drawing.Size(137, 36);
             this.btnVerTudo.TabIndex = 24;
             this.btnVerTudo.Text = "Ver Tudo";
             this.btnVerTudo.UseVisualStyleBackColor = false;
@@ -137,9 +146,9 @@ namespace LivrariaFive.View
             // 
             // FormRelatorioFaturamento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 507);
+            this.ClientSize = new System.Drawing.Size(1247, 624);
             this.Controls.Add(this.btnVerTudo);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnBuscar);
@@ -148,8 +157,9 @@ namespace LivrariaFive.View
             this.Controls.Add(this.dtpDataFinal);
             this.Controls.Add(this.dtpDataInicial);
             this.Controls.Add(this.dgvFaturamento);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormRelatorioFaturamento";
-            this.Text = "FormRelatorioFaturamento";
+            this.Text = "Relatório do Faturamento da Livraria";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormRelatorioFaturamento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFaturamento)).EndInit();

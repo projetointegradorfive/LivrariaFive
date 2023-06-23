@@ -43,18 +43,20 @@ namespace LivrariaFive.View
             // txtAnoNascimentoCliente
             // 
             this.txtAnoNascimentoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnoNascimentoCliente.Location = new System.Drawing.Point(543, 19);
+            this.txtAnoNascimentoCliente.Location = new System.Drawing.Point(724, 23);
+            this.txtAnoNascimentoCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAnoNascimentoCliente.Name = "txtAnoNascimentoCliente";
-            this.txtAnoNascimentoCliente.Size = new System.Drawing.Size(109, 29);
+            this.txtAnoNascimentoCliente.Size = new System.Drawing.Size(144, 34);
             this.txtAnoNascimentoCliente.TabIndex = 20;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(355, 19);
+            this.label2.Location = new System.Drawing.Point(473, 23);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 24);
+            this.label2.Size = new System.Drawing.Size(229, 29);
             this.label2.TabIndex = 17;
             this.label2.Text = "Ano do Nascimento:";
             // 
@@ -62,18 +64,20 @@ namespace LivrariaFive.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 24);
+            this.label1.Location = new System.Drawing.Point(25, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 24);
+            this.label1.Size = new System.Drawing.Size(201, 29);
             this.label1.TabIndex = 15;
             this.label1.Text = "Nome do Cliente:";
             // 
             // txtNomeCliente
             // 
             this.txtNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeCliente.Location = new System.Drawing.Point(182, 21);
+            this.txtNomeCliente.Location = new System.Drawing.Point(243, 26);
+            this.txtNomeCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNomeCliente.Name = "txtNomeCliente";
-            this.txtNomeCliente.Size = new System.Drawing.Size(158, 29);
+            this.txtNomeCliente.Size = new System.Drawing.Size(209, 34);
             this.txtNomeCliente.TabIndex = 14;
             // 
             // dgvClientes
@@ -82,9 +86,11 @@ namespace LivrariaFive.View
             this.dgvClientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Location = new System.Drawing.Point(12, 61);
+            this.dgvClientes.Location = new System.Drawing.Point(16, 75);
+            this.dgvClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.Size = new System.Drawing.Size(940, 382);
+            this.dgvClientes.RowHeadersWidth = 51;
+            this.dgvClientes.Size = new System.Drawing.Size(1253, 470);
             this.dgvClientes.TabIndex = 11;
             // 
             // btnBuscar
@@ -93,9 +99,10 @@ namespace LivrariaFive.View
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(679, 17);
+            this.btnBuscar.Location = new System.Drawing.Point(905, 21);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(107, 31);
+            this.btnBuscar.Size = new System.Drawing.Size(143, 38);
             this.btnBuscar.TabIndex = 21;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -109,9 +116,10 @@ namespace LivrariaFive.View
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
             this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoltar.Location = new System.Drawing.Point(866, 12);
+            this.btnVoltar.Location = new System.Drawing.Point(1155, 15);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(86, 30);
+            this.btnVoltar.Size = new System.Drawing.Size(115, 37);
             this.btnVoltar.TabIndex = 22;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -120,9 +128,9 @@ namespace LivrariaFive.View
             // 
             // FormRelatorioClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 469);
+            this.ClientSize = new System.Drawing.Size(1285, 577);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtAnoNascimentoCliente);
@@ -130,8 +138,9 @@ namespace LivrariaFive.View
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNomeCliente);
             this.Controls.Add(this.dgvClientes);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormRelatorioClientes";
-            this.Text = "FormRelatorioClientes";
+            this.Text = "Relatório dos Clientes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormRelatorioClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
