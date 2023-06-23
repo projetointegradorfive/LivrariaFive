@@ -153,7 +153,7 @@ namespace LivrariaFive.Controller
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
                 string query = @"SELECT l.idLivro, l.Titulo, l.Isbn, l.AnoPublicacao, l.Preco, l.Estoque, l.Descricao, l.Idioma, 
-                                g.Nome AS Genero, e.Nome AS Editora, a.Nome AS Autor, l.livroImagem
+                                g.Nome AS Genero, e.Nome AS Editora, a.Nome AS Autor, l.livroImagem, l.ativoLivro
                         FROM tbLivro l 
                         LEFT JOIN tbGenero g ON l.idGenero = g.IdGenero 
                         LEFT JOIN tbEditora e ON l.idEditora = e.IdEditora
@@ -186,6 +186,8 @@ namespace LivrariaFive.Controller
                             Genero = reader.GetString(8),
                             Editora = reader.GetString(9),
                             Autores = new List<Autor>(), // Inicializa a lista de autores
+                            Ativo = reader.GetBoolean(12)
+                            
                         };
 
                         if (!reader.IsDBNull(10))
@@ -202,6 +204,14 @@ namespace LivrariaFive.Controller
                                 livro.Imagem = Image.FromStream(ms);
                                 livro.img64 = Convert.ToBase64String(ms.ToArray());
                             }
+                        }
+                        if (!reader.IsDBNull(12)) // Índice da coluna "ativoLivro"
+                        {
+                            livro.Ativo = reader.GetBoolean(12); // Índice da coluna "ativoLivro"
+                        }
+                        else
+                        {
+                            livro.Ativo = false; // ou qualquer outro valor padrão que você desejar
                         }
 
                         livros.Add(livro);
@@ -245,19 +255,39 @@ namespace LivrariaFive.Controller
             }
         }
 
-        public Livro RemoverLivro(Livro livro)
+        public bool RemoverLivro(int idLivro)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "DELETE FROM tbLivro WHERE Id = @Id";
+                string query = "UPDATE tbLivro SET ativoLivro = @Ativo WHERE idlivro = @IdLivro";
 
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Id", livro.Id);
+                command.Parameters.AddWithValue("@Ativo", false); // Define o valor da coluna ativo como false
+                command.Parameters.AddWithValue("@IdLivro", idLivro);
 
                 connection.Open();
-                command.ExecuteNonQuery();
 
-                return livro;
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0; // Retorna true se pelo menos uma linha for afetada (cliente atualizado com sucesso)
+            }
+        }
+        
+        public bool AtivaLivro(int idLivro)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "UPDATE tbLivro SET ativoLivro = @Ativo WHERE idlivro = @IdLivro";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Ativo", true); // Define o valor da coluna ativo como false
+                command.Parameters.AddWithValue("@IdLivro", idLivro);
+
+                connection.Open();
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0; // Retorna true se pelo menos uma linha for afetada (cliente atualizado com sucesso)
             }
         }
 

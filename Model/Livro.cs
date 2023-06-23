@@ -30,6 +30,8 @@ namespace LivrariaFive.Model
 
         public string img64 { get; set; }
 
+        public bool Ativo { get; set; } = true;
+
         public Livro()
         {
         }
