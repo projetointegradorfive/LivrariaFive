@@ -45,20 +45,20 @@ namespace LivrariaFive.View
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(177, 27);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(236, 33);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(232, 165);
+            this.pictureBox1.Size = new System.Drawing.Size(309, 203);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // btnGerenciarUsuarios
             // 
-            this.btnGerenciarUsuarios.Location = new System.Drawing.Point(177, 219);
-            this.btnGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGerenciarUsuarios.Location = new System.Drawing.Point(236, 270);
+            this.btnGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGerenciarUsuarios.Name = "btnGerenciarUsuarios";
-            this.btnGerenciarUsuarios.Size = new System.Drawing.Size(110, 41);
+            this.btnGerenciarUsuarios.Size = new System.Drawing.Size(147, 50);
             this.btnGerenciarUsuarios.TabIndex = 3;
             this.btnGerenciarUsuarios.Text = "Gerenciar Usuários";
             this.btnGerenciarUsuarios.UseVisualStyleBackColor = true;
@@ -66,10 +66,10 @@ namespace LivrariaFive.View
             // 
             // btnGerenciarLivros
             // 
-            this.btnGerenciarLivros.Location = new System.Drawing.Point(299, 219);
-            this.btnGerenciarLivros.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGerenciarLivros.Location = new System.Drawing.Point(399, 270);
+            this.btnGerenciarLivros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGerenciarLivros.Name = "btnGerenciarLivros";
-            this.btnGerenciarLivros.Size = new System.Drawing.Size(110, 41);
+            this.btnGerenciarLivros.Size = new System.Drawing.Size(147, 50);
             this.btnGerenciarLivros.TabIndex = 4;
             this.btnGerenciarLivros.Text = "Gerenciar Livros";
             this.btnGerenciarLivros.UseVisualStyleBackColor = true;
@@ -77,10 +77,10 @@ namespace LivrariaFive.View
             // 
             // btnRelatórios
             // 
-            this.btnRelatórios.Location = new System.Drawing.Point(177, 279);
-            this.btnRelatórios.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRelatórios.Location = new System.Drawing.Point(236, 343);
+            this.btnRelatórios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRelatórios.Name = "btnRelatórios";
-            this.btnRelatórios.Size = new System.Drawing.Size(110, 41);
+            this.btnRelatórios.Size = new System.Drawing.Size(147, 50);
             this.btnRelatórios.TabIndex = 5;
             this.btnRelatórios.Text = "Relatório de vendas";
             this.btnRelatórios.UseVisualStyleBackColor = true;
@@ -89,10 +89,10 @@ namespace LivrariaFive.View
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(542, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Location = new System.Drawing.Point(723, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(75, 41);
+            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -100,10 +100,10 @@ namespace LivrariaFive.View
             // 
             // btnRelatorioClientes
             // 
-            this.btnRelatorioClientes.Location = new System.Drawing.Point(65, 279);
-            this.btnRelatorioClientes.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRelatorioClientes.Location = new System.Drawing.Point(87, 343);
+            this.btnRelatorioClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRelatorioClientes.Name = "btnRelatorioClientes";
-            this.btnRelatorioClientes.Size = new System.Drawing.Size(108, 41);
+            this.btnRelatorioClientes.Size = new System.Drawing.Size(144, 50);
             this.btnRelatorioClientes.TabIndex = 7;
             this.btnRelatorioClientes.Text = "Relatório de Clientes";
             this.btnRelatorioClientes.UseVisualStyleBackColor = true;
@@ -111,10 +111,10 @@ namespace LivrariaFive.View
             // 
             // btnRelatorioEstoque
             // 
-            this.btnRelatorioEstoque.Location = new System.Drawing.Point(291, 279);
-            this.btnRelatorioEstoque.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRelatorioEstoque.Location = new System.Drawing.Point(388, 343);
+            this.btnRelatorioEstoque.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRelatorioEstoque.Name = "btnRelatorioEstoque";
-            this.btnRelatorioEstoque.Size = new System.Drawing.Size(110, 41);
+            this.btnRelatorioEstoque.Size = new System.Drawing.Size(147, 50);
             this.btnRelatorioEstoque.TabIndex = 8;
             this.btnRelatorioEstoque.Text = "Relatório Faturamento";
             this.btnRelatorioEstoque.UseVisualStyleBackColor = true;
@@ -122,10 +122,10 @@ namespace LivrariaFive.View
             // 
             // btnRelatorioProdutos
             // 
-            this.btnRelatorioProdutos.Location = new System.Drawing.Point(405, 279);
-            this.btnRelatorioProdutos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRelatorioProdutos.Location = new System.Drawing.Point(540, 343);
+            this.btnRelatorioProdutos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRelatorioProdutos.Name = "btnRelatorioProdutos";
-            this.btnRelatorioProdutos.Size = new System.Drawing.Size(110, 41);
+            this.btnRelatorioProdutos.Size = new System.Drawing.Size(147, 50);
             this.btnRelatorioProdutos.TabIndex = 9;
             this.btnRelatorioProdutos.Text = "Relatório de Produtos";
             this.btnRelatorioProdutos.UseVisualStyleBackColor = true;
@@ -133,9 +133,9 @@ namespace LivrariaFive.View
             // 
             // FrmPrincipalAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnRelatorioProdutos);
             this.Controls.Add(this.btnRelatorioEstoque);
             this.Controls.Add(this.btnRelatorioClientes);
@@ -144,10 +144,10 @@ namespace LivrariaFive.View
             this.Controls.Add(this.btnGerenciarLivros);
             this.Controls.Add(this.btnGerenciarUsuarios);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmPrincipalAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmPrincipalAdmin";
+            this.Text = "Tela Principal do Administrador";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
