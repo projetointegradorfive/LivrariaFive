@@ -63,7 +63,7 @@ namespace LivrariaFive.View
         {           
             LivroController livros = new LivroController();
             PreencherDataGridLivros();
-            dgvMostrarLivros.DataSource = livros.GetAllLivros();
+            dgvMostrarLivros.DataSource = livros.GetAllLivrosADMIN();
             dgvMostrarLivros.Columns["img64"].Visible = false;
             dgvMostrarLivros.Refresh();
 
@@ -317,7 +317,7 @@ namespace LivrariaFive.View
 
                 // Atualizar o DataGridView com os livros atualizados
                 LivroController livros = new LivroController();
-                dgvMostrarLivros.DataSource = livros.GetAllLivros();
+                dgvMostrarLivros.DataSource = livros.GetAllLivrosADMIN();
                 dgvMostrarLivros.Refresh();
             }
             else
@@ -361,7 +361,7 @@ namespace LivrariaFive.View
                     livroController.RemoverLivro(livroSelecionado.Id);
 
                     LimparTextBoxes();
-                    dgvMostrarLivros.DataSource = metodoObter.GetAllLivros();
+                    dgvMostrarLivros.DataSource = metodoObter.GetAllLivrosADMIN();
                     dgvMostrarLivros.Refresh();
 
                     MessageBox.Show("Livro excluído com sucesso!");
@@ -391,7 +391,7 @@ namespace LivrariaFive.View
                     livroController.AtivaLivro(livroSelecionado.Id);
 
                     LimparTextBoxes();
-                    dgvMostrarLivros.DataSource = metodoObter.GetAllLivros();
+                    dgvMostrarLivros.DataSource = metodoObter.GetAllLivrosADMIN();
                     dgvMostrarLivros.Refresh();
 
                     MessageBox.Show("Livro ativo com sucesso!");
