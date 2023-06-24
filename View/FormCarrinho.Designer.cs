@@ -55,11 +55,10 @@ namespace LivrariaFive.View
             this.dgvCarrinho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dgvCarrinho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarrinho.Location = new System.Drawing.Point(16, 119);
-            this.dgvCarrinho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCarrinho.Location = new System.Drawing.Point(12, 97);
             this.dgvCarrinho.Name = "dgvCarrinho";
             this.dgvCarrinho.RowHeadersWidth = 51;
-            this.dgvCarrinho.Size = new System.Drawing.Size(1035, 444);
+            this.dgvCarrinho.Size = new System.Drawing.Size(776, 361);
             this.dgvCarrinho.TabIndex = 0;
             this.dgvCarrinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrinho_CellContentClick);
             this.dgvCarrinho.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrinho_CellEndEdit);
@@ -68,10 +67,9 @@ namespace LivrariaFive.View
             // 
             this.btnRemoverItemCarrinho.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRemoverItemCarrinho.Font = new System.Drawing.Font("Ink Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoverItemCarrinho.Location = new System.Drawing.Point(16, 601);
-            this.btnRemoverItemCarrinho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemoverItemCarrinho.Location = new System.Drawing.Point(12, 488);
             this.btnRemoverItemCarrinho.Name = "btnRemoverItemCarrinho";
-            this.btnRemoverItemCarrinho.Size = new System.Drawing.Size(156, 42);
+            this.btnRemoverItemCarrinho.Size = new System.Drawing.Size(117, 34);
             this.btnRemoverItemCarrinho.TabIndex = 1;
             this.btnRemoverItemCarrinho.Text = "Remover Produto";
             this.btnRemoverItemCarrinho.UseVisualStyleBackColor = true;
@@ -81,10 +79,9 @@ namespace LivrariaFive.View
             // 
             this.btnLimparCarrinho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLimparCarrinho.Font = new System.Drawing.Font("Ink Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimparCarrinho.Location = new System.Drawing.Point(180, 601);
-            this.btnLimparCarrinho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimparCarrinho.Location = new System.Drawing.Point(135, 488);
             this.btnLimparCarrinho.Name = "btnLimparCarrinho";
-            this.btnLimparCarrinho.Size = new System.Drawing.Size(156, 42);
+            this.btnLimparCarrinho.Size = new System.Drawing.Size(117, 34);
             this.btnLimparCarrinho.TabIndex = 2;
             this.btnLimparCarrinho.Text = "Limpar Carrinho";
             this.btnLimparCarrinho.UseVisualStyleBackColor = true;
@@ -94,10 +91,9 @@ namespace LivrariaFive.View
             // 
             this.lblPrecoTotalCarrinho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPrecoTotalCarrinho.Font = new System.Drawing.Font("Ink Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecoTotalCarrinho.Location = new System.Drawing.Point(703, 601);
-            this.lblPrecoTotalCarrinho.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrecoTotalCarrinho.Location = new System.Drawing.Point(527, 488);
             this.lblPrecoTotalCarrinho.Name = "lblPrecoTotalCarrinho";
-            this.lblPrecoTotalCarrinho.Size = new System.Drawing.Size(148, 36);
+            this.lblPrecoTotalCarrinho.Size = new System.Drawing.Size(111, 29);
             this.lblPrecoTotalCarrinho.TabIndex = 3;
             this.lblPrecoTotalCarrinho.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -105,10 +101,9 @@ namespace LivrariaFive.View
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.Font = new System.Drawing.Font("Ink Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(573, 593);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(430, 482);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 58);
+            this.label1.Size = new System.Drawing.Size(91, 47);
             this.label1.TabIndex = 4;
             this.label1.Text = "Total do Carrinho:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -117,10 +112,9 @@ namespace LivrariaFive.View
             // 
             this.btnEfetuarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEfetuarPedido.Font = new System.Drawing.Font("Ink Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEfetuarPedido.Location = new System.Drawing.Point(872, 601);
-            this.btnEfetuarPedido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEfetuarPedido.Location = new System.Drawing.Point(654, 488);
             this.btnEfetuarPedido.Name = "btnEfetuarPedido";
-            this.btnEfetuarPedido.Size = new System.Drawing.Size(179, 42);
+            this.btnEfetuarPedido.Size = new System.Drawing.Size(134, 34);
             this.btnEfetuarPedido.TabIndex = 5;
             this.btnEfetuarPedido.Text = "Fazer Pedido";
             this.btnEfetuarPedido.UseVisualStyleBackColor = true;
@@ -130,10 +124,9 @@ namespace LivrariaFive.View
             // 
             this.btnSelecionarTudo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSelecionarTudo.Font = new System.Drawing.Font("Ink Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelecionarTudo.Location = new System.Drawing.Point(344, 601);
-            this.btnSelecionarTudo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelecionarTudo.Location = new System.Drawing.Point(258, 488);
             this.btnSelecionarTudo.Name = "btnSelecionarTudo";
-            this.btnSelecionarTudo.Size = new System.Drawing.Size(156, 42);
+            this.btnSelecionarTudo.Size = new System.Drawing.Size(143, 34);
             this.btnSelecionarTudo.TabIndex = 6;
             this.btnSelecionarTudo.Text = "Selecionar Tudo";
             this.btnSelecionarTudo.UseVisualStyleBackColor = true;
@@ -144,10 +137,9 @@ namespace LivrariaFive.View
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label15.Font = new System.Drawing.Font("Ink Free", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(92, 47);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(69, 38);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(200, 46);
+            this.label15.Size = new System.Drawing.Size(156, 36);
             this.label15.TabIndex = 26;
             this.label15.Text = "Five Books";
             // 
@@ -155,10 +147,9 @@ namespace LivrariaFive.View
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(9, 16);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 73);
+            this.pictureBox1.Size = new System.Drawing.Size(60, 59);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
@@ -166,20 +157,18 @@ namespace LivrariaFive.View
             // label14
             // 
             this.label14.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label14.Location = new System.Drawing.Point(-3, -1);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(-2, -1);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(1076, 101);
+            this.label14.Size = new System.Drawing.Size(807, 82);
             this.label14.TabIndex = 24;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(989, 34);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(742, 28);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 57);
+            this.pictureBox2.Size = new System.Drawing.Size(51, 46);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 27;
             this.pictureBox2.TabStop = false;
@@ -188,18 +177,17 @@ namespace LivrariaFive.View
             // 
             this.label2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label2.Font = new System.Drawing.Font("Ink Free", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(876, 47);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(657, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 28);
+            this.label2.Size = new System.Drawing.Size(79, 23);
             this.label2.TabIndex = 28;
             this.label2.Text = "Carrinho";
             // 
             // FormCarrinho
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 670);
+            this.ClientSize = new System.Drawing.Size(800, 544);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label15);
@@ -213,7 +201,6 @@ namespace LivrariaFive.View
             this.Controls.Add(this.btnRemoverItemCarrinho);
             this.Controls.Add(this.dgvCarrinho);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FormCarrinho";
             this.Text = "Carrinho";
