@@ -61,11 +61,11 @@
             this.maskTxtDataNascimento.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.maskTxtDataNascimento.Enabled = false;
             this.maskTxtDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskTxtDataNascimento.Location = new System.Drawing.Point(440, 278);
-            this.maskTxtDataNascimento.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.maskTxtDataNascimento.Location = new System.Drawing.Point(587, 342);
+            this.maskTxtDataNascimento.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.maskTxtDataNascimento.Mask = "00/00/0000";
             this.maskTxtDataNascimento.Name = "maskTxtDataNascimento";
-            this.maskTxtDataNascimento.Size = new System.Drawing.Size(322, 29);
+            this.maskTxtDataNascimento.Size = new System.Drawing.Size(428, 34);
             this.maskTxtDataNascimento.TabIndex = 40;
             this.maskTxtDataNascimento.ValidatingType = typeof(System.DateTime);
             // 
@@ -73,10 +73,10 @@
             // 
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(71, 397);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txtEmail.Location = new System.Drawing.Point(95, 489);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(322, 29);
+            this.txtEmail.Size = new System.Drawing.Size(428, 34);
             this.txtEmail.TabIndex = 39;
             // 
             // lblEmailGerenciarUsuarios
@@ -84,10 +84,9 @@
             this.lblEmailGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEmailGerenciarUsuarios.AutoSize = true;
             this.lblEmailGerenciarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmailGerenciarUsuarios.Location = new System.Drawing.Point(66, 373);
-            this.lblEmailGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEmailGerenciarUsuarios.Location = new System.Drawing.Point(88, 459);
             this.lblEmailGerenciarUsuarios.Name = "lblEmailGerenciarUsuarios";
-            this.lblEmailGerenciarUsuarios.Size = new System.Drawing.Size(73, 24);
+            this.lblEmailGerenciarUsuarios.Size = new System.Drawing.Size(94, 29);
             this.lblEmailGerenciarUsuarios.TabIndex = 38;
             this.lblEmailGerenciarUsuarios.Text = "E-mail: ";
             // 
@@ -95,11 +94,11 @@
             // 
             this.maskTxtTelefone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.maskTxtTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskTxtTelefone.Location = new System.Drawing.Point(443, 341);
-            this.maskTxtTelefone.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.maskTxtTelefone.Location = new System.Drawing.Point(591, 420);
+            this.maskTxtTelefone.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.maskTxtTelefone.Mask = "(00) 0 0000-0000 ";
             this.maskTxtTelefone.Name = "maskTxtTelefone";
-            this.maskTxtTelefone.Size = new System.Drawing.Size(320, 29);
+            this.maskTxtTelefone.Size = new System.Drawing.Size(425, 34);
             this.maskTxtTelefone.TabIndex = 37;
             this.maskTxtTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
@@ -108,11 +107,11 @@
             this.maskTxtCpf.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.maskTxtCpf.Enabled = false;
             this.maskTxtCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskTxtCpf.Location = new System.Drawing.Point(72, 462);
-            this.maskTxtCpf.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.maskTxtCpf.Location = new System.Drawing.Point(96, 569);
+            this.maskTxtCpf.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.maskTxtCpf.Mask = "000,000,000-00";
             this.maskTxtCpf.Name = "maskTxtCpf";
-            this.maskTxtCpf.Size = new System.Drawing.Size(322, 29);
+            this.maskTxtCpf.Size = new System.Drawing.Size(428, 34);
             this.maskTxtCpf.TabIndex = 36;
             this.maskTxtCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
@@ -121,10 +120,9 @@
             this.lblDataNascimentoGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDataNascimentoGerenciarUsuarios.AutoSize = true;
             this.lblDataNascimentoGerenciarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataNascimentoGerenciarUsuarios.Location = new System.Drawing.Point(435, 254);
-            this.lblDataNascimentoGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDataNascimentoGerenciarUsuarios.Location = new System.Drawing.Point(580, 313);
             this.lblDataNascimentoGerenciarUsuarios.Name = "lblDataNascimentoGerenciarUsuarios";
-            this.lblDataNascimentoGerenciarUsuarios.Size = new System.Drawing.Size(184, 24);
+            this.lblDataNascimentoGerenciarUsuarios.Size = new System.Drawing.Size(236, 29);
             this.lblDataNascimentoGerenciarUsuarios.TabIndex = 35;
             this.lblDataNascimentoGerenciarUsuarios.Text = "Data de Nascimento:";
             // 
@@ -133,10 +131,9 @@
             this.lblTelefoneGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTelefoneGerenciarUsuarios.AutoSize = true;
             this.lblTelefoneGerenciarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefoneGerenciarUsuarios.Location = new System.Drawing.Point(436, 317);
-            this.lblTelefoneGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTelefoneGerenciarUsuarios.Location = new System.Drawing.Point(581, 390);
             this.lblTelefoneGerenciarUsuarios.Name = "lblTelefoneGerenciarUsuarios";
-            this.lblTelefoneGerenciarUsuarios.Size = new System.Drawing.Size(95, 24);
+            this.lblTelefoneGerenciarUsuarios.Size = new System.Drawing.Size(122, 29);
             this.lblTelefoneGerenciarUsuarios.TabIndex = 34;
             this.lblTelefoneGerenciarUsuarios.Text = "Telefone: ";
             // 
@@ -145,10 +142,9 @@
             this.lblCpfGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpfGerenciarUsuarios.AutoSize = true;
             this.lblCpfGerenciarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpfGerenciarUsuarios.Location = new System.Drawing.Point(69, 437);
-            this.lblCpfGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCpfGerenciarUsuarios.Location = new System.Drawing.Point(92, 538);
             this.lblCpfGerenciarUsuarios.Name = "lblCpfGerenciarUsuarios";
-            this.lblCpfGerenciarUsuarios.Size = new System.Drawing.Size(57, 24);
+            this.lblCpfGerenciarUsuarios.Size = new System.Drawing.Size(73, 29);
             this.lblCpfGerenciarUsuarios.TabIndex = 33;
             this.lblCpfGerenciarUsuarios.Text = "CPF: ";
             // 
@@ -156,20 +152,20 @@
             // 
             this.txtSenha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(71, 338);
-            this.txtSenha.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txtSenha.Location = new System.Drawing.Point(95, 416);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(322, 29);
+            this.txtSenha.Size = new System.Drawing.Size(428, 34);
             this.txtSenha.TabIndex = 32;
             // 
             // txtNome
             // 
             this.txtNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(72, 278);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txtNome.Location = new System.Drawing.Point(96, 342);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(321, 29);
+            this.txtNome.Size = new System.Drawing.Size(427, 34);
             this.txtNome.TabIndex = 31;
             // 
             // lblSenha
@@ -177,10 +173,9 @@
             this.lblSenha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSenha.AutoSize = true;
             this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenha.Location = new System.Drawing.Point(68, 314);
-            this.lblSenha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSenha.Location = new System.Drawing.Point(91, 386);
             this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(75, 24);
+            this.lblSenha.Size = new System.Drawing.Size(94, 29);
             this.lblSenha.TabIndex = 30;
             this.lblSenha.Text = "Senha: ";
             // 
@@ -189,10 +184,9 @@
             this.lblNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(68, 253);
-            this.lblNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNome.Location = new System.Drawing.Point(91, 311);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(72, 24);
+            this.lblNome.Size = new System.Drawing.Size(91, 29);
             this.lblNome.TabIndex = 29;
             this.lblNome.Text = "Nome: ";
             // 
@@ -200,10 +194,10 @@
             // 
             this.txtEndereco.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEndereco.Location = new System.Drawing.Point(443, 406);
-            this.txtEndereco.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEndereco.Location = new System.Drawing.Point(591, 500);
+            this.txtEndereco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(320, 29);
+            this.txtEndereco.Size = new System.Drawing.Size(425, 34);
             this.txtEndereco.TabIndex = 42;
             // 
             // lblEnderecoGerenciarUsuarios
@@ -211,10 +205,9 @@
             this.lblEnderecoGerenciarUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEnderecoGerenciarUsuarios.AutoSize = true;
             this.lblEnderecoGerenciarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnderecoGerenciarUsuarios.Location = new System.Drawing.Point(437, 381);
-            this.lblEnderecoGerenciarUsuarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEnderecoGerenciarUsuarios.Location = new System.Drawing.Point(583, 469);
             this.lblEnderecoGerenciarUsuarios.Name = "lblEnderecoGerenciarUsuarios";
-            this.lblEnderecoGerenciarUsuarios.Size = new System.Drawing.Size(104, 24);
+            this.lblEnderecoGerenciarUsuarios.Size = new System.Drawing.Size(130, 29);
             this.lblEnderecoGerenciarUsuarios.TabIndex = 41;
             this.lblEnderecoGerenciarUsuarios.Text = "Endereço: ";
             // 
@@ -222,9 +215,10 @@
             // 
             this.btnMeusPedidos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMeusPedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMeusPedidos.Location = new System.Drawing.Point(679, 12);
+            this.btnMeusPedidos.Location = new System.Drawing.Point(905, 15);
+            this.btnMeusPedidos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMeusPedidos.Name = "btnMeusPedidos";
-            this.btnMeusPedidos.Size = new System.Drawing.Size(176, 34);
+            this.btnMeusPedidos.Size = new System.Drawing.Size(235, 42);
             this.btnMeusPedidos.TabIndex = 44;
             this.btnMeusPedidos.Text = "Meus Pedidos";
             this.btnMeusPedidos.UseVisualStyleBackColor = true;
@@ -234,9 +228,10 @@
             // 
             this.btnAtualizar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtualizar.Location = new System.Drawing.Point(479, 462);
+            this.btnAtualizar.Location = new System.Drawing.Point(639, 569);
+            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(204, 34);
+            this.btnAtualizar.Size = new System.Drawing.Size(272, 42);
             this.btnAtualizar.TabIndex = 45;
             this.btnAtualizar.Text = "Atualizar Meus Dados";
             this.btnAtualizar.UseVisualStyleBackColor = true;
@@ -246,9 +241,10 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(398, 12);
+            this.button1.Location = new System.Drawing.Point(531, 15);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(264, 34);
+            this.button1.Size = new System.Drawing.Size(352, 42);
             this.button1.TabIndex = 46;
             this.button1.Text = "Voltar para Página Principal";
             this.button1.UseVisualStyleBackColor = true;
@@ -258,9 +254,10 @@
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(71, 112);
+            this.pictureBox2.Location = new System.Drawing.Point(95, 138);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(62, 46);
+            this.pictureBox2.Size = new System.Drawing.Size(83, 57);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 49;
             this.pictureBox2.TabStop = false;
@@ -270,9 +267,10 @@
             this.lblNomeUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNomeUsuario.AutoSize = true;
             this.lblNomeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeUsuario.Location = new System.Drawing.Point(289, 126);
+            this.lblNomeUsuario.Location = new System.Drawing.Point(385, 155);
+            this.lblNomeUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNomeUsuario.Name = "lblNomeUsuario";
-            this.lblNomeUsuario.Size = new System.Drawing.Size(79, 25);
+            this.lblNomeUsuario.Size = new System.Drawing.Size(99, 31);
             this.lblNomeUsuario.TabIndex = 48;
             this.lblNomeUsuario.Text = "Cliente";
             // 
@@ -280,9 +278,10 @@
             // 
             this.lblWelcomeUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblWelcomeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcomeUsuario.Location = new System.Drawing.Point(144, 126);
+            this.lblWelcomeUsuario.Location = new System.Drawing.Point(192, 155);
+            this.lblWelcomeUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWelcomeUsuario.Name = "lblWelcomeUsuario";
-            this.lblWelcomeUsuario.Size = new System.Drawing.Size(149, 32);
+            this.lblWelcomeUsuario.Size = new System.Drawing.Size(199, 39);
             this.lblWelcomeUsuario.TabIndex = 47;
             this.lblWelcomeUsuario.Text = "Bem Vindo(a),";
             // 
@@ -292,9 +291,10 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label15.Font = new System.Drawing.Font("Ink Free", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(66, 34);
+            this.label15.Location = new System.Drawing.Point(88, 42);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(156, 36);
+            this.label15.Size = new System.Drawing.Size(200, 46);
             this.label15.TabIndex = 52;
             this.label15.Text = "Five Books";
             // 
@@ -303,9 +303,10 @@
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(4, 9);
+            this.pictureBox3.Location = new System.Drawing.Point(5, 11);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(61, 59);
+            this.pictureBox3.Size = new System.Drawing.Size(81, 73);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 51;
             this.pictureBox3.TabStop = false;
@@ -314,16 +315,17 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label14.Location = new System.Drawing.Point(-5, -5);
+            this.label14.Location = new System.Drawing.Point(-7, -6);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(912, 82);
+            this.label14.Size = new System.Drawing.Size(1216, 101);
             this.label14.TabIndex = 50;
             // 
             // FormPerfilUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 574);
+            this.ClientSize = new System.Drawing.Size(1208, 706);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -347,8 +349,9 @@
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.label14);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormPerfilUsuario";
-            this.Text = "FormPerfilUsuario";
+            this.Text = "Perfil do Cliente";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormPerfilUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

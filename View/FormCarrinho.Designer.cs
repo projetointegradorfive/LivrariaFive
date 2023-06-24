@@ -57,6 +57,7 @@ namespace LivrariaFive.View
             this.dgvCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrinho.Location = new System.Drawing.Point(12, 97);
             this.dgvCarrinho.Name = "dgvCarrinho";
+            this.dgvCarrinho.RowHeadersWidth = 51;
             this.dgvCarrinho.Size = new System.Drawing.Size(776, 361);
             this.dgvCarrinho.TabIndex = 0;
             this.dgvCarrinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrinho_CellContentClick);
@@ -125,7 +126,7 @@ namespace LivrariaFive.View
             this.btnSelecionarTudo.Font = new System.Drawing.Font("Ink Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelecionarTudo.Location = new System.Drawing.Point(258, 488);
             this.btnSelecionarTudo.Name = "btnSelecionarTudo";
-            this.btnSelecionarTudo.Size = new System.Drawing.Size(117, 34);
+            this.btnSelecionarTudo.Size = new System.Drawing.Size(143, 34);
             this.btnSelecionarTudo.TabIndex = 6;
             this.btnSelecionarTudo.Text = "Selecionar Tudo";
             this.btnSelecionarTudo.UseVisualStyleBackColor = true;
@@ -202,7 +203,7 @@ namespace LivrariaFive.View
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormCarrinho";
-            this.Text = "FormCarrinho";
+            this.Text = "Carrinho";
             this.Load += new System.EventHandler(this.FormCarrinho_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

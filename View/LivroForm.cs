@@ -181,12 +181,14 @@ namespace LivrariaFive.View
         {
             string filtroGenero = txtBuscarGenero.Text.ToLower(); // Valor digitado no campo de texto para o gênero, convertido para minúsculas
             FiltrarLivrosPorGenero(filtroGenero);
+            txtBuscarGenero.Clear();
         }
 
         private void btnBuscarNome_Click(object sender, EventArgs e)
         {
             string filtroNome = txtBuscarNome.Text.ToLower(); // Valor digitado no campo de texto para o nome, convertido para minúsculas
             FiltrarLivrosPorNome(filtroNome);
+            txtBuscarNome.Clear();
         }
 
 

@@ -153,12 +153,13 @@ namespace LivrariaFive.Controller
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
                 string query = @"SELECT l.idLivro, l.Titulo, l.Isbn, l.AnoPublicacao, l.Preco, l.Estoque, l.Descricao, l.Idioma, 
-                                g.Nome AS Genero, e.Nome AS Editora, a.Nome AS Autor, l.livroImagem
-                        FROM tbLivro l 
-                        LEFT JOIN tbGenero g ON l.idGenero = g.IdGenero 
-                        LEFT JOIN tbEditora e ON l.idEditora = e.IdEditora
-                        LEFT JOIN tbLivroAutor la ON l.idLivro = la.idLivro
-                        LEFT JOIN tbAutor a ON la.idAutor = a.IdAutor";
+                g.Nome AS Genero, e.Nome AS Editora, a.Nome AS Autor, l.livroImagem, l.ativoLivro
+                FROM tbLivro l 
+                LEFT JOIN tbGenero g ON l.idGenero = g.IdGenero 
+                LEFT JOIN tbEditora e ON l.idEditora = e.IdEditora
+                LEFT JOIN tbLivroAutor la ON l.idLivro = la.idLivro
+                LEFT JOIN tbAutor a ON la.idAutor = a.IdAutor
+                WHERE l.ativoLivro = 1";
 
                 SqlCommand command = new SqlCommand(query, connection);
 
@@ -186,6 +187,8 @@ namespace LivrariaFive.Controller
                             Genero = reader.GetString(8),
                             Editora = reader.GetString(9),
                             Autores = new List<Autor>(), // Inicializa a lista de autores
+                            Ativo = reader.GetBoolean(12)
+                            
                         };
 
                         if (!reader.IsDBNull(10))
@@ -202,6 +205,14 @@ namespace LivrariaFive.Controller
                                 livro.Imagem = Image.FromStream(ms);
                                 livro.img64 = Convert.ToBase64String(ms.ToArray());
                             }
+                        }
+                        if (!reader.IsDBNull(12)) // Índice da coluna "ativoLivro"
+                        {
+                            livro.Ativo = reader.GetBoolean(12); // Índice da coluna "ativoLivro"
+                        }
+                        else
+                        {
+                            livro.Ativo = false; // ou qualquer outro valor padrão que você desejar
                         }
 
                         livros.Add(livro);
@@ -222,6 +233,94 @@ namespace LivrariaFive.Controller
             return livros;
         }
 
+
+
+
+        public IList<Livro> GetAllLivrosADMIN()
+        {
+            List<Livro> livros = new List<Livro>();
+
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = @"SELECT l.idLivro, l.Titulo, l.Isbn, l.AnoPublicacao, l.Preco, l.Estoque, l.Descricao, l.Idioma, 
+                g.Nome AS Genero, e.Nome AS Editora, a.Nome AS Autor, l.livroImagem, l.ativoLivro
+                FROM tbLivro l 
+                LEFT JOIN tbGenero g ON l.idGenero = g.IdGenero 
+                LEFT JOIN tbEditora e ON l.idEditora = e.IdEditora
+                LEFT JOIN tbLivroAutor la ON l.idLivro = la.idLivro
+                LEFT JOIN tbAutor a ON la.idAutor = a.IdAutor";
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int livroId = reader.GetInt32(0);
+
+                    Livro livro = livros.FirstOrDefault(l => l.Id == livroId);
+
+                    if (livro == null)
+                    {
+                        livro = new Livro
+                        {
+                            Id = livroId,
+                            Titulo = reader.GetString(1),
+                            Isbn = reader.GetString(2),
+                            AnoPublicacao = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
+                            Preco = reader.IsDBNull(4) ? 0.0 : reader.GetDouble(4),
+                            Estoque = reader.IsDBNull(5) ? 0 : reader.GetInt32(5),
+                            Descricao = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                            Idioma = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
+                            Genero = reader.GetString(8),
+                            Editora = reader.GetString(9),
+                            Autores = new List<Autor>(), // Inicializa a lista de autores
+                            Ativo = reader.GetBoolean(12)
+
+                        };
+
+                        if (!reader.IsDBNull(10))
+                        {
+                            Autor autor = new Autor { Nome = reader.GetString(10) };
+                            livro.Autores.Add(autor); // Adiciona o autor atual à lista de autores
+                        }
+
+                        if (!reader.IsDBNull(11))
+                        {
+                            byte[] imagemBytes = (byte[])reader.GetValue(11);
+                            using (MemoryStream ms = new MemoryStream(imagemBytes))
+                            {
+                                livro.Imagem = Image.FromStream(ms);
+                                livro.img64 = Convert.ToBase64String(ms.ToArray());
+                            }
+                        }
+                        if (!reader.IsDBNull(12)) // Índice da coluna "ativoLivro"
+                        {
+                            livro.Ativo = reader.GetBoolean(12); // Índice da coluna "ativoLivro"
+                        }
+                        else
+                        {
+                            livro.Ativo = false; // ou qualquer outro valor padrão que você desejar
+                        }
+
+                        livros.Add(livro);
+                    }
+                    else
+                    {
+                        if (!reader.IsDBNull(10))
+                        {
+                            Autor autor = new Autor { Nome = reader.GetString(10) };
+                            livro.Autores.Add(autor); // Adiciona o autor atual à lista de autores do livro existente
+                        }
+                    }
+                }
+
+                reader.Close();
+            }
+
+            return livros;
+        }
 
         public string GetAutorName(string nomeAutor)
         {
@@ -245,19 +344,39 @@ namespace LivrariaFive.Controller
             }
         }
 
-        public Livro RemoverLivro(Livro livro)
+        public bool RemoverLivro(int idLivro)
         {
             using (SqlConnection connection = DatabaseConnection.GetConnection())
             {
-                string query = "DELETE FROM tbLivro WHERE Id = @Id";
+                string query = "UPDATE tbLivro SET ativoLivro = @Ativo WHERE idlivro = @IdLivro";
 
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Id", livro.Id);
+                command.Parameters.AddWithValue("@Ativo", false); // Define o valor da coluna ativo como false
+                command.Parameters.AddWithValue("@IdLivro", idLivro);
 
                 connection.Open();
-                command.ExecuteNonQuery();
 
-                return livro;
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0; // Retorna true se pelo menos uma linha for afetada (cliente atualizado com sucesso)
+            }
+        }
+        
+        public bool AtivaLivro(int idLivro)
+        {
+            using (SqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                string query = "UPDATE tbLivro SET ativoLivro = @Ativo WHERE idlivro = @IdLivro";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Ativo", true); // Define o valor da coluna ativo como false
+                command.Parameters.AddWithValue("@IdLivro", idLivro);
+
+                connection.Open();
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0; // Retorna true se pelo menos uma linha for afetada (cliente atualizado com sucesso)
             }
         }
 

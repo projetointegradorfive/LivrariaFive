@@ -44,10 +44,10 @@ namespace LivrariaFive.View
             // 
             // btnEntrar
             // 
-            this.btnEntrar.Location = new System.Drawing.Point(128, 254);
-            this.btnEntrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEntrar.Location = new System.Drawing.Point(171, 313);
+            this.btnEntrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(136, 28);
+            this.btnEntrar.Size = new System.Drawing.Size(181, 34);
             this.btnEntrar.TabIndex = 0;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
@@ -57,10 +57,9 @@ namespace LivrariaFive.View
             // 
             this.lblCpfAdmin.AutoSize = true;
             this.lblCpfAdmin.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpfAdmin.Location = new System.Drawing.Point(63, 139);
-            this.lblCpfAdmin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCpfAdmin.Location = new System.Drawing.Point(84, 171);
             this.lblCpfAdmin.Name = "lblCpfAdmin";
-            this.lblCpfAdmin.Size = new System.Drawing.Size(37, 19);
+            this.lblCpfAdmin.Size = new System.Drawing.Size(45, 24);
             this.lblCpfAdmin.TabIndex = 1;
             this.lblCpfAdmin.Text = "CPF:";
             // 
@@ -68,29 +67,28 @@ namespace LivrariaFive.View
             // 
             this.lblSenhaAdmin.AutoSize = true;
             this.lblSenhaAdmin.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenhaAdmin.Location = new System.Drawing.Point(47, 204);
-            this.lblSenhaAdmin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSenhaAdmin.Location = new System.Drawing.Point(63, 251);
             this.lblSenhaAdmin.Name = "lblSenhaAdmin";
-            this.lblSenhaAdmin.Size = new System.Drawing.Size(52, 19);
+            this.lblSenhaAdmin.Size = new System.Drawing.Size(66, 24);
             this.lblSenhaAdmin.TabIndex = 3;
             this.lblSenhaAdmin.Text = "Senha:";
             // 
             // txtSenhaAdmin
             // 
             this.txtSenhaAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenhaAdmin.Location = new System.Drawing.Point(101, 201);
-            this.txtSenhaAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSenhaAdmin.Location = new System.Drawing.Point(135, 247);
+            this.txtSenhaAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSenhaAdmin.Name = "txtSenhaAdmin";
-            this.txtSenhaAdmin.Size = new System.Drawing.Size(210, 26);
+            this.txtSenhaAdmin.Size = new System.Drawing.Size(279, 30);
             this.txtSenhaAdmin.TabIndex = 4;
             this.txtSenhaAdmin.UseSystemPasswordChar = true;
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(128, 292);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSair.Location = new System.Drawing.Point(171, 359);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(136, 26);
+            this.btnSair.Size = new System.Drawing.Size(181, 32);
             this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
@@ -99,10 +97,10 @@ namespace LivrariaFive.View
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(139, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(185, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 102);
+            this.pictureBox1.Size = new System.Drawing.Size(167, 126);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -110,21 +108,21 @@ namespace LivrariaFive.View
             // maskTxtCpfAdmin
             // 
             this.maskTxtCpfAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.maskTxtCpfAdmin.Location = new System.Drawing.Point(102, 139);
-            this.maskTxtCpfAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maskTxtCpfAdmin.Location = new System.Drawing.Point(136, 171);
+            this.maskTxtCpfAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.maskTxtCpfAdmin.Mask = "000,000,000-00";
             this.maskTxtCpfAdmin.Name = "maskTxtCpfAdmin";
-            this.maskTxtCpfAdmin.Size = new System.Drawing.Size(210, 26);
+            this.maskTxtCpfAdmin.Size = new System.Drawing.Size(279, 30);
             this.maskTxtCpfAdmin.TabIndex = 7;
             this.maskTxtCpfAdmin.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // verSenha
             // 
             this.verSenha.Image = ((System.Drawing.Image)(resources.GetObject("verSenha.Image")));
-            this.verSenha.Location = new System.Drawing.Point(308, 201);
-            this.verSenha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.verSenha.Location = new System.Drawing.Point(411, 247);
+            this.verSenha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.verSenha.Name = "verSenha";
-            this.verSenha.Size = new System.Drawing.Size(31, 24);
+            this.verSenha.Size = new System.Drawing.Size(41, 30);
             this.verSenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.verSenha.TabIndex = 8;
             this.verSenha.TabStop = false;
@@ -132,10 +130,10 @@ namespace LivrariaFive.View
             // 
             // FrmTelaLoginAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(400, 366);
+            this.ClientSize = new System.Drawing.Size(533, 450);
             this.Controls.Add(this.verSenha);
             this.Controls.Add(this.maskTxtCpfAdmin);
             this.Controls.Add(this.pictureBox1);
@@ -144,10 +142,10 @@ namespace LivrariaFive.View
             this.Controls.Add(this.lblSenhaAdmin);
             this.Controls.Add(this.lblCpfAdmin);
             this.Controls.Add(this.btnEntrar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmTelaLoginAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmTelaLoginAdmin";
+            this.Text = "Tela do Login do Administrador";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.verSenha)).EndInit();
             this.ResumeLayout(false);

@@ -60,10 +60,10 @@ namespace LivrariaFive.View
         }
 
         private void FrmGerenciarLivros_Load(object sender, EventArgs e)
-        {
+        {           
             LivroController livros = new LivroController();
             PreencherDataGridLivros();
-            dgvMostrarLivros.DataSource = livros.GetAllLivros();
+            dgvMostrarLivros.DataSource = livros.GetAllLivrosADMIN();
             dgvMostrarLivros.Columns["img64"].Visible = false;
             dgvMostrarLivros.Refresh();
 
@@ -89,6 +89,7 @@ namespace LivrariaFive.View
             dgvMostrarLivros.Columns.Add("Editora", "Editora");
             dgvMostrarLivros.Columns.Add("Genero", "Gênero");
             dgvMostrarLivros.Columns.Add("img64", "Imagem");
+            dgvMostrarLivros.Columns.Add("Ativo", "Livro Ativo");
 
             // Configure as propriedades das colunas, como largura e alinhamento, se necessário
             dgvMostrarLivros.Columns["Id"].Width = 50;
@@ -106,6 +107,7 @@ namespace LivrariaFive.View
             dgvMostrarLivros.Columns["Editora"].DataPropertyName = "Editora";
             dgvMostrarLivros.Columns["Genero"].DataPropertyName = "Genero";
             dgvMostrarLivros.Columns["img64"].DataPropertyName = "img64";
+            dgvMostrarLivros.Columns["Ativo"].DataPropertyName = "Ativo";
 
            
             ConfigurarGrade();
@@ -315,7 +317,7 @@ namespace LivrariaFive.View
 
                 // Atualizar o DataGridView com os livros atualizados
                 LivroController livros = new LivroController();
-                dgvMostrarLivros.DataSource = livros.GetAllLivros();
+                dgvMostrarLivros.DataSource = livros.GetAllLivrosADMIN();
                 dgvMostrarLivros.Refresh();
             }
             else
@@ -341,6 +343,66 @@ namespace LivrariaFive.View
 
         private void label1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnExcluirGerenciarLivros_Click(object sender, EventArgs e)
+        {
+            
+            LivroController metodoObter = new LivroController();
+
+            if (livroSelecionado != null)
+            {
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir o livro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    LivroController livroController = new LivroController();
+                    livroController.RemoverLivro(livroSelecionado.Id);
+
+                    LimparTextBoxes();
+                    dgvMostrarLivros.DataSource = metodoObter.GetAllLivrosADMIN();
+                    dgvMostrarLivros.Refresh();
+
+                    MessageBox.Show("Livro excluído com sucesso!");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Nenhum livro selecionado para excluir.");
+            }
+
+
+
+        }
+
+        private void btnReativa_Click(object sender, EventArgs e)
+        {
+            LivroController metodoObter = new LivroController();
+
+            if (livroSelecionado != null)
+            {
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja ativar o livro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    LivroController livroController = new LivroController();
+                    livroController.AtivaLivro(livroSelecionado.Id);
+
+                    LimparTextBoxes();
+                    dgvMostrarLivros.DataSource = metodoObter.GetAllLivrosADMIN();
+                    dgvMostrarLivros.Refresh();
+
+                    MessageBox.Show("Livro ativo com sucesso!");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Nenhum livro selecionado para ativar.");
+            }
+
 
         }
     }

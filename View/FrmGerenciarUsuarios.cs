@@ -177,8 +177,6 @@ namespace LivrariaFive.View
                 MessageBox.Show("Nenhum cliente selecionado para excluir.");
             }
             
-
-
         }
         private void ConfigurarGrade()
         {

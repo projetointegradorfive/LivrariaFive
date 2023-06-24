@@ -47,9 +47,10 @@
             // 
             this.lblWelcomeUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblWelcomeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcomeUsuario.Location = new System.Drawing.Point(148, 114);
+            this.lblWelcomeUsuario.Location = new System.Drawing.Point(197, 140);
+            this.lblWelcomeUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWelcomeUsuario.Name = "lblWelcomeUsuario";
-            this.lblWelcomeUsuario.Size = new System.Drawing.Size(152, 32);
+            this.lblWelcomeUsuario.Size = new System.Drawing.Size(203, 39);
             this.lblWelcomeUsuario.TabIndex = 0;
             this.lblWelcomeUsuario.Text = "Bem Vindo(a),";
             // 
@@ -58,9 +59,10 @@
             this.lblNomeUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNomeUsuario.AutoSize = true;
             this.lblNomeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeUsuario.Location = new System.Drawing.Point(296, 114);
+            this.lblNomeUsuario.Location = new System.Drawing.Point(395, 140);
+            this.lblNomeUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNomeUsuario.Name = "lblNomeUsuario";
-            this.lblNomeUsuario.Size = new System.Drawing.Size(79, 25);
+            this.lblNomeUsuario.Size = new System.Drawing.Size(99, 31);
             this.lblNomeUsuario.TabIndex = 1;
             this.lblNomeUsuario.Text = "Cliente";
             // 
@@ -69,18 +71,21 @@
             this.dgvPedidos.AllowUserToAddRows = false;
             this.dgvPedidos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedidos.Location = new System.Drawing.Point(80, 220);
+            this.dgvPedidos.Location = new System.Drawing.Point(107, 271);
+            this.dgvPedidos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvPedidos.Name = "dgvPedidos";
-            this.dgvPedidos.Size = new System.Drawing.Size(743, 338);
+            this.dgvPedidos.RowHeadersWidth = 51;
+            this.dgvPedidos.Size = new System.Drawing.Size(991, 416);
             this.dgvPedidos.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(75, 185);
+            this.label1.Location = new System.Drawing.Point(100, 228);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(330, 32);
+            this.label1.Size = new System.Drawing.Size(440, 39);
             this.label1.TabIndex = 3;
             this.label1.Text = "Resumo de Pedidos Finalizados:";
             // 
@@ -88,9 +93,10 @@
             // 
             this.btnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(80, 584);
+            this.btnVoltar.Location = new System.Drawing.Point(107, 719);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(299, 40);
+            this.btnVoltar.Size = new System.Drawing.Size(399, 49);
             this.btnVoltar.TabIndex = 4;
             this.btnVoltar.Text = "Voltar Para a Página Anterior";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -100,9 +106,10 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(80, 100);
+            this.pictureBox1.Location = new System.Drawing.Point(107, 123);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(65, 46);
+            this.pictureBox1.Size = new System.Drawing.Size(87, 57);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -113,9 +120,10 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label15.Font = new System.Drawing.Font("Ink Free", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(69, 35);
+            this.label15.Location = new System.Drawing.Point(92, 43);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(156, 36);
+            this.label15.Size = new System.Drawing.Size(200, 46);
             this.label15.TabIndex = 23;
             this.label15.Text = "Five Books";
             // 
@@ -124,9 +132,10 @@
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(7, 10);
+            this.pictureBox2.Location = new System.Drawing.Point(9, 12);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(61, 59);
+            this.pictureBox2.Size = new System.Drawing.Size(81, 73);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
@@ -135,16 +144,17 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label14.Location = new System.Drawing.Point(-2, -4);
+            this.label14.Location = new System.Drawing.Point(-3, -5);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(912, 82);
+            this.label14.Size = new System.Drawing.Size(1216, 101);
             this.label14.TabIndex = 21;
             // 
             // FormMeusPedidos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 634);
+            this.ClientSize = new System.Drawing.Size(1208, 780);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label14);
@@ -154,8 +164,9 @@
             this.Controls.Add(this.dgvPedidos);
             this.Controls.Add(this.lblNomeUsuario);
             this.Controls.Add(this.lblWelcomeUsuario);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormMeusPedidos";
-            this.Text = "FormMeusPedidos";
+            this.Text = "Meus Pedidos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMeusPedidos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
